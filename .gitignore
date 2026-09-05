@@ -1,0 +1,62 @@
+# Original game and proprietary files
+original-files/*
+!original-files/README.md
+*.EXE
+*.exe
+*.COM
+*.com
+*.LBX
+*.lbx
+*.DLL
+*.dll
+*.DRV
+*.drv
+*.VOC
+*.voc
+*.MID
+*.mid
+*.WAV
+*.wav
+*.SMK
+*.smk
+
+# Disc/archive images
+*.iso
+*.cue
+*.bin
+*.img
+
+# Decompiler databases and local caches
+*.gpr
+*.rep
+*.til
+*.id0
+*.id1
+*.id2
+*.nam
+*.i64
+*.idb
+.ghidra/
+.cache/
+tmp/
+temp/
+
+# Build output
+target/
+build/
+dist/
+out/
+
+# IDE and operating-system state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+local-config.*
