@@ -1,0 +1,13 @@
+{
+  "indirect_calls": 193,
+  "absolute_ds_slot_candidates": 92,
+  "named_callback_slot_sites": 91,
+  "resolved_static_calls": 19,
+  "zero_or_bss_slots": 70,
+  "initialized_noncode_values": 0,
+  "out_of_bounds_slots": 0,
+  "resolved_indexed_call_sites": 4,
+  "true_register_call_sites": 2,
+  "unclassified_indirect_calls": 96,
+  "method": "classify absolute DS callback slots by exact Watcom DATA symbol; resolve initialized DWORD slots only when value exactly matches a recovered CODE entry; classify indexed tables conservatively; never invent runtime callback targets"
+}

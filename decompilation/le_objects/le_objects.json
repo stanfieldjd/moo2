@@ -1,0 +1,29 @@
+{
+  "exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "objects": [
+    {
+      "number": 1,
+      "size": 1410709,
+      "address": 65536,
+      "flags": 8197,
+      "map_index": 1,
+      "map_count": 345,
+      "reserved": 0,
+      "mapped_bytes": 1410709,
+      "sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+      "path": "object_1.bin"
+    },
+    {
+      "number": 2,
+      "size": 384208,
+      "address": 1507328,
+      "flags": 8195,
+      "map_index": 346,
+      "map_count": 20,
+      "reserved": 0,
+      "mapped_bytes": 81920,
+      "sha256": "c1f592ecdef3538a34bc42957b4c790152de288d4fa2cd85cc47b3668e448856",
+      "path": "object_2.bin"
+    }
+  ]
+}

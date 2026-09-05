@@ -1,0 +1,7 @@
+{
+  "tables": 2,
+  "records": 8,
+  "named_targets": 7,
+  "unnamed_targets": 1,
+  "method": "recover fixed 6-byte Watcom init/fini records from immediate runtime loop bounds"
+}

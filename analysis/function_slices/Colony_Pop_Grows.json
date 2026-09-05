@@ -1,0 +1,10 @@
+{
+  "symbol": "Colony_Pop_Grows_",
+  "object_offset": 858169,
+  "size": 1204,
+  "sha256": "fc9626873e112038f1748abf8b563dc8f06326f2ee1661d9006485e20ba1d148",
+  "architecture": "x86-32",
+  "format": "raw function slice",
+  "boundary_status": "provisional recovered-symbol boundary",
+  "source": "reconstructed LE code object; original executable not included"
+}

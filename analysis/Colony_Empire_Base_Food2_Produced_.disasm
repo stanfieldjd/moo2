@@ -1,0 +1,103 @@
+# Colony_Empire_Base_Food2_Produced_ object1=0xce0c6..0xce22c
+Disassembly of section .data:
+
+000ce0c6 <.data>:
+   ce0c6:	56                   	push   esi
+   ce0c7:	57                   	push   edi
+   ce0c8:	c8 08 00 00          	enter  0x8,0x0
+   ce0cc:	89 c6                	mov    esi,eax
+   ce0ce:	66 89 55 fc          	mov    WORD PTR [ebp-0x4],dx
+   ce0d2:	89 df                	mov    edi,ebx
+   ce0d4:	66 0f be 00          	movsx  ax,BYTE PTR [eax]
+   ce0d8:	66 39 d0             	cmp    ax,dx
+   ce0db:	75 0d                	jne    0xce0ea
+   ce0dd:	85 c9                	test   ecx,ecx
+   ce0df:	75 09                	jne    0xce0ea
+   ce0e1:	0f b6 86 dd 00 00 00 	movzx  eax,BYTE PTR [esi+0xdd]
+   ce0e8:	eb 0e                	jmp    0xce0f8
+   ce0ea:	0f bf 55 fc          	movsx  edx,WORD PTR [ebp-0x4]
+   ce0ee:	89 cb                	mov    ebx,ecx
+   ce0f0:	89 f0                	mov    eax,esi
+   ce0f2:	e8 47 ff ff ff       	call   0xce03e
+   ce0f7:	98                   	cwde
+   ce0f8:	66 89 45 f8          	mov    WORD PTR [ebp-0x8],ax
+   ce0fc:	66 85 c0             	test   ax,ax
+   ce0ff:	0f 8e 20 01 00 00    	jle    0xce225
+   ce105:	3b 35 68 b5 00 00    	cmp    esi,DWORD PTR ds:0xb568
+   ce10b:	75 12                	jne    0xce11f
+   ce10d:	66 0f b6 05 6c b5 00 	movzx  ax,BYTE PTR ds:0xb56c
+   ce114:	00 
+   ce115:	66 3b 45 fc          	cmp    ax,WORD PTR [ebp-0x4]
+   ce119:	75 04                	jne    0xce11f
+   ce11b:	85 c9                	test   ecx,ecx
+   ce11d:	74 22                	je     0xce141
+   ce11f:	bb 0a 00 00 00       	mov    ebx,0xa
+   ce124:	ba 63 00 00 00       	mov    edx,0x63
+   ce129:	b8 58 23 03 00       	mov    eax,0x32358
+   ce12e:	e8 3d bb 04 00       	call   0x119c70
+   ce133:	8a 45 fc             	mov    al,BYTE PTR [ebp-0x4]
+   ce136:	89 35 68 b5 00 00    	mov    DWORD PTR ds:0xb568,esi
+   ce13c:	a2 6c b5 00 00       	mov    ds:0xb56c,al
+   ce141:	0f bf f7             	movsx  esi,di
+   ce144:	80 be 58 23 03 00 63 	cmp    BYTE PTR [esi+0x32358],0x63
+   ce14b:	0f 85 c8 00 00 00    	jne    0xce219
+   ce151:	31 d2                	xor    edx,edx
+   ce153:	31 db                	xor    ebx,ebx
+   ce155:	66 83 ff 08          	cmp    di,0x8
+   ce159:	0f 8d 7e 00 00 00    	jge    0xce1dd
+   ce15f:	69 f6 a9 0e 00 00    	imul   esi,esi,0xea9
+   ce165:	a1 98 ff 01 00       	mov    eax,ds:0x1ff98
+   ce16a:	0f be 94 06 a1 08 00 	movsx  edx,BYTE PTR [esi+eax*1+0x8a1]
+   ce171:	00 
+   ce172:	80 bc 06 ab 08 00 00 	cmp    BYTE PTR [esi+eax*1+0x8ab],0x0
+   ce179:	00 
+   ce17a:	0f 84 71 00 00 00    	je     0xce1f1
+   ce180:	a1 68 b5 00 00       	mov    eax,ds:0xb568
+   ce185:	8a 80 e2 00 00 00    	mov    al,BYTE PTR [eax+0xe2]
+   ce18b:	3c 05                	cmp    al,0x5
+   ce18d:	72 0c                	jb     0xce19b
+   ce18f:	76 2f                	jbe    0xce1c0
+   ce191:	3c 06                	cmp    al,0x6
+   ce193:	76 0a                	jbe    0xce19f
+   ce195:	3c 08                	cmp    al,0x8
+   ce197:	74 27                	je     0xce1c0
+   ce199:	eb 56                	jmp    0xce1f1
+   ce19b:	3c 04                	cmp    al,0x4
+   ce19d:	75 52                	jne    0xce1f1
+   ce19f:	8b 1d 68 b5 00 00    	mov    ebx,DWORD PTR ds:0xb568
+   ce1a5:	0f b6 9b e2 00 00 00 	movzx  ebx,BYTE PTR [ebx+0xe2]
+   ce1ac:	0f b6 83 1c 58 00 00 	movzx  eax,BYTE PTR [ebx+0x581c]
+   ce1b3:	0f b6 1d 24 58 00 00 	movzx  ebx,BYTE PTR ds:0x5824
+   ce1ba:	29 c3                	sub    ebx,eax
+   ce1bc:	01 db                	add    ebx,ebx
+   ce1be:	eb 31                	jmp    0xce1f1
+   ce1c0:	8b 1d 68 b5 00 00    	mov    ebx,DWORD PTR ds:0xb568
+   ce1c6:	0f b6 9b e2 00 00 00 	movzx  ebx,BYTE PTR [ebx+0xe2]
+   ce1cd:	0f b6 83 1c 58 00 00 	movzx  eax,BYTE PTR [ebx+0x581c]
+   ce1d4:	0f b6 1d 25 58 00 00 	movzx  ebx,BYTE PTR ds:0x5825
+   ce1db:	eb dd                	jmp    0xce1ba
+   ce1dd:	75 07                	jne    0xce1e6
+   ce1df:	ba 06 00 00 00       	mov    edx,0x6
+   ce1e4:	eb 0b                	jmp    0xce1f1
+   ce1e6:	66 83 ff 09          	cmp    di,0x9
+   ce1ea:	75 05                	jne    0xce1f1
+   ce1ec:	ba 04 00 00 00       	mov    edx,0x4
+   ce1f1:	85 c9                	test   ecx,ecx
+   ce1f3:	74 0e                	je     0xce203
+   ce1f5:	0f bf f7             	movsx  esi,di
+   ce1f8:	66 89 54 71 04       	mov    WORD PTR [ecx+esi*2+0x4],dx
+   ce1fd:	89 99 22 02 00 00    	mov    DWORD PTR [ecx+0x222],ebx
+   ce203:	66 01 55 f8          	add    WORD PTR [ebp-0x8],dx
+   ce207:	66 01 5d f8          	add    WORD PTR [ebp-0x8],bx
+   ce20b:	0f bf c7             	movsx  eax,di
+   ce20e:	8a 55 f8             	mov    dl,BYTE PTR [ebp-0x8]
+   ce211:	88 90 58 23 03 00    	mov    BYTE PTR [eax+0x32358],dl
+   ce217:	eb 0c                	jmp    0xce225
+   ce219:	66 0f be 86 58 23 03 	movsx  ax,BYTE PTR [esi+0x32358]
+   ce220:	00 
+   ce221:	66 89 45 f8          	mov    WORD PTR [ebp-0x8],ax
+   ce225:	8b 45 f8             	mov    eax,DWORD PTR [ebp-0x8]
+   ce228:	c9                   	leave
+   ce229:	5f                   	pop    edi
+   ce22a:	5e                   	pop    esi
+   ce22b:	c3                   	ret

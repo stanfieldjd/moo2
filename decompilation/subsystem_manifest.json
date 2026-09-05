@@ -1,0 +1,17 @@
+{
+  "classified_code_symbols": 2390,
+  "subsystem_memberships": {
+    "population": 56,
+    "food": 14,
+    "industry": 23,
+    "research": 139,
+    "economy": 77,
+    "colony": 711,
+    "combat": 508,
+    "diplomacy": 232,
+    "ai": 212,
+    "fleet": 479,
+    "ui": 754
+  },
+  "method": "tokenized multi-label classification from recovered original module/symbol names; explicit module-prefix rules"
+}

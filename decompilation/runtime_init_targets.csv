@@ -1,0 +1,9 @@
+function,record_index,record_offset,record_hex,state,priority,target_offset,target_hex,target_symbol,named_target
+__InitRtns,0,77798,0x12fe6,0,32,1241095,0x12f007,__Init_Argv_,1
+__InitRtns,1,77804,0x12fec,0,32,1279171,0x1384c3,__clock_init_,1
+__InitRtns,2,77810,0x12ff2,0,32,1241560,0x12f1d8,,0
+__InitRtns,3,77816,0x12ff8,0,32,1326807,0x143ed7,__delay_init_,1
+__InitRtns,4,77822,0x12ffe,0,32,1361406,0x14c5fe,__InitFiles_,1
+__InitRtns,5,77828,0x13004,0,32,1391205,0x153a65,__setenvp_,1
+__InitRtns,6,77834,0x1300a,0,2,1392868,0x1540e4,__chk8087_,1
+__FiniRtns,0,77840,0x13010,0,32,1361525,0x14c675,__full_io_exit_,1

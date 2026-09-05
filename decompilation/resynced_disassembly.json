@@ -1,0 +1,6 @@
+{
+  "unique_code_entries": 5546,
+  "intervals_exported": 5546,
+  "failed_intervals": 0,
+  "method": "GNU objdump i386 restarted at every surviving Watcom CODE-symbol entry to prevent embedded-data desynchronization"
+}

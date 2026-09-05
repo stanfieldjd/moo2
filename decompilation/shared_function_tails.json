@@ -1,0 +1,256 @@
+{
+  "interior_cross_function_jumps": 1410,
+  "unique_shared_targets": 548,
+  "top_shared_targets": [
+    {
+      "target_owner": "Player_N_Turns_Until_Research_Complete_",
+      "target": 860055,
+      "incoming": 21
+    },
+    {
+      "target_owner": "_AIL_restore_USE16_ISR",
+      "target": 1244073,
+      "incoming": 20
+    },
+    {
+      "target_owner": "Multi_Player_Screen_",
+      "target": 938499,
+      "incoming": 19
+    },
+    {
+      "target_owner": "Turn_Summary_Popup_Help_",
+      "target": 997863,
+      "incoming": 19
+    },
+    {
+      "target_owner": "Officer_Skill_Value_",
+      "target": 542720,
+      "incoming": 18
+    },
+    {
+      "target_owner": "Special_Devices_Available_",
+      "target": 326270,
+      "incoming": 14
+    },
+    {
+      "target_owner": "Draw_Black_Holes_",
+      "target": 474367,
+      "incoming": 14
+    },
+    {
+      "target_owner": "_Unsmack",
+      "target": 1406400,
+      "incoming": 14
+    },
+    {
+      "target_owner": "Diplomacy_Propose_Treaty_",
+      "target": 32569,
+      "incoming": 13
+    },
+    {
+      "target_owner": "Box_Bldg_Slot_",
+      "target": 706656,
+      "incoming": 13
+    },
+    {
+      "target_owner": "Make_Satellite_Bitm_",
+      "target": 699801,
+      "incoming": 13
+    },
+    {
+      "target_owner": "Record_Break_Position_",
+      "target": 1000325,
+      "incoming": 13
+    },
+    {
+      "target_owner": "_AIL_set_real_vect",
+      "target": 1243823,
+      "incoming": 13
+    },
+    {
+      "target_owner": "Required_Alliances_",
+      "target": 261643,
+      "incoming": 12
+    },
+    {
+      "target_owner": "Draw_Buildings_List_",
+      "target": 656989,
+      "incoming": 12
+    },
+    {
+      "target_owner": "Set_Colony_Screen_Help_List_",
+      "target": 776977,
+      "incoming": 12
+    },
+    {
+      "target_owner": "Colony_Food_Production_",
+      "target": 846615,
+      "incoming": 12
+    },
+    {
+      "target_owner": "Get_Effective_Beam_Strength_",
+      "target": 113407,
+      "incoming": 11
+    },
+    {
+      "target_owner": "Ship_Completely_On_Screen_",
+      "target": 146174,
+      "incoming": 11
+    },
+    {
+      "target_owner": "_AIL_install_driver",
+      "target": 1247489,
+      "incoming": 11
+    },
+    {
+      "target_owner": "Init_Ship_For_Start_Of_Turn_",
+      "target": 208353,
+      "incoming": 10
+    },
+    {
+      "target_owner": "Deploy_Ships_",
+      "target": 234657,
+      "incoming": 10
+    },
+    {
+      "target_owner": "Best_Point_Defense_Weapon_",
+      "target": 289332,
+      "incoming": 10
+    },
+    {
+      "target_owner": "Check_For_Saved_Games_",
+      "target": 449036,
+      "incoming": 10
+    },
+    {
+      "target_owner": "Get_Colonizable_Planets_",
+      "target": 816990,
+      "incoming": 10
+    },
+    {
+      "target_owner": "_AIL_sample_playback_rate",
+      "target": 1250756,
+      "incoming": 10
+    },
+    {
+      "target_owner": "Get_Current_Missile_Target_",
+      "target": 110744,
+      "incoming": 9
+    },
+    {
+      "target_owner": "Add_Design_Buttons_",
+      "target": 369630,
+      "incoming": 9
+    },
+    {
+      "target_owner": "Draw_Fltpop_Scroll_Bar_",
+      "target": 395374,
+      "incoming": 9
+    },
+    {
+      "target_owner": "Add_PlntSum_Galaxy_Map_Fields_",
+      "target": 563816,
+      "incoming": 9
+    },
+    {
+      "target_owner": "_AIL_set_USE16_ISR",
+      "target": 1243956,
+      "incoming": 9
+    },
+    {
+      "target_owner": "Pick_Random_Colony_No_Outpost_",
+      "target": 81305,
+      "incoming": 8
+    },
+    {
+      "target_owner": "NPC_Threats_",
+      "target": 87334,
+      "incoming": 8
+    },
+    {
+      "target_owner": "Fighter_Pilot_Bonus_",
+      "target": 155304,
+      "incoming": 8
+    },
+    {
+      "target_owner": "Set_PlntSum_Screen_Help_List_",
+      "target": 390461,
+      "incoming": 8
+    },
+    {
+      "target_owner": "Get_Orion_Star_Id_",
+      "target": 442199,
+      "incoming": 8
+    },
+    {
+      "target_owner": "Draw_Shield_Hit_Next_Frame_",
+      "target": 629415,
+      "incoming": 8
+    },
+    {
+      "target_owner": "Trace_Tech_Apps_",
+      "target": 654819,
+      "incoming": 8
+    },
+    {
+      "target_owner": "Client_Combat_Loop_",
+      "target": 895171,
+      "incoming": 8
+    },
+    {
+      "target_owner": "Build_Parsec_Star_Distances_",
+      "target": 339049,
+      "incoming": 7
+    },
+    {
+      "target_owner": "Generic_Replacement_Box_",
+      "target": 352872,
+      "incoming": 7
+    },
+    {
+      "target_owner": "Add_Building_",
+      "target": 17892,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Diplomacy_Demand_",
+      "target": 37274,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Init_Diplomatic_Relations_",
+      "target": 252587,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Check_Hot_Keys_",
+      "target": 469691,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Assign_Marooned_Heroes_",
+      "target": 506876,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Build_Captured_Colonists_Array_",
+      "target": 579909,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Trace_Tech_Apps_",
+      "target": 654818,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Resort_Units_",
+      "target": 687238,
+      "incoming": 6
+    },
+    {
+      "target_owner": "Defense_Colony_Selection_Popup_",
+      "target": 759737,
+      "incoming": 6
+    }
+  ]
+}

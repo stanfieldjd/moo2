@@ -1,0 +1,37 @@
+name: Reassemble verified workbench transfer
+on:
+  push:
+    branches: [transfer/reassemble-workbench]
+permissions:
+  contents: write
+jobs:
+  reassemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reassemble and verify exact Git tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          for target in \
+            decompilation/function_neighborhoods.json \
+            decompilation/game_call_edges.csv \
+            decompilation/watcom_demand/locals.json \
+            decompilation/watcom_types.json
+          do
+            prefix=".transfer/${target//\//__}"
+            cat "${prefix}".part* > "${target}"
+          done
+          rm -rf .transfer
+          rm .github/workflows/reassemble-workbench.yml
+          rmdir .github/workflows 2>/dev/null || true
+          rmdir .github 2>/dev/null || true
+          git add --all
+          actual="$(git write-tree)"
+          test "$actual" = "a84f4b2790e0e97af2d589025d99a5ff01aafa20"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Finalize verified decompilation workbench import"
+          git push origin HEAD

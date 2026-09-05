@@ -7,10 +7,15 @@
 - Canonical gameplay reference: official MicroProse v1.31
 - Runtime direction: fully native remaster
 - Original installation role: local evidence and import source only
-- Existing recovered implementation: none committed
-- Existing recovered decompilation artifacts: none committed
+- Existing recovered implementation: no native reimplementation committed
+- Existing recovered decompilation artifacts: verified analysis metadata, symbol maps,
+  call graphs, reconstruction packets, disassembly excerpts, and reproducible tooling
+  imported from `moo2_remaster_work.zip`
 
-Claims from a lost temporary workspace are not repository evidence and must not be represented as recovered work.
+The imported archive contained 116 intentionally tracked paths totaling 9,600,968
+bytes after its exclusion rules were applied. Its SHA-256 is
+`0738232ea6ac569f8027d2a6270d2f06c05f659db1a79fb978eb9d34220e73db`.
+These counts describe the workbench evidence, not a percentage of game code recovered.
 
 ## Immediate line of work
 
@@ -27,4 +32,5 @@ A finding is complete only when its source, reproduction method, confidence, and
 
 ## Next action
 
-Populate `docs/research/executable-provenance.md` from a lawful local v1.31 installation. Do not upload the executable.
+Audit and promote the highest-confidence reconstruction packets into annotated,
+test-backed subsystem specifications. Do not upload the executable.

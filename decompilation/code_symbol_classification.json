@@ -1,0 +1,8 @@
+{
+  "counts": {
+    "routine_entry": 5587,
+    "runtime_marker": 6
+  },
+  "unclassified_decode_failures": 0,
+  "rule": "Only the six surviving non-decoding Watcom CODE globals are classified as linker/runtime address markers; no decoding symbol is demoted."
+}

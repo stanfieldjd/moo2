@@ -1,0 +1,8 @@
+{
+  "exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "object": 2,
+  "virtual_size": 384208,
+  "mapped_pages": 20,
+  "initialized_span": 81920,
+  "zero_fill_span": 302288
+}

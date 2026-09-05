@@ -1,0 +1,410 @@
+[
+  {
+    "module_index": 135,
+    "module": "F:\\WLIBS\\flicplay\\capture.c",
+    "block_index": 0,
+    "section_offset": 141843,
+    "size": 1086,
+    "sha256": "cb5e5ae0e3d1e0f6898dc4fde6d1bb25dc45ea2a3f64f6ff2ce762fe77c717f1"
+  },
+  {
+    "module_index": 136,
+    "module": "F:\\WLIBS\\allocate\\allocate.c",
+    "block_index": 0,
+    "section_offset": 142929,
+    "size": 1122,
+    "sha256": "c81425d9c399fe2c9b414def19a12a72486997bc9a11bd869a9856a01a31ab92"
+  },
+  {
+    "module_index": 137,
+    "module": "F:\\WLIBS\\dos\\dos.c",
+    "block_index": 0,
+    "section_offset": 144051,
+    "size": 498,
+    "sha256": "45ff5ae3a3947843e3d824d41b5150261252bdfe643c205e8b34b75c175d0a57"
+  },
+  {
+    "module_index": 138,
+    "module": "F:\\WLIBS\\sound\\sound.c",
+    "block_index": 0,
+    "section_offset": 144549,
+    "size": 4236,
+    "sha256": "72b1bce7749b0c55e479df4f949d43ba11b530932f94c067168904072d36a7ad"
+  },
+  {
+    "module_index": 139,
+    "module": "F:\\WLIBS\\init\\init.c",
+    "block_index": 0,
+    "section_offset": 148785,
+    "size": 192,
+    "sha256": "a83ee2b9a746b01341bc3668b00d18ef1d83f37c7616d4d534acb56317336b38"
+  },
+  {
+    "module_index": 140,
+    "module": "F:\\WLIBS\\fields\\fields.c",
+    "block_index": 0,
+    "section_offset": 148977,
+    "size": 14916,
+    "sha256": "8e2fbc2eefbedf9ebf863622465fedecf5c1102038b4cac90fd3f1408516bcf3"
+  },
+  {
+    "module_index": 141,
+    "module": "E:\\WLIBS\\fonts\\fonts.c",
+    "block_index": 0,
+    "section_offset": 163893,
+    "size": 4572,
+    "sha256": "1596d361c9ef92024432bb4c1d33f4f440a949db5e4c00966df7f4cc6bf629db"
+  },
+  {
+    "module_index": 142,
+    "module": "F:\\WLIBS\\mouse\\mouse.c",
+    "block_index": 0,
+    "section_offset": 168465,
+    "size": 1950,
+    "sha256": "b58148711f5ea493b3f8de8e72e9e1ab04c78a7953d70cfba81dc8b841fb82a3"
+  },
+  {
+    "module_index": 143,
+    "module": "F:\\WLIBS\\special\\random.c",
+    "block_index": 0,
+    "section_offset": 170415,
+    "size": 126,
+    "sha256": "9f977ec4203095af97a97c9a47b79e866d9bdcf9b2b87f553ae8e30d8f2d8431"
+  },
+  {
+    "module_index": 144,
+    "module": "F:\\WLIBS\\video\\video.c",
+    "block_index": 0,
+    "section_offset": 170541,
+    "size": 3024,
+    "sha256": "8c1759868ca1f68ae2ef583902bad8f79b300ab7333dd8a1fa3a34567124d03f"
+  },
+  {
+    "module_index": 145,
+    "module": "F:\\WLIBS\\dos\\exit.c",
+    "block_index": 0,
+    "section_offset": 173565,
+    "size": 102,
+    "sha256": "a68977039e1be13b3959911420174ad8825bb016fc1659ae87216908bc3ad357"
+  },
+  {
+    "module_index": 152,
+    "module": "F:\\WLIBS\\lbx\\farload.c",
+    "block_index": 0,
+    "section_offset": 173667,
+    "size": 1098,
+    "sha256": "c310d3ebbafdae44b7440cd9cc7e14315d69c7740acf80cdc6c1b72b7e516220"
+  },
+  {
+    "module_index": 156,
+    "module": "F:\\WLIBS\\cache\\buffer.c",
+    "block_index": 0,
+    "section_offset": 174765,
+    "size": 1272,
+    "sha256": "491be891287594ceb1ea04fbe3eafea53cc256353191042e7be6fe5ee8574f6b"
+  },
+  {
+    "module_index": 159,
+    "module": "F:\\WLIBS\\graphics\\graphics.c",
+    "block_index": 0,
+    "section_offset": 176037,
+    "size": 1560,
+    "sha256": "5d54ed5a4f302d5f0e4a6a02531c7cfd78c01a8185ab1783cf420670524608c4"
+  },
+  {
+    "module_index": 168,
+    "module": "F:\\WLIBS\\animate\\animate.c",
+    "block_index": 0,
+    "section_offset": 177597,
+    "size": 4266,
+    "sha256": "2c87cc975d06b65c8dcd74b87ee99ff8e36a89af47360a7e858974225edeb908"
+  },
+  {
+    "module_index": 170,
+    "module": "F:\\WLIBS\\keybdjoy\\key.c",
+    "block_index": 0,
+    "section_offset": 181863,
+    "size": 390,
+    "sha256": "5a7e4c963e64cf172d98f8636cb7e448f490f5c65395ecaa659d9fd36bd6514f"
+  },
+  {
+    "module_index": 171,
+    "module": "F:\\WLIBS\\animate\\file_ani.c",
+    "block_index": 0,
+    "section_offset": 182253,
+    "size": 1890,
+    "sha256": "fa991422bb912236176357e31667149c6cb32d36dfc3733c227bb75fac87af10"
+  },
+  {
+    "module_index": 172,
+    "module": "F:\\WLIBS\\animate\\bitmap.c",
+    "block_index": 0,
+    "section_offset": 184143,
+    "size": 6864,
+    "sha256": "05fac4f09ef44c2883534092f269783cd23ee88b790647a9cb0e2f514df64b89"
+  },
+  {
+    "module_index": 173,
+    "module": "F:\\WLIBS\\palette\\palette.c",
+    "block_index": 0,
+    "section_offset": 191007,
+    "size": 1296,
+    "sha256": "62e8349d603bb8c9f7eca514376de458b9a3648b45399bfb06c4cce0b2fdbead"
+  },
+  {
+    "module_index": 174,
+    "module": "F:\\WLIBS\\smack\\smckplay.c",
+    "block_index": 0,
+    "section_offset": 192303,
+    "size": 522,
+    "sha256": "bb158239a06e71639fd334e81bd2d6f37f62c16326c04e0ffe36dc8f5aab3ef5"
+  },
+  {
+    "module_index": 176,
+    "module": "F:\\WLIBS\\memory\\strings.c",
+    "block_index": 0,
+    "section_offset": 192825,
+    "size": 276,
+    "sha256": "e1e608ef22ef849ae32dfa155086aa0849bbd139eef5837fc10e460c7167c120"
+  },
+  {
+    "module_index": 177,
+    "module": "F:\\WLIBS\\palette\\remap.c",
+    "block_index": 0,
+    "section_offset": 193101,
+    "size": 1146,
+    "sha256": "b187be4df816cbdc98913589ff6322d170be7afb33a8c4dec156976761c11a1c"
+  },
+  {
+    "module_index": 179,
+    "module": "F:\\WLIBS\\special\\special.c",
+    "block_index": 0,
+    "section_offset": 194247,
+    "size": 1488,
+    "sha256": "1a43a3225aab6825985f1139c853f27c6cf84a71d363d9158a7c4f1b9af387ba"
+  },
+  {
+    "module_index": 180,
+    "module": "F:\\WLIBS\\graphics\\line.c",
+    "block_index": 0,
+    "section_offset": 195735,
+    "size": 4212,
+    "sha256": "5ba8177e60ea3ce0ba6fbf8993dfdbbc66c39e86b4c7761e90db6266422d6a82"
+  },
+  {
+    "module_index": 181,
+    "module": "F:\\WLIBS\\animate\\replace.c",
+    "block_index": 0,
+    "section_offset": 199947,
+    "size": 2100,
+    "sha256": "52f2b835adb61943207c24c9e671db53f7a451ec3e226a23fbf346837d2cffa3"
+  },
+  {
+    "module_index": 182,
+    "module": "F:\\WLIBS\\special\\angle.c",
+    "block_index": 0,
+    "section_offset": 202047,
+    "size": 858,
+    "sha256": "c8b66be36b8909d6099770b97806461f129a002014c77c1571ac9c29f50f8675"
+  },
+  {
+    "module_index": 187,
+    "module": "F:\\WLIBS\\net\\netcode.c",
+    "block_index": 0,
+    "section_offset": 202905,
+    "size": 1308,
+    "sha256": "ce7f09fc12daadc10f3b9bc18219d28a4d3bcbbe9d33341283e395139bfe20d7"
+  },
+  {
+    "module_index": 191,
+    "module": "F:\\WLIBS\\palette\\reduce.c",
+    "block_index": 0,
+    "section_offset": 204213,
+    "size": 1242,
+    "sha256": "9cc15f2bc494f81aa19b156464541716678830921992cac6b7734596facd0f04"
+  },
+  {
+    "module_index": 193,
+    "module": "F:\\WLIBS\\sound\\lbx.c",
+    "block_index": 0,
+    "section_offset": 205455,
+    "size": 1164,
+    "sha256": "79c182661e64082cc13b9fb412df05fab7a74ebf7f493638011f3651f5fc1843"
+  },
+  {
+    "module_index": 194,
+    "module": "F:\\WLIBS\\allocate\\swap.c",
+    "block_index": 0,
+    "section_offset": 206619,
+    "size": 150,
+    "sha256": "ef4e5fbd4264fe8fc7d8d61e000b24f87f3c8e6fc98c1ab3f7e0b9bf104a5fb8"
+  },
+  {
+    "module_index": 195,
+    "module": "F:\\WLIBS\\graphics\\bolt.c",
+    "block_index": 0,
+    "section_offset": 206769,
+    "size": 1068,
+    "sha256": "65d9a90e7bf78384e43d771e696df40532ca9aa4b2f3130cec22c7b790ac5bc5"
+  },
+  {
+    "module_index": 203,
+    "module": "E:\\WLIBS\\modem\\simmodem.c",
+    "block_index": 0,
+    "section_offset": 207837,
+    "size": 786,
+    "sha256": "8db8d495fd54939cfababddb1891f39ef28cdd13c548461f2d8f5d65357edf80"
+  },
+  {
+    "module_index": 204,
+    "module": "F:\\WLIBS\\net\\transprt.c",
+    "block_index": 0,
+    "section_offset": 208623,
+    "size": 1782,
+    "sha256": "4d1b2c8160be8941cad00a90ae212bc5425ae4500e35941175ab7779612b56be"
+  },
+  {
+    "module_index": 208,
+    "module": "F:\\WLIBS\\fonts\\paragrph.c",
+    "block_index": 0,
+    "section_offset": 210405,
+    "size": 1074,
+    "sha256": "474906ef6481f34e583f57d68d6023c2a74f7bef7b5c66fd294462e3d20e3a11"
+  },
+  {
+    "module_index": 210,
+    "module": "F:\\WLIBS\\graphics\\fade.c",
+    "block_index": 0,
+    "section_offset": 211479,
+    "size": 78,
+    "sha256": "ff9235640ce22157ac55f8966221a723d2287d36d0ec8aedaa348cefc62a1536"
+  },
+  {
+    "module_index": 232,
+    "module": "F:\\WLIBS\\fonts\\sysfont.c",
+    "block_index": 0,
+    "section_offset": 211557,
+    "size": 618,
+    "sha256": "2450d95f2adb318243a38db5cab0837ccc81f85066906c9e6f65f26fbaf65c2a"
+  },
+  {
+    "module_index": 240,
+    "module": "F:\\WLIBS\\video\\vga.c",
+    "block_index": 0,
+    "section_offset": 212175,
+    "size": 252,
+    "sha256": "497c095984b2621c66854b62d072ad886b29ce786fb02b3052d06a32ee150062"
+  },
+  {
+    "module_index": 241,
+    "module": "F:\\WLIBS\\video\\vesa.c",
+    "block_index": 0,
+    "section_offset": 212427,
+    "size": 462,
+    "sha256": "c28df97ddcd35331e5467f1906d9a4a61b100c7dbcc7953584c6855abae705be"
+  },
+  {
+    "module_index": 266,
+    "module": "F:\\WLIBS\\animate\\clipped.c",
+    "block_index": 0,
+    "section_offset": 212889,
+    "size": 2070,
+    "sha256": "63443fba85df295815b914650eae48dcfeeeae37de54e2e97523b32f65dc4b7b"
+  },
+  {
+    "module_index": 274,
+    "module": "F:\\WLIBS\\net\\comcore.c",
+    "block_index": 0,
+    "section_offset": 214959,
+    "size": 1314,
+    "sha256": "3549f2b3a2ea0f05ae51aee6642c0b0139d616966f74f74eb0ce74fcc0ad0ff6"
+  },
+  {
+    "module_index": 275,
+    "module": "E:\\WLIBS\\modem\\motrans.c",
+    "block_index": 0,
+    "section_offset": 216273,
+    "size": 1188,
+    "sha256": "5a86523601104e7d8fe346c49ca4d6db5bb3791c12b5b5b58a32a9b5e8b4a89e"
+  },
+  {
+    "module_index": 276,
+    "module": "F:\\WLIBS\\net\\net.c",
+    "block_index": 0,
+    "section_offset": 217461,
+    "size": 2136,
+    "sha256": "bfedda4e8730d4dca3a2b5073adec02b885b977cf80b4dcedb3ee7ca33fd10e3"
+  },
+  {
+    "module_index": 278,
+    "module": "F:\\WLIBS\\lbx\\makelbx.c",
+    "block_index": 0,
+    "section_offset": 219597,
+    "size": 972,
+    "sha256": "686b0c841d165b87f7555abc5a025ceef3523e0e1bdf46f226be6f5349f7f28b"
+  },
+  {
+    "module_index": 279,
+    "module": "F:\\WLIBS\\sound\\util.c",
+    "block_index": 0,
+    "section_offset": 220569,
+    "size": 66,
+    "sha256": "8d3f49b8f428ccb2a7150d5b6e38fd56a1c14b902947a2718c2ad117a265880e"
+  },
+  {
+    "module_index": 307,
+    "module": "F:\\WLIBS\\sound\\dllload.c",
+    "block_index": 0,
+    "section_offset": 220635,
+    "size": 1626,
+    "sha256": "83c3bc1cdcbc4082912cd643e08b35d04287317b1aad10126d4995f3fd8a8270"
+  },
+  {
+    "module_index": 308,
+    "module": "aila.asm",
+    "block_index": 0,
+    "section_offset": 222261,
+    "size": 3756,
+    "sha256": "703c3d1ba6f3f3c3cb2a3039495d4d0d77c7e875689a8c2631c7ead5793fd13c"
+  },
+  {
+    "module_index": 316,
+    "module": "R:\\NET\\LIBS\\AIL\\DEV3\\FLAT\\ailxmidi.c",
+    "block_index": 0,
+    "section_offset": 226017,
+    "size": 6294,
+    "sha256": "f9219b8545136ef0b194589b9e28090d8aa62e55506ef21278f7ab4aca9ab717"
+  },
+  {
+    "module_index": 329,
+    "module": "F:\\WLIBS\\compress\\arith1e.c",
+    "block_index": 0,
+    "section_offset": 232311,
+    "size": 1584,
+    "sha256": "22ee4fc8d6d5601571f61474fa8d6bc0c55bb7a478db7a744c5d25d9fe0b5fd9"
+  },
+  {
+    "module_index": 361,
+    "module": "ailssa.asm",
+    "block_index": 0,
+    "section_offset": 233895,
+    "size": 1218,
+    "sha256": "1dc13d3f4a653a072975e71cefbacedc4f9e63c288d7ac202c5313cc6e309f01"
+  },
+  {
+    "module_index": 362,
+    "module": "F:\\WLIBS\\compress\\bitio.c",
+    "block_index": 0,
+    "section_offset": 235113,
+    "size": 1182,
+    "sha256": "447cda691f5c096b3fe7ec95beda030ed8fcc2152cdfcb37cc5c6e6a51ee4522"
+  },
+  {
+    "module_index": 364,
+    "module": "F:\\WLIBS\\compress\\errhand.c",
+    "block_index": 0,
+    "section_offset": 236295,
+    "size": 48,
+    "sha256": "3842bf5b108fa853484e112cb1165c6b41205a096d2946bbaafe2c1982b44f10"
+  }
+]

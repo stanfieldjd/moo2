@@ -1,0 +1,5 @@
+{
+  "candidate_entries": 6655,
+  "called_unnamed_entries": 41,
+  "method": "direct call targets or multiply-referenced direct branch targets that decode as instructions but have no Watcom CODE global"
+}

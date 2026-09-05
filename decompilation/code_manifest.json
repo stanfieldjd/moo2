@@ -1,0 +1,7 @@
+{
+  "exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "code_object_size": 1410709,
+  "code_symbols": 5593,
+  "unique_code_addresses": 5546,
+  "boundary_method": "next Watcom CODE global; provisional until CFG recovery"
+}

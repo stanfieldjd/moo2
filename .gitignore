@@ -52,6 +52,8 @@ out/
 .idea/
 .DS_Store
 Thumbs.db
+__pycache__/
+*.py[cod]
 
 # Secrets and local configuration
 .env
@@ -60,3 +62,31 @@ Thumbs.db
 *.key
 *.pem
 local-config.*
+
+# Original reference inputs
+ORION2.EXE
+ORION95.EXE
+*.GAM
+*.gam
+*.SAV
+*.sav
+original/
+reference/
+
+# Large reproducible reverse-engineering output
+decompilation/functions_asm/
+decompilation/function_corpus.csv
+decompilation/function_corpus_manifest.txt
+decompilation/code_object_1_resynced.disasm
+decompilation/function_cfg_membership.csv
+docs_colony_pop_grows.disasm
+
+# Original or reconstructed machine-code slices
+analysis/*.bin
+analysis/function_slices/*.bin
+decompilation/*.bin
+decompilation/le_objects/*.bin
+
+# Ghidra local state
+.ghidra-projects/
+ghidra_projects/

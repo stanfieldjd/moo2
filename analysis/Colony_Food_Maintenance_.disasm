@@ -1,0 +1,98 @@
+
+/tmp/tmp9er5_zve:     file format binary
+
+
+Disassembly of section .data:
+
+000ceb4b <.data>:
+   ceb4b:	53                   	push   ebx
+   ceb4c:	51                   	push   ecx
+   ceb4d:	52                   	push   edx
+   ceb4e:	56                   	push   esi
+   ceb4f:	57                   	push   edi
+   ceb50:	c8 08 00 00          	enter  0x8,0x0
+   ceb54:	89 c1                	mov    ecx,eax
+   ceb56:	66 0f be 00          	movsx  ax,BYTE PTR [eax]
+   ceb5a:	89 45 fc             	mov    DWORD PTR [ebp-0x4],eax
+   ceb5d:	89 c8                	mov    eax,ecx
+   ceb5f:	2b 05 18 ab 01 00    	sub    eax,DWORD PTR ds:0x1ab18
+   ceb65:	bf 69 01 00 00       	mov    edi,0x169
+   ceb6a:	99                   	cdq
+   ceb6b:	f7 ff                	idiv   edi
+   ceb6d:	98                   	cwde
+   ceb6e:	e8 ab 48 f4 ff       	call   0x1341e
+   ceb73:	66 85 c0             	test   ax,ax
+   ceb76:	74 0c                	je     0xceb84
+   ceb78:	c6 81 ef 00 00 00 00 	mov    BYTE PTR [ecx+0xef],0x0
+   ceb7f:	e9 13 34 00 00       	jmp    0xd1f97
+   ceb84:	bb 08 00 00 00       	mov    ebx,0x8
+   ceb89:	8d 81 04 01 00 00    	lea    eax,[ecx+0x104]
+   ceb8f:	31 d2                	xor    edx,edx
+   ceb91:	e8 da b0 04 00       	call   0x119c70
+   ceb96:	c6 81 fc 00 00 00 00 	mov    BYTE PTR [ecx+0xfc],0x0
+   ceb9d:	c6 81 ff 00 00 00 00 	mov    BYTE PTR [ecx+0xff],0x0
+   ceba4:	31 f6                	xor    esi,esi
+   ceba6:	c6 81 fe 00 00 00 00 	mov    BYTE PTR [ecx+0xfe],0x0
+   cebad:	8d 79 0c             	lea    edi,[ecx+0xc]
+   cebb0:	c6 81 fd 00 00 00 00 	mov    BYTE PTR [ecx+0xfd],0x0
+   cebb7:	e9 93 00 00 00       	jmp    0xcec4f
+   cebbc:	0f bf c6             	movsx  eax,si
+   cebbf:	8b 14 87             	mov    edx,DWORD PTR [edi+eax*4]
+   cebc2:	8b 04 87             	mov    eax,DWORD PTR [edi+eax*4]
+   cebc5:	c1 e0 15             	shl    eax,0x15
+   cebc8:	c1 e8 1f             	shr    eax,0x1f
+   cebcb:	83 e2 0f             	and    edx,0xf
+   cebce:	89 45 f8             	mov    DWORD PTR [ebp-0x8],eax
+   cebd1:	66 83 fa 08          	cmp    dx,0x8
+   cebd5:	0f 8d 62 00 00 00    	jge    0xcec3d
+   cebdb:	0f bf c2             	movsx  eax,dx
+   cebde:	69 c0 a9 0e 00 00    	imul   eax,eax,0xea9
+   cebe4:	8b 1d 98 ff 01 00    	mov    ebx,DWORD PTR ds:0x1ff98
+   cebea:	01 d8                	add    eax,ebx
+   cebec:	80 b8 b0 08 00 00 00 	cmp    BYTE PTR [eax+0x8b0],0x0
+   cebf3:	74 07                	je     0xcebfc
+   cebf5:	b8 01 00 00 00       	mov    eax,0x1
+   cebfa:	eb 12                	jmp    0xcec0e
+   cebfc:	80 b8 b1 08 00 00 00 	cmp    BYTE PTR [eax+0x8b1],0x0
+   cec03:	74 04                	je     0xcec09
+   cec05:	31 c0                	xor    eax,eax
+   cec07:	eb 05                	jmp    0xcec0e
+   cec09:	b8 02 00 00 00       	mov    eax,0x2
+   cec0e:	66 3b 55 fc          	cmp    dx,WORD PTR [ebp-0x4]
+   cec12:	75 08                	jne    0xcec1c
+   cec14:	00 81 fc 00 00 00    	add    BYTE PTR [ecx+0xfc],al
+   cec1a:	eb 15                	jmp    0xcec31
+   cec1c:	66 83 7d f8 00       	cmp    WORD PTR [ebp-0x8],0x0
+   cec21:	74 08                	je     0xcec2b
+   cec23:	00 81 fe 00 00 00    	add    BYTE PTR [ecx+0xfe],al
+   cec29:	eb 06                	jmp    0xcec31
+   cec2b:	00 81 fd 00 00 00    	add    BYTE PTR [ecx+0xfd],al
+   cec31:	0f bf d2             	movsx  edx,dx
+   cec34:	00 84 11 04 01 00 00 	add    BYTE PTR [ecx+edx*1+0x104],al
+   cec3b:	eb 11                	jmp    0xcec4e
+   cec3d:	66 83 fa 09          	cmp    dx,0x9
+   cec41:	75 0b                	jne    0xcec4e
+   cec43:	b8 02 00 00 00       	mov    eax,0x2
+   cec48:	00 81 ff 00 00 00    	add    BYTE PTR [ecx+0xff],al
+   cec4e:	46                   	inc    esi
+   cec4f:	66 0f b6 41 0a       	movzx  ax,BYTE PTR [ecx+0xa]
+   cec54:	66 39 c6             	cmp    si,ax
+   cec57:	0f 8c 5f ff ff ff    	jl     0xcebbc
+   cec5d:	66 0f b6 91 fc 00 00 	movzx  dx,BYTE PTR [ecx+0xfc]
+   cec64:	00 
+   cec65:	66 0f b6 81 ff 00 00 	movzx  ax,BYTE PTR [ecx+0xff]
+   cec6c:	00 
+   cec6d:	01 c2                	add    edx,eax
+   cec6f:	66 0f b6 81 fe 00 00 	movzx  ax,BYTE PTR [ecx+0xfe]
+   cec76:	00 
+   cec77:	01 d0                	add    eax,edx
+   cec79:	66 0f b6 91 fd 00 00 	movzx  dx,BYTE PTR [ecx+0xfd]
+   cec80:	00 
+   cec81:	01 d0                	add    eax,edx
+   cec83:	98                   	cwde
+   cec84:	40                   	inc    eax
+   cec85:	99                   	cdq
+   cec86:	2b c2                	sub    eax,edx
+   cec88:	d1 f8                	sar    eax,1
+   cec8a:	88 81 ef 00 00 00    	mov    BYTE PTR [ecx+0xef],al
+   cec90:	e9 02 33 00 00       	jmp    0xd1f97

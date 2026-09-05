@@ -1,0 +1,12 @@
+{
+  "functions": 5635,
+  "watcom_code_symbols": 5593,
+  "synthetic_entries": 42,
+  "instruction_records": 408409,
+  "matches_provisional_end": 4000,
+  "extends_beyond_provisional_end": 29,
+  "ends_before_provisional_end": 1599,
+  "entry_decode_failures": 7,
+  "cfg_membership_records": 259374,
+  "method": "recursive direct-CFG traversal; calls not followed; other known CODE entries are hard boundaries; unconditional jumps into another provisional function body are classified as Watcom shared tails; indirect transfers terminate path"
+}

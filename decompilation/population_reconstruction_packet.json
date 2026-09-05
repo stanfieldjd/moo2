@@ -1,0 +1,745 @@
+{
+  "packet": "population_colony_mechanics",
+  "boundary_warning": "sizes use next recovered symbol and remain provisional",
+  "functions": [
+    {
+      "name": "Pops_Identical_",
+      "module": "D:\\MOX\\OTHERS\\COLMOVE.C",
+      "segment": 1,
+      "offset": 695523,
+      "file_offset": 1307447,
+      "provisional_size": 191,
+      "callers": [
+        {
+          "function": "Get_Cluster_",
+          "module": "D:\\MOX\\OTHERS\\COLMOVE.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Pop_To_Pop_State_",
+          "module": "D:\\MOX\\OTHERS\\COLONY.C",
+          "call_sites": 2
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Get_Effective_Pop_Player_",
+      "module": "D:\\MOX\\OTHERS\\COLONY.C",
+      "segment": 1,
+      "offset": 699852,
+      "file_offset": 1311776,
+      "provisional_size": 78,
+      "callers": [
+        {
+          "function": "Colony_Pop_Anim_",
+          "module": "D:\\MOX\\OTHERS\\COLONY.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Sum_Colonists_",
+          "module": "D:\\MOX\\OTHERS\\COLONY.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Pop_To_Pop_State_",
+      "module": "D:\\MOX\\OTHERS\\COLONY.C",
+      "segment": 1,
+      "offset": 707279,
+      "file_offset": 1319203,
+      "provisional_size": 56,
+      "callers": [
+        {
+          "function": "Colony_Pop_String_",
+          "module": "D:\\MOX\\OTHERS\\COLMOVE.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Pops_Identical_",
+          "module": "D:\\MOX\\OTHERS\\COLMOVE.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Add_Move_Colonist_Job_Field_For_",
+          "module": "D:\\MOX\\OTHERS\\COLONY.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Colony_Pop_Anim_",
+          "module": "D:\\MOX\\OTHERS\\COLONY.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Do_Colony_Info_Pop_Stuff_For_Pop_",
+          "module": "D:\\MOX\\OTHERS\\COLDRAW.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Draw_Colony_Info_Pop_Scanned_",
+          "module": "D:\\MOX\\OTHERS\\COLONY.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Give_Colonist_New_Job_",
+          "module": "D:\\MOX\\OTHERS\\COLMOVE.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Sum_Colonists_",
+          "module": "D:\\MOX\\OTHERS\\COLONY.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "cmp_Pop_",
+      "module": "D:\\MOX\\OTHERS\\COLSUM.C",
+      "segment": 1,
+      "offset": 734965,
+      "file_offset": 1346889,
+      "provisional_size": 66,
+      "callers": [],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Evaluate_Colony_Pop_Input_",
+      "module": "D:\\MOX\\OTHERS\\COLSUM.C",
+      "segment": 1,
+      "offset": 737641,
+      "file_offset": 1349565,
+      "provisional_size": 331,
+      "callers": [
+        {
+          "function": "Evaluate_Col_List_Input_",
+          "module": "D:\\MOX\\OTHERS\\COLSUM.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Draw_Colony_Summary_Screen_",
+          "module": "D:\\MOX\\OTHERS\\COLSUM.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Get_Cluster_",
+          "module": "D:\\MOX\\OTHERS\\COLMOVE.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Get_Scanned_Pop_",
+          "module": "D:\\MOX\\OTHERS\\COLSUM.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Get_Selected_Pop_",
+          "module": "D:\\MOX\\OTHERS\\COLSUM.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Send_Cluster_",
+          "module": "D:\\MOX\\OTHERS\\COLMOVE.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Set_Colony_Summary_Screen_Help_List_",
+          "module": "D:\\MOX\\OTHERS\\ERICHELP.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Colony_Pop_Prod_Produced_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 843731,
+      "file_offset": 1455655,
+      "provisional_size": 107,
+      "callers": [
+        {
+          "function": "Sort_Pops_FI_",
+          "module": "D:\\MOX\\OTHERS\\AIDUDES.C",
+          "call_sites": 6
+        },
+        {
+          "function": "Sort_Pops_FR_I_",
+          "module": "D:\\MOX\\OTHERS\\AIDUDES.C",
+          "call_sites": 6
+        },
+        {
+          "function": "Sort_Pops_F_IR_",
+          "module": "D:\\MOX\\OTHERS\\AIDUDES.C",
+          "call_sites": 6
+        },
+        {
+          "function": "Compute_Max_Min_R_I_Worthiness_",
+          "module": "D:\\MOX\\OTHERS\\AIDUDES.C",
+          "call_sites": 4
+        },
+        {
+          "function": "Sort_Pops_R_I_",
+          "module": "D:\\MOX\\OTHERS\\AIDUDES.C",
+          "call_sites": 4
+        },
+        {
+          "function": "F_IR_Worthiness_",
+          "module": "D:\\MOX\\OTHERS\\AIDUDES.C",
+          "call_sites": 3
+        },
+        {
+          "function": "FI_Worthiness_",
+          "module": "D:\\MOX\\OTHERS\\AIDUDES.C",
+          "call_sites": 2
+        }
+      ],
+      "callees": [
+        {
+          "function": "Gravity_Player_Production_Factor_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Colony_Pop_Base_Prod_Produced_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 844332,
+      "file_offset": 1456256,
+      "provisional_size": 84,
+      "callers": [
+        {
+          "function": "Colony_Job_Production_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Size_Subterranean_Pop_Bonus_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 854548,
+      "file_offset": 1466472,
+      "provisional_size": 4,
+      "callers": [
+        {
+          "function": "Uncolonized_Planet_Worth_To_Player_",
+          "module": "D:\\MOX\\OTHERS\\AIDATA.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Size_And_Climate_Max_Population_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 854552,
+      "file_offset": 1466476,
+      "provisional_size": 49,
+      "callers": [
+        {
+          "function": "Size_And_Climate_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Size_And_Climate_Race_Pop_Limit_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 854675,
+      "file_offset": 1466599,
+      "provisional_size": 188,
+      "callers": [
+        {
+          "function": "Colony_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Planet_Max_Population_For_Player_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Size_And_Climate_Max_Population_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Planet_Max_Population_For_Player_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 854863,
+      "file_offset": 1466787,
+      "provisional_size": 206,
+      "callers": [
+        {
+          "function": "Build_Generic_Planet_Or_Colony_Description_String_Formatted_",
+          "module": "D:\\MOX\\OTHERS\\MAINPUPS.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Colony_Worth_To_Player_",
+          "module": "D:\\MOX\\OTHERS\\AIDATA.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Do_Print_Planet_Info_",
+          "module": "D:\\MOX\\OTHERS\\SYS.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Add_To_Queue_",
+          "module": "D:\\MOX\\OTHERS\\COLBLDG.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Apply_Production_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Determine_Event_",
+          "module": "D:\\MOX\\EVENTS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Draw_Colony_Scan_Info_",
+          "module": "D:\\MOX\\OTHERS\\COLSUM.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Filter_Explored_Planets_",
+          "module": "D:\\MOX\\OTHERS\\PLNTSUM.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Housing_Is_Useless_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "New_Colony_Confirmation_Box_",
+          "module": "D:\\MOX\\OTHERS\\MAINPUPS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Planet_Summary_String_",
+          "module": "D:\\MOX\\OTHERS\\COLSYSDI.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Potential_Colony_Info_Popup_",
+          "module": "D:\\MOX\\OTHERS\\SYS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Print_Planet_Data_",
+          "module": "D:\\MOX\\OTHERS\\COLLAND.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Uncolonized_Planet_Worth_To_Player_",
+          "module": "D:\\MOX\\OTHERS\\AIDATA.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Colony_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Size_And_Climate_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Colony_Race_Pop_Limit_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 855069,
+      "file_offset": 1466993,
+      "provisional_size": 81,
+      "callers": [
+        {
+          "function": "Room_For_Another_",
+          "module": "D:\\MOX\\OTHERS\\SETTLER.C",
+          "call_sites": 3
+        },
+        {
+          "function": "Planet_Max_Population_For_Player_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Room_For_Another_Dude_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Apply_Colony_Pop_Growth_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Apply_Production_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Colony_Pop_Grows_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Compute_AI_Data_",
+          "module": "D:\\MOX\\OTHERS\\AIDATA.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Do_System_Discoveries_At_Star_",
+          "module": "D:\\MOX\\OTHERS\\COMBFIND.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Enforce_Population_Limits_At_Colony_",
+          "module": "D:\\MOX\\OTHERS\\INVASION.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Get_Player_Max_Population_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Init_Homeworld_Colony2_",
+          "module": "L:\\MOX\\ERICNET.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Size_And_Climate_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Colony_N_Pops_Of_Empire_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 855150,
+      "file_offset": 1467074,
+      "provisional_size": 45,
+      "callers": [
+        {
+          "function": "Apply_Production_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Colony_Pop_Grows_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 858169,
+      "file_offset": 1470093,
+      "provisional_size": 1204,
+      "callers": [
+        {
+          "function": "Pass_Out_Imports_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Do_Colony_Calculations_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Do_Player_Colony_Post_Production_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Post_Import_Computing_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Owned_Officer_Level_",
+          "module": "D:\\MOX\\OTHERS\\OFFICER.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Colony_Officer_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Colony_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Event_Check_Plague_",
+          "module": "D:\\MOX\\EVENTS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Event_Check_Population_Boom_",
+          "module": "D:\\MOX\\EVENTS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Event_Check_Space_Anomaly_",
+          "module": "D:\\MOX\\EVENTS.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Apply_Colony_Pop_Growth_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 863690,
+      "file_offset": 1475614,
+      "provisional_size": 1676,
+      "callers": [
+        {
+          "function": "Apply_Colony_Changes_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Add_Msg_",
+          "module": "D:\\MOX\\OTHERS\\MSG.C",
+          "call_sites": 2
+        },
+        {
+          "function": "Colony_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Event_Check_Colony_Researching_",
+          "module": "D:\\MOX\\EVENTS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Event_Check_Space_Anomaly_",
+          "module": "D:\\MOX\\EVENTS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Get_Weighted_Choice_Int_",
+          "module": "D:\\MOX\\OTHERS\\RUSS.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Shuffle_Sint_",
+          "module": "D:\\MOX\\OTHERS\\RUSS.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Get_Player_Max_Population_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 875287,
+      "file_offset": 1487211,
+      "provisional_size": 82,
+      "callers": [
+        {
+          "function": "Sneak_Attack_Evaluations_",
+          "module": "D:\\MOX\\DIPLOMAC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Colony_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Get_System_Population_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "segment": 1,
+      "offset": 875369,
+      "file_offset": 1487293,
+      "provisional_size": 111,
+      "callers": [
+        {
+          "function": "Diplomacy_Generic_System_List_",
+          "module": "D:\\MOX\\DIP-SCRN.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Diplomacy_System_Display_",
+          "module": "D:\\MOX\\DIP-SCRN.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Get_Demand_Response_",
+          "module": "D:\\MOX\\DIPLOMAC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Get_Gift_Response_",
+          "module": "D:\\MOX\\DIPLOMAC.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    },
+    {
+      "name": "Enforce_Population_Limits_At_Colony_",
+      "module": "D:\\MOX\\OTHERS\\INVASION.C",
+      "segment": 1,
+      "offset": 903548,
+      "file_offset": 1515472,
+      "provisional_size": 489,
+      "callers": [
+        {
+          "function": "Change_Pop_Ownership_",
+          "module": "D:\\MOX\\OTHERS\\INVASION.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Do_Attacker_Beat_Colony_Stuff_",
+          "module": "D:\\MOX\\OTHERS\\COMBFIND.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Do_Surrender_Colony_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Remove_Building_",
+          "module": "L:\\MOX\\ERICNET.C",
+          "call_sites": 1
+        }
+      ],
+      "callees": [
+        {
+          "function": "Colony_Food2_Per_Farmer_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Colony_Race_Pop_Limit_",
+          "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+          "call_sites": 1
+        },
+        {
+          "function": "Shuffle_",
+          "module": "D:\\MOX\\OTHERS\\RUSS.C",
+          "call_sites": 1
+        }
+      ],
+      "subsystems": [
+        "population",
+        "colony"
+      ]
+    }
+  ]
+}

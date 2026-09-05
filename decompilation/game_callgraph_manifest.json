@@ -1,0 +1,7 @@
+{
+  "direct_call_instructions": 28848,
+  "resolved_game_symbol_calls": 12561,
+  "unique_symbol_edges": 8343,
+  "cross_module_edges": 5118,
+  "segment_1_game_code_symbols": 3702
+}

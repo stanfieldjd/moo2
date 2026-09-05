@@ -1,0 +1,7 @@
+{
+  "absolute_ds_call_sites": 92,
+  "initialized_slots": 19,
+  "resolved_exact_code_symbols": 19,
+  "rows": 19,
+  "method": "read initialized DWORD from reconstructed LE object 2; interpret initialized callback value in recovered segment-1 code address space; require exact recovered CODE symbol"
+}

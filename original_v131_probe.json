@@ -1,0 +1,316 @@
+{
+  "path": "ORION2.EXE",
+  "size": 2612010,
+  "sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "official_v131_reference": true,
+  "bound_payload": {
+    "file_offset": 62580,
+    "signature": "BW"
+  },
+  "le_image": {
+    "module_base": 157268,
+    "le_start": 168676,
+    "page_size": 4096,
+    "object_page_map": 168920,
+    "data_pages_start": 611924,
+    "objects": [
+      {
+        "number": 1,
+        "size": 1410709,
+        "address": 65536,
+        "flags": 8197,
+        "map_index": 1,
+        "map_count": 345,
+        "reserved": 0
+      },
+      {
+        "number": 2,
+        "size": 384208,
+        "address": 1507328,
+        "flags": 8195,
+        "map_index": 346,
+        "map_count": 20,
+        "reserved": 0
+      }
+    ]
+  },
+  "watcom": {
+    "debug_start": 2102981,
+    "debug_size": 509029,
+    "exe_debug_version": [
+      3,
+      0
+    ],
+    "object_debug_version": [
+      1,
+      3
+    ],
+    "language_table_size": 2,
+    "segment_table_size": 4,
+    "section_start": 2102987,
+    "section_size": 509009,
+    "section_id": 0,
+    "module_info_start": 2339330,
+    "global_symbols_start": 2353554,
+    "address_info_start": 2607072
+  },
+  "target_symbols": {
+    "_planet_size_table": {
+      "segment": 2,
+      "offset": 22519,
+      "module_index": 0,
+      "kind": 2
+    },
+    "_planet_max_farms": {
+      "segment": 2,
+      "offset": 22524,
+      "module_index": 0,
+      "kind": 2
+    },
+    "_planet_max_mines": {
+      "segment": 2,
+      "offset": 22529,
+      "module_index": 0,
+      "kind": 2
+    },
+    "_planet_max_population": {
+      "segment": 2,
+      "offset": 22534,
+      "module_index": 0,
+      "kind": 2
+    },
+    "_climate_modifier_table": {
+      "segment": 2,
+      "offset": 22551,
+      "module_index": 0,
+      "kind": 2
+    },
+    "_food_per_farmer_table": {
+      "segment": 2,
+      "offset": 22556,
+      "module_index": 0,
+      "kind": 2
+    }
+  },
+  "target_tables": {
+    "_planet_size_table": {
+      "file_offset": 2047563,
+      "length": 5,
+      "bytes": [
+        1,
+        3,
+        7,
+        9,
+        10
+      ],
+      "signed_bytes": [
+        1,
+        3,
+        7,
+        9,
+        10
+      ]
+    },
+    "_planet_max_farms": {
+      "file_offset": 2047568,
+      "length": 5,
+      "bytes": [
+        2,
+        4,
+        5,
+        7,
+        10
+      ],
+      "signed_bytes": [
+        2,
+        4,
+        5,
+        7,
+        10
+      ]
+    },
+    "_planet_max_mines": {
+      "file_offset": 2047573,
+      "length": 5,
+      "bytes": [
+        2,
+        4,
+        6,
+        9,
+        12
+      ],
+      "signed_bytes": [
+        2,
+        4,
+        6,
+        9,
+        12
+      ]
+    },
+    "_planet_max_population": {
+      "file_offset": 2047578,
+      "length": 5,
+      "bytes": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "signed_bytes": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ]
+    },
+    "_climate_modifier_table": {
+      "file_offset": 2047595,
+      "length": 5,
+      "bytes": [
+        0,
+        0,
+        0,
+        246,
+        236
+      ],
+      "signed_bytes": [
+        0,
+        0,
+        0,
+        -10,
+        -20
+      ]
+    },
+    "_food_per_farmer_table": {
+      "file_offset": 2047600,
+      "length": 10,
+      "bytes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        3
+      ],
+      "signed_bytes": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "gameplay_functions": {
+    "Size_Subterranean_Pop_Bonus_": {
+      "segment": 1,
+      "offset": 854548,
+      "module_index": 102,
+      "kind": 4,
+      "file_offset": 1466472,
+      "first_bytes": "4001c0c3510fb688065800000fb682ebd40c000fb6d36bd21901d083f8647e05"
+    },
+    "Size_And_Climate_Max_Population_": {
+      "segment": 1,
+      "offset": 854552,
+      "module_index": 102,
+      "kind": 5,
+      "file_offset": 1466476,
+      "first_bytes": "510fb688065800000fb682ebd40c000fb6d36bd21901d083f8647e05b8640000"
+    },
+    "Size_And_Climate_Race_Pop_Limit_": {
+      "segment": 1,
+      "offset": 854675,
+      "module_index": 102,
+      "kind": 5,
+      "file_offset": 1466599,
+      "first_bytes": "515657c804000089c689d96683fb087d180fbfdb69dba90e0000a198ff010080"
+    },
+    "Planet_Max_Population_For_Player_": {
+      "segment": 1,
+      "offset": 854863,
+      "module_index": 102,
+      "kind": 4,
+      "file_offset": 1466787,
+      "first_bytes": "53515657c80c000089d60fbf1083faff741469d2690100008b0d18ab010001d1"
+    },
+    "Colony_Race_Pop_Limit_": {
+      "segment": 1,
+      "offset": 855069,
+      "module_index": 102,
+      "kind": 4,
+      "file_offset": 1466993,
+      "first_bytes": "53515689c10fbfda0fb690e20000000fbf40026bf011a1d4b001000fb6440605"
+    },
+    "Colony_Pop_Grows_": {
+      "segment": 1,
+      "offset": 858169,
+      "module_index": 102,
+      "kind": 5,
+      "file_offset": 1470093,
+      "first_bytes": "5351525657c858000089c10fb6400a8db1c80000008945f485c07525bb140000"
+    },
+    "Apply_Colony_Pop_Growth_": {
+      "segment": 1,
+      "offset": 863690,
+      "module_index": 102,
+      "kind": 5,
+      "file_offset": 1475614,
+      "first_bytes": "5351525657c8a4000081ed8200000089c12b0518ab0100bb6901000099f7fb98"
+    },
+    "Housing_Is_Useless_": {
+      "segment": 1,
+      "offset": 865975,
+      "module_index": 102,
+      "kind": 5,
+      "file_offset": 1477899,
+      "first_bytes": "535152660fb6480a0fbe100fbf40026bd811a1d4b0010001d8e87ad4ffff6639"
+    },
+    "Enforce_Population_Limits_At_Colony_": {
+      "segment": 1,
+      "offset": 903548,
+      "module_index": 107,
+      "kind": 4,
+      "file_offset": 1515472,
+      "first_bytes": "5351525657c874000089c1bb2a0000008d700c31d28d458ce8d7d20300bb1400"
+    },
+    "Colony_Food2_Per_Farmer_": {
+      "segment": 1,
+      "offset": 843838,
+      "module_index": 102,
+      "kind": 4,
+      "file_offset": 1455762,
+      "first_bytes": "515689c189d60fbf40026bd011a1d4b00100660fb654020b01d285db74050fbf"
+    },
+    "Colony_Food_Maintenance_": {
+      "segment": 1,
+      "offset": 846667,
+      "module_index": 102,
+      "kind": 5,
+      "file_offset": 1458591,
+      "first_bytes": "5351525657c808000089c1660fbe008945fc89c82b0518ab0100bf6901000099"
+    },
+    "isqrt_": {
+      "segment": 1,
+      "offset": 1199250,
+      "module_index": 179,
+      "kind": 4,
+      "file_offset": 1811174,
+      "first_bytes": "6830000000e844a5000053515256575589e581ec140000008945f0817df00100"
+    }
+  },
+  "all_gameplay_functions_resolved": true,
+  "all_target_symbols_resolved": true,
+  "note": "Addresses are linker unrelocated segment:offset values, not raw file offsets."
+}

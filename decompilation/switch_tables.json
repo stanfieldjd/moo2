@@ -1,0 +1,8 @@
+{
+  "resolved_switch_tables": 135,
+  "resolved_case_entries": 1080,
+  "unique_case_targets": 927,
+  "unresolved_indexed_jumps": 0,
+  "reachable_indirect_jump_candidates": 137,
+  "method": "CFG-reachable indirect JMP + bounded Watcom cmp/ja + either indexed CS:[reg*4+table] or locally proven prescaled CS:[reg+table]; all table entries required to land on decoded instruction starts"
+}

@@ -1,0 +1,210 @@
+{
+  "module_dependency_edges": 1214,
+  "modules_ranked": 130,
+  "cross_module_function_relationships": 5118,
+  "cross_module_call_sites": 8156,
+  "max_in_degree": 63,
+  "max_out_degree": 34,
+  "top_modules": [
+    {
+      "module": "D:\\MOX\\OTHERS\\RUSS.C",
+      "incoming_modules": 63,
+      "outgoing_modules": 10,
+      "incoming_relationships": 227,
+      "outgoing_relationships": 11,
+      "incoming_call_sites": 802,
+      "outgoing_call_sites": 11,
+      "total_call_sites": 813
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\HAROLD.C",
+      "incoming_modules": 48,
+      "outgoing_modules": 12,
+      "incoming_relationships": 374,
+      "outgoing_relationships": 17,
+      "incoming_call_sites": 735,
+      "outgoing_call_sites": 20,
+      "total_call_sites": 755
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\MAINSCR.C",
+      "incoming_modules": 34,
+      "outgoing_modules": 26,
+      "incoming_relationships": 128,
+      "outgoing_relationships": 304,
+      "incoming_call_sites": 147,
+      "outgoing_call_sites": 485,
+      "total_call_sites": 632
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\ESTRINGS.C",
+      "incoming_modules": 21,
+      "outgoing_modules": 0,
+      "incoming_relationships": 129,
+      "outgoing_relationships": 0,
+      "incoming_call_sites": 604,
+      "outgoing_call_sites": 0,
+      "total_call_sites": 604
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\COLONY.C",
+      "incoming_modules": 24,
+      "outgoing_modules": 30,
+      "incoming_relationships": 182,
+      "outgoing_relationships": 181,
+      "incoming_call_sites": 257,
+      "outgoing_call_sites": 280,
+      "total_call_sites": 537
+    },
+    {
+      "module": "D:\\MOX\\DIP-SCRN.C",
+      "incoming_modules": 6,
+      "outgoing_modules": 16,
+      "incoming_relationships": 9,
+      "outgoing_relationships": 225,
+      "incoming_call_sites": 12,
+      "outgoing_call_sites": 433,
+      "total_call_sites": 445
+    },
+    {
+      "module": "L:\\MOX\\MOX2.C",
+      "incoming_modules": 60,
+      "outgoing_modules": 33,
+      "incoming_relationships": 258,
+      "outgoing_relationships": 57,
+      "incoming_call_sites": 370,
+      "outgoing_call_sites": 61,
+      "total_call_sites": 431
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "incoming_modules": 44,
+      "outgoing_modules": 21,
+      "incoming_relationships": 228,
+      "outgoing_relationships": 86,
+      "incoming_call_sites": 317,
+      "outgoing_call_sites": 108,
+      "total_call_sites": 425
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\COMBINIT.C",
+      "incoming_modules": 11,
+      "outgoing_modules": 25,
+      "incoming_relationships": 118,
+      "outgoing_relationships": 104,
+      "incoming_call_sites": 187,
+      "outgoing_call_sites": 204,
+      "total_call_sites": 391
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\MAINPUPS.C",
+      "incoming_modules": 7,
+      "outgoing_modules": 22,
+      "incoming_relationships": 22,
+      "outgoing_relationships": 184,
+      "incoming_call_sites": 24,
+      "outgoing_call_sites": 361,
+      "total_call_sites": 385
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\MISC.C",
+      "incoming_modules": 30,
+      "outgoing_modules": 5,
+      "incoming_relationships": 206,
+      "outgoing_relationships": 18,
+      "incoming_call_sites": 362,
+      "outgoing_call_sites": 20,
+      "total_call_sites": 382
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\CMBTDRW1.C",
+      "incoming_modules": 12,
+      "outgoing_modules": 17,
+      "incoming_relationships": 127,
+      "outgoing_relationships": 88,
+      "incoming_call_sites": 170,
+      "outgoing_call_sites": 168,
+      "total_call_sites": 338
+    },
+    {
+      "module": "D:\\MOX\\JIM.C",
+      "incoming_modules": 17,
+      "outgoing_modules": 7,
+      "incoming_relationships": 129,
+      "outgoing_relationships": 14,
+      "incoming_call_sites": 314,
+      "outgoing_call_sites": 21,
+      "total_call_sites": 335
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\OFFICER.C",
+      "incoming_modules": 32,
+      "outgoing_modules": 23,
+      "incoming_relationships": 105,
+      "outgoing_relationships": 129,
+      "incoming_call_sites": 151,
+      "outgoing_call_sites": 179,
+      "total_call_sites": 330
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\HACCESS.C",
+      "incoming_modules": 34,
+      "outgoing_modules": 5,
+      "incoming_relationships": 235,
+      "outgoing_relationships": 12,
+      "incoming_call_sites": 285,
+      "outgoing_call_sites": 12,
+      "total_call_sites": 297
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\ERIC.C",
+      "incoming_modules": 52,
+      "outgoing_modules": 9,
+      "incoming_relationships": 191,
+      "outgoing_relationships": 29,
+      "incoming_call_sites": 263,
+      "outgoing_call_sites": 32,
+      "total_call_sites": 295
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\DESIGN.C",
+      "incoming_modules": 11,
+      "outgoing_modules": 15,
+      "incoming_relationships": 102,
+      "outgoing_relationships": 73,
+      "incoming_call_sites": 151,
+      "outgoing_call_sites": 130,
+      "total_call_sites": 281
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\COLBLDG.C",
+      "incoming_modules": 12,
+      "outgoing_modules": 20,
+      "incoming_relationships": 35,
+      "outgoing_relationships": 106,
+      "incoming_call_sites": 54,
+      "outgoing_call_sites": 217,
+      "total_call_sites": 271
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\COMBAT1.C",
+      "incoming_modules": 8,
+      "outgoing_modules": 13,
+      "incoming_relationships": 40,
+      "outgoing_relationships": 92,
+      "incoming_call_sites": 52,
+      "outgoing_call_sites": 178,
+      "total_call_sites": 230
+    },
+    {
+      "module": "D:\\MOX\\OTHERS\\NETMOX.C",
+      "incoming_modules": 15,
+      "outgoing_modules": 16,
+      "incoming_relationships": 90,
+      "outgoing_relationships": 52,
+      "incoming_call_sites": 119,
+      "outgoing_call_sites": 107,
+      "total_call_sites": 226
+    }
+  ]
+}

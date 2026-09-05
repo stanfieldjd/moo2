@@ -1,0 +1,5 @@
+{
+  "synthetic_function_entries": 42,
+  "criterion": "decoded object-1 address proven by direct CALL or Watcom runtime init/fini callback table and absent from Watcom CODE globals",
+  "excluded": "branch-only targets; these remain CFG/basic-block candidates"
+}

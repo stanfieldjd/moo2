@@ -1,0 +1,3 @@
+function,function_offset,table_start,table_start_hex,table_end,table_end_hex,record_size,records,evidence
+__InitRtns,1240940,77798,0x12fe6,77840,0x13010,6,7,"immediate ESI/EDI bounds + add esi,6 + call eax"
+__FiniRtns,1241015,77840,0x13010,77846,0x13016,6,1,"immediate ESI/EDI bounds + add esi,6 + call eax"

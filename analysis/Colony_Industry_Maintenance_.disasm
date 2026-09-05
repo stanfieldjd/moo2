@@ -1,0 +1,91 @@
+
+/tmp/tmp1msnb53l:     file format binary
+
+
+Disassembly of section .data:
+
+000cf546 <.data>:
+   cf546:	53                   	push   ebx
+   cf547:	51                   	push   ecx
+   cf548:	52                   	push   edx
+   cf549:	56                   	push   esi
+   cf54a:	57                   	push   edi
+   cf54b:	c8 08 00 00          	enter  0x8,0x0
+   cf54f:	89 c1                	mov    ecx,eax
+   cf551:	66 0f be 00          	movsx  ax,BYTE PTR [eax]
+   cf555:	89 45 f8             	mov    DWORD PTR [ebp-0x8],eax
+   cf558:	89 c8                	mov    eax,ecx
+   cf55a:	2b 05 18 ab 01 00    	sub    eax,DWORD PTR ds:0x1ab18
+   cf560:	be 69 01 00 00       	mov    esi,0x169
+   cf565:	99                   	cdq
+   cf566:	f7 fe                	idiv   esi
+   cf568:	98                   	cwde
+   cf569:	e8 b0 3e f4 ff       	call   0x1341e
+   cf56e:	66 85 c0             	test   ax,ax
+   cf571:	74 0c                	je     0xcf57f
+   cf573:	c6 81 f0 00 00 00 00 	mov    BYTE PTR [ecx+0xf0],0x0
+   cf57a:	e9 18 2a 00 00       	jmp    0xd1f97
+   cf57f:	bb 08 00 00 00       	mov    ebx,0x8
+   cf584:	8d 81 0c 01 00 00    	lea    eax,[ecx+0x10c]
+   cf58a:	31 d2                	xor    edx,edx
+   cf58c:	e8 df a6 04 00       	call   0x119c70
+   cf591:	c6 81 00 01 00 00 00 	mov    BYTE PTR [ecx+0x100],0x0
+   cf598:	c6 81 01 01 00 00 00 	mov    BYTE PTR [ecx+0x101],0x0
+   cf59f:	c6 81 03 01 00 00 00 	mov    BYTE PTR [ecx+0x103],0x0
+   cf5a6:	8d 79 0c             	lea    edi,[ecx+0xc]
+   cf5a9:	c6 81 02 01 00 00 00 	mov    BYTE PTR [ecx+0x102],0x0
+   cf5b0:	31 db                	xor    ebx,ebx
+   cf5b2:	e9 76 00 00 00       	jmp    0xcf62d
+   cf5b7:	0f bf c3             	movsx  eax,bx
+   cf5ba:	8b 14 87             	mov    edx,DWORD PTR [edi+eax*4]
+   cf5bd:	8b 04 87             	mov    eax,DWORD PTR [edi+eax*4]
+   cf5c0:	c1 e0 15             	shl    eax,0x15
+   cf5c3:	c1 e8 1f             	shr    eax,0x1f
+   cf5c6:	83 e2 0f             	and    edx,0xf
+   cf5c9:	89 45 fc             	mov    DWORD PTR [ebp-0x4],eax
+   cf5cc:	66 83 fa 08          	cmp    dx,0x8
+   cf5d0:	7d 4d                	jge    0xcf61f
+   cf5d2:	0f bf c2             	movsx  eax,dx
+   cf5d5:	69 c0 a9 0e 00 00    	imul   eax,eax,0xea9
+   cf5db:	8b 35 98 ff 01 00    	mov    esi,DWORD PTR ds:0x1ff98
+   cf5e1:	80 bc 06 b0 08 00 00 	cmp    BYTE PTR [esi+eax*1+0x8b0],0x0
+   cf5e8:	00 
+   cf5e9:	0f 95 c0             	setne  al
+   cf5ec:	66 0f b6 c0          	movzx  ax,al
+   cf5f0:	66 3b 55 f8          	cmp    dx,WORD PTR [ebp-0x8]
+   cf5f4:	75 08                	jne    0xcf5fe
+   cf5f6:	00 81 00 01 00 00    	add    BYTE PTR [ecx+0x100],al
+   cf5fc:	eb 15                	jmp    0xcf613
+   cf5fe:	66 83 7d fc 00       	cmp    WORD PTR [ebp-0x4],0x0
+   cf603:	74 08                	je     0xcf60d
+   cf605:	00 81 03 01 00 00    	add    BYTE PTR [ecx+0x103],al
+   cf60b:	eb 06                	jmp    0xcf613
+   cf60d:	00 81 02 01 00 00    	add    BYTE PTR [ecx+0x102],al
+   cf613:	0f bf d2             	movsx  edx,dx
+   cf616:	00 84 11 0c 01 00 00 	add    BYTE PTR [ecx+edx*1+0x10c],al
+   cf61d:	eb 0d                	jmp    0xcf62c
+   cf61f:	75 0b                	jne    0xcf62c
+   cf621:	b8 02 00 00 00       	mov    eax,0x2
+   cf626:	00 81 01 01 00 00    	add    BYTE PTR [ecx+0x101],al
+   cf62c:	43                   	inc    ebx
+   cf62d:	66 0f b6 41 0a       	movzx  ax,BYTE PTR [ecx+0xa]
+   cf632:	66 39 c3             	cmp    bx,ax
+   cf635:	7c 80                	jl     0xcf5b7
+   cf637:	66 0f b6 91 00 01 00 	movzx  dx,BYTE PTR [ecx+0x100]
+   cf63e:	00 
+   cf63f:	66 0f b6 81 01 01 00 	movzx  ax,BYTE PTR [ecx+0x101]
+   cf646:	00 
+   cf647:	01 c2                	add    edx,eax
+   cf649:	66 0f b6 81 03 01 00 	movzx  ax,BYTE PTR [ecx+0x103]
+   cf650:	00 
+   cf651:	01 c2                	add    edx,eax
+   cf653:	66 0f b6 81 02 01 00 	movzx  ax,BYTE PTR [ecx+0x102]
+   cf65a:	00 
+   cf65b:	01 d0                	add    eax,edx
+   cf65d:	98                   	cwde
+   cf65e:	40                   	inc    eax
+   cf65f:	99                   	cdq
+   cf660:	2b c2                	sub    eax,edx
+   cf662:	d1 f8                	sar    eax,1
+   cf664:	88 81 f0 00 00 00    	mov    BYTE PTR [ecx+0xf0],al
+   cf66a:	e9 28 29 00 00       	jmp    0xd1f97

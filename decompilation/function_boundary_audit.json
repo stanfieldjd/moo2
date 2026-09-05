@@ -1,0 +1,5 @@
+{
+  "audited_functions": 5236,
+  "functions_with_outgoing_direct_jump": 1267,
+  "warning": "Outgoing direct jumps identify suspect next-symbol boundaries; some may be legitimate tail calls."
+}

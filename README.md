@@ -19,3 +19,7 @@ See [PROJECT_RULES.md](PROJECT_RULES.md), [WORKBENCH.md](WORKBENCH.md), and [doc
 Do not commit original game binaries, LBX archives, copyrighted artwork, music, sound, video, manuals, or other proprietary assets. Do not commit secrets, credentials, or personal installation paths.
 
 All material findings require provenance, confidence, verification status, and a reproducible validation path.
+
+## Workbench contents
+
+The tracked workbench includes reproducible analysis tools, function and symbol metadata, control-flow and indirect-dispatch results, focused annotated disassembly, behavioral reconstruction notes, and tests. Large generated corpora and original or reconstructed machine-code bytes remain local and are regenerated from a lawfully supplied official v1.31 installation.

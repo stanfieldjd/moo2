@@ -1,0 +1,16 @@
+{
+  "indirect_transfers": 330,
+  "by_kind": {
+    "call": 193,
+    "jump": 137
+  },
+  "by_form": {
+    "memory": 204,
+    "indexed_memory": 122,
+    "register": 4
+  },
+  "likely_switch_sites": 118,
+  "reachable_instruction_addresses": 257117,
+  "excluded_unreachable_call_jump_decodes": 17617,
+  "method": "restrict to CFG-reachable per-function corpus, then classify non-immediate CALL/JMP operands; indexed-memory JMPs marked as switch candidates, never assigned speculative targets"
+}
