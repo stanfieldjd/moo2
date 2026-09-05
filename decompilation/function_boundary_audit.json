@@ -1,5 +1,12 @@
 {
   "audited_functions": 5236,
+  "classifications": {
+    "cross_function_conditional": 311,
+    "near_predecessor_epilogue": 113,
+    "near_successor_boundary": 15,
+    "shared_epilogue_or_tail": 796,
+    "tail_call": 32
+  },
   "functions_with_outgoing_direct_jump": 1267,
-  "warning": "Outgoing direct jumps identify suspect next-symbol boundaries; some may be legitimate tail calls."
+  "method": "Decode each symbol-bounded function independently; map the first outgoing direct jump to its exact target symbol interval; distinguish tail calls and shared epilogues from conditional cross-boundary control flow. Cross-function conditionals remain boundary-review candidates."
 }
