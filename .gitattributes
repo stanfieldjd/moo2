@@ -1,0 +1,3 @@
+# Generated CSV evidence uses RFC 4180 CRLF records. Treat the carriage return
+# as part of the record terminator rather than trailing-whitespace damage.
+*.csv text eol=crlf whitespace=-trailing-space
