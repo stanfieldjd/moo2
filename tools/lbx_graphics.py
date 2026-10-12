@@ -153,6 +153,35 @@ def index_frame(entry, image, frame):
     return buf, mask
 
 
+def read_external_palette(raw):
+    """Read 256 RGB6 entries from a non-image FONTS.LBX palette entry.
+
+    The official data stores the palette in the initial 1024 bytes of
+    a longer fonts archive entry. The first byte is 1 (unlike embedded
+    image palette records, whose first byte may be 0).
+    """
+    if len(raw) < 1024:
+        raise FormatError("external FONTS palette truncated")
+    result={}
+    for i in range(256):
+        tag,r,g,b=raw[i*4:i*4+4]
+        if tag != 1 or max(r,g,b)>63:
+            raise FormatError("external palette header/channels invalid")
+        result[i]=(r*4,g*4,b*4,255)
+    return result
+
+
+def resolve_palette(embedded, external=None):
+    """Merge validated base and image-embedded overrides.
+
+    An image's embedded palette entries take precedence over the external
+    base palette, as intended by the original game format.
+    """
+    palette=dict(external or {})
+    palette.update(embedded)
+    return palette
+
+
 def rgba_frame(pixels, mask, palette):
     if not palette:
         raise FormatError("no palette supplied; cannot render faithful colors")
@@ -182,20 +211,31 @@ def png_rgba(width,height,rgba):
             +chunk(b"IEND",b""))
 
 
-def convert(archive, member, index, frame, destination):
+def convert(archive, member, index, frame, destination, palette_member=None, palette_entry=None):
     if destination.exists():
         raise FormatError("destination exists; refusing overwrite")
     if archive.resolve() == destination.resolve():
         raise FormatError("source and destination must differ")
+    if (palette_member is None) != (palette_entry is None):
+        raise FormatError("palette-member and palette-entry must be supplied together")
+    if palette_entry is not None and palette_entry < 0:
+        raise FormatError("palette entry must be nonnegative")
+    external={}
     with ZipFile(archive) as z:
         image_lbx = z.read(member)
+        if palette_member is not None:
+            pal_entries=lbx_entries(z.read(palette_member))
+            if palette_entry >= len(pal_entries):
+                raise FormatError("palette entry outside archive")
+            external=read_external_palette(pal_entries[palette_entry])
     entries=lbx_entries(image_lbx)
     if index < 0 or index >= len(entries):
         raise FormatError("LBX image index outside archive")
     entry=entries[index]
     info=image_info(entry)
     pixels,mask=index_frame(entry,info,frame)
-    rgba=rgba_frame(pixels,mask,info["palette"])
+    palette=resolve_palette(info["palette"],external)
+    rgba=rgba_frame(pixels,mask,palette)
     png=png_rgba(info["width"],info["height"],rgba)
     destination.parent.mkdir(parents=True,exist_ok=True)
     destination.write_bytes(png)
@@ -204,7 +244,8 @@ def convert(archive, member, index, frame, destination):
         "width":info["width"],"height":info["height"],"frames":info["frames"],
         "lead_in":info["lead_in"],"chunk":info["chunk"],
         "image_flags":hex(info["flags"]),
-        "palette_entries":len(info["palette"]),
+        "palette_entries":len(palette),
+        "palette_source": f"{palette_member}:{palette_entry}" if palette_member else "embedded-only",
         "opaque_pixels":sum(mask),"source_entry_sha256":hashlib.sha256(entry).hexdigest(),
         "rgba_sha256":hashlib.sha256(rgba).hexdigest(),
         "png_sha256":hashlib.sha256(png).hexdigest(),
@@ -222,8 +263,11 @@ def main():
     parser.add_argument("--entry",type=int,default=0)
     parser.add_argument("--frame",type=int,default=0)
     parser.add_argument("--output",type=Path,required=True)
+    parser.add_argument("--palette-member",help="external palette container such as mastori2/FONTS.LBX")
+    parser.add_argument("--palette-entry",type=int,help="index of external palette in container")
     a=parser.parse_args()
-    print(json.dumps(convert(a.archive,a.member,a.entry,a.frame,a.output),
+    print(json.dumps(convert(a.archive,a.member,a.entry,a.frame,a.output,
+                             a.palette_member,a.palette_entry),
                      indent=2,sort_keys=True))
 
 

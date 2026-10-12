@@ -14,6 +14,7 @@ from io import BytesIO
 
 from lbx_graphics import (
     FormatError,lbx_entries,image_info,index_frame,rgba_frame,png_rgba,
+    read_external_palette,resolve_palette,
 )
 
 
@@ -112,6 +113,37 @@ class DecoderTests(unittest.TestCase):
         bad=raw[:-4]  # lost end-of-frame marker
         with self.assertRaises(FormatError):
             index_frame(bad,image_info(bad),0)
+
+    def test_external_palette_and_precedence(self):
+        import itertools
+        raw=b"".join(bytes([1,i%64,0,63]) for i in range(256))
+        colors=read_external_palette(raw+b"some other font data")
+        self.assertEqual(len(colors),256)
+        self.assertEqual(colors[63],(252,0,252,255))
+        self.assertEqual(resolve_palette({5:(9,8,7,255)},colors)[5],(9,8,7,255))
+        with self.assertRaises(FormatError):read_external_palette(raw[:1023])
+        with self.assertRaises(FormatError):read_external_palette(bytes([2])+raw[1:])
+        with self.assertRaises(FormatError):read_external_palette(bytes([1,64])+raw[2:])
+
+    def test_real_mainmenu_external_palette_when_supplied(self):
+        path=os.getenv("MOO2_GAME_ARCHIVE")
+        if not path:self.skipTest("set MOO2_GAME_ARCHIVE to locally owned ZIP")
+        with ZipFile(path) as z:
+            font=lbx_entries(z.read("mastori2/FONTS.LBX"))[6]
+            palette=read_external_palette(font)
+            self.assertEqual(len(palette),256)
+            bg=lbx_entries(z.read("mastori2/MAINMENU.LBX"))[0]
+            info=image_info(bg)
+            self.assertEqual((info["width"],info["height"],info["frames"]),(640,480,50))
+            self.assertEqual(len(info["palette"]),0)
+            for frame,expected in [
+                (0,"fa88fcdb0d52b837eeb85c8dc73263e60a8a911e4406746c3582cb30a4b9cb4e"),
+                (49,"2420bc887b5032b79579afb8a2dff97fedf9684d9587fe66a8d83609a9c97239"),
+            ]:
+                with self.subTest(frame=frame):
+                    pixels,mask=index_frame(bg,info,frame)
+                    self.assertEqual(sum(mask),307200)
+                    self.assertEqual(hashlib.sha256(rgba_frame(pixels,mask,resolve_palette(info["palette"],palette))).hexdigest(),expected)
 
     def test_real_original_animated_frames_when_supplied(self):
         path=os.getenv("MOO2_GAME_ARCHIVE")

@@ -100,7 +100,7 @@ or claim rights that have not been established.
   `web/graphics/`. Seven automated scaling/controller tests pass.
 - The static graphics preview serves correctly from an HTTP server; actual
   browser rendering and a physical Xbox controller have not yet been tested.
-- A validated private **offline LBX-to-PNG image importer** now handles supported indexed artwork with embedded RGB6 palettes and selected animation frames. Real 640×480 game art was visually checked and sharp/edge-aware 2× outputs were compared; see [graphics import evidence](research/lbx-graphics-import-2026-10-12.md). External palettes, full animation playback and production browser integration remain incomplete.
+- A validated private **offline LBX-to-PNG importer** handles embedded and verified external RGB6 palettes. All 50 main-menu frames were privately converted using `FONTS.LBX` entry 6; the new browser menu prototype renders the animation locally with Xbox-oriented Graphics and Controller Test panels. Original animation timing, actual browser/console hardware validation and full game-engine integration remain outstanding. See [external palette and menu evidence](research/lbx-external-palette-console-menu-2026-10-12.md).
 - No playable scene exists; original assets have not been deployed to the server, and Xbox One Edge has not yet been tested with hardware. Do not label these incomplete stages "done."
 
 ## Immediate engineering order

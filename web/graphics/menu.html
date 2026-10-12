@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0c1320">
+<title>Master of Orion II – Browser Menu Engineering Preview</title>
+<style>
+:root{color-scheme:dark;font:18px/1.4 system-ui,sans-serif;background:#0c1320;color:#f0f4fa}
+*{box-sizing:border-box}body{margin:0}
+header,main,footer{max-width:1340px;margin:auto;padding:14px 24px}
+h1{font-size:1.3rem;margin:0 0 8px}
+p{margin:5px 0 10px}
+.viewport{width:100%;max-width:1280px;margin:auto;position:relative;aspect-ratio:4/3;
+ background:#06121e;border:1px solid #6781a1;overflow:hidden}
+#art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.menu{position:absolute;bottom:4%;left:5%;width:min(40%,360px);background:#0b1723ec;
+ border:1px solid #6b846c;padding:14px;border-radius:9px;display:flex;flex-direction:column;gap:8px}
+.menu h2{font-size:clamp(14px,2.1vw,25px);margin:0 0 2px;color:#c9ebae}
+button,select{font:inherit;font-size:clamp(16px,1.7vw,26px);color:inherit;background:#1a3040;border:1px solid #708ba4;border-radius:5px;padding:8px;cursor:pointer}
+button:focus-visible,select:focus-visible,button.selected{outline:3px solid #a9e676;outline-offset:1px;background:#365447}
+button[disabled]{color:#a1acb9;border-color:#566170;cursor:not-allowed;opacity:.75}
+.panel{position:absolute;right:3%;top:5%;width:min(50%,440px);background:#101e30f2;border:2px solid #8aa6b0;padding:18px;border-radius:9px}
+.panel[hidden]{display:none}
+.panel h2{margin:0 0 10px}
+.panel label{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+#feedback{margin-top:12px;padding:9px;background:#152538;border-radius:4px;min-height:2.5em}
+small{color:#bed0df;display:block}
+@media(max-width:750px){:root{font-size:14px}header,main,footer{padding:8px}
+ .menu{left:3%;bottom:3%;width:53%;padding:8px;gap:4px}
+ .menu button{padding:4px 6px}.panel{top:2%;right:2%;width:65%;padding:8px}
+}
+</style>
+</head>
+<body>
+<header><h1>Master of Orion II — browser game menu prototype</h1>
+<p>Menu artwork and Xbox input integration only. <strong>New Game and Load Game are disabled until the gameplay engine exists.</strong></p></header>
+<main>
+<div class="viewport" id="viewport">
+<canvas id="art" width="640" height="480" aria-label="Private original main menu animation preview"></canvas>
+<nav class="menu" aria-label="Game menu">
+  <h2>Menu controls</h2>
+  <button id="start" disabled aria-disabled="true">New Game — not ready</button>
+  <button id="load" disabled aria-disabled="true">Load Game — not ready</button>
+  <button id="graphics">Graphics</button>
+  <button id="input">Controller Test</button>
+</nav>
+<section class="panel" id="graphicsPanel" hidden aria-label="Graphics settings">
+<h2>Graphics</h2>
+<label for="mode">Scaling
+<select id="mode"><option value="sharp">Sharp / pixel-perfect</option><option value="edge">Edge-aware Scale2x</option></select>
+</label>
+<p><button id="animate">Play animation preview (unverified speed)</button></p>
+<p><button class="back">Back to menu</button></p>
+</section>
+<section class="panel" id="inputPanel" hidden aria-label="Console input diagnostics">
+<h2>Xbox browser input test</h2>
+<p id="inputStatus">Press the console controller or keyboard.</p>
+<p>Xbox controller: D-pad or stick to select, A to open, B to return. Some browser buttons may be reserved.</p>
+<p><button class="back">Back to menu</button></p>
+</section>
+</div>
+<div id="feedback" role="status" aria-live="polite">Loading private menu artwork if available…</div>
+<small id="controllerStatus">No gamepad input has been detected yet.</small>
+<p><small>No game files are embedded in source control. Converted images stay private in the local browser preview workspace. This is not a playable release; server deployment and real Xbox One Edge testing remain outstanding.</small></p>
+</main>
+<footer><small>Source-only frontend; original MicroProse v1.31 gameplay is the future native engine baseline.</small></footer>
+<script type="module" src="./menu.mjs"></script>
+</body>
+</html>

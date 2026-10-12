@@ -90,3 +90,6 @@ decompilation/le_objects/*.bin
 # Ghidra local state
 .ghidra-projects/
 ghidra_projects/
+
+# Private locally converted proprietary game artwork (never commit)
+web/graphics/private-assets/
