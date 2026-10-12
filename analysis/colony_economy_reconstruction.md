@@ -117,7 +117,7 @@ An anomaly/event guard can force maintenance to zero before the population scan.
 
 This is structurally parallel to food maintenance. It clears the eight category counters at colony `+0x10C` and aggregate counters `+0x100..+0x103`, then scans every population unit.
 
-For categories 0..7, each unit contributes 1 only when player/race flag `+0x8B0` is set; otherwise it contributes zero. **Category 8**, not category 9, contributes weight 2 through its separate branch. This was confirmed from the v1.31 instruction at preferred virtual address `0xdf61f` (`CMP DX, 8` follows at `0xdf61f`, after the category-range check); category 9 remains the food-maintenance special case. The final colony industry-maintenance byte `+0xF0` is again:
+For categories 0..7, each unit contributes 1 only when player/race flag `+0x8B0` is set; otherwise it contributes zero. **Category 8**, not category 9, contributes weight 2 through its separate branch. This was confirmed by original x86 `CMP DX, 8` at `0xdf5cc`, followed by the conditional branch `JNZ` at `0xdf61f` using those comparison flags; category 9 remains the food-maintenance special case. The final colony industry-maintenance byte `+0xF0` is again:
 
 `(total_weight + 1) / 2`
 
