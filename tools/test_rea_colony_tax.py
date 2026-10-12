@@ -107,5 +107,3 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         raise SystemExit("usage: test_rea_colony_tax.py /path/to/ORION2.EXE")
     verify(Path(sys.argv[1]))
-
-[executed on device: penguin (fe398797-2021-4a30-8c66-0b31be29ec12)]
