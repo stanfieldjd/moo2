@@ -6,4 +6,5 @@ if [[ -n "${MOO2_V131_EXE:-}" ]]; then
 else
   echo "original_probe integration test: SKIP (set MOO2_V131_EXE to a lawful local ORION2.EXE)"
 fi
+python3 tools/relocate_le_v131.py --self-test
 python3 tools/test_save_inspect.py
