@@ -8,9 +8,9 @@ The routine works in doubled-food units.
 
 1. Read the colony planet id at colony `+0x02`.
 2. Read planet byte `+0x0B` from the 17-byte planet record and multiply by 2.
-3. If that result is zero and player record `+0x134 == 3`, replace it with 2.
-4. If colony flag `+0x164` is set, add 4.
-5. If colony flag `+0x13A` is set, add 2.
+3. If that result is zero and an indexed race/player-record byte at `+0x134` equals 3, replace it with 2. The record is addressed using a caller-supplied index and the `0xEA9` record stride; its gameplay identity is not proven by the instruction bytes alone.
+4. **Only if the resulting signed 16-bit doubled-food value is positive**, add 4 when colony flag `+0x164` is set.
+5. Under the same positive-value condition, add 2 when colony flag `+0x13A` is set. Nonpositive doubled-food values bypass both building bonuses.
 6. Return the integer doubled-food value.
 
 No floating-point arithmetic occurs.
@@ -40,13 +40,17 @@ Base research per scientist is exactly 3. Additive modifiers are:
 - colony `+0x149`: +3
 - colony `+0x159`: +1
 
-A player-record byte selected through the colony owner/race index at record `+0x0F` supplies a final special modifier:
+A **planet-record byte**, indexed by the colony's planet id (colony word `+0x02`) through 17-byte planet records at offset `+0x0F`, supplies a final special modifier. The earlier description identifying this as a player record was incorrect:
 
 - value 10: +2
 - value 11: +5
 - otherwise: +0
 
 The routine is integer-only.
+
+### Evidence correction — 2026-10-12
+
+The earlier note omitted a material food-bonus branch guard and misidentified the research special-modifier record. The corrections above are based on independently hash-verified original v1.31 instructions and REA/Ghidra observations, not a community patch. For food, `TEST DX, DX` at preferred address `0xde08b` followed by `JLE 0xde0c1` skips both colony-flag bonuses when the doubled-food value is nonpositive. For research, `MOVSX EAX, word ptr [EAX+2]`, `IMUL EAX,EAX,0x11` and the byte lookup at preferred addresses `0xdfe35..0xdfe42` select `planet-record[planet_id*17+0x0f]`. These results are covered by [the REA colony-yield opcode regression](../tools/test_rea_colony_yields.py) and [research note](../docs/research/rea-v131-colony-yields.md). They do not independently establish caller ABI, valid input ranges, or native gameplay equivalence.
 
 ## Industry converted to tax (`Colony_Industry_To_Tax_`)
 
