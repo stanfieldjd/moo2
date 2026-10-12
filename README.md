@@ -8,6 +8,12 @@ Preserve the original game's rules, AI, economy, combat, balance, events, and pr
 
 The finished application must be native. It must not require DOSBox, `ORION2.EXE`, DOS/4GW, or LBX archives at runtime. A lawful original installation may be used locally as evidence and as an import source.
 
+## Browser-playable delivery goal
+
+The operative deliverable is a **playable Master of Orion II v1.31 browser game on the user's server with Xbox controller support and upscaled graphics**, not merely a finished analysis workbench. This browser deployment must preserve original gameplay behavior while modernizing the visual and input layers. Qwen is not part of this project.
+
+See [browser-game delivery acceptance criteria](docs/browser-game-delivery-target.md) and the [graphics/controller preview](web/graphics/README.md). The latter is an engineering preview only; it does not yet implement game logic, use verified decoded original artwork, or constitute the finished game.
+
 ## Authority
 
 Official v1.31 behavior is the canonical gameplay baseline. Later patches, reverse engineering, documentation, and community findings are evidence used to identify and understand defects; fan-added features and balance changes are not automatically canonical.
