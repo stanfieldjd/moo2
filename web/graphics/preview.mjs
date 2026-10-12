@@ -1,5 +1,6 @@
 import {scale2x, fitContain} from "./scaler.mjs";
 import {controllerStep, newControllerState, GAME_WIDTH, GAME_HEIGHT} from "./gamepad.mjs";
+import {probeGamepads} from "./console-probe.mjs";
 
 const find = id => document.getElementById(id);
 const canvas=find("screen");
@@ -94,6 +95,7 @@ document.addEventListener("keydown",event=>{
     event.preventDefault();controller.active=true;
     controller.x=Math.max(0,Math.min(639,controller.x+steps[event.key][0]));
     controller.y=Math.max(0,Math.min(479,controller.y+steps[event.key][1]));dirty=true;
+    status("Keyboard direction event received: "+event.key+". Console gamepad emulation has not been verified.");
   }else if(event.key==="Enter"&&!["INPUT","SELECT","BUTTON"].includes(document.activeElement.tagName)){
     activate(Math.round(controller.x),Math.round(controller.y));
   }else if(event.key==="Escape")goBack();
@@ -101,14 +103,25 @@ document.addEventListener("keydown",event=>{
 window.addEventListener("resize",()=>{dirty=true;});
 function frame(now){
   const dt=Math.min(.1,Math.max(0,(now-lastTime)/1000));lastTime=now;
-  const pads=typeof navigator.getGamepads==="function"?navigator.getGamepads():[];
-  const pad=Array.from(pads||[]).find(g=>g?.connected&&g.mapping==="standard");
+  const probe=probeGamepads(navigator);
+  const pad=probe.gamepads.find(g=>g.mapping==="standard");
   const x=controller.x,y=controller.y,active=controller.active;
   controllerStep(pad,controller,dt,{activate,back:goBack});
-  const padName=pad?.id||"";
+  const padName=probe.status+"|"+(pad?.id||"")+"|"+(probe.reason||"");
   if(padName!==oldGamepadName){
     oldGamepadName=padName;
-    find("gamepadStatus").textContent=pad?"Controller detected: "+padName:"No standard Xbox-type controller detected.";
+    const diagnostic=probe.status==="blocked"
+      ? "Gamepad API blocked ("+probe.reason+"). Test Xbox Edge keyboard/pointer events."
+      : probe.status==="unsupported"
+        ? "Gamepad API unavailable. Test Xbox Edge keyboard/pointer input."
+        : probe.status==="invalid-response"
+          ? "Gamepad API returned an invalid result."
+          : pad
+            ? "Standard controller detected: "+pad.id
+            : probe.status==="detected"
+              ? "Controller detected but mapping is not standard; inspect console input support."
+              : "No controller exposed yet. Press a button on the Xbox controller.";
+    find("gamepadStatus").textContent=diagnostic;
   }
   if(controller.x!==x||controller.y!==y||controller.active!==active)dirty=true;
   render();requestAnimationFrame(frame);
