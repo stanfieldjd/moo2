@@ -95,6 +95,22 @@ def test(path: Path) -> None:
         assert code[at:at + len(prefix)] == prefix, name
         actual = int.from_bytes(code[at + value_offset:at + value_offset + width], "little")
         assert actual == expected, (name, actual, expected)
+    # Verify the positive-food guard using original x86 branch bytes.
+    # TEST DX, DX is a signed 16-bit comparison with zero. JLE skips both
+    # building modifiers if the value is not positive.
+    assert code[0xDE08B - base:0xDE08E - base] == b"\x66\x85\xd2"
+    assert code[0xDE08E - base:0xDE090 - base] == b"\x7e\x31"
+    food_disp = int.from_bytes(code[0xDE08F - base:0xDE090 - base],
+                               "little", signed=True)
+    assert 0xDE090 + food_disp == 0xDE0C1
+
+    # Research lookup: colony planet-id word (+2), planet record
+    # stride 17, global planet-data pointer and planet byte field +0x0f.
+    assert code[0xDFE35 - base:0xDFE39 - base] == b"\x0f\xbf\x40\x02"
+    assert code[0xDFE39 - base:0xDFE3C - base] == b"\x6b\xc0\x11"
+    assert code[0xDFE3C - base:0xDFE42 - base] == b"\x8b\x0d\xd4\xb0\x01\x00"
+    assert code[0xDFE42 - base:0xDFE46 - base] == b"\x8a\x44\x01\x0f"
+
     # Check paired increments explicitly; do not imply executable semantics.
     assert code[0xDFE54 - base:0xDFE56 - base] == b"\x42\x42"
     assert code[0xDECF4 - base:0xDECF6 - base] == b"\x42\x42"
