@@ -117,13 +117,22 @@ An anomaly/event guard can force maintenance to zero before the population scan.
 
 This is structurally parallel to food maintenance. It clears the eight category counters at colony `+0x10C` and aggregate counters `+0x100..+0x103`, then scans every population unit.
 
-For categories 0..7, each unit contributes 1 only when player/race flag `+0x8B0` is set; otherwise it contributes zero. Category 9 contributes 2 through its special path. The final colony industry-maintenance byte `+0xF0` is again:
+For categories 0..7, each unit contributes 1 only when player/race flag `+0x8B0` is set; otherwise it contributes zero. **Category 8**, not category 9, contributes weight 2 through its separate branch. This was confirmed from the v1.31 instruction at preferred virtual address `0xdf61f` (`CMP DX, 8` follows at `0xdf61f`, after the category-range check); category 9 remains the food-maintenance special case. The final colony industry-maintenance byte `+0xF0` is again:
 
 `(total_weight + 1) / 2`
 
 An anomaly/event guard can force the value to zero.
 
 These two routines establish that food and industry upkeep are computed from individual packed population records, not merely from the colony's total population count.
+
+### Verified packed-population details (2026-10-12)
+
+A direct REA/Ghidra recheck of official v1.31 establishes **four bytes per population entry**, starting at colony `+0x0c`, with the count at `+0x0a`. The low nibble of each 32-bit word determines a category (`packed & 0x0f`); bit 10 (`(packed >>> 10) & 1`) splits other-owner categories into two accumulator groups. Colony `+0x00` is read as a signed owner/category selector. The category weight is taken from 0xEA9-byte race records at offsets `+0x8b0` and `+0x8b1`.
+
+Food clears its category buckets at `+0x104..0x10b`, accumulates four category/owner groups at `+0xfc..0xff`, and stores rounded-up half-total at `+0xef`. **Only category 9** receives a special +2 food weight. Industry clears `+0x10c..0x113`, accumulates `+0x100..0x103`, and stores rounded-up half-total at `+0xf0`. **Only category 8** receives a special +2 industry weight. The earlier industry category-9 statement above has been corrected.
+
+The original functions call a separate colony/event guard before scanning. The new native module `web/engine/colony-maintenance.mjs` therefore takes its result as an explicit boolean; it does not guess that guard's semantics. The implementation refuses population lists overlapping known non-population fields. That is a conservative input-safety rule, **not an established original game maximum population**. See [maintenance implementation evidence](../docs/research/native-packed-population-upkeep-2026-10-12.md).
+
 
 ## BC maintenance (`Colony_BC_Maintenance_`)
 
