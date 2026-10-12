@@ -100,9 +100,8 @@ or claim rights that have not been established.
   `web/graphics/`. Seven automated scaling/controller tests pass.
 - The static graphics preview serves correctly from an HTTP server; actual
   browser rendering and a physical Xbox controller have not yet been tested.
-- The original game artwork has **not yet been decoded into a verified
-  browser-ready image pipeline**; no playable scene exists; server deployment
-  has not been performed. Do not label these incomplete stages "done."
+- A validated private **offline LBX-to-PNG image importer** now handles supported indexed artwork with embedded RGB6 palettes and selected animation frames. Real 640×480 game art was visually checked and sharp/edge-aware 2× outputs were compared; see [graphics import evidence](research/lbx-graphics-import-2026-10-12.md). External palettes, full animation playback and production browser integration remain incomplete.
+- No playable scene exists; original assets have not been deployed to the server, and Xbox One Edge has not yet been tested with hardware. Do not label these incomplete stages "done."
 
 ## Immediate engineering order
 
