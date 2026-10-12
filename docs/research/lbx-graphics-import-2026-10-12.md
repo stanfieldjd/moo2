@@ -49,6 +49,21 @@ The output is for **private local comparison**, and must not be uploaded to GitH
 
 These hashes prove reproducible bytes under **this decoder**; they do not independently prove that every palette and animation semantics match native 1996 rendering. A side-by-side visual comparison and source executable palette lookup remain necessary.
 
+## Visual validation and 2× scaling comparison
+
+The privately decoded real `MAINMENU.LBX` entry 1 and `LOGO.LBX` entry 0 PNGs were examined visually through the connected computer's image reader. Both showed coherent recognizable original artwork, legible game branding and correctly aligned elements; this is materially stronger than validation of PNG headers and hashes alone. A `NEWGAME.LBX` 65×65 image was also inspected and appeared visually consistent with its small source size.
+
+The 640×480 main-menu RGBA image was passed through the **same JavaScript modules in `web/graphics/scaler.mjs`** and produced two separately retained local, private 1280×960 PNGs:
+
+| Scale | Observed conversion on `penguin` | Private PNG SHA-256 |
+| --- | ---: | --- |
+| Sharp nearest neighbor 2× | approximately 69 ms | `03f385d60b613b783d9a6f63f86d10f398ffc59edb3c5320d338cbe0b5604218` |
+| Exact-color Scale2x/EPX 2× | approximately 119 ms | `94240baaad1307245f3a66b75c8a7ce44679294b2550a40c900a95f05eed38dc` |
+
+Both 1280×960 PNGs were examined visually and retain the recognizable menu, decorative framing, spaceships and lettering. In this sample, Scale2x produces subtle changes to some diagonal/pixel edges; it does not create higher-resolution source detail. **Policy:** preserve pixel-perfect scaling for text, controller focus indicators, hitboxes and UI; allow edge-aware processing only as an optional artwork treatment. Precompute the final treatment in a private offline asset build rather than assuming the Xbox One browser can upscale frames in real time. Exact frame budgets and device compatibility remain unmeasured.
+
+The converted game images and 2× PNGs remain outside the GitHub working tree. They have **not** been deployed to the user's server or tested on the Xbox One console. No site URL is yet verified as the deployment target.
+
 ## Current limits and immediate next work
 
 - Locate and validate **external** and mixed palettes, including MAINMENU entry 0, without falling back to guessed grayscale/color.
