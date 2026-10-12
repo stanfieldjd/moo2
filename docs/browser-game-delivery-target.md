@@ -101,6 +101,7 @@ or claim rights that have not been established.
 - The static graphics preview serves correctly from an HTTP server; actual
   browser rendering and a physical Xbox controller have not yet been tested.
 - A validated private **offline LBX-to-PNG importer** handles embedded and verified external RGB6 palettes. All 50 main-menu frames were privately converted using `FONTS.LBX` entry 6; the new browser menu prototype renders the animation locally with Xbox-oriented Graphics and Controller Test panels. Original animation timing, actual browser/console hardware validation and full game-engine integration remain outstanding. See [external palette and menu evidence](research/lbx-external-palette-console-menu-2026-10-12.md).
+- The native browser engine includes isolated, evidence-based v1.31 colony food-per-farmer, industry-per-worker, research-per-scientist and industry-to-tax operations. An explicit byte-record adapter reads their known colony, planet and race fields; all 35 combined JavaScript tests pass. These are **not** a complete colony turn or playable game; see [native record adapter evidence](research/native-colony-yields-and-records-2026-10-12.md).
 - No playable scene exists; original assets have not been deployed to the server, and Xbox One Edge has not yet been tested with hardware. Do not label these incomplete stages "done."
 
 ## Immediate engineering order
