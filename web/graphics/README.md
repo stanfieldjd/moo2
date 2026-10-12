@@ -23,7 +23,7 @@ Xbox standard Gamepad API input: left analog stick / D-pad moves a test cursor; 
 
     node --test web/graphics/tests/*.test.mjs
 
-Seven initial tests check alpha-preserving scaling, edge-aware corners, fit-to-screen geometry, Xbox button edge-triggering and analog/D-pad bounds. These are synthetic tests; real browser/controller verification remains outstanding.
+Seven initial tests check alpha-preserving scaling, edge-aware corners, fit-to-screen geometry, Xbox button edge-triggering and analog/D-pad bounds. These are synthetic tests; real browser/controller verification remains outstanding. **Actual Xbox One Edge console compatibility is a mandatory separate acceptance gate.** Desktop Edge with an Xbox controller does not satisfy it. Console Edge might reserve B/back or other controls; whether raw Gamepad API, keyboard, or pointer input reaches the webpage is not yet verified. Xbox One must be tested through a secure HTTPS deployment accessible from the console, without installing a game or using developer mode.
 
 ## Production constraints
 
