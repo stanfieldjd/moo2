@@ -10,7 +10,7 @@ The finished application must be native. It must not require DOSBox, `ORION2.EXE
 
 ## Browser-playable delivery goal
 
-The operative deliverable is a **playable Master of Orion II v1.31 browser game on the user's server with Xbox controller support and upscaled graphics**, not merely a finished analysis workbench. This browser deployment must preserve original gameplay behavior while modernizing the visual and input layers. Qwen is not part of this project.
+The operative deliverable is a **playable Master of Orion II v1.31 browser game on the user's server, accessible both from a computer browser and from Microsoft Edge on the Xbox One console itself, using its Xbox controller, with upscaled graphics**, not merely a finished analysis workbench. This browser deployment must preserve original gameplay behavior while modernizing the visual and input layers. Qwen is not part of this project.
 
 See [browser-game delivery acceptance criteria](docs/browser-game-delivery-target.md) and the [graphics/controller preview](web/graphics/README.md). The latter is an engineering preview only; it does not yet implement game logic, use verified decoded original artwork, or constitute the finished game.
 
