@@ -10,6 +10,7 @@ else
   echo "original_probe integration test: SKIP (set MOO2_V131_EXE to a lawful local ORION2.EXE)"
 fi
 python3 tools/relocate_le_v131.py --self-test
+python3 tools/test_lbx_graphics.py
 if [[ -n "${MOO2_V131_EXE:-}" ]] && command -v as >/dev/null && command -v ld >/dev/null; then
   rea_test_tmp="$(mktemp -d)"
   trap 'rm -rf "$rea_test_tmp"' EXIT
