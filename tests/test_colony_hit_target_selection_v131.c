@@ -65,7 +65,9 @@ int main(void)
                                               &reference_seed,&ref_count);
             Moo2V131HitSelectStatus status=moo2_v131_derived_bio_target_select(
                 colony,sizeof(colony),&seed,&selected,&eligible);
-            Moo2V131HitSelectStatus expected_status=wanted<0\n                ?MOO2_V131_HIT_SELECT_NONE:MOO2_V131_HIT_SELECT_OK;\n            require(status==expected_status);
+            Moo2V131HitSelectStatus expected_status=wanted<0
+                ?MOO2_V131_HIT_SELECT_NONE:MOO2_V131_HIT_SELECT_OK;
+            require(status==expected_status);
             require(selected==wanted && seed==reference_seed && eligible==ref_count);
             matched++;
         }
