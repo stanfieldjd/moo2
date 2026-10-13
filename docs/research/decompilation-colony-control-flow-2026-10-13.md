@@ -118,6 +118,57 @@ if the maximum is greater than half the combined sum; otherwise it stores
 are not yet independently characterized, this is a **decompiler
 observation**, not a released native rule.
 
+## New full-function byte-level extraction: `Pass_Out_Imports_`
+
+Original CODE offset **850160**, Ghidra preferred virtual address
+`0xDF8F0`, provisional size **1,238 bytes**. Independently restarting
+`objdump` at the exact recovered entry in the local relocated LE code
+object produced **344 decoded x86 instructions** and **52 conditional or
+unconditional jumps** within the bounded symbol interval. This is
+*disassembly*, not equivalent-C recovery. Five directly decoded CALLs
+were observed, in source-address order:
+
+| Call site (Ghidra VA) | Resolved source symbol |
+|---|---|
+| `0xDF96A` | `Event_Check_Space_Anomaly_` |
+| `0xDFD7F` | `Colony_Pop_Grows_` |
+| `0xDFD86` | `Colony_Specialty_` |
+| `0xDFDB1` | `Colony_Pop_Grows_` |
+| `0xDFDBC` | `Colony_Specialty_` |
+
+The conditional paths reaching the two growth/specialty call pairs
+have **not yet been reduced to an equivalent native branching model**.
+Do not remove either pair or merge their effects based on function
+names. The routine references an explicit anomaly checker; its
+outcome-dependent behavior needs independent dataflow reconstruction.
+
+## Indirect-call scope narrowed by original Watcom module identity
+
+Cross-referenced each of the **193 indirect CALL** rows in
+`decompilation/indirect_transfers.csv` to the module index of its owning
+function in `functions.csv` and `modules.csv`. Exactly **19 CALLs**
+belong to the 133 core game-code modules (indices 0–132); **174** belong
+to remaining support/runtime/toolkit libraries. Among the 19, two are
+indexed dispatches in `COLCALC.C`:
+
+- `Colony_Pop_Prod_Produced_` at object offset `0xCDFF0`
+- `Colony_Pop_Base_Prod_Produced_` at object offset `0xCE24E`
+
+Both use the same indexed DWORD table at code/data-relative
+`0xB55C`, which earlier table extraction already resolved for valid
+slots 0, 1 and 2 respectively to
+`Colony_Empire_Base_Food2_Produced_`,
+`Colony_Empire_Base_Industry_Produced_`, and
+`Colony_Empire_Base_Research_Produced_`.
+This is a **confirmed cross-reference of existing recovered targets**,
+not 2 newly discovered dynamic callbacks. No dynamic index bounds or
+behavior outside the three observed populated entries is presumed.
+
+The 137 indirect JMPs are differently distributed: 118 in the 133
+game modules and 19 in runtime/other modules. Switch-table
+reconstruction and jump-boundary analysis therefore remain a material
+**gameplay-first** task even though most indirect CALLs are support code.
+
 ## Remaining decompilation work, in priority order
 
 1. **Finish control-flow boundaries.** Current audit:
