@@ -46,4 +46,5 @@ else
   echo "REA ELF integration: SKIP (requires MOO2_V131_EXE and binutils)"
 fi
 python3 tools/test_save_inspect.py
-node --test web/graphics/tests/*.test.mjs web/engine/tests/*.test.mjs
+python3 tools/test_site_structure.py
+node --test web/graphics/tests/*.test.mjs web/engine/tests/*.test.mjs web/site/tests/*.test.mjs

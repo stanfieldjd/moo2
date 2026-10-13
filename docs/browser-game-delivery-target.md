@@ -1,4 +1,4 @@
-# Galactic Turn Lab browser-game development target (provisional title)
+# Game Lab — Space Strategy Project browser-game target
 
 ## Operative user objective (2026-10-12)
 
@@ -46,7 +46,7 @@ A completed release must satisfy **all** of the following:
    frame rate, memory usage, performance and input delay on actual hardware.
 5. **Save/load:** Persist and resume complete games with verified save/load
    integrity. Server-hosted access must not leak personal or proprietary assets.
-6. **Deployment:** Install the playable result on the existing **Contabo ISPConfig server**, using a **new, separate ISPConfig-managed website** for Galactic Turn Lab (provisional title), without modifying the Qwen site. Avoid the original game's trademarks in public branding. The permanent domain has **not been selected, cleared or registered**; do not assume ownership. Once a hostname is selected,
+6. **Deployment:** Install the playable result on the existing **Contabo ISPConfig server**, using a **new, separate ISPConfig-managed Game Lab umbrella website**, with the first game under its own `/games/space-strategy/` route and without modifying the Qwen site. Avoid the original game's trademarks in public branding. The permanent domain has **not been selected, cleared or registered**; do not assume ownership. Once a hostname is selected,
    configure HTTPS and access control, and verify the deployed route end-to-end
    from a computer **and the Xbox One Edge browser**, over the normal network
    without localhost, developer mode or local software installation. Verify
@@ -94,6 +94,19 @@ or claim rights that have not been established.
 
 
 The chosen hosting platform and outstanding domain are documented in [ISPConfig deployment plan](deployment/ispconfig-browser-hosting.md). A separate rights review must precede any public use of the original game's protected expressive assets; owning a game copy is not redistribution permission. Work on the native engine and UI can proceed before hostname selection. Do not create a placeholder public hostname or issue a certificate without a real approved hostname.
+
+## Umbrella website milestone (2026-10-12)
+
+The user confirmed Game Lab is to be the overarching ISPConfig-hosted
+website for **multiple games**; the space-strategy project is only its
+first game. The source-only multi-game portal at `web/site/` contains
+a homepage, a project page at `/games/space-strategy/`, responsive
+layout and keyboard/Xbox-style navigation. It is not playable and has
+not yet been deployed to ISPConfig; no real Xbox One browser input
+test, HTTPS configuration or public game asset release has occurred.
+
+See [site preview and architecture](../web/site/README.md). The public
+Game Lab title remains provisional, subject to name clearance.
 
 ## Verified status as of 2026-10-12
 

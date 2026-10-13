@@ -1,31 +1,38 @@
-# ISPConfig hosting plan — Galactic Turn Lab (provisional title)
+# ISPConfig hosting plan — Game Lab website (provisional umbrella title)
 
 ## Binding deployment decision (2026-10-12)
 
 The user has explicitly selected **the existing Contabo server's ISPConfig
-installation** to host the independent browser-based space-strategy project (technical reference: Master of Orion II v1.31). Create a **separate
-ISPConfig-managed website/vhost for the game**. Do not install the game into
+installation** to host Game Lab as the umbrella website for multiple browser-game projects. The first entry is a space-strategy project (technical reference: Master of Orion II v1.31). Create a **separate
+ISPConfig-managed website/vhost for Game Lab**, with games served under distinct site paths. Do not install the game into
 the existing Qwen website, alter Qwen's virtual host, or repurpose any Qwen
 service or document root.
 
-**Provisional public-facing working title:** Galactic Turn Lab. The user
-raised a trademark concern about using the original game's Orion name;
-do not use `Orion` or `Master of Orion` as the website's brand or domain.
-Historical technical references may identify the original game solely
-for accurate research and compatibility evidence.
+**Provisional public-facing umbrella title:** Game Lab. The user expressly
+confirmed this should be the **main website for multiple games**, with
+each game accessible through its own dedicated page. Game Lab is not
+yet trademark cleared. Similar brands exist; do not claim exclusivity,
+register a domain or publicly launch without a separate legal review.
+Avoid the original game's trademark in the website brand, hostname
+and public game label. Technical research may identify the original.
 
-**Permanent candidate:** `galacticturnlab.com`. This name has **not**
-received comprehensive trademark clearance, its domain availability is
-not confirmed, and the domain is **not registered or purchased**. Do not
-register it, issue certificates for it or claim ownership without a
-separate confirmation and the user's authorization.
+**Permanent domain:** not selected, registered or verified available.
+The earlier Galactic Turn Lab candidate is superseded and must not be
+used in new web configuration.
 
-**Verified provisional DNS candidate:**
-`galacticturnlab.169-58-188-138.sslip.io` resolved to
-`169.58.188.138` during a read-only check. sslip.io is third-party DNS.
-The staging name is not a legally cleared brand, ISPConfig vhost, deployed
-website, functioning TLS certificate, or Xbox One browser verification.
+**Read-only verified temporary DNS candidate:**
+`gamelab.169-58-188-138.sslip.io` resolves to the Contabo server IPv4
+`169.58.188.138`. sslip.io is third-party DNS and this address is only
+an optional staging candidate, not an authorized deployment, production
+domain, ISPConfig website or trusted HTTPS endpoint.
 
+**Static website source:** `web/site/` is a standalone, source-only
+multi-game portal. It has a homepage and the first game's development
+page at `/games/space-strategy/`; a future native gameplay route under
+`/games/space-strategy/play/` is reserved but **not implemented**.
+New games should each have a separate `/games/<slug>/` page.
+The private `web/graphics/` engineering preview is a different root
+and must not be copied to a public ISPConfig document root.
 **Separate copyright gate:** Renaming the site does not grant rights to
 redistribute the original game's graphics, music, executable, dialogue
 or other protected expression. The archived originals and privately
@@ -44,7 +51,7 @@ Inspection of the authorized host on 2026-10-12 established:
 - Contabo host with an active ISPConfig installation;
 - Apache and MariaDB active;
 - a preexisting **Qwen ISPConfig website**, which must remain untouched;
-- **no distinct Galactic Turn Lab ISPConfig site** yet provisioned;
+- **no distinct Game Lab ISPConfig site** yet provisioned;
 - adequate free disk space on that host at inspection time for source-only
   staging; capacity and permissions must be rechecked before copying assets.
 
@@ -83,7 +90,7 @@ a valid HTTPS endpoint, browser hardware validation, or completion of the game.
 ## Current non-actions
 
 - No production domain selected and **no temporary domain authorized**.
-- No Galactic Turn Lab ISPConfig website created yet.
+- No Game Lab ISPConfig website created yet.
 - No DNS, certificates, public game assets, virtual hosts, or existing
   Qwen services changed.
 - Do not claim deployment or Xbox One playability until observed.
