@@ -17,10 +17,21 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 EXE_SHA="4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f"
 BODY_SHA="ee665889d157c0882ac1512a67f1f940bf25a1d3d76811dcad0f30558d53dc89"
+REMOVE_BUILDING_SHA="8e0eb8d52268bf214d1ce3ec73d0e9970f0b4db1b0d1cae035810ace87179875"
+REMOVE_BUILDING_ENTRY=0x45EA
+REMOVE_BUILDING_LENGTH=493
 FUNCTION_ENTRY=0xCCEBD
 FUNCTION_LENGTH=641
 RX=re.compile(r"^\s*([0-9a-f]+):\s+((?:[0-9a-f]{2}\s+)+)\s*([a-z][a-z0-9.]*)\s*(.*)$",re.I)
 ANCHORS={
+    0x45F2:("mov","ecx,eax"),
+    0x45F4:("mov","ebx,edx"),
+    0x45F6:("movsx","edx,ax"),
+    0x45F9:("imul","eax,edx,0x169"),
+    0x45FF:("mov","esi,dword ptr ds:0x1ab18"),
+    0x4605:("add","eax,esi"),
+    0x4607:("movsx","esi,bx"),
+    0x460A:("mov","byte ptr [esi+eax*1+0x136],0x0"),
     0xCCF56:("cmp","byte ptr [ecx+0xa],0x1"),
     0xCCF5A:("jne","0xccff0"),
     0xCCF60:("cmp","dword ptr [ebp-0x4],0x0"),
@@ -84,6 +95,8 @@ def audit(exe,code):
         raise ValueError("Original unrelocated LE CODE size mismatch")
     if hashlib.sha256(data[FUNCTION_ENTRY:FUNCTION_ENTRY+FUNCTION_LENGTH]).hexdigest()!=BODY_SHA:
         raise ValueError("Original Resolve_Bomb_Hit_ function body changed")
+    if hashlib.sha256(data[REMOVE_BUILDING_ENTRY:REMOVE_BUILDING_ENTRY+REMOVE_BUILDING_LENGTH]).hexdigest()!=REMOVE_BUILDING_SHA:
+        raise ValueError("Original full Remove_Building_ body digest mismatch")
     symbols={row["name"]:row for row in read_rows("functions.csv")}
     for name,off in [
         ("Resolve_Bomb_Hit_",FUNCTION_ENTRY),
@@ -108,6 +121,9 @@ def audit(exe,code):
         "original_code_offset":hex(FUNCTION_ENTRY),
         "original_code_size_bytes":FUNCTION_LENGTH,
         "entire_original_body_sha256":BODY_SHA,
+        "remove_building_source_body_sha256":REMOVE_BUILDING_SHA,
+        "remove_building_original_function_size_bytes":REMOVE_BUILDING_LENGTH,
+        "remove_building_first_write":"Original CODE 0x460a clears colony BYTE+0x136+signed building ID, before other building-dependent effects. Host C only reconstructs this first write.",
         "verified_original_opcode_sites":len(ANCHORS),
         "entry_guard":"original colony count BYTE+0x0A ==1 and original weighted non-population target total ==0",
         "single_population_entry_type":"DWORD at colony+0x0C, masked to low nibble (0..15)",
