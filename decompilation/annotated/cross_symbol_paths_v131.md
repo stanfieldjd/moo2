@@ -1,4 +1,4 @@
-# Original v1.31: seven recovered cross-symbol control paths
+# Original v1.31: eleven structurally traced cross-symbol control paths
 
 **Scope:** bounded control-flow and small-function decompilation from
 the verified official v1.31 `ORION2.EXE`, SHA-256
@@ -15,9 +15,10 @@ Branch-path reconstruction does **not** imply the entire source
 function has been reproduced, that all stack frames are compatible,
 or that the paths have been executed in the original DOS game.
 
-These seven cases belong to the earlier 11
-`reachable_nontrivial_cfg_target` class; the four other members
-remain to reconstruct individually.
+These eleven cases belong to the earlier 11
+`reachable_nontrivial_cfg_target` class. Seven have short bounded operation sequences; the remaining four
+now have explicitly verified return-route graphs but require further
+source-level semantic and calling-convention reconstruction.
 
 ## 1. `Ship_Strength_Vs_Shield_`: capped return
 
@@ -138,16 +139,45 @@ in the research-cost dossier.
   not the full rendering or caller-specific stack-frame
   compatibility.
 
-## Remaining from the 11 entry-reachable nontrivial cases
+## 8–11. Remaining branch target subgraphs: original return routes established
 
-The remaining four require larger or more stateful subgraphs:
+The SHA-guarded `tools/audit_four_shared_target_paths.py`
+re-disassembled the exact source branch and independently traversed each
+observed destination inside tightly bounded named CODE-symbol intervals,
+with explicit only-when-needed shared tail allowances. It checked all
+branch targets and return instructions against original LE bytes.
+Direct CALLs were modeled as fall-through; **callee effects and
+stack-frame correctness are not yet verified**. The machine-readable
+record is
+`decompilation/reports/four_target_paths_2026-10-13.json`.
 
-| Source routine | Branch | Target and reason for further review |
-| --- | --- | --- |
-| `Draw_Special_Systems_Replacement_Box_` | `0x558FB → 0x5583A` | branches into UI setup and forwards to another shared dispatch path |
-| `Fleet_Box_Data_` | `0x61A57 → 0x610CA` | enters lengthy fleet UI field/selection logic |
-| `Ship_Owner_` | `0x68003 → 0x6892D` | enters ship-record classification logic and additional branches; cannot collapse to a single return value |
-| `Officer_Cost_` | `0x87A56 → 0x84807` | enters officer-skill/bonus calculation and shared cost logic |
+| Source branch | Target instructions reached | Return path |
+| --- | ---: | --- |
+| `Draw_Special_Systems_Replacement_Box_` `0x558FB → 0x5583A` | 13 | Calls `Play_Streaming_Music_` at `0x14677`, jumps to `0x56268` (`LEAVE`) and then `0x58D37` (`POP*; RET` at `0x58D3C`) |
+| `Fleet_Box_Data_` `0x61A57 → 0x610CA` | 43 | Contains 5 direct CALLs (not followed); returns at `0x61197` |
+| `Ship_Owner_` `0x68003 → 0x6892D` | 48 | Two return instructions: `0x68982` valid owner and `0x689C6` post-error fallback |
+| `Officer_Cost_` `0x87A56 → 0x84807` | 40 | Two direct CALLs (not followed), then shared `0x841B5` epilogue and RET at `0x841BA` |
+
+The **`Ship_Owner_`** subgraph now has a separate detailed
+function-level C-like reconstruction at
+`decompilation/annotated/ship_owner_v131.md`. It validates signed
+indices 0–499 and owner-byte values 0–15, returning the valid owner.
+Invalid cases take the original `sprintf_` +
+`Exit_With_Message_` path that invokes `exit_(1)`; treating
+that as a normal return of zero would misrepresent the original.
+
+The other three bounded graphs still require deeper reconstruction
+of their invoked UI, fleet and officer calculations. It would be
+incorrect to count them as functionally equivalent C implementations.
+
+## Continuing decompilation scope
+
+All eleven previously nontrivial *reachable branch targets* now have
+verified structural return paths, but **complete game behavior is not
+reconstructed**. Next work is extracting and validating the remaining
+full function bodies, especially officer costs, fleet UI, colony turn,
+combat, AI, and game-state persistence. Call-site register/stack state
+and unestablished branch-source reachability must also be revisited.
 
 The earlier **29** branch sources not established by bounded
 symbol-entry traversal remain independently unresolved; their
