@@ -114,6 +114,34 @@ function boundaries, nor decompile the 800 target blocks to equivalent C.
 The 311 flagged cross-function conditional branches remain a separate
 CFG correctness task.
 
+## Cross-function conditional branches: target-byte audit
+
+The 311 previously flagged cross-function conditional branches break down
+by source module into **250 from game-code modules** and **61 from
+support/runtime modules**. An independently reproducible byte-level
+review against the exact original LE object found that:
+
+| Scope | Targets beginning with a Watcom-compatible return epilogue | Others requiring CFG review |
+| --- | ---: | ---: |
+| Game modules | **158** | **92** |
+| Support/runtime modules | **1** | **60** |
+
+The epilogue classifier requires exact target bytes matching an
+optional `LEAVE`, zero or more register `POP` instructions, followed
+by `RET` or `RET imm16`; it does not guess from neighboring
+symbol names. For example, game branches aimed at original code
+offset `0xD1F97` land on `LEAVE; POP EDI; POP ESI; POP EDX; POP ECX;
+POP EBX; RET`, while branches to `0xCEB17` land on a separate
+verified shared exit sequence.
+
+This supports treating many of the 311 anomalies as **shared
+epilogue candidates rather than missing code**, but byte-pattern
+membership alone does not validate caller-specific stack layout,
+reachability, or semantic equivalence. The remaining **92 game-origin
+targets** require address-by-address CFG review. All 311 classifications
+are reproducible with `tools/audit_conditional_epilogues.py`; original
+machine-code bytes stay local.
+
 ## Seven prior entry-decoder failures triaged
 
 Earlier `function_cfg_extents.csv` reported seven
@@ -159,8 +187,8 @@ A 32-bit decoder must not be used to interpret this 16-bit island.
 
 This pass **did not finish full-game source recovery**. Next actions:
 rebuild the resynchronized control-flow corpus with synthetic function
-entries included, separately handle mixed 16/32-bit code, reduce the
-**311 cross-function conditional branches**, preserve and expand the
+entries included, separately handle mixed 16/32-bit code, review the **92 non-epilogue game-origin cross-function branches**, verify
+shared-tail stack discipline and 61 support-module cases, preserve and expand the
 **118 verified game switch tables** to full case semantics, and continue reconstructing the real
 colony turn, diplomacy, AI, combat, map generation, save/load, and
 rendering behavior. The 11 runtime-dependent CALLs require individual
