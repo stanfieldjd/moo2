@@ -1,0 +1,52 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "verified_original_named_function_bodies": [
+    {
+      "original_symbol": "Remove_Building_",
+      "CODE_offset": "0x45ea",
+      "size_bytes": 493,
+      "complete_body_sha256": "8e0eb8d52268bf214d1ce3ec73d0e9970f0b4db1b0d1cae035810ace87179875"
+    },
+    {
+      "original_symbol": "Delete_From_Colony_Queue_",
+      "CODE_offset": "0xa1e19",
+      "size_bytes": 94,
+      "complete_body_sha256": "f3826251d3060f54504bbd3cfefbfd77b33c9c55fbf3f535b57d6e94ffa14316"
+    },
+    {
+      "original_symbol": "Defragment_Queue_",
+      "CODE_offset": "0xa20bd",
+      "size_bytes": 147,
+      "complete_body_sha256": "3ca97f6084a35d60406c997248be503e05363c921d983818d9df3df48b67ef18"
+    }
+  ],
+  "anonymous_colony_queue_compactor": {
+    "CODE_offset": "0xa20ed",
+    "length": 99,
+    "complete_body_sha256": "df9b86299e8c3494ff2637537a06e8deb43904b78133246d157dc30078896821",
+    "within_named_interval": "Defragment_Queue_",
+    "important_distinction": "Named Defragment_Queue_ starts 0xA20BD and handles separate global queue; Delete_From_Colony_Queue_ CALL is exactly 0xA20ED"
+  },
+  "original_instruction_anchors_verified": 100,
+  "remove_building_queue_scan_building_ids": [
+    8,
+    22,
+    40,
+    41
+  ],
+  "star_recompute_after_deletions_for": [
+    8,
+    40,
+    41
+  ],
+  "no_star_recompute_for": [
+    22
+  ],
+  "seven_slot_scan": "colony WORDs from +0x115 to +0x121, slots0..6; signed <=-100 encodes ship index -(value+100)",
+  "ship_source_record_stride": 129,
+  "ship_status_selection": "IDs8/40/41 ship BYTE+0x10 >=2, ID22 ship BYTE+0x11 ==2",
+  "delete_original_ship_state": "for encoded ship queue slot, _ship[ship_id].BYTE+0x64=5 and WORD+0x65=-1",
+  "queue_compaction": "shift queue WORD[i+1] into [i] from removed index through 5, set WORD[6]=-1, repeat while current selected slot == -10",
+  "host_safety": "C derivatives bound indexes, expose callback failure and maximum deletions; original DOS does not validate these conditions",
+  "scope": "authenticated original source bytes and branch/inner delete source reconstruction; star recomputation remains an explicit named callback, full Remove_Building_ still incomplete"
+}
