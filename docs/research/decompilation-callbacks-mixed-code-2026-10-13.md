@@ -396,3 +396,112 @@ calling conventions and side effects. The game is not yet
 fully decompiled and no original-game differential execution
 has been performed. Original assets remain private; there
 are no website, Xbox controller or Qwen changes.
+
+
+## Fire_Ship category dispatch, bomb calculation, RNG and seed lifecycle
+
+A newer authenticated original-code pass resolved the `Fire_Ship_`
+local at `[EBP-0x14]` to the original selected weapon's
+**definition category byte at `_weapons+0x0C`**:
+`0x28CA4` reads the signed weapon ID, `0x28CA7`
+multiplies by the original 28-byte weapon-definition stride,
+`0x28CAA` reads the category, and `0x28CB2`
+stores it in that local. The original six-case dispatch at
+CODE `0x28F62` uses a table at `0x28B46`:
+
+| Category | Original CODE branch | Firing helper |
+| ---: | --- | --- |
+| 0 | `0x28FD1` | `Fire_Beam_Weapon_` |
+| 1 | `0x28F6A` | `Fire_Missile_` |
+| 2 | `0x28F6A` | `Fire_Missile_`; subsequent slot `+0x58` counter overwrite |
+| 3 | `0x290E2` | `Fire_Bomb_` |
+| 4 | `0x28F6A` | `Fire_Missile_` |
+| 5 | `0x29113` | `Fire_Special_Weapon_` |
+
+This resolves the previously unknown "mode 2": it is
+weapon definition **category 2**, not an independent
+mode or an inferred special gameplay term. The
+reconstructed router and post-fire mutations passed
+2,048 category/slot cases and 6,144 integrated
+missile-counter writes under strict C11/ASan/UBSan.
+
+The **entire original 224-byte** `Fire_Bomb_` function
+has now been source-body hash verified, with **44 original
+instruction anchors**. Its signed damage range calculations,
+`_ordnance_bonus` scaling, 0..255 firing-count loop and
+32-bit accumulator are translated into standalone C.
+Its direct `Apply_Damage_To_Planet_` (775-byte)
+callee remains an **explicit external callback**,
+not a simulated planet damage engine.
+
+The **entire original 128-byte** Watcom `Random_`
+has likewise been source-body hash verified with
+**20 machine-instruction anchors**. The original
+DWORD global `_random_seed` at DATA offset
+`0x41E34` uses the exact update
+`seed = seed * 0x41C64E6D + 0x3039` modulo
+2^32, rejection sampling with threshold
+`(UINT32_MAX / n)*n`, and a return in
+**1..n inclusive**. `Random_(0)` raises an
+original x86 divide error before its apparent
+zero-argument recovery branch could run.
+The derived C reports a safe zero-divisor status
+instead. It reproduces independently calculated
+seed/output fixtures, including a rejection retry.
+
+A further **five full original seed-related functions
+totaling 200 bytes** were verified by full-body digests
+and **14 original instruction anchors**:
+
+- `Set_Game_Random_Seed_` (28 bytes; checks original
+  `_cmd_line_seed`, calls `Check_Release_Version_`
+  first, then selects time or explicit command-line seed)
+- `Random_With_Restore_` (33 bytes; saves seed,
+  draws, restores seed, returns signed low 16 bits)
+- `Set_Random_Seed_` (44 bytes)
+- `Get_Random_Seed_` (44 bytes)
+- `Randomize_` (51 bytes; invokes original
+  `time_(NULL)`, then installs its returned seed)
+
+This pass therefore added **552 source-authenticated
+complete original function-body bytes** to the
+record, alongside the bounded six-category
+`Fire_Ship_` branch table (the remaining 2,216-byte
+firing routine is **not** fully decompiled).
+
+Original seed-driven `Random_(100)` now feeds
+the derived `Fire_Bomb_` loop; integrated tests
+reproduce both expected damage under a test-only
+planet-effect callback and exact final seed state.
+RNG seed initialization and restore behavior have
+separate strict-C11/ASan/UBSan regression tests.
+These are original-instruction-supported C functions
+and host tests, **not** dynamic differential validation
+against the DOS executable or a playable full engine.
+
+Source and research artifacts:
+
+- `tools/audit_fire_ship_category_dispatch_v131.py`
+- `decompilation/reconstructed/fire_ship_category_dispatch_v131.c`
+- `decompilation/annotated/fire_ship_ammo_mutations_v131.md`
+- `decompilation/reports/fire_ship_category_dispatch_v131_2026-10-13.json`
+- `decompilation/reconstructed/fire_bomb_v131.c`
+- `decompilation/annotated/fire_bomb_v131.md`
+- `tools/audit_fire_bomb_v131.py`
+- `decompilation/reports/fire_bomb_v131_2026-10-13.json`
+- `decompilation/reconstructed/random_v131.c` and `.h`
+- `decompilation/annotated/random_v131.md`
+- `tools/audit_random_v131.py`
+- `decompilation/reports/random_v131_2026-10-13.json`
+- `decompilation/reconstructed/random_seed_lifecycle_v131.c`
+- `decompilation/annotated/random_seed_lifecycle_v131.md`
+- `tools/audit_random_seed_lifecycle_v131.py`
+- `decompilation/reports/random_seed_lifecycle_v131_2026-10-13.json`
+
+The outstanding combat bottleneck is the full
+`Apply_Damage_To_Planet_` routine, followed by
+`Fire_Missile_`, `Fire_Beam_Weapon_`,
+`Fire_Special_Weapon_`, remaining `Fire_Ship_`
+control flow, and original game save/turn systems.
+No Game Lab public website, Xbox controls or
+Qwen configuration was modified.
