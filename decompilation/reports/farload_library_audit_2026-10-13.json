@@ -1,0 +1,238 @@
+{
+  "source_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "watcom_symbol": "Farload_Library_Data_",
+  "code_offset": "0x116f3b",
+  "size_bytes": 760,
+  "verified_instruction_count_excluding_embedded_table": 194,
+  "embedded_table_offset": "0x117145",
+  "embedded_table_size_bytes": 16,
+  "jump_instructions": 21,
+  "direct_named_calls": 27,
+  "header_read_bytes": 2048,
+  "header_original_DATA_object_offset": "0x43a6c",
+  "validated_header_magic": "0xfead",
+  "header_number_of_entries": "uint16 at header +0; original code reads unaligned dword at header - 2 then signed SAR 16",
+  "entry_offset_table": "DWORDs from header + 8, second at header +12; selected entry start/end offsets",
+  "entry_two_word_reads": "original calls at 0x1170db, 0x1170f3 with EDX=2, EBX=1",
+  "dispatch_entry_offset": "0x117190",
+  "dispatch_index_register": "EAX <- saved original ECX * 4",
+  "allocation_modes": [
+    {
+      "mode": 0,
+      "target_offset": "0x117197",
+      "call": "Allocate_Space_No_Header_"
+    },
+    {
+      "mode": 1,
+      "target_offset": "0x1171ba",
+      "call": "Allocate_First_Block_No_Header_"
+    },
+    {
+      "mode": 2,
+      "target_offset": "0x1171e0",
+      "call": "Allocate_Next_Block_No_Header_"
+    },
+    {
+      "mode": 3,
+      "target_offset": "0x117206",
+      "call": "no allocation; pointer from original EBX"
+    }
+  ],
+  "mode_out_of_range": "JA at 0x117184 bypasses table and keeps saved ECX pointer; exact calling contract pending",
+  "sentinel_branch_note": "XOR EAX,EAX; MOV AX,[EBP+0x14]; CMP EAX,0xffffffff makes equality impossible under these instructions, even if AX == 0xffff. Do not claim a working wildcard size behavior.",
+  "final_load": "fread_ original CODE 0x1188db then return loaded pointer via EAX; wrapper RET 0xc",
+  "scope": "entire original instruction range structurally accounted, NOT full dataflow-equivalent LBX C decompilation or game-data validation",
+  "call_edges": [
+    {
+      "call_site_offset": "0x116f40",
+      "target_offset": "0x12f1e0",
+      "target_symbols": [
+        "__CHK"
+      ]
+    },
+    {
+      "call_site_offset": "0x116f6d",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x116f83",
+      "target_offset": "0x12c896",
+      "target_symbols": [
+        "_stricmp_",
+        "strcmpi_",
+        "stricmp_"
+      ]
+    },
+    {
+      "call_site_offset": "0x116f9e",
+      "target_offset": "0x11697a",
+      "target_symbols": [
+        "fclose_"
+      ]
+    },
+    {
+      "call_site_offset": "0x116fab",
+      "target_offset": "0x12f37f",
+      "target_symbols": [
+        "strcpy_"
+      ]
+    },
+    {
+      "call_site_offset": "0x116fb8",
+      "target_offset": "0x11685d",
+      "target_symbols": [
+        "fopen_"
+      ]
+    },
+    {
+      "call_site_offset": "0x116fdf",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x116fef",
+      "target_offset": "0x12f37f",
+      "target_symbols": [
+        "strcpy_"
+      ]
+    },
+    {
+      "call_site_offset": "0x116fff",
+      "target_offset": "0x12f220",
+      "target_symbols": [
+        "strcat_"
+      ]
+    },
+    {
+      "call_site_offset": "0x11700f",
+      "target_offset": "0x11685d",
+      "target_symbols": [
+        "fopen_"
+      ]
+    },
+    {
+      "call_site_offset": "0x11702d",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x117047",
+      "target_offset": "0x1188db",
+      "target_symbols": [
+        "fread_"
+      ]
+    },
+    {
+      "call_site_offset": "0x117066",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x11708d",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1170c3",
+      "target_offset": "0x119ee8",
+      "target_symbols": [
+        "fseek_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1170db",
+      "target_offset": "0x1188db",
+      "target_symbols": [
+        "fread_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1170f3",
+      "target_offset": "0x1188db",
+      "target_symbols": [
+        "fread_"
+      ]
+    },
+    {
+      "call_site_offset": "0x117122",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x11713b",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x117169",
+      "target_offset": "0x119ee8",
+      "target_symbols": [
+        "fseek_"
+      ]
+    },
+    {
+      "call_site_offset": "0x11719a",
+      "target_offset": "0x101131",
+      "target_symbols": [
+        "Allocate_Space_No_Header_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1171b3",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1171c0",
+      "target_offset": "0x101188",
+      "target_symbols": [
+        "Allocate_First_Block_No_Header_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1171d9",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1171e6",
+      "target_offset": "0x1011d6",
+      "target_symbols": [
+        "Allocate_Next_Block_No_Header_"
+      ]
+    },
+    {
+      "call_site_offset": "0x1171ff",
+      "target_offset": "0x1173dc",
+      "target_symbols": [
+        "Error_Handler_"
+      ]
+    },
+    {
+      "call_site_offset": "0x11721d",
+      "target_offset": "0x1188db",
+      "target_symbols": [
+        "fread_"
+      ]
+    }
+  ]
+}
