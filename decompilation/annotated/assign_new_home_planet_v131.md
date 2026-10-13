@@ -70,7 +70,7 @@ player[owner].home_star_word_at_0x29 =
     matched ? selected_colony.star_word_at_0x02 : 0xFFFF;
 ```
 
-That value is a **star ID WORD** read from colony `+0x02`,
+That value is a **planet ID WORD** read from colony `+0x02`,
 not the selected colony index and not a guessed boolean.
 
 The source instruction range `0xDCB65..0xDCBF6` includes the
@@ -90,7 +90,7 @@ unresolved original callee inside this 146-byte function.
 - `tools/audit_assign_new_home_planet_v131.py`
 
 The standalone function was tested with every possible 16-bit
-star ID, all 65,536 pairs of population byte values,
+planet ID, all 65,536 pairs of population byte values,
 tie precedence, excluded colony indices, zero-population
 candidates, no candidates, and invalid host buffers.
 The building-9 tests covered all 256 original signed owner
@@ -102,7 +102,7 @@ An additional integrated test uses the derived building-9
 callback to invoke the **complete derived home-reassignment
 function**, asserting the original exclusion rule prevents
 the removed colony from being reselected and verifying the
-player's newly written star WORD.
+player's newly written home-planet WORD.
 
 These C programs passed strict C11 warnings,
 AddressSanitizer and UndefinedBehaviorSanitizer.
@@ -125,3 +125,5 @@ save/load and a playable browser engine remain incomplete.
 No original proprietary executable, artwork or game media was
 published to GitHub. No Game Lab site, Xbox controller or Qwen
 runtime changes were made.
+
+**Independent type verification:** the original `Remove_Building_` star-recalculation branch at CODE `0x46E2..0x46FF` uses colony WORD `+0x02` to index the original `_planet` array (17-byte stride), then uses the BYTE at planet `+0x02` to index `_star` (113-byte stride). Thus the `+0x02` value stored by `Assign_New_Home_Planet_` is the **planet index**, not the star index. This second source audit is `tools/audit_remove_building_star_recalc_v131.py`.
