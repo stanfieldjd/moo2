@@ -736,3 +736,82 @@ the reconstructed source effects, reconstruct building destruction,
 defense-clearing, and all player/global mutations. Full-game
 decompilation remains incomplete. No Game Lab, Xbox, Qwen,
 or original game media changes were made.
+
+
+
+## Verified original lone-colonist bomb branch and Remove_Building first write
+
+The original v1.31 `Resolve_Bomb_Hit_` contains a special path
+when colony population-entry count BYTE `+0x0A` is exactly 1
+and the other target groups' weighted total equals 0. The
+source-defined defense is selected with the low nibble
+of the only DWORD entry at colony `+0x0C`, indexing
+signed WORD `colony+0xB4+2*(entry & 0x0F)`.
+
+- Signed defense >100: subtract exactly 100 from
+  the selected defense WORD, mark result BYTE `+0x41`,
+  return original EAX=1.
+- Defense <=100: increment result WORD `+0x0C`,
+  zero that defense, clear original colony
+  population count BYTE `+0x0A`,
+  optionally call `Remove_Building_(colony_id,9)`
+  when colony building-presence BYTE `+0x13F`
+  is nonzero, mark result BYTE `+0x42`,
+  add 10 to original owner/opponent player WORD
+  at `_player + 0xEA9*signed(colony[0]) +
+  0x6FF + 2*signed(event[0])`, mark result
+  BYTE `+0x41`, and return 1.
+
+The original `Remove_Building_` Watcom function
+begins at CODE `0x45EA` (493 source bytes).
+Its **first verified write** at CODE `0x460A`
+sets `_colony[0x169*colony_id + 0x136+building_id]`
+to zero. With building ID 9 this clears the
+original same `+0x13F` marker the caller tested.
+The remainder of this 493-byte function has further
+side effects and is NOT reconstructed by clearing
+the byte alone.
+
+The bounded source audit
+`tools/audit_colony_single_entry_bomb_v131.py`
+matches both original entire named function-body
+digests (`Resolve_Bomb_Hit_` 641 bytes;
+`Remove_Building_` 493 bytes), original DATA
+symbols, and **47 individual machine-instruction sites**.
+The audit report is
+`decompilation/reports/colony_single_entry_bomb_v131_2026-10-13.json`.
+
+The two derived original-effect subsets are:
+
+- `decompilation/reconstructed/colony_single_entry_bomb_v131.c`
+- `decompilation/reconstructed/remove_building_first_write_v131.c`
+
+`Remove_Building_` side effects beyond its
+first source write remain as an explicit callback.
+The owner-statistics write reuses the earlier
+source-recovered
+`colony_hit_player_stats_v131.c`/header.
+
+`tests/test_colony_single_entry_bomb_v131.c`
+exhaustively verifies all 65,536 signed defense
+WORD values, all 16 original low-nibble
+defense positions, and conditional building-9
+callback ordering. The integrated callback
+uses the separately derived first original
+building-presence byte-clear helper.
+`tests/test_remove_building_first_write_v131.c`
+covers 3 colony IDs x 49 building slots x
+256 possible original building-byte values,
+checking that no other memory byte changes.
+Both tests passed strict C11 compilation,
+AddressSanitizer and UndefinedBehaviorSanitizer
+on the original executable analysis machine.
+
+**Remaining:** the other weighted bomb-hit outcomes,
+the full `Remove_Building_` control and side effects,
+original DOS differential runs, the broader combat engine
+and remaining game systems. Host buffer checks and
+the rejection of otherwise cancelling malformed
+weighted counters are deliberate safety differences.
+No public Game Lab/Xbox/Qwen changes or publication
+of proprietary original game media occurred.
