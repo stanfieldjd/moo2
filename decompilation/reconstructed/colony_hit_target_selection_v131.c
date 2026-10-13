@@ -165,7 +165,7 @@ Moo2V131HitSelectStatus moo2_v131_derived_bomb_weighted_target(
     const int32_t n130=moo2_v131_colony_target_signed_word(colony+0x130u);
     const int32_t n132=moo2_v131_colony_target_signed_word(colony+0x132u);
     const int32_t extra=moo2_v131_colony_target_signed_word(colony+0x125u);
-    if(n130<0 || n132<0 || extra<0)
+    if(n130<0 || n132<0)
         return MOO2_V131_HIT_SELECT_INVALID;
 
     uint32_t total=(uint32_t)building_count+(uint32_t)n130+(uint32_t)n132
