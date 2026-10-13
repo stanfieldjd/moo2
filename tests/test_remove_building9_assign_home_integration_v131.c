@@ -24,7 +24,6 @@ static uint16_t read16(const uint8_t *p){return (uint16_t)(p[0]|((uint16_t)p[1]<
 static void assign(void *opaque,int32_t owner,int32_t excluded_id){
     Harness *h=(Harness *)opaque;
     must(excluded_id>=0 && excluded_id<4 && owner==1);
-    must(h->colonies+(size_t)excluded_id*0x169u);
     must(h->colonies[(size_t)excluded_id*0x169u+0x13Fu]==0);
     must(moo2_v131_derived_assign_new_home_planet(
         h->colonies,4u,h->players,2u*0xEA9u,
