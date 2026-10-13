@@ -4,6 +4,7 @@
   "zero_filled_data_or_boundary": 5,
   "runtime_initializer_to_add_to_code_corpus": 1,
   "mixed_data_and_16bit_code_to_analyze_separately": 1,
+  "verified_16bit_procedure_boundaries": 4,
   "remaining_note": "Only this exact seven-entry inventory is triaged; 16-bit island routines and other CFG gaps remain to reconstruct.",
   "entries": [
     {
@@ -38,8 +39,30 @@
       "name": "__VideoBasePD16",
       "object_offset": "0x15839d",
       "interval_bytes": 188,
-      "status": "data-prefix-followed-by-16-bit-code",
-      "evidence": "eight zero bytes; i8086 procedure prologue at +8"
+      "status": "data-prefix-followed-by-four-16-bit-procedures",
+      "evidence": "eight zero bytes; four i8086 prologues and RET boundaries",
+      "subroutines": [
+        {
+          "entry_offset": "0x1583a5",
+          "ret_offset": "0x1583d4",
+          "preliminary_role": "position video-buffer cursor (provisional)"
+        },
+        {
+          "entry_offset": "0x1583d5",
+          "ret_offset": "0x1583fb",
+          "preliminary_role": "write one character (provisional)"
+        },
+        {
+          "entry_offset": "0x1583fc",
+          "ret_offset": "0x15841f",
+          "preliminary_role": "write NUL-terminated text (provisional)"
+        },
+        {
+          "entry_offset": "0x158420",
+          "ret_offset": "0x158458",
+          "preliminary_role": "write two hexadecimal digits (provisional)"
+        }
+      ]
     },
     {
       "name": "__SegmentStartPC32",
