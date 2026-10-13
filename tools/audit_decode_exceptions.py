@@ -30,6 +30,7 @@ def main(exe, code):
         raise ValueError("Decode exception inventory changed")
     classifications=[]
     for row in flagged:
+        subroutines=[]
         off=int(row["offset"]);size=int(row["inferred_size"])
         chunk=blob[off:off+size]
         if len(chunk)!=size:
@@ -61,16 +62,32 @@ def main(exe, code):
                   capture_output=True,text=True,check=True)
             if "push   bp" not in p.stdout or "mov    bp,sp" not in p.stdout:
                 raise ValueError("16-bit decoder did not recognize procedure prologue")
-            status="data-prefix-followed-by-16-bit-code"
-            evidence="eight zero bytes; i8086 procedure prologue at +8"
+            # Four consecutive 16-bit RET-terminated procedures are
+            # present in the data/pointer-marked mixed-mode interval.
+            # Relative starts are anchored to the original object offset.
+            specs=[
+                (0x1583A5,0x1583D4,"position video-buffer cursor (provisional)"),
+                (0x1583D5,0x1583FB,"write one character (provisional)"),
+                (0x1583FC,0x15841F,"write NUL-terminated text (provisional)"),
+                (0x158420,0x158458,"write two hexadecimal digits (provisional)"),
+            ]
+            for start,finish,role in specs:
+                if blob[start:start+3]!=bytes.fromhex("55 8b ec") or blob[finish]!=0xC3:
+                    raise ValueError(f"16-bit procedure boundary changed: {start:#x}")
+                subroutines.append({"entry_offset":hex(start),"ret_offset":hex(finish),
+                                    "preliminary_role":role})
+            status="data-prefix-followed-by-four-16-bit-procedures"
+            evidence="eight zero bytes; four i8086 prologues and RET boundaries"
         classifications.append({"name":row["name"],"object_offset":hex(off),
-           "interval_bytes":size,"status":status,"evidence":evidence})
+           "interval_bytes":size,"status":status,"evidence":evidence,
+           **({"subroutines":subroutines} if subroutines else {})})
     return {
         "original_sha256":SOURCE_SHA,
         "prior_32bit_decode_exceptions":len(flagged),
         "zero_filled_data_or_boundary":5,
         "runtime_initializer_to_add_to_code_corpus":1,
         "mixed_data_and_16bit_code_to_analyze_separately":1,
+        "verified_16bit_procedure_boundaries":4,
         "remaining_note":"Only this exact seven-entry inventory is triaged; 16-bit island routines and other CFG gaps remain to reconstruct.",
         "entries":classifications
     }
