@@ -14,7 +14,7 @@
  * choose candidate if unsigned population BYTE+0x0A >= current best,
  * initially 0. Because the scan is descending, tied population counts
  * select the LOWEST matching colony index. Store that colony's signed
- * star WORD+0x02 (raw 16-bit) into player WORD+0x29, owner stride 0xEA9.
+ * planet ID WORD+0x02 (raw 16-bit) into player WORD+0x29, owner stride 0xEA9.
  * If none qualifies, store 0xFFFF.
  *
  * Host checks reject unsafe memory buffers and invalid signed inputs,
@@ -30,7 +30,7 @@ Moo2V131AssignHomeStatus moo2_v131_derived_assign_new_home_planet(
     const uint8_t *colonies,size_t colony_count,
     uint8_t *players,size_t player_bytes,
     int32_t owner_id,int32_t excluded_colony_id,
-    uint16_t *star_word_written)
+    uint16_t *planet_word_written)
 {
     if(!players || owner_id<0 || owner_id>127 ||
        colony_count>32767u || (colony_count && !colonies))
@@ -65,6 +65,6 @@ Moo2V131AssignHomeStatus moo2_v131_derived_assign_new_home_planet(
     }
     players[target]=(uint8_t)chosen;
     players[target+1u]=(uint8_t)(chosen>>8);
-    if(star_word_written)*star_word_written=chosen;
+    if(planet_word_written)*planet_word_written=chosen;
     return MOO2_V131_ASSIGN_HOME_OK;
 }
