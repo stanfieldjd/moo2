@@ -1,0 +1,35 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_watcom_function": "Apply_Damage_To_Planet_",
+  "original_code_offset": "0x2a3c3",
+  "original_function_size_bytes": 775,
+  "complete_original_function_sha256": "36b773f8747c65d082b0458980138d9df024c44f2fbe5b38e0c133780e262212",
+  "verified_instruction_anchors": 65,
+  "source_named_helpers": {
+    "Clear_Structure_": "0x117776",
+    "Best_Armor_": "0x4685f",
+    "Random_": "0x1147a0",
+    "Apply_Bomb_Hits_": "0xcd2f2",
+    "Does_Combat_Ship_Have_Special_": "0x3b0d3",
+    "Does_Combat_Planet_Have_Defenses_": "0x2a142",
+    "Destroy_Colony_Defense_": "0x2a19e"
+  },
+  "source_named_globals": {
+    "_combat_data": "0x1a864",
+    "_player": "0x1ff98",
+    "_armor": "0x7638",
+    "_bio_weapon_flag": "0x218e2",
+    "_combat_bomb_result": "0x21b5a",
+    "_combat_defender_player": "0x2188e",
+    "_combat_attacker_player": "0x218ac",
+    "_cmbt_colony_id": "0x21878",
+    "_apply_damage_to_planet": "0x218f6"
+  },
+  "input": "EAX points to writable candidate damage, EBX low16 is weapon field +0x12 (flags), EDX=0 on Fire_Bomb_ call",
+  "bio_branch": "original TEST low byte weapon flags 0x80 at CODE+0x2a40d; bio path sets _bio_weapon_flag and _combat_bomb_result and uses Random_(100) and Apply_Bomb_Hits_",
+  "conventional_branch": "CODE+0x2a4ef; check ship special bit ID7; if special=1 modify *damage signed16 with trunc_toward_zero(*damage/4)-1 using x86 CWD SHL SBB SAR DEC",
+  "conventional_damage_consumer": "CODE+0x2a51a Does_Combat_Planet_Have_Defenses_, ship+0x29/+0x2b, ship+0xC0, +0xAA and original named colony-defense/hit callbacks",
+  "damage_inout_writeback": "CODE 0x2a6c2 stores low16 SI into WORD [ECX] original candidate pointer",
+  "return": "EAX loaded from local DWORD [EBP-8] at 0x2a6bf; not the same as the inout damage output",
+  "scope": "full original function bytes and selected instruction/data/call map verified; full player/colony and planet-damage behavior NOT yet equivalently reconstructed in C"
+}
