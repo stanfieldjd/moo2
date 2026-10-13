@@ -142,6 +142,87 @@ targets** require address-by-address CFG review. All 311 classifications
 are reproducible with `tools/audit_conditional_epilogues.py`; original
 machine-code bytes stay local.
 
+## Second-pass audit of the 92 non-simple-epilogue game branches
+
+**The older `function_boundary_audit.csv` uses independently decoded
+symbol intervals, then records only the first outward direct jump; it
+does not prove that instruction is reachable from the routine's entry.**
+Accordingly, the original 311-branch report is an anomaly inventory,
+not a list of 311 proven broken control-flow edges.
+
+An additional source-hash-guarded tool,
+`tools/audit_entry_reachability.py`, starts at each original function
+entry, walks decoded direct fall-through and branch paths inside that
+symbol's provisional interval, incorporates previously verified switch
+cases, and checks whether the recorded branch source was traversed.
+
+**Results for the 92 non-simple-epilogue game-origin candidates:**
+
+- **63** branch instructions were reachable from the original symbol
+  entry under this *bounded direct-CFG* method.
+- **29** were **not established** as reachable by that method.
+  These are *not proven dead code*: indirect control transfers,
+  cross-symbol tails, embedded data and decoding alignment can defeat
+  the bounded analysis.
+
+The second source-hash-guarded audit,
+`tools/audit_extended_return_targets.py`, decodes independently
+from the **exact target** of the 63 reachable branches, checking
+limited straight-line return preparation, exact RET epilogues,
+one-hop unconditional jumps to return epilogues, and named
+function-entry destinations.
+
+| Observed target shape | Branch sites |
+| --- | ---: |
+| Straight-line setup and return (includes AL-zeroing stubs) | **34** |
+| One unconditional jump into a verified shared return epilogue | **10** |
+| Branch destination exactly equals another original named function entry | **8** |
+| Other entry-reachable code needing complete target CFG analysis | **11** |
+| Source branch not established reachable by the bounded walk | **29** |
+| **Total** | **92** |
+
+This brings the number of game-origin branches with **recognizable
+entry/return target structure** to 158 + 34 + 10 + 8 = **210 out of
+250**. This **is not 210 proven equivalent functions**; in particular
+the original Watcom stack/register state must still be verified when
+sharing exits between routines.
+
+**Reproducible metadata:**
+
+- `decompilation/reports/entry_reachability_2026-10-13.json`
+- `decompilation/reports/extended_return_targets_2026-10-13.json`
+
+The 11 entry-reachable nontrivial targets are:
+`Ship_Strength_Vs_Shield_`,
+`Draw_Special_Systems_Replacement_Box_`,
+`Fleet_Box_Data_`, `Ship_Owner_`, `Draw_Relocation_Links_`,
+`Officer_Cost_`, `Remap_Draw_Ship_Seg_N_Centered_`,
+`Pop_State_String_`, `Draw_Colony_Info_Production_For_`,
+`Do_Net_Combat_Update_`, and `Get_Tech_Cost_`.
+
+The 29 not established by the bounded walk must be re-entered from
+source and caller references before treating them as real branch
+sites. This matters especially for entries that linear `objdump`
+misreads as conditional opcodes in interleaved code/data.
+
+### Exact branch and target reconstruction: ship/shield exit cap
+
+In `Ship_Strength_Vs_Shield_` the original code-object branch at
+`0x4F22B` tests byte flag `[0x21CB4]`, then conditionally jumps
+to `0x4EE13` (inside an earlier provisional symbol interval).
+The target instructions show:
+
+- `CMP ESI,0xFA00`, followed by unsigned `JBE`;
+- when ESI exceeds `0xFA00`, `MOV ESI,0xFA00`;
+- `MOV EAX,ESI; LEAVE; POP EDI; POP ESI; POP ECX; RET`.
+
+Therefore **on this particular taken-branch path**, the result
+returned in EAX is the unsigned 32-bit minimum of the incoming ESI
+and 64,000. The byte flag's gameplay meaning, the calculation
+which supplied ESI, and the correctness of source/target stack
+compatibility are **not yet proved**. This is a bounded
+instruction-level reconstruction, not a whole-routine port.
+
 ## Seven prior entry-decoder failures triaged
 
 Earlier `function_cfg_extents.csv` reported seven
@@ -187,7 +268,7 @@ A 32-bit decoder must not be used to interpret this 16-bit island.
 
 This pass **did not finish full-game source recovery**. Next actions:
 rebuild the resynchronized control-flow corpus with synthetic function
-entries included, separately handle mixed 16/32-bit code, review the **92 non-epilogue game-origin cross-function branches**, verify
+entries included, separately handle mixed 16/32-bit code, investigate the **11 entry-reachable nontrivial game CFG destinations** and **29 game branch sites not established reachable** (without treating the latter as dead code), verify
 shared-tail stack discipline and 61 support-module cases, preserve and expand the
 **118 verified game switch tables** to full case semantics, and continue reconstructing the real
 colony turn, diplomacy, AI, combat, map generation, save/load, and
