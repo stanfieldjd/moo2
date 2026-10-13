@@ -99,3 +99,134 @@ Moo2V131HitSelectStatus moo2_v131_derived_bomb_eligible_indices(
     *eligible_count=count;
     return count?MOO2_V131_HIT_SELECT_OK:MOO2_V131_HIT_SELECT_NONE;
 }
+
+
+/*
+ * Original Resolve_Bomb_Hit_ weighted draw from 0xCCF30 through
+ * 0xCD102. This only chooses a target class; all actual colony,
+ * player, tech, result-event, and population mutations remain
+ * out of scope.
+ *
+ * Source weights:
+ *   eligible non-excluded building indices (colony+0x136+i),
+ *   signed WORD colony+0x130,
+ *   signed WORD colony+0x132,
+ *   one extra if signed WORD colony+0x125 !=0,
+ *   and BYTE colony+0x0A ONLY if that byte !=1.
+ * For colony+0x0A ==1 and total zero, original enters its
+ * special first population entry treatment (0xCCF6A) without RNG.
+ * For other total zero, original skips drawing.
+ *
+ * Original Random_(total) returns 1..total; LEA EBX,[EAX-1]
+ * makes a zero-based position used for cumulative interval checks.
+ * All signed-negative count inputs are rejected here as malformed
+ * host state, not a simulation of original unsafe DOS behavior.
+ */
+typedef enum {
+    MOO2_V131_BOMB_TARGET_NONE=0,
+    MOO2_V131_BOMB_TARGET_BUILDING=1,
+    MOO2_V131_BOMB_TARGET_POP_130=2,
+    MOO2_V131_BOMB_TARGET_POP_132=3,
+    MOO2_V131_BOMB_TARGET_COLONY_125=4,
+    MOO2_V131_BOMB_TARGET_POP_ENTRY=5,
+    MOO2_V131_BOMB_TARGET_SINGLE_ENTRY_SPECIAL=6
+} Moo2V131BombTargetKind;
+
+typedef struct {
+    Moo2V131BombTargetKind kind;
+    uint32_t total_weight;
+    uint32_t zero_based_draw;
+    uint32_t source_category_offset;
+    uint8_t selected_building_index;
+} Moo2V131BombWeightedSelection;
+
+static int32_t moo2_v131_colony_target_signed_word(const uint8_t *p)
+{
+    uint16_t bits=(uint16_t)p[0]|((uint16_t)p[1]<<8);
+    return bits<UINT16_C(0x8000)?(int32_t)bits:(int32_t)bits-65536;
+}
+
+Moo2V131HitSelectStatus moo2_v131_derived_bomb_weighted_target(
+    const uint8_t *colony,size_t colony_size,uint32_t *original_seed,
+    Moo2V131BombWeightedSelection *out)
+{
+    if(!colony || !original_seed || !out ||
+       colony_size<MOO2_V131_BOMB_SLOT_BYTES_REQUIRED)
+        return MOO2_V131_HIT_SELECT_INVALID;
+
+    uint8_t eligible_slots[MOO2_V131_BOMB_SLOT_SCAN_COUNT]={0};
+    size_t building_count=0;
+    Moo2V131HitSelectStatus st=moo2_v131_derived_bomb_eligible_indices(
+        colony,colony_size,eligible_slots,sizeof(eligible_slots),
+        &building_count);
+    if(st==MOO2_V131_HIT_SELECT_INVALID)
+        return st;
+
+    const int32_t n130=moo2_v131_colony_target_signed_word(colony+0x130u);
+    const int32_t n132=moo2_v131_colony_target_signed_word(colony+0x132u);
+    const int32_t extra=moo2_v131_colony_target_signed_word(colony+0x125u);
+    if(n130<0 || n132<0 || extra<0)
+        return MOO2_V131_HIT_SELECT_INVALID;
+
+    uint32_t total=(uint32_t)building_count+(uint32_t)n130+(uint32_t)n132
+                  +(extra!=0?1u:0u);
+    const uint32_t population=(uint32_t)colony[0x0au];
+    if(population==1u && total==0u) {
+        out->kind=MOO2_V131_BOMB_TARGET_SINGLE_ENTRY_SPECIAL;
+        out->total_weight=0u;
+        out->zero_based_draw=0u;
+        out->source_category_offset=0u;
+        out->selected_building_index=0u;
+        return MOO2_V131_HIT_SELECT_OK;
+    }
+    if(population!=1u)
+        total+=population;
+
+    out->total_weight=total;
+    out->zero_based_draw=0u;
+    out->source_category_offset=0u;
+    out->selected_building_index=0u;
+    if(total==0u) {
+        out->kind=MOO2_V131_BOMB_TARGET_NONE;
+        return MOO2_V131_HIT_SELECT_NONE;
+    }
+
+    uint32_t roll=0u;
+    if(moo2_v131_derived_random(original_seed,total,&roll)!=
+        MOO2_V131_RANDOM_OK)
+        return MOO2_V131_HIT_SELECT_RANDOM_ERROR;
+    const uint32_t draw=roll-1u;
+    out->zero_based_draw=draw;
+
+    uint32_t at=draw;
+    if(at<(uint32_t)building_count) {
+        out->kind=MOO2_V131_BOMB_TARGET_BUILDING;
+        out->source_category_offset=at;
+        out->selected_building_index=eligible_slots[at];
+        return MOO2_V131_HIT_SELECT_OK;
+    }
+    at-=(uint32_t)building_count;
+    if(at<(uint32_t)n130) {
+        out->kind=MOO2_V131_BOMB_TARGET_POP_130;
+        out->source_category_offset=at;
+        return MOO2_V131_HIT_SELECT_OK;
+    }
+    at-=(uint32_t)n130;
+    if(at<(uint32_t)n132) {
+        out->kind=MOO2_V131_BOMB_TARGET_POP_132;
+        out->source_category_offset=at;
+        return MOO2_V131_HIT_SELECT_OK;
+    }
+    at-=(uint32_t)n132;
+    if(extra!=0 && at==0u) {
+        out->kind=MOO2_V131_BOMB_TARGET_COLONY_125;
+        return MOO2_V131_HIT_SELECT_OK;
+    }
+    at-=(extra!=0?1u:0u);
+    if(at<population && population!=1u) {
+        out->kind=MOO2_V131_BOMB_TARGET_POP_ENTRY;
+        out->source_category_offset=at;
+        return MOO2_V131_HIT_SELECT_OK;
+    }
+    return MOO2_V131_HIT_SELECT_INVALID;
+}
