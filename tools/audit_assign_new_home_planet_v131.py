@@ -112,7 +112,8 @@ def audit(exe,code):
       "original_data_globals":{"_NUM_COLONIES":"0x21996","_colony":"0x1ab18","_player":"0x1ff98"},
       "caller_branch":"building_id==9 after original Remove_Building_ flag clear passes signed BYTE colony[0] as EAX and original sign-extended colony index as EDX into Assign_New_Home_Planet_",
       "home_search":"signed WORD _NUM_COLONIES original loops colony indexes from N-1 to 0, skipping EDX, matching signed owner BYTE+0, selecting max unsigned population BYTE+0x0a with >= tie rule (lowest index wins)",
-      "destination":"WORD _player[owner*0xea9 + 0x29] = selected colony WORD+0x02 star ID, or 0xffff if no matching candidate",
+      "destination":"WORD _player[owner*0xea9 + 0x29] = selected colony WORD+0x02 PLANET ID, or 0xffff if no matching candidate",
+      "planet_not_star_evidence":"Remove_Building_ CODE 0x46e2 indexes _planet (17-byte stride) using colony WORD+0x02, then reads _planet BYTE+0x02 to index _star (113-byte stride); separately audited by audit_remove_building_star_recalc_v131.py",
       "scope":"complete original 146-byte home assignment reconstruction and building-9 call ABI; source-hash verified original CODE, tested derived C; not DOS dynamic differential execution or entire Remove_Building_ side effects"
     }
 if __name__=="__main__":
