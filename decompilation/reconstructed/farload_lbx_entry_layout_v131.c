@@ -87,7 +87,7 @@ Moo2V131DerivedEntryStatus moo2_v131_derived_select_lbx_entry(
         return MOO2_V131_ENTRY_SOURCE_ERROR_8;
 
     /* The original does not bounds-check the table against 2048 bytes. */
-    if ((uint32_t)entry_index > (MOO2_V131_LBX_HEADER_SIZE - 12u)/4u)
+    if ((uint32_t)entry_index > (MOO2_V131_LBX_HEADER_SIZE - 16u)/4u)
         return MOO2_V131_ENTRY_INVALID_BUFFER;
     size_t at = 8u + 4u * (uint32_t)entry_index;
     const uint32_t start = moo2_v131_lbx_u32(header + at);
