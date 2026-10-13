@@ -25,7 +25,7 @@ The original function first clears the selected building's
 presence BYTE at original `_colony +0x169*colony_id +
 0x136+building_id` at CODE `0x460A`.
 
-Original original-ID conditions then select the common direct
+Original building-ID conditions then select the common direct
 recomputation path at CODE `0x46D4`:
 
 - **ID 3**, via comparison at `0x466E` and conditional
