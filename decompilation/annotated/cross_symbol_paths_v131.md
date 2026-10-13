@@ -1,4 +1,4 @@
-# Original v1.31: six recovered cross-symbol control paths
+# Original v1.31: seven recovered cross-symbol control paths
 
 **Scope:** bounded control-flow and small-function decompilation from
 the verified official v1.31 `ORION2.EXE`, SHA-256
@@ -15,8 +15,8 @@ Branch-path reconstruction does **not** imply the entire source
 function has been reproduced, that all stack frames are compatible,
 or that the paths have been executed in the original DOS game.
 
-These six cases belong to the earlier 11
-`reachable_nontrivial_cfg_target` class; the five other members
+These seven cases belong to the earlier 11
+`reachable_nontrivial_cfg_target` class; the four other members
 remain to reconstruct individually.
 
 ## 1. `Ship_Strength_Vs_Shield_`: capped return
@@ -123,16 +123,30 @@ CODE bytes produces erroneous prices and is not valid source
 recovery. Exact values and remaining uncertainty are recorded
 in the research-cost dossier.
 
+## 7. `Draw_Relocation_Links_`: restore-and-return
+
+- Source branch at `0x7535D`: original `JE 0x73CF6`
+  following `CMP BYTE PTR [DATA+0x21BE4],0`.
+- The taken path jumps into the shared cleanup area of the
+  `Draw_Black_Holes_` provisional symbol interval.
+- Verified instructions at `0x73CF6` sign-extend
+  `WORD PTR [EBP-0x8]` into EAX and call
+  `Restore_Window_Status_` at `0x7FD56`.
+- The following instructions execute
+  `LEAVE; POP EDI; POP ESI; POP EDX; POP ECX; POP EBX; RET`.
+- This establishes the exact taken-branch call sequence,
+  not the full rendering or caller-specific stack-frame
+  compatibility.
+
 ## Remaining from the 11 entry-reachable nontrivial cases
 
-The next five require larger or more stateful subgraphs:
+The remaining four require larger or more stateful subgraphs:
 
 | Source routine | Branch | Target and reason for further review |
 | --- | --- | --- |
 | `Draw_Special_Systems_Replacement_Box_` | `0x558FB → 0x5583A` | branches into UI setup and forwards to another shared dispatch path |
 | `Fleet_Box_Data_` | `0x61A57 → 0x610CA` | enters lengthy fleet UI field/selection logic |
 | `Ship_Owner_` | `0x68003 → 0x6892D` | enters ship-record classification logic and additional branches; cannot collapse to a single return value |
-| `Draw_Relocation_Links_` | `0x7535D → 0x73CF6` | enters a drawing helper and shared exit; requires complete call and frame verification |
 | `Officer_Cost_` | `0x87A56 → 0x84807` | enters officer-skill/bonus calculation and shared cost logic |
 
 The earlier **29** branch sources not established by bounded
