@@ -676,3 +676,63 @@ resolver callbacks only after end-to-end validation.
 Original game binary/media remains private.
 No Game Lab public web, Xbox controller, or
 Qwen configuration was changed.
+
+
+## Follow-on: bounded bomb/biological population, event and owner-stat writes
+
+Original source verification for `Resolve_Bomb_Hit_` (641 bytes)
+and `Resolve_Biological_Hit_` (436 bytes) now includes **96**
+independent original opcode sites, including 28 additional
+population-removal and player-stat mutation instructions,
+alongside the authenticated entire-function hashes and
+shared Watcom return bytes.
+
+Branch-selected original writes recovered in isolated C:
+
+- Colony population WORD +0x130 or +0x132 decremented,
+  corresponding event WORD +0x08 or +0x0A incremented,
+  and event BYTE +0x41 marked when the original branch
+  requires it
+- Original colony WORD +0x125 transferred to event
+  WORD +0x43 before being zeroed
+- Biological population death increments event WORDs
+  +0x0C and +0x3F, decrements colony entry-count BYTE
+  +0x0A, then replaces the chosen DWORD entry with
+  the last population-entry DWORD
+- Original signed defense WORD >100 at
+  colony +0xB4+2*index is decremented by 100
+- Original player-stat counters at
+  `player_base + sign_extend(colony[0])*0xEA9 +
+  0x6FF + 2*sign_extend(event[0])` are changed by
+  original WORD increment 1 or add 10 depending on
+  the selected source branch
+
+The implementation is deliberately limited to **already-selected
+source mutation paths**. It does not itself implement branch
+selection, all missing colony/building/population/player effects,
+or original DOS dynamic execution. Bounds guards and statuses
+are modern host safety changes; DWORD/WORD update semantics
+preserve the observed original integer widths.
+
+New committed files:
+
+- `decompilation/reconstructed/colony_hit_mutations_v131.c`
+- `decompilation/reconstructed/colony_hit_player_stats_v131.c`
+- `tests/test_colony_hit_mutations_v131.c`
+- `tests/test_colony_hit_player_stats_v131.c`
+- `tests/test_apply_bomb_hits_colony_mutation_integration_v131.c`
+- Updated `tools/audit_colony_hit_resolvers_v131.py`
+- Updated `decompilation/reports/colony_hit_resolvers_v131_2026-10-13.json`
+- Updated `decompilation/annotated/colony_hit_resolvers_v131.md`
+
+All three test programs were downloaded at their committed
+GitHub revision and executed successfully on the original-source
+decompilation computer under strict C11, AddressSanitizer and
+UndefinedBehaviorSanitizer. The expanded original-body audit
+also passed all **96** opcode checkpoints.
+
+**Remaining:** connect original resolver branch predicates with
+the reconstructed source effects, reconstruct building destruction,
+defense-clearing, and all player/global mutations. Full-game
+decompilation remains incomplete. No Game Lab, Xbox, Qwen,
+or original game media changes were made.
