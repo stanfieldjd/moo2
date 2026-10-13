@@ -8,8 +8,8 @@
  * Original Watcom CODE:
  *  Fire_Ship_ 0x28B5E (2216 bytes, full routine NOT reconstructed)
  *  missile path: 0x28F85 calls Fire_Missile_,
- *   0x28F95 checks local mode == 2; 0x28FB5 writes slot+0x58 from
- *   _weapons[weapon_id].byte+0x0D if mode == 2, otherwise 0x28FC3 DEC WORD.
+ *   0x28F95 checks the weapon category == 2; 0x28FB5 writes slot+0x58 from
+ *   _weapons[weapon_id].byte+0x0D if category == 2, otherwise 0x28FC3 DEC WORD.
  *  bomb path: 0x290EE calls Fire_Bomb_, then 0x2910C DEC WORD.
  *
  * These helpers ONLY perform the identified slot mutations; they do not
@@ -53,18 +53,18 @@ static Moo2V131FireSlotStatus moo2_v131_fire_get_counter(
 
 /*
  * Original missile path AFTER Fire_Missile_ side effects.
- * A local branch selector at [EBP-0x14] chooses rewrite vs decrement.
+ * [EBP-0x14] is the category byte from _weapons[weapon_id]+0x0C,\n * widened to a stored DWORD (later consumed as WORD); category 2 rewrites\n * the slot counter, categories 1 and 4 decrement in their missile paths.
  */
 Moo2V131FireSlotStatus moo2_v131_derived_after_fire_missile_slot_write(
     uint8_t *combat_ship,size_t ship_record_bytes,int16_t slot,
-    uint16_t original_local_mode,const uint8_t *weapon_definitions,
+    uint16_t weapon_category,const uint8_t *weapon_definitions,
     size_t weapon_definition_count)
 {
     uint8_t *count,*item;
     if(moo2_v131_fire_get_counter(combat_ship,ship_record_bytes,slot,
                                   &count,&item)!=MOO2_V131_FIRE_SLOT_OK)
         return MOO2_V131_FIRE_SLOT_INVALID;
-    if(original_local_mode==2u) {
+    if(weapon_category==2u) {
         const int32_t weapon_id=moo2_v131_fire_s16(item);
         if(!weapon_definitions || weapon_id<0 ||
            (size_t)weapon_id>=weapon_definition_count)
