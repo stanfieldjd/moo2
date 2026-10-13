@@ -46,12 +46,20 @@ def decode(code,start,end):
         if m:
             result.append(dict(offset=int(m[1],16),size=len(m[2].split()),
                                op=m[3].lower(),arg=m[4].lower().strip()))
-    if not result or result[0]["offset"]!=start or (
-        result[-1]["offset"]+result[-1]["size"]!=end):
-        raise ValueError(f"Decoded interval does not exactly cover {start:#x}..{end:#x}")
-    for before,after in zip(result,result[1:]):
-        if before["offset"]+before["size"]!=after["offset"]:
-            raise ValueError("Disassembly has a gap or overlapped instructions")
+    if not result or result[0]["offset"]!=start:
+        raise ValueError(f"Disassembly does not start at {start:#x}")
+    # objdump splits long original instructions (e.g. 10-byte MOV stores)
+    # across multiple physical lines, with continuation bytes *without*
+    # a mnemonic. Determine actual instruction sizes from the next decoded
+    # opcode address; the final size is anchored to the exact interval end.
+    for index,item in enumerate(result):
+        subsequent=result[index+1]["offset"] if index+1<len(result) else end
+        size=subsequent-item["offset"]
+        if size<=0 or size>15 or size<item["size"]:
+            raise ValueError(f"Invalid x86 instruction span at {item['offset']:#x}")
+        item["size"]=size
+    if result[-1]["offset"]+result[-1]["size"]!=end:
+        raise ValueError("Disassembly misses interval end")
     return result
 
 def assert_ins(ins,offset,op,arg=None):
