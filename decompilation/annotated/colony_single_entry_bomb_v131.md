@@ -147,6 +147,10 @@ The original player-stat tests remain in place.
 All were compiled using strict C11 warnings
 and passed AddressSanitizer and UndefinedBehaviorSanitizer.
 
+## Source follow-on: verified home-planet reassignment
+
+The building-9 `Remove_Building_` path at original CODE `0x4674..0x467C` calls `Assign_New_Home_Planet_` with the colony's **signed owner BYTE in EAX** and the **excluded colony index in EDX** (preserved from `0x45F6`). That complete original 146-byte function has now been reconstructed in `decompilation/reconstructed/assign_new_home_planet_v131.c`: descending search over `_NUM_COLONIES`, greatest eligible population (lowest colony index wins ties), and player WORD `+0x29` set to that colony's star WORD or `0xFFFF`. The integrated regression `tests/test_remove_building9_assign_home_integration_v131.c` verifies both original arguments, flag-clear ordering and final home-star write. The machine-code audit verifies 57 instructions and both full original function-body hashes. See `decompilation/annotated/assign_new_home_planet_v131.md`.
+
 ## Outstanding
 
 The full original `Remove_Building_` needs
