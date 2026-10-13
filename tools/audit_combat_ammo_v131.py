@@ -48,7 +48,8 @@ def audit(exe,code):
     for name,offset,size in [
         ("Check_For_Launched_Fighters_",0x19480,95),
         ("Is_Ship_Out_Of_Ammo_",0x194DF,241),
-        ("Does_Combat_Ship_Have_Special_",0x3B0D3,75)
+        ("Does_Combat_Ship_Have_Special_",0x3B0D3,75),
+        ("Test_Bit_Field_",0x1176F0,34)
     ]:
         r=funcs[name]
         if int(r["offset"])!=offset or int(r["inferred_size"])!=size:
@@ -86,6 +87,25 @@ def audit(exe,code):
         0x195B8:("cmp","dx,0x8"),
         0x195C8:("mov","eax,ebx"),
     }
+    # Additional full special predicate and Watcom bitfield primitive.
+    # The original query uses two independent 0x139-byte combat-record
+    # bitsets: installed at +0x4C and suppressed at +0xB2.
+    required.update({
+        0x3B0D9:("imul","esi,esi,0x139"),
+        0x3B0DF:("mov","eax,ds:0x1a864"),
+        0x3B0EB:("add","eax,0x4c"),
+        0x3B0F0:("call","0x1176f0"),
+        0x3B0F5:("cmp","ax,0x1"),
+        0x3B104:("add","eax,0xb2"),
+        0x3B109:("call","0x1176f0"),
+        0x3B10E:("test","ax,ax"),
+        0x3B113:("mov","ecx,0x1"),
+        0x1176F3:("shr","ebx,0x3"),
+        0x1176FA:("and","ecx,0x7"),
+        0x117701:("shr","eax,cl"),
+        0x117703:("and","eax,0x1"),
+        0x117706:("mov","ds:0x1176ec,eax"),
+    })
     for addr,expected in required.items():
         actual=instruction(code,addr)
         if actual!=expected:
@@ -122,6 +142,15 @@ def audit(exe,code):
         "missile_record_stride_bytes":26,
         "original_missile_slots_scanned":300,
         "original_weapon_category_count":6,
+        "original_special_check_offset":"0x3b0d3",
+        "original_special_check_size_bytes":75,
+        "original_bitfield_test_offset":"0x1176f0",
+        "original_bitfield_test_size_bytes":34,
+        "special_present_offset_in_combat_ship":"0x4c",
+        "special_suppressed_offset_in_combat_ship":"0xb2",
+        "bit_index_transform":"bit-index >>3 byte index; bit-index &7 shift; result masked to 1",
+        "special_check_condition":"installed bit must equal 1 AND suppressed bit must equal 0",
+        "side_effect_warning":"Original Test_Bit_Field_ writes result to scratch CODE+0x1176EC, a side effect intentionally omitted in pure derived C",
         "six_case_table_original_CODE_offset":"0x194c7",
         "six_case_destinations":[hex(v) for v in original],
         "named_helper_calls":[
