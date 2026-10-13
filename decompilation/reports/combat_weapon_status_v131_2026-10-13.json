@@ -1,0 +1,36 @@
+{
+  "source_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_named_function_count": 3,
+  "original_function_body_bytes_verified": 124,
+  "selected_original_machine_instruction_anchors": 26,
+  "combat_ship_record_stride": 313,
+  "weapon_status_flag_offset_in_ship": 90,
+  "weapon_status_slot_stride": 11,
+  "weapon_status_compare_value": 1,
+  "status_return_register": "AL only (original SETE/SETNE AL)",
+  "weapons_left_signed_short_first_offset": "0x104 + 2*slot",
+  "weapons_left_signed_short_divisor_offset": "0x114 + 2*slot",
+  "weapons_left_behavior": "signed IDIV twice; if remainder != 0 and numerator > 0 increment quotient, else return truncated quotient",
+  "zero_divisor_original": "x86 IDIV divide-by-zero exception; isolated derived C instead returns explicit ZERO_DIVISOR status",
+  "scope": "full source-byte hashes and opcode anchors, not original DOS dynamic-equivalence testing; derived C has safer bounds and normalized output",
+  "functions": [
+    {
+      "name": "Weapons_Left_",
+      "original_code_offset": "0x26c60",
+      "size_bytes": 60,
+      "source_bytes_sha256": "80de2dddd1f89b65e079b3c1122b352024cba20a8fc62040a77dde14e32f3f41"
+    },
+    {
+      "name": "Weapon_Is_On_",
+      "original_code_offset": "0x3584c",
+      "size_bytes": 32,
+      "source_bytes_sha256": "926b93300eb8ed5f66beff71232e5893ca2cb5bdc2f3214568f6b6b05dc5003a"
+    },
+    {
+      "name": "Weapon_Is_Off_",
+      "original_code_offset": "0x3586c",
+      "size_bytes": 32,
+      "source_bytes_sha256": "f47700db9f5cd6cab84b4b55003572520d74ea3215764f94234b66d9e43f0417"
+    }
+  ]
+}
