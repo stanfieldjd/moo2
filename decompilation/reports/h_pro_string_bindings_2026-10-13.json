@@ -1,0 +1,1645 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "function": "Load_H_And_Pro_File_Strings_",
+  "original_code_offset": "0xbe0e5",
+  "original_length_bytes": 2996,
+  "total_original_decoded_instructions": 600,
+  "verified_E_Strings_lookup_assignments": 199,
+  "distinct_string_ids": 188,
+  "max_assigned_id": 787,
+  "final_copy": {
+    "from_DATA_object2_offset": "0x2ef88",
+    "to_DATA_object2_offset": "0x21170"
+  },
+  "scope": "complete instruction-shape account of this 2,996-byte function; original file/data initialization, pointer validity and string contents remain separate",
+  "bindings": [
+    {
+      "ordinal": 0,
+      "original_call_sequence_offset": "0xbe0e5",
+      "string_id": 616,
+      "string_id_hex": "0x268",
+      "data_destination_offset": "0x1ffa0",
+      "exact_data_symbol_names": [
+        "_personality_labels"
+      ]
+    },
+    {
+      "ordinal": 1,
+      "original_call_sequence_offset": "0xbe0f4",
+      "string_id": 617,
+      "string_id_hex": "0x269",
+      "data_destination_offset": "0x1ffa4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 2,
+      "original_call_sequence_offset": "0xbe103",
+      "string_id": 618,
+      "string_id_hex": "0x26a",
+      "data_destination_offset": "0x1ffa8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 3,
+      "original_call_sequence_offset": "0xbe112",
+      "string_id": 619,
+      "string_id_hex": "0x26b",
+      "data_destination_offset": "0x1ffac",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 4,
+      "original_call_sequence_offset": "0xbe121",
+      "string_id": 620,
+      "string_id_hex": "0x26c",
+      "data_destination_offset": "0x1ffb0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 5,
+      "original_call_sequence_offset": "0xbe130",
+      "string_id": 621,
+      "string_id_hex": "0x26d",
+      "data_destination_offset": "0x1ffb4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 6,
+      "original_call_sequence_offset": "0xbe13f",
+      "string_id": 622,
+      "string_id_hex": "0x26e",
+      "data_destination_offset": "0x1ffb8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 7,
+      "original_call_sequence_offset": "0xbe14e",
+      "string_id": 623,
+      "string_id_hex": "0x26f",
+      "data_destination_offset": "0x1a210",
+      "exact_data_symbol_names": [
+        "_objective_labels"
+      ]
+    },
+    {
+      "ordinal": 8,
+      "original_call_sequence_offset": "0xbe15d",
+      "string_id": 624,
+      "string_id_hex": "0x270",
+      "data_destination_offset": "0x1a214",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 9,
+      "original_call_sequence_offset": "0xbe16c",
+      "string_id": 625,
+      "string_id_hex": "0x271",
+      "data_destination_offset": "0x1a218",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 10,
+      "original_call_sequence_offset": "0xbe17b",
+      "string_id": 626,
+      "string_id_hex": "0x272",
+      "data_destination_offset": "0x1a21c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 11,
+      "original_call_sequence_offset": "0xbe18a",
+      "string_id": 627,
+      "string_id_hex": "0x273",
+      "data_destination_offset": "0x1a220",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 12,
+      "original_call_sequence_offset": "0xbe199",
+      "string_id": 628,
+      "string_id_hex": "0x274",
+      "data_destination_offset": "0x1a224",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 13,
+      "original_call_sequence_offset": "0xbe1a8",
+      "string_id": 629,
+      "string_id_hex": "0x275",
+      "data_destination_offset": "0x21150",
+      "exact_data_symbol_names": [
+        "_treaty_labels"
+      ]
+    },
+    {
+      "ordinal": 14,
+      "original_call_sequence_offset": "0xbe1b7",
+      "string_id": 630,
+      "string_id_hex": "0x276",
+      "data_destination_offset": "0x21154",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 15,
+      "original_call_sequence_offset": "0xbe1c6",
+      "string_id": 631,
+      "string_id_hex": "0x277",
+      "data_destination_offset": "0x21158",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 16,
+      "original_call_sequence_offset": "0xbe1d5",
+      "string_id": 632,
+      "string_id_hex": "0x278",
+      "data_destination_offset": "0x2115c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 17,
+      "original_call_sequence_offset": "0xbe1e4",
+      "string_id": 633,
+      "string_id_hex": "0x279",
+      "data_destination_offset": "0x21160",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 18,
+      "original_call_sequence_offset": "0xbe1f3",
+      "string_id": 634,
+      "string_id_hex": "0x27a",
+      "data_destination_offset": "0x21164",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 19,
+      "original_call_sequence_offset": "0xbe202",
+      "string_id": 635,
+      "string_id_hex": "0x27b",
+      "data_destination_offset": "0x21168",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 20,
+      "original_call_sequence_offset": "0xbe211",
+      "string_id": 636,
+      "string_id_hex": "0x27c",
+      "data_destination_offset": "0x1a228",
+      "exact_data_symbol_names": [
+        "_government_labels"
+      ]
+    },
+    {
+      "ordinal": 21,
+      "original_call_sequence_offset": "0xbe220",
+      "string_id": 637,
+      "string_id_hex": "0x27d",
+      "data_destination_offset": "0x1a22c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 22,
+      "original_call_sequence_offset": "0xbe22f",
+      "string_id": 638,
+      "string_id_hex": "0x27e",
+      "data_destination_offset": "0x1a230",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 23,
+      "original_call_sequence_offset": "0xbe23e",
+      "string_id": 639,
+      "string_id_hex": "0x27f",
+      "data_destination_offset": "0x1a234",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 24,
+      "original_call_sequence_offset": "0xbe24d",
+      "string_id": 640,
+      "string_id_hex": "0x280",
+      "data_destination_offset": "0x1a238",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 25,
+      "original_call_sequence_offset": "0xbe25c",
+      "string_id": 641,
+      "string_id_hex": "0x281",
+      "data_destination_offset": "0x1a23c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 26,
+      "original_call_sequence_offset": "0xbe26b",
+      "string_id": 642,
+      "string_id_hex": "0x282",
+      "data_destination_offset": "0x1a240",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 27,
+      "original_call_sequence_offset": "0xbe27a",
+      "string_id": 643,
+      "string_id_hex": "0x283",
+      "data_destination_offset": "0x1a244",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 28,
+      "original_call_sequence_offset": "0xbe289",
+      "string_id": 645,
+      "string_id_hex": "0x285",
+      "data_destination_offset": "0x1a630",
+      "exact_data_symbol_names": [
+        "_race_names"
+      ]
+    },
+    {
+      "ordinal": 29,
+      "original_call_sequence_offset": "0xbe298",
+      "string_id": 646,
+      "string_id_hex": "0x286",
+      "data_destination_offset": "0x1a634",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 30,
+      "original_call_sequence_offset": "0xbe2a7",
+      "string_id": 647,
+      "string_id_hex": "0x287",
+      "data_destination_offset": "0x1a638",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 31,
+      "original_call_sequence_offset": "0xbe2b6",
+      "string_id": 648,
+      "string_id_hex": "0x288",
+      "data_destination_offset": "0x1a63c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 32,
+      "original_call_sequence_offset": "0xbe2c5",
+      "string_id": 649,
+      "string_id_hex": "0x289",
+      "data_destination_offset": "0x1a640",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 33,
+      "original_call_sequence_offset": "0xbe2d4",
+      "string_id": 650,
+      "string_id_hex": "0x28a",
+      "data_destination_offset": "0x1a644",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 34,
+      "original_call_sequence_offset": "0xbe2e3",
+      "string_id": 651,
+      "string_id_hex": "0x28b",
+      "data_destination_offset": "0x1a648",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 35,
+      "original_call_sequence_offset": "0xbe2f2",
+      "string_id": 652,
+      "string_id_hex": "0x28c",
+      "data_destination_offset": "0x1a64c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 36,
+      "original_call_sequence_offset": "0xbe301",
+      "string_id": 653,
+      "string_id_hex": "0x28d",
+      "data_destination_offset": "0x1a650",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 37,
+      "original_call_sequence_offset": "0xbe310",
+      "string_id": 654,
+      "string_id_hex": "0x28e",
+      "data_destination_offset": "0x1a654",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 38,
+      "original_call_sequence_offset": "0xbe31f",
+      "string_id": 655,
+      "string_id_hex": "0x28f",
+      "data_destination_offset": "0x1a658",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 39,
+      "original_call_sequence_offset": "0xbe32e",
+      "string_id": 656,
+      "string_id_hex": "0x290",
+      "data_destination_offset": "0x1a65c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 40,
+      "original_call_sequence_offset": "0xbe33d",
+      "string_id": 657,
+      "string_id_hex": "0x291",
+      "data_destination_offset": "0x1a660",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 41,
+      "original_call_sequence_offset": "0xbe34c",
+      "string_id": 658,
+      "string_id_hex": "0x292",
+      "data_destination_offset": "0x1a664",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 42,
+      "original_call_sequence_offset": "0xbe35b",
+      "string_id": 659,
+      "string_id_hex": "0x293",
+      "data_destination_offset": "0x1a668",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 43,
+      "original_call_sequence_offset": "0xbe36a",
+      "string_id": 173,
+      "string_id_hex": "0xad",
+      "data_destination_offset": "0x1a66c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 44,
+      "original_call_sequence_offset": "0xbe379",
+      "string_id": 246,
+      "string_id_hex": "0xf6",
+      "data_destination_offset": "0x1a670",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 45,
+      "original_call_sequence_offset": "0xbe388",
+      "string_id": 272,
+      "string_id_hex": "0x110",
+      "data_destination_offset": "0x1a674",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 46,
+      "original_call_sequence_offset": "0xbe397",
+      "string_id": 281,
+      "string_id_hex": "0x119",
+      "data_destination_offset": "0x1a678",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 47,
+      "original_call_sequence_offset": "0xbe3a6",
+      "string_id": 324,
+      "string_id_hex": "0x144",
+      "data_destination_offset": "0x1a67c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 48,
+      "original_call_sequence_offset": "0xbe3b5",
+      "string_id": 142,
+      "string_id_hex": "0x8e",
+      "data_destination_offset": "0x1ac08",
+      "exact_data_symbol_names": [
+        "_help_category_labels"
+      ]
+    },
+    {
+      "ordinal": 49,
+      "original_call_sequence_offset": "0xbe3c4",
+      "string_id": 660,
+      "string_id_hex": "0x294",
+      "data_destination_offset": "0x1ac0c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 50,
+      "original_call_sequence_offset": "0xbe3d3",
+      "string_id": 661,
+      "string_id_hex": "0x295",
+      "data_destination_offset": "0x1ac10",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 51,
+      "original_call_sequence_offset": "0xbe3e2",
+      "string_id": 662,
+      "string_id_hex": "0x296",
+      "data_destination_offset": "0x1ac14",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 52,
+      "original_call_sequence_offset": "0xbe3f1",
+      "string_id": 663,
+      "string_id_hex": "0x297",
+      "data_destination_offset": "0x1ac18",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 53,
+      "original_call_sequence_offset": "0xbe400",
+      "string_id": 664,
+      "string_id_hex": "0x298",
+      "data_destination_offset": "0x1ac1c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 54,
+      "original_call_sequence_offset": "0xbe40f",
+      "string_id": 665,
+      "string_id_hex": "0x299",
+      "data_destination_offset": "0x1ac20",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 55,
+      "original_call_sequence_offset": "0xbe41e",
+      "string_id": 666,
+      "string_id_hex": "0x29a",
+      "data_destination_offset": "0x1ac24",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 56,
+      "original_call_sequence_offset": "0xbe42d",
+      "string_id": 667,
+      "string_id_hex": "0x29b",
+      "data_destination_offset": "0x1ac28",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 57,
+      "original_call_sequence_offset": "0xbe43c",
+      "string_id": 668,
+      "string_id_hex": "0x29c",
+      "data_destination_offset": "0x1ac2c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 58,
+      "original_call_sequence_offset": "0xbe44b",
+      "string_id": 669,
+      "string_id_hex": "0x29d",
+      "data_destination_offset": "0x1ac30",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 59,
+      "original_call_sequence_offset": "0xbe45a",
+      "string_id": 670,
+      "string_id_hex": "0x29e",
+      "data_destination_offset": "0x1ac34",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 60,
+      "original_call_sequence_offset": "0xbe469",
+      "string_id": 671,
+      "string_id_hex": "0x29f",
+      "data_destination_offset": "0x1ac38",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 61,
+      "original_call_sequence_offset": "0xbe478",
+      "string_id": 672,
+      "string_id_hex": "0x2a0",
+      "data_destination_offset": "0x1ac3c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 62,
+      "original_call_sequence_offset": "0xbe487",
+      "string_id": 673,
+      "string_id_hex": "0x2a1",
+      "data_destination_offset": "0x1ac40",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 63,
+      "original_call_sequence_offset": "0xbe496",
+      "string_id": 674,
+      "string_id_hex": "0x2a2",
+      "data_destination_offset": "0x1ac44",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 64,
+      "original_call_sequence_offset": "0xbe4a5",
+      "string_id": 675,
+      "string_id_hex": "0x2a3",
+      "data_destination_offset": "0x1ac48",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 65,
+      "original_call_sequence_offset": "0xbe4b4",
+      "string_id": 676,
+      "string_id_hex": "0x2a4",
+      "data_destination_offset": "0x1ac58",
+      "exact_data_symbol_names": [
+        "_spectral_class_string"
+      ]
+    },
+    {
+      "ordinal": 66,
+      "original_call_sequence_offset": "0xbe4c3",
+      "string_id": 677,
+      "string_id_hex": "0x2a5",
+      "data_destination_offset": "0x1ac5c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 67,
+      "original_call_sequence_offset": "0xbe4d2",
+      "string_id": 678,
+      "string_id_hex": "0x2a6",
+      "data_destination_offset": "0x1ac60",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 68,
+      "original_call_sequence_offset": "0xbe4e1",
+      "string_id": 679,
+      "string_id_hex": "0x2a7",
+      "data_destination_offset": "0x1ac64",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 69,
+      "original_call_sequence_offset": "0xbe4f0",
+      "string_id": 680,
+      "string_id_hex": "0x2a8",
+      "data_destination_offset": "0x1ac68",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 70,
+      "original_call_sequence_offset": "0xbe4ff",
+      "string_id": 681,
+      "string_id_hex": "0x2a9",
+      "data_destination_offset": "0x1ac6c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 71,
+      "original_call_sequence_offset": "0xbe50e",
+      "string_id": 682,
+      "string_id_hex": "0x2aa",
+      "data_destination_offset": "0x1ac70",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 72,
+      "original_call_sequence_offset": "0xbe51d",
+      "string_id": 683,
+      "string_id_hex": "0x2ab",
+      "data_destination_offset": "0x1abe0",
+      "exact_data_symbol_names": [
+        "_planet_size_string"
+      ]
+    },
+    {
+      "ordinal": 73,
+      "original_call_sequence_offset": "0xbe52c",
+      "string_id": 480,
+      "string_id_hex": "0x1e0",
+      "data_destination_offset": "0x1abe4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 74,
+      "original_call_sequence_offset": "0xbe53b",
+      "string_id": 371,
+      "string_id_hex": "0x173",
+      "data_destination_offset": "0x1abe8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 75,
+      "original_call_sequence_offset": "0xbe54a",
+      "string_id": 360,
+      "string_id_hex": "0x168",
+      "data_destination_offset": "0x1abec",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 76,
+      "original_call_sequence_offset": "0xbe559",
+      "string_id": 323,
+      "string_id_hex": "0x143",
+      "data_destination_offset": "0x1abf0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 77,
+      "original_call_sequence_offset": "0xbe568",
+      "string_id": 684,
+      "string_id_hex": "0x2ac",
+      "data_destination_offset": "0x1abf4",
+      "exact_data_symbol_names": [
+        "_mineral_class_string"
+      ]
+    },
+    {
+      "ordinal": 78,
+      "original_call_sequence_offset": "0xbe577",
+      "string_id": 423,
+      "string_id_hex": "0x1a7",
+      "data_destination_offset": "0x1abf8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 79,
+      "original_call_sequence_offset": "0xbe586",
+      "string_id": 685,
+      "string_id_hex": "0x2ad",
+      "data_destination_offset": "0x1abfc",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 80,
+      "original_call_sequence_offset": "0xbe595",
+      "string_id": 450,
+      "string_id_hex": "0x1c2",
+      "data_destination_offset": "0x1ac00",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 81,
+      "original_call_sequence_offset": "0xbe5a4",
+      "string_id": 686,
+      "string_id_hex": "0x2ae",
+      "data_destination_offset": "0x1ac04",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 82,
+      "original_call_sequence_offset": "0xbe5b3",
+      "string_id": 687,
+      "string_id_hex": "0x2af",
+      "data_destination_offset": "0x1ac74",
+      "exact_data_symbol_names": [
+        "_planet_gravity_string"
+      ]
+    },
+    {
+      "ordinal": 83,
+      "original_call_sequence_offset": "0xbe5c2",
+      "string_id": 688,
+      "string_id_hex": "0x2b0",
+      "data_destination_offset": "0x1ac78",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 84,
+      "original_call_sequence_offset": "0xbe5d1",
+      "string_id": 689,
+      "string_id_hex": "0x2b1",
+      "data_destination_offset": "0x1ac7c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 85,
+      "original_call_sequence_offset": "0xbe5e0",
+      "string_id": 690,
+      "string_id_hex": "0x2b2",
+      "data_destination_offset": "0x1ac4c",
+      "exact_data_symbol_names": [
+        "_planet_atmosphere_string"
+      ]
+    },
+    {
+      "ordinal": 86,
+      "original_call_sequence_offset": "0xbe5ef",
+      "string_id": 691,
+      "string_id_hex": "0x2b3",
+      "data_destination_offset": "0x1ac50",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 87,
+      "original_call_sequence_offset": "0xbe5fe",
+      "string_id": 692,
+      "string_id_hex": "0x2b4",
+      "data_destination_offset": "0x1ac54",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 88,
+      "original_call_sequence_offset": "0xbe60d",
+      "string_id": 693,
+      "string_id_hex": "0x2b5",
+      "data_destination_offset": "0x179e8",
+      "exact_data_symbol_names": [
+        "_planet_group_string"
+      ]
+    },
+    {
+      "ordinal": 89,
+      "original_call_sequence_offset": "0xbe61c",
+      "string_id": 694,
+      "string_id_hex": "0x2b6",
+      "data_destination_offset": "0x179ec",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 90,
+      "original_call_sequence_offset": "0xbe62b",
+      "string_id": 695,
+      "string_id_hex": "0x2b7",
+      "data_destination_offset": "0x179f0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 91,
+      "original_call_sequence_offset": "0xbe63a",
+      "string_id": 696,
+      "string_id_hex": "0x2b8",
+      "data_destination_offset": "0x179f4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 92,
+      "original_call_sequence_offset": "0xbe649",
+      "string_id": 697,
+      "string_id_hex": "0x2b9",
+      "data_destination_offset": "0x179b8",
+      "exact_data_symbol_names": [
+        "_planet_special_string"
+      ]
+    },
+    {
+      "ordinal": 93,
+      "original_call_sequence_offset": "0xbe658",
+      "string_id": 698,
+      "string_id_hex": "0x2ba",
+      "data_destination_offset": "0x179bc",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 94,
+      "original_call_sequence_offset": "0xbe667",
+      "string_id": 699,
+      "string_id_hex": "0x2bb",
+      "data_destination_offset": "0x179c0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 95,
+      "original_call_sequence_offset": "0xbe676",
+      "string_id": 700,
+      "string_id_hex": "0x2bc",
+      "data_destination_offset": "0x179c4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 96,
+      "original_call_sequence_offset": "0xbe685",
+      "string_id": 701,
+      "string_id_hex": "0x2bd",
+      "data_destination_offset": "0x179c8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 97,
+      "original_call_sequence_offset": "0xbe694",
+      "string_id": 702,
+      "string_id_hex": "0x2be",
+      "data_destination_offset": "0x179cc",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 98,
+      "original_call_sequence_offset": "0xbe6a3",
+      "string_id": 703,
+      "string_id_hex": "0x2bf",
+      "data_destination_offset": "0x179d0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 99,
+      "original_call_sequence_offset": "0xbe6b2",
+      "string_id": 704,
+      "string_id_hex": "0x2c0",
+      "data_destination_offset": "0x179d4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 100,
+      "original_call_sequence_offset": "0xbe6c1",
+      "string_id": 705,
+      "string_id_hex": "0x2c1",
+      "data_destination_offset": "0x179d8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 101,
+      "original_call_sequence_offset": "0xbe6d0",
+      "string_id": 706,
+      "string_id_hex": "0x2c2",
+      "data_destination_offset": "0x179dc",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 102,
+      "original_call_sequence_offset": "0xbe6df",
+      "string_id": 707,
+      "string_id_hex": "0x2c3",
+      "data_destination_offset": "0x179e0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 103,
+      "original_call_sequence_offset": "0xbe6ee",
+      "string_id": 708,
+      "string_id_hex": "0x2c4",
+      "data_destination_offset": "0x179e4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 104,
+      "original_call_sequence_offset": "0xbe6fd",
+      "string_id": 709,
+      "string_id_hex": "0x2c5",
+      "data_destination_offset": "0x17968",
+      "exact_data_symbol_names": [
+        "_planet_type_string"
+      ]
+    },
+    {
+      "ordinal": 105,
+      "original_call_sequence_offset": "0xbe70c",
+      "string_id": 710,
+      "string_id_hex": "0x2c6",
+      "data_destination_offset": "0x1796c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 106,
+      "original_call_sequence_offset": "0xbe71b",
+      "string_id": 711,
+      "string_id_hex": "0x2c7",
+      "data_destination_offset": "0x17970",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 107,
+      "original_call_sequence_offset": "0xbe72a",
+      "string_id": 712,
+      "string_id_hex": "0x2c8",
+      "data_destination_offset": "0x17974",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 108,
+      "original_call_sequence_offset": "0xbe739",
+      "string_id": 713,
+      "string_id_hex": "0x2c9",
+      "data_destination_offset": "0x17978",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 109,
+      "original_call_sequence_offset": "0xbe748",
+      "string_id": 714,
+      "string_id_hex": "0x2ca",
+      "data_destination_offset": "0x1797c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 110,
+      "original_call_sequence_offset": "0xbe757",
+      "string_id": 715,
+      "string_id_hex": "0x2cb",
+      "data_destination_offset": "0x17980",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 111,
+      "original_call_sequence_offset": "0xbe766",
+      "string_id": 716,
+      "string_id_hex": "0x2cc",
+      "data_destination_offset": "0x17984",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 112,
+      "original_call_sequence_offset": "0xbe775",
+      "string_id": 717,
+      "string_id_hex": "0x2cd",
+      "data_destination_offset": "0x17988",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 113,
+      "original_call_sequence_offset": "0xbe784",
+      "string_id": 718,
+      "string_id_hex": "0x2ce",
+      "data_destination_offset": "0x1798c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 114,
+      "original_call_sequence_offset": "0xbe793",
+      "string_id": 539,
+      "string_id_hex": "0x21b",
+      "data_destination_offset": "0x17990",
+      "exact_data_symbol_names": [
+        "_planet_climate_string"
+      ]
+    },
+    {
+      "ordinal": 115,
+      "original_call_sequence_offset": "0xbe7a2",
+      "string_id": 719,
+      "string_id_hex": "0x2cf",
+      "data_destination_offset": "0x17994",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 116,
+      "original_call_sequence_offset": "0xbe7b1",
+      "string_id": 720,
+      "string_id_hex": "0x2d0",
+      "data_destination_offset": "0x17998",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 117,
+      "original_call_sequence_offset": "0xbe7c0",
+      "string_id": 721,
+      "string_id_hex": "0x2d1",
+      "data_destination_offset": "0x1799c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 118,
+      "original_call_sequence_offset": "0xbe7cf",
+      "string_id": 722,
+      "string_id_hex": "0x2d2",
+      "data_destination_offset": "0x179a0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 119,
+      "original_call_sequence_offset": "0xbe7de",
+      "string_id": 399,
+      "string_id_hex": "0x18f",
+      "data_destination_offset": "0x179a4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 120,
+      "original_call_sequence_offset": "0xbe7ed",
+      "string_id": 501,
+      "string_id_hex": "0x1f5",
+      "data_destination_offset": "0x179a8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 121,
+      "original_call_sequence_offset": "0xbe7fc",
+      "string_id": 184,
+      "string_id_hex": "0xb8",
+      "data_destination_offset": "0x179ac",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 122,
+      "original_call_sequence_offset": "0xbe80b",
+      "string_id": 723,
+      "string_id_hex": "0x2d3",
+      "data_destination_offset": "0x179b0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 123,
+      "original_call_sequence_offset": "0xbe81a",
+      "string_id": 303,
+      "string_id_hex": "0x12f",
+      "data_destination_offset": "0x179b4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 124,
+      "original_call_sequence_offset": "0xbe829",
+      "string_id": 724,
+      "string_id_hex": "0x2d4",
+      "data_destination_offset": "0x5222",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 125,
+      "original_call_sequence_offset": "0xbe838",
+      "string_id": 725,
+      "string_id_hex": "0x2d5",
+      "data_destination_offset": "0x5234",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 126,
+      "original_call_sequence_offset": "0xbe847",
+      "string_id": 726,
+      "string_id_hex": "0x2d6",
+      "data_destination_offset": "0x5246",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 127,
+      "original_call_sequence_offset": "0xbe856",
+      "string_id": 727,
+      "string_id_hex": "0x2d7",
+      "data_destination_offset": "0x5258",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 128,
+      "original_call_sequence_offset": "0xbe865",
+      "string_id": 623,
+      "string_id_hex": "0x26f",
+      "data_destination_offset": "0x526a",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 129,
+      "original_call_sequence_offset": "0xbe874",
+      "string_id": 728,
+      "string_id_hex": "0x2d8",
+      "data_destination_offset": "0x527c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 130,
+      "original_call_sequence_offset": "0xbe883",
+      "string_id": 729,
+      "string_id_hex": "0x2d9",
+      "data_destination_offset": "0x528e",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 131,
+      "original_call_sequence_offset": "0xbe892",
+      "string_id": 730,
+      "string_id_hex": "0x2da",
+      "data_destination_offset": "0x52a0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 132,
+      "original_call_sequence_offset": "0xbe8a1",
+      "string_id": 731,
+      "string_id_hex": "0x2db",
+      "data_destination_offset": "0x52b2",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 133,
+      "original_call_sequence_offset": "0xbe8b0",
+      "string_id": 732,
+      "string_id_hex": "0x2dc",
+      "data_destination_offset": "0x52c4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 134,
+      "original_call_sequence_offset": "0xbe8bf",
+      "string_id": 733,
+      "string_id_hex": "0x2dd",
+      "data_destination_offset": "0x52d6",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 135,
+      "original_call_sequence_offset": "0xbe8ce",
+      "string_id": 734,
+      "string_id_hex": "0x2de",
+      "data_destination_offset": "0x52e8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 136,
+      "original_call_sequence_offset": "0xbe8dd",
+      "string_id": 735,
+      "string_id_hex": "0x2df",
+      "data_destination_offset": "0x52fa",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 137,
+      "original_call_sequence_offset": "0xbe8ec",
+      "string_id": 736,
+      "string_id_hex": "0x2e0",
+      "data_destination_offset": "0x530c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 138,
+      "original_call_sequence_offset": "0xbe8fb",
+      "string_id": 737,
+      "string_id_hex": "0x2e1",
+      "data_destination_offset": "0x531e",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 139,
+      "original_call_sequence_offset": "0xbe90a",
+      "string_id": 738,
+      "string_id_hex": "0x2e2",
+      "data_destination_offset": "0x5330",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 140,
+      "original_call_sequence_offset": "0xbe919",
+      "string_id": 739,
+      "string_id_hex": "0x2e3",
+      "data_destination_offset": "0x5342",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 141,
+      "original_call_sequence_offset": "0xbe928",
+      "string_id": 740,
+      "string_id_hex": "0x2e4",
+      "data_destination_offset": "0x5354",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 142,
+      "original_call_sequence_offset": "0xbe937",
+      "string_id": 741,
+      "string_id_hex": "0x2e5",
+      "data_destination_offset": "0x5366",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 143,
+      "original_call_sequence_offset": "0xbe946",
+      "string_id": 742,
+      "string_id_hex": "0x2e6",
+      "data_destination_offset": "0x5378",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 144,
+      "original_call_sequence_offset": "0xbe955",
+      "string_id": 743,
+      "string_id_hex": "0x2e7",
+      "data_destination_offset": "0x538a",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 145,
+      "original_call_sequence_offset": "0xbe964",
+      "string_id": 744,
+      "string_id_hex": "0x2e8",
+      "data_destination_offset": "0x539c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 146,
+      "original_call_sequence_offset": "0xbe973",
+      "string_id": 745,
+      "string_id_hex": "0x2e9",
+      "data_destination_offset": "0x53ae",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 147,
+      "original_call_sequence_offset": "0xbe982",
+      "string_id": 746,
+      "string_id_hex": "0x2ea",
+      "data_destination_offset": "0x53c0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 148,
+      "original_call_sequence_offset": "0xbe991",
+      "string_id": 747,
+      "string_id_hex": "0x2eb",
+      "data_destination_offset": "0x53d2",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 149,
+      "original_call_sequence_offset": "0xbe9a0",
+      "string_id": 748,
+      "string_id_hex": "0x2ec",
+      "data_destination_offset": "0x53e4",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 150,
+      "original_call_sequence_offset": "0xbe9af",
+      "string_id": 749,
+      "string_id_hex": "0x2ed",
+      "data_destination_offset": "0x53f6",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 151,
+      "original_call_sequence_offset": "0xbe9be",
+      "string_id": 750,
+      "string_id_hex": "0x2ee",
+      "data_destination_offset": "0x5408",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 152,
+      "original_call_sequence_offset": "0xbe9cd",
+      "string_id": 751,
+      "string_id_hex": "0x2ef",
+      "data_destination_offset": "0x541a",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 153,
+      "original_call_sequence_offset": "0xbe9dc",
+      "string_id": 752,
+      "string_id_hex": "0x2f0",
+      "data_destination_offset": "0x542c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 154,
+      "original_call_sequence_offset": "0xbe9eb",
+      "string_id": 753,
+      "string_id_hex": "0x2f1",
+      "data_destination_offset": "0x543e",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 155,
+      "original_call_sequence_offset": "0xbe9fa",
+      "string_id": 754,
+      "string_id_hex": "0x2f2",
+      "data_destination_offset": "0x5450",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 156,
+      "original_call_sequence_offset": "0xbea09",
+      "string_id": 755,
+      "string_id_hex": "0x2f3",
+      "data_destination_offset": "0x5462",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 157,
+      "original_call_sequence_offset": "0xbea18",
+      "string_id": 756,
+      "string_id_hex": "0x2f4",
+      "data_destination_offset": "0x5474",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 158,
+      "original_call_sequence_offset": "0xbea27",
+      "string_id": 757,
+      "string_id_hex": "0x2f5",
+      "data_destination_offset": "0x5486",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 159,
+      "original_call_sequence_offset": "0xbea36",
+      "string_id": 758,
+      "string_id_hex": "0x2f6",
+      "data_destination_offset": "0x5498",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 160,
+      "original_call_sequence_offset": "0xbea45",
+      "string_id": 759,
+      "string_id_hex": "0x2f7",
+      "data_destination_offset": "0x54aa",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 161,
+      "original_call_sequence_offset": "0xbea54",
+      "string_id": 760,
+      "string_id_hex": "0x2f8",
+      "data_destination_offset": "0x54bc",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 162,
+      "original_call_sequence_offset": "0xbea63",
+      "string_id": 761,
+      "string_id_hex": "0x2f9",
+      "data_destination_offset": "0x54ce",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 163,
+      "original_call_sequence_offset": "0xbea72",
+      "string_id": 762,
+      "string_id_hex": "0x2fa",
+      "data_destination_offset": "0x54e0",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 164,
+      "original_call_sequence_offset": "0xbea81",
+      "string_id": 672,
+      "string_id_hex": "0x2a0",
+      "data_destination_offset": "0x54f2",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 165,
+      "original_call_sequence_offset": "0xbea90",
+      "string_id": 763,
+      "string_id_hex": "0x2fb",
+      "data_destination_offset": "0x5504",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 166,
+      "original_call_sequence_offset": "0xbea9f",
+      "string_id": 764,
+      "string_id_hex": "0x2fc",
+      "data_destination_offset": "0x5516",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 167,
+      "original_call_sequence_offset": "0xbeaae",
+      "string_id": 765,
+      "string_id_hex": "0x2fd",
+      "data_destination_offset": "0x5528",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 168,
+      "original_call_sequence_offset": "0xbeabd",
+      "string_id": 766,
+      "string_id_hex": "0x2fe",
+      "data_destination_offset": "0x553a",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 169,
+      "original_call_sequence_offset": "0xbeacc",
+      "string_id": 767,
+      "string_id_hex": "0x2ff",
+      "data_destination_offset": "0x554c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 170,
+      "original_call_sequence_offset": "0xbeadb",
+      "string_id": 768,
+      "string_id_hex": "0x300",
+      "data_destination_offset": "0x555e",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 171,
+      "original_call_sequence_offset": "0xbeaea",
+      "string_id": 769,
+      "string_id_hex": "0x301",
+      "data_destination_offset": "0x5570",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 172,
+      "original_call_sequence_offset": "0xbeaf9",
+      "string_id": 770,
+      "string_id_hex": "0x302",
+      "data_destination_offset": "0x5582",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 173,
+      "original_call_sequence_offset": "0xbeb08",
+      "string_id": 771,
+      "string_id_hex": "0x303",
+      "data_destination_offset": "0x5594",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 174,
+      "original_call_sequence_offset": "0xbeb17",
+      "string_id": 772,
+      "string_id_hex": "0x304",
+      "data_destination_offset": "0x55a6",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 175,
+      "original_call_sequence_offset": "0xbeb26",
+      "string_id": 773,
+      "string_id_hex": "0x305",
+      "data_destination_offset": "0x55b8",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 176,
+      "original_call_sequence_offset": "0xbeb35",
+      "string_id": 774,
+      "string_id_hex": "0x306",
+      "data_destination_offset": "0x55ca",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 177,
+      "original_call_sequence_offset": "0xbeb44",
+      "string_id": 775,
+      "string_id_hex": "0x307",
+      "data_destination_offset": "0x55dc",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 178,
+      "original_call_sequence_offset": "0xbeb53",
+      "string_id": 731,
+      "string_id_hex": "0x2db",
+      "data_destination_offset": "0x1b130",
+      "exact_data_symbol_names": [
+        "_admin_skill_names"
+      ]
+    },
+    {
+      "ordinal": 179,
+      "original_call_sequence_offset": "0xbeb62",
+      "string_id": 735,
+      "string_id_hex": "0x2df",
+      "data_destination_offset": "0x1b134",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 180,
+      "original_call_sequence_offset": "0xbeb71",
+      "string_id": 739,
+      "string_id_hex": "0x2e3",
+      "data_destination_offset": "0x1b138",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 181,
+      "original_call_sequence_offset": "0xbeb80",
+      "string_id": 745,
+      "string_id_hex": "0x2e9",
+      "data_destination_offset": "0x1b13c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 182,
+      "original_call_sequence_offset": "0xbeb8f",
+      "string_id": 747,
+      "string_id_hex": "0x2eb",
+      "data_destination_offset": "0x1b140",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 183,
+      "original_call_sequence_offset": "0xbeb9e",
+      "string_id": 749,
+      "string_id_hex": "0x2ed",
+      "data_destination_offset": "0x1b144",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 184,
+      "original_call_sequence_offset": "0xbebad",
+      "string_id": 761,
+      "string_id_hex": "0x2f9",
+      "data_destination_offset": "0x1b148",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 185,
+      "original_call_sequence_offset": "0xbebbc",
+      "string_id": 764,
+      "string_id_hex": "0x2fc",
+      "data_destination_offset": "0x1b14c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 186,
+      "original_call_sequence_offset": "0xbebcb",
+      "string_id": 768,
+      "string_id_hex": "0x300",
+      "data_destination_offset": "0x1b150",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 187,
+      "original_call_sequence_offset": "0xbebda",
+      "string_id": 776,
+      "string_id_hex": "0x308",
+      "data_destination_offset": "0x18430",
+      "exact_data_symbol_names": [
+        "_officer_level_names"
+      ]
+    },
+    {
+      "ordinal": 188,
+      "original_call_sequence_offset": "0xbebe9",
+      "string_id": 777,
+      "string_id_hex": "0x309",
+      "data_destination_offset": "0x18434",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 189,
+      "original_call_sequence_offset": "0xbebf8",
+      "string_id": 778,
+      "string_id_hex": "0x30a",
+      "data_destination_offset": "0x18438",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 190,
+      "original_call_sequence_offset": "0xbec07",
+      "string_id": 779,
+      "string_id_hex": "0x30b",
+      "data_destination_offset": "0x1843c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 191,
+      "original_call_sequence_offset": "0xbec16",
+      "string_id": 780,
+      "string_id_hex": "0x30c",
+      "data_destination_offset": "0x18440",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 192,
+      "original_call_sequence_offset": "0xbec25",
+      "string_id": 781,
+      "string_id_hex": "0x30d",
+      "data_destination_offset": "0x18444",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 193,
+      "original_call_sequence_offset": "0xbec34",
+      "string_id": 782,
+      "string_id_hex": "0x30e",
+      "data_destination_offset": "0x18448",
+      "exact_data_symbol_names": [
+        "_star_officer_level_names"
+      ]
+    },
+    {
+      "ordinal": 194,
+      "original_call_sequence_offset": "0xbec43",
+      "string_id": 783,
+      "string_id_hex": "0x30f",
+      "data_destination_offset": "0x1844c",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 195,
+      "original_call_sequence_offset": "0xbec52",
+      "string_id": 784,
+      "string_id_hex": "0x310",
+      "data_destination_offset": "0x18450",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 196,
+      "original_call_sequence_offset": "0xbec61",
+      "string_id": 785,
+      "string_id_hex": "0x311",
+      "data_destination_offset": "0x18454",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 197,
+      "original_call_sequence_offset": "0xbec70",
+      "string_id": 786,
+      "string_id_hex": "0x312",
+      "data_destination_offset": "0x18458",
+      "exact_data_symbol_names": []
+    },
+    {
+      "ordinal": 198,
+      "original_call_sequence_offset": "0xbec7f",
+      "string_id": 787,
+      "string_id_hex": "0x313",
+      "data_destination_offset": "0x1845c",
+      "exact_data_symbol_names": []
+    }
+  ]
+}
