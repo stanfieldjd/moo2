@@ -1,0 +1,316 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "game_module_count": 133,
+  "game_indirect_call_sites": 19,
+  "known_static_dispatch_sites": 8,
+  "runtime_dependent_callback_sites": 11,
+  "classifications": {
+    "colony-indexed-table": 2,
+    "conditional-paragraph-helper": 4,
+    "conditional-ship-helper": 2,
+    "runtime-dependent-callback": 11
+  },
+  "sources": [
+    "decompilation/functions.csv",
+    "decompilation/modules.csv",
+    "decompilation/indirect_transfers.csv",
+    "verified relocated LE code object",
+    "verified relocated LE data object"
+  ],
+  "scope": "static target provenance only; no game-rule execution, dynamic callback resolution, or C-source recovery",
+  "sites": [
+    {
+      "site_hex": "0x7c7",
+      "function": "Execute_Auto_Function_",
+      "module": "L:\\MOX\\MOX2.C",
+      "source_operand": "DWORD PTR [eax]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "caller-provided function pointer in memory addressed by EAX"
+    },
+    {
+      "site_hex": "0x7f22e",
+      "function": "Fade_Into_Screen_",
+      "module": "D:\\MOX\\OTHERS\\MISC.C",
+      "source_operand": "DWORD PTR [ebp-0x4]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "function pointer passed in EAX and saved on stack"
+    },
+    {
+      "site_hex": "0x8e273",
+      "function": "Draw_Generic_Score_",
+      "module": "D:\\MOX\\OTHERS\\SCORE.C",
+      "source_operand": "DWORD PTR [ebp-0x4]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "function pointer passed in EBX and saved on stack"
+    },
+    {
+      "site_hex": "0x902ec",
+      "function": "Draw_Generic_Vertical_Scroll_Bar_",
+      "module": "D:\\MOX\\OTHERS\\SCROLL.C",
+      "source_operand": "DWORD PTR [ebp-0x4]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "function pointer passed in EDX and saved on stack"
+    },
+    {
+      "site_hex": "0xc7ebc",
+      "function": "Ship_Rough_Strength_At_Star_",
+      "module": "D:\\MOX\\OTHERS\\AIMOVE.C",
+      "source_operand": "DWORD PTR [ebp-0x24]",
+      "classification": "conditional-ship-helper",
+      "verified_static_targets": [
+        {
+          "code_offset": "0x4ef09",
+          "watcom_symbols": [
+            "Ship_Strength_Vs_Ships_In_Nebula_"
+          ]
+        },
+        {
+          "code_offset": "0x4ef17",
+          "watcom_symbols": [
+            "Ship_Strength_Vs_Ships_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xc7fdb",
+      "function": "Ship_Min_Strength_Versus_Players_At_Star_",
+      "module": "D:\\MOX\\OTHERS\\AIMOVE.C",
+      "source_operand": "DWORD PTR [ebp-0xc]",
+      "classification": "conditional-ship-helper",
+      "verified_static_targets": [
+        {
+          "code_offset": "0x4ef09",
+          "watcom_symbols": [
+            "Ship_Strength_Vs_Ships_In_Nebula_"
+          ]
+        },
+        {
+          "code_offset": "0x4ef17",
+          "watcom_symbols": [
+            "Ship_Strength_Vs_Ships_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xcdff0",
+      "function": "Colony_Pop_Prod_Produced_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "source_operand": "DWORD PTR [edi*4+0xb55c]",
+      "classification": "colony-indexed-table",
+      "verified_static_targets": [
+        {
+          "index": 0,
+          "code_offset": "0xce0c6",
+          "watcom_symbols": [
+            "Colony_Empire_Base_Food2_Produced_"
+          ]
+        },
+        {
+          "index": 1,
+          "code_offset": "0xced47",
+          "watcom_symbols": [
+            "Colony_Empire_Base_Industry_Produced_"
+          ]
+        },
+        {
+          "index": 2,
+          "code_offset": "0xcfe77",
+          "watcom_symbols": [
+            "Colony_Empire_Base_Research_Produced_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xce24e",
+      "function": "Colony_Pop_Base_Prod_Produced_",
+      "module": "D:\\MOX\\OTHERS\\COLCALC.C",
+      "source_operand": "DWORD PTR [edi*4+0xb55c]",
+      "classification": "colony-indexed-table",
+      "verified_static_targets": [
+        {
+          "index": 0,
+          "code_offset": "0xce0c6",
+          "watcom_symbols": [
+            "Colony_Empire_Base_Food2_Produced_"
+          ]
+        },
+        {
+          "index": 1,
+          "code_offset": "0xced47",
+          "watcom_symbols": [
+            "Colony_Empire_Base_Industry_Produced_"
+          ]
+        },
+        {
+          "index": 2,
+          "code_offset": "0xcfe77",
+          "watcom_symbols": [
+            "Colony_Empire_Base_Research_Produced_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xd989c",
+      "function": "Find_Planet_At_Star_Satisfying_",
+      "module": "D:\\MOX\\OTHERS\\COMBFIND.C",
+      "source_operand": "DWORD PTR [ebp-0x4]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "planet-filter predicate passed in EDX"
+    },
+    {
+      "site_hex": "0xddbcc",
+      "function": "Kill_Buildings_",
+      "module": "D:\\MOX\\OTHERS\\MAINTAIN.C",
+      "source_operand": "DWORD PTR [ebp-0x14]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "building predicate passed in EDX"
+    },
+    {
+      "site_hex": "0xf2c91",
+      "function": "Update_List_Window_Data_",
+      "module": "D:\\MOX\\BILL.C",
+      "source_operand": "DWORD PTR [ebx+0x1e]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "callback in caller-provided list object at +0x1e"
+    },
+    {
+      "site_hex": "0xf3031",
+      "function": "_Squeeze_Print_Paragraph_",
+      "module": "D:\\MOX\\BILL.C",
+      "source_operand": "DWORD PTR [ebp-0x24]",
+      "classification": "conditional-paragraph-helper",
+      "verified_static_targets": [
+        {
+          "code_offset": "0xf3caf",
+          "watcom_symbols": [
+            "Get_Formatted_Paragraph_Max_Height_"
+          ]
+        },
+        {
+          "code_offset": "0xf3952",
+          "watcom_symbols": [
+            "_Get_Paragraph_Max_Height_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xf3049",
+      "function": "_Squeeze_Print_Paragraph_",
+      "module": "D:\\MOX\\BILL.C",
+      "source_operand": "DWORD PTR [ebp-0x24]",
+      "classification": "conditional-paragraph-helper",
+      "verified_static_targets": [
+        {
+          "code_offset": "0xf3caf",
+          "watcom_symbols": [
+            "Get_Formatted_Paragraph_Max_Height_"
+          ]
+        },
+        {
+          "code_offset": "0xf3952",
+          "watcom_symbols": [
+            "_Get_Paragraph_Max_Height_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xf3077",
+      "function": "_Squeeze_Print_Paragraph_",
+      "module": "D:\\MOX\\BILL.C",
+      "source_operand": "DWORD PTR [ebp-0x24]",
+      "classification": "conditional-paragraph-helper",
+      "verified_static_targets": [
+        {
+          "code_offset": "0xf3caf",
+          "watcom_symbols": [
+            "Get_Formatted_Paragraph_Max_Height_"
+          ]
+        },
+        {
+          "code_offset": "0xf3952",
+          "watcom_symbols": [
+            "_Get_Paragraph_Max_Height_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xf309b",
+      "function": "_Squeeze_Print_Paragraph_",
+      "module": "D:\\MOX\\BILL.C",
+      "source_operand": "DWORD PTR [ebp-0x24]",
+      "classification": "conditional-paragraph-helper",
+      "verified_static_targets": [
+        {
+          "code_offset": "0xf3caf",
+          "watcom_symbols": [
+            "Get_Formatted_Paragraph_Max_Height_"
+          ]
+        },
+        {
+          "code_offset": "0xf3952",
+          "watcom_symbols": [
+            "_Get_Paragraph_Max_Height_"
+          ]
+        }
+      ],
+      "unresolved_reason": null
+    },
+    {
+      "site_hex": "0xf5fe1",
+      "function": "FN_User_Call_",
+      "module": "D:\\MOX\\FMTPARA.C",
+      "source_operand": "DWORD PTR ds:0x34f70",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "runtime-assignable global data callback slot 0x34f70"
+    },
+    {
+      "site_hex": "0xfa287",
+      "function": "Display_Selected_List_Text_",
+      "module": "D:\\MOX\\LIST.C",
+      "source_operand": "DWORD PTR [edi+0x22]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "callback in caller-provided list object at +0x22"
+    },
+    {
+      "site_hex": "0xfa3a5",
+      "function": "Display_Selected_List_Text_For_Tech_List_",
+      "module": "D:\\MOX\\LIST.C",
+      "source_operand": "DWORD PTR [esi+0x22]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "callback in caller-provided list object at +0x22"
+    },
+    {
+      "site_hex": "0xfcfe8",
+      "function": "Draw_Icon_Group_",
+      "module": "D:\\MOX\\RACESCRN.C",
+      "source_operand": "DWORD PTR [esi+0x1c]",
+      "classification": "runtime-dependent-callback",
+      "verified_static_targets": [],
+      "unresolved_reason": "callback in caller-provided icon object at +0x1c"
+    }
+  ]
+}
