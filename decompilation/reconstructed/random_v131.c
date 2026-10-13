@@ -22,13 +22,7 @@
  * exact modulo behavior. Host API reports zero bound as status rather
  * than attempting the original divide error: intentional safety change.
  */
-#include <stdint.h>
-
-typedef enum {
-    MOO2_V131_RANDOM_OK=0,
-    MOO2_V131_RANDOM_ZERO_MAXIMUM=1,
-    MOO2_V131_RANDOM_INVALID_POINTER=2
-} Moo2V131RandomStatus;
+#include "random_v131.h"
 
 Moo2V131RandomStatus moo2_v131_derived_random(
     uint32_t *random_seed,uint32_t maximum,uint32_t *result)
