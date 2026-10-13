@@ -56,8 +56,8 @@ def main(exe, code):
                 raise ValueError("16-bit island prefix changed")
             p=subprocess.run(["objdump","-D","-M","intel","-b","binary",
                   "-m","i8086","--adjust-vma=0x10000",
-                  f"--start-address={off+0x10008:x}",
-                  f"--stop-address={off+0x10038:x}",str(code)],
+                  f"--start-address=0x{off+0x10008:x}",
+                  f"--stop-address=0x{off+0x10038:x}",str(code)],
                   capture_output=True,text=True,check=True)
             if "push   bp" not in p.stdout or "mov    bp,sp" not in p.stdout:
                 raise ValueError("16-bit decoder did not recognize procedure prologue")
