@@ -305,3 +305,35 @@ must not be assigned a fabricated callee.
 This checkpoint makes no edits to website gameplay, native game
 execution, Xbox controller behavior, or Qwen, and does not distribute
 original game binaries or artwork.
+
+
+## Follow-on recovered combat subsystem: ammunition eligibility
+
+The source-verified original `Is_Ship_Out_Of_Ammo_` (241 bytes)
+and `Check_For_Launched_Fighters_` (95 bytes) now have isolated
+derived C. Original `Does_Combat_Ship_Have_Special_` (75 bytes)
+and the pure return calculation from `Test_Bit_Field_`
+(34 bytes) are included rather than replaced by guesses or stubs.
+
+The six-case original weapon-category switch, signed ammunition
+field, eight weapon slots, 300 missile records, dual special
+bitfields, and 51 opcode/producer checkpoints are individually
+cross-referenced with the authenticated original. Four original
+combat initialization functions explicitly assign the 16-bit
+global at DATA offset `0x218AC` from the signed owner byte of
+a selected original `_ship` record.
+
+- `decompilation/reconstructed/combat_ammo_v131.c`
+- `decompilation/annotated/combat_ammo_v131.md`
+- `tests/test_combat_ammo_v131.c`
+- `tools/audit_combat_ammo_v131.py`
+- `decompilation/reports/combat_ammo_audit_v131_2026-10-13.json`
+
+The derived regression suite passes strict C11 and both
+AddressSanitizer/UndefinedBehaviorSanitizer. This remains
+**source-anchored functional reconstruction, not dynamic
+differential validation inside the original DOS executable**;
+the original bitfield helper's scratch CODE-object write is
+intentionally omitted from pure C, and invalid host indices
+are explicitly rejected for safety. No website, Xbox controls,
+Qwen, or original game assets were modified by this work.
