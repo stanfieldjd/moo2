@@ -1,0 +1,46 @@
+{
+  "source_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "omitted_prescaled_sites": 2,
+  "omitted_game_sites": 1,
+  "omitted_support_sites": 1,
+  "case_entries": 8,
+  "scope": "exact original CS indexed indirect JMPs, nearby scale and bounds guards, four original DWORD targets per site; not full function equivalence",
+  "sites": [
+    {
+      "site_offset": "0xacf3e",
+      "watcom_symbol": "Do_Colony_Info_Military_Stuff_For_",
+      "watcom_module_index": 74,
+      "module_scope": "game",
+      "original_table_offset": "0xace92",
+      "scale_instruction_offset": "0xacf2a",
+      "guard_cmp_offset": "0xacf35",
+      "guard_ja_offset": "0xacf39",
+      "case_count": 4,
+      "target_offsets": [
+        "0xacf45",
+        "0xacf9d",
+        "0xacf9d",
+        "0xacf9d"
+      ],
+      "switch_inventory_omitted": true
+    },
+    {
+      "site_offset": "0x117190",
+      "watcom_symbol": "Farload_Library_Data_",
+      "watcom_module_index": 152,
+      "module_scope": "support",
+      "original_table_offset": "0x117145",
+      "scale_instruction_offset": "0x11718d",
+      "guard_cmp_offset": "0x117180",
+      "guard_ja_offset": "0x117184",
+      "case_count": 4,
+      "target_offsets": [
+        "0x117197",
+        "0x1171ba",
+        "0x1171e0",
+        "0x117206"
+      ],
+      "switch_inventory_omitted": true
+    }
+  ]
+}
