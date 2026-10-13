@@ -8,9 +8,20 @@ ISPConfig-managed website/vhost for the game**. Do not install the game into
 the existing Qwen website, alter Qwen's virtual host, or repurpose any Qwen
 service or document root.
 
-**Permanent domain name: not decided.** Do not invent or assume one. The
-permanent site's final hostname, DNS entries and production TLS certificate
-must remain open until the user chooses the domain.
+**Preferred permanent domain (user delegated choice): `orion2web.com`.**
+This is a recommendation only, NOT a registered/owned domain. Availability
+could not be confirmed by authoritative RDAP; an absent A record does not
+establish that registration is possible. Confirm registrar availability,
+trademark/branding suitability and purchase authorization before registering.
+Do not set production DNS or attempt certificate issuance yet.
+
+**Verified free temporary DNS candidate:**
+`orion2.169-58-188-138.sslip.io`, resolving to the Contabo IPv4 address
+`169.58.188.138` during an authorized read-only check. sslip.io's DNS service
+is operated by a third party; this hostname is suitable only for optional
+staging, not a permanent identity. A valid HTTPS certificate, a separate
+ISPConfig vhost, authentication, and actual Xbox One browser tests do not yet
+exist. Do not treat working DNS resolution as site readiness.
 
 The desired browser game must run from the server in computer browsers **and
 Microsoft Edge on the Xbox One itself**, using the console's Xbox controller.
