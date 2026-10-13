@@ -937,3 +937,72 @@ Additional artifacts:
 
 No original proprietary game assets, public Game Lab,
 Xbox controls or Qwen configuration were changed.
+
+
+## Original building queue deletion and ship reset: four branch IDs
+
+A further source-authenticated pass recovered the queue
+cleanup subgraphs inside the original 493-byte
+`Remove_Building_` for building IDs **8, 22, 40 and 41**.
+All four scan the original seven signed queue WORDs
+`colony+0x115+2*slot`. Values **<=−100** encode
+`_ship` references, with ship index
+`-(value+100)` and 129-byte `_ship` records.
+IDs **8,40,41** delete queue entries whose ship
+BYTE `+0x10 >=2`; ID **22** instead requires
+ship BYTE `+0x11 ==2`. The original source
+decrements the slot index after deletion to revisit
+shifted entries. Only IDs 8,40,41 proceed to original
+`Compute_Star_Colony_Stuff_` through the verified
+colony-planet-star lookup; ID22 does not.
+
+The exact original 94-byte `Delete_From_Colony_Queue_`
+helper (CODE `0xA1E19`) has also been translated
+into isolated C, including original ship-state writes:
+ship BYTE `+0x64 =5` and ship WORD `+0x65 =
+0xFFFF` for encoded ship entries. The original
+helper calls CODE `0xA20ED`, a separate
+99-byte anonymous colony queue compactor that
+shifts seven WORD entries, sets final slot
+to `-1`, and repeats while the selected
+slot contains `-10`. This inner compactor is
+not the same as the named `Defragment_Queue_`
+entry at `0xA20BD` even though the Watcom
+named symbol's 147-byte interval contains both.
+
+A new read-only source audit verifies SHA-256 hashes
+for complete original CODE bodies
+`Remove_Building_` (493 bytes),
+`Delete_From_Colony_Queue_` (94 bytes),
+the 147-byte named `Defragment_Queue_`
+interval, and the anonymous 99-byte compactor.
+It additionally checks **100 exact original x86
+instructions**, named DATA globals and direct
+call destinations. These checks passed against
+the authenticated original v1.31 executable.
+
+Files:
+
+- `tools/audit_remove_building_queue_cleanup_v131.py`
+- `decompilation/reports/remove_building_queue_cleanup_v131_2026-10-13.json`
+- `decompilation/reconstructed/remove_building_queue_cleanup_v131.c`
+- `decompilation/reconstructed/delete_colony_queue_slot_v131.c`
+- `tests/test_remove_building_queue_cleanup_v131.c`
+- `tests/test_delete_colony_queue_slot_v131.c`
+- `tests/test_remove_building_queue_delete_integration_v131.c`
+- `decompilation/annotated/remove_building_queue_cleanup_v131.md`
+
+All three derived C regression tests passed strict C11,
+AddressSanitizer and UndefinedBehaviorSanitizer.
+The outer queue code integrates successfully with
+the derived original ship reset and queue compaction
+instead of a fake queue-deletion callback. The real
+star-colony recomputation remains a named callback.
+Host pointer/index guards and iteration caps are
+safety differences from the DOS executable.
+No original DOS differential run has been performed,
+and full `Remove_Building_`/game equivalence
+remains unfinished.
+
+No original proprietary game assets, Game Lab public
+site, Xbox controller or Qwen installation was changed.
