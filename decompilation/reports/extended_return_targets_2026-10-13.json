@@ -3,12 +3,12 @@
   "input_candidates": 92,
   "classifications": {
     "destination_is_another_named_function_entry": 8,
-    "straight_line_return_sequence": 32,
+    "straight_line_return_sequence": 34,
     "source_not_established_by_bounded_walk": 29,
     "one_hop_to_return_epilogue": 10,
-    "reachable_nontrivial_cfg_target": 13
+    "reachable_nontrivial_cfg_target": 11
   },
-  "summary": "50 source-reachable sites have statically recognizable exit or other-entry shapes; 13 are other reachable CFG paths; 29 not established by bounded traversal",
+  "summary": "52 source-reachable sites have statically recognizable exit or other-entry shapes; 11 are other reachable CFG paths; 29 not established by bounded traversal",
   "limit": "structural machine-code classification only; no stack correctness, case semantics, or false-positive/dead-code determination",
   "entries": [
     {
@@ -618,14 +618,14 @@
       "branch_source_offset": "0xf5d62",
       "branch_target_offset": "0xf5d01",
       "target_symbol": "FN_Set_Y_Pos_",
-      "classification": "reachable_nontrivial_cfg_target"
+      "classification": "straight_line_return_sequence"
     },
     {
       "source_function": "FN_Set_Indent_",
       "branch_source_offset": "0xf5ec5",
       "branch_target_offset": "0xf5de8",
       "target_symbol": "FN_Set_FF_Size_",
-      "classification": "reachable_nontrivial_cfg_target"
+      "classification": "straight_line_return_sequence"
     },
     {
       "source_function": "Pick_Font_Color_",
