@@ -6,6 +6,17 @@ const status = document.getElementById("status");
 const keys = document.getElementById("keys");
 let running = false;
 let frame = 0;
+let lastInteraction = "none";
+const display = document.createElement("p");
+display.id = "displayMetrics";
+display.className = "probe-keys";
+output.insertAdjacentElement("afterend", display);
+function environmentDetails() {
+  const viewport = window.visualViewport;
+  const vv = viewport ? `${Math.round(viewport.width)} × ${Math.round(viewport.height)}` : "unavailable";
+  const focused = document.activeElement?.id || document.activeElement?.tagName || "none";
+  display.textContent = `Viewport: ${innerWidth} × ${innerHeight} CSS px | Visual viewport: ${vv} | Display scale: ${devicePixelRatio || 1} | Focus: ${focused} | Recent pointer/focus: ${lastInteraction}`;
+}
 const labels = ["A","B","X","Y","LB","RB","LT","RT","View","Menu","LS","RS","D-pad Up","D-pad Down","D-pad Left","D-pad Right"];
 function sample() {
   if (!running) return;
@@ -26,6 +37,7 @@ function sample() {
   } catch(error) {
     output.textContent = "Gamepad API blocked: "+String(error?.name || "unknown");
   }
+  environmentDetails();
   frame = requestAnimationFrame(sample);
 }
 start.addEventListener("click", ()=>{
@@ -36,6 +48,10 @@ stop.addEventListener("click", ()=>{
   running = false; cancelAnimationFrame(frame); start.disabled = false; stop.disabled = true;
   status.textContent = "Test stopped.";
 });
+document.addEventListener("pointerdown", event=>{lastInteraction = `pointer ${event.pointerType || "unknown"}`; environmentDetails();});
+document.addEventListener("focusin", event=>{lastInteraction = `focus ${event.target?.id || event.target?.tagName || "unknown"}`; environmentDetails();});
+window.addEventListener("resize", environmentDetails);
+environmentDetails();
 document.addEventListener("keydown", event=>{
   keys.textContent = "Most recent keyboard input: "+event.key;
   if (event.key === "Escape" && !running) window.location.assign("../");
