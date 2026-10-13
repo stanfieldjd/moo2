@@ -9,6 +9,7 @@
 #include <string.h>
 #include "../decompilation/reconstructed/colony_hit_player_stats_v131.c"
 #include "../decompilation/reconstructed/colony_single_entry_bomb_v131.c"
+#include "../decompilation/reconstructed/remove_building_first_write_v131.c"
 
 static void require(int okay){if(!okay){fputs("FAIL single-population bomb resolver\n",stderr);exit(1);}}
 static uint16_t read16(const uint8_t *p){return (uint16_t)(p[0]|((uint16_t)p[1]<<8));}
@@ -16,6 +17,8 @@ static void put16(uint8_t *p,uint16_t x){p[0]=(uint8_t)x;p[1]=(uint8_t)(x>>8);}
 typedef struct {
     uint8_t *colony;
     uint8_t *event;
+    uint8_t *colony_base;
+    size_t colony_count;
     unsigned calls;
     int16_t expected_id;
 } RemoveCtx;
@@ -25,6 +28,9 @@ static void remove_building(void *opaque,int16_t colony_id,uint16_t building_id)
     require(ctx->colony[0x0Au]==0u);
     require(ctx->event[0x42u]==0u); /* set AFTER source callback */
     require(read16(ctx->event+0x0Cu)==1u);
+    require(moo2_v131_derived_remove_building_first_write(
+        ctx->colony_base,ctx->colony_count,colony_id,(int16_t)building_id)
+        ==MOO2_V131_BUILDING_FIRST_WRITE_OK);
     ctx->calls++;
 }
 int main(void) {
@@ -33,7 +39,7 @@ int main(void) {
     uint8_t players[2u*0xEA9u]={0};
     uint8_t *colony=colonies+0x169u;
     colony[0]=1u;event[0]=2u;
-    RemoveCtx recorder={colony,event,0u,1};
+    RemoveCtx recorder={colony,event,colonies,2u,0u,1};
     Moo2V131SingleEntryBombContext ctx={
         colonies,2u,event,sizeof(event),players,sizeof(players),
         remove_building,&recorder
@@ -93,6 +99,7 @@ int main(void) {
     require(moo2_v131_derived_single_entry_bomb(&ctx,1,&returned)
         ==MOO2_V131_SINGLE_ENTRY_OK);
     require(recorder.calls==before+1u);
+    require(colony[0x13Fu]==0u);
     require(event[0x42u]==1u && event[0x41u]==1u);
 
     /* No callback is needed if surviving defense is > 100. */
