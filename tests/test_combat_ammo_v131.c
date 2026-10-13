@@ -13,21 +13,6 @@
 #include <string.h>
 #include "../decompilation/reconstructed/combat_ammo_v131.c"
 
-typedef struct {
-    uint16_t respond_to;
-    unsigned queries;
-    uint16_t most_recent_id;
-} SpecialTestContext;
-
-static uint16_t has_special(void *opaque,int16_t combat_ship_id,uint16_t special_id)
-{
-    SpecialTestContext *s=(SpecialTestContext *)opaque;
-    if (combat_ship_id!=0) abort();
-    s->queries++;
-    s->most_recent_id=special_id;
-    return special_id==s->respond_to ? 1u : 0u;
-}
-
 static void u16(uint8_t *p,uint16_t word)
 {
     p[0]=(uint8_t)word;
@@ -61,10 +46,8 @@ int main(void)
     uint8_t ships[2*0x139];
     uint8_t definitions[64*28];
     uint8_t missiles[301*26];
-    SpecialTestContext special={0,0,0};
     Moo2V131CombatAmmoContext ctx={
-        ships,2,definitions,64,missiles,301,0,
-        has_special,&special
+        ships,2,definitions,64,missiles,301,0
     };
     memset(ships,0,sizeof(ships));
     memset(definitions,0,sizeof(definitions));
@@ -73,15 +56,27 @@ int main(void)
     for(unsigned i=0;i<301;i++)u16(missiles+i*26+4,0xffffu);
 
     check_result(&ctx,1,"empty ship");
-    special.respond_to=0x25;
-    check_result(&ctx,0,"special 0x25 short circuit");
-    if(special.queries!=3||special.most_recent_id!=0x25)abort();
-    special.respond_to=0x26;
-    special.queries=0;
-    check_result(&ctx,0,"special 0x26 short circuit");
-    if(special.queries!=2||special.most_recent_id!=0x26)abort();
-    special.respond_to=0;
-    special.queries=0;
+    const unsigned special25=0x25u, special26=0x26u;
+    ships[0x4Cu + (special25 >> 3)] |=
+        (uint8_t)(1u << (special25 & 7u));
+    check_result(&ctx,0,"special 0x25 present and not suppressed");
+    if(moo2_v131_derived_combat_ship_has_special(&ctx,0,0x25u)!=1u)
+        abort();
+    ships[0xB2u + (special25 >> 3)] |=
+        (uint8_t)(1u << (special25 & 7u));
+    check_result(&ctx,1,"suppressed special 0x25 does not grant ammo");
+    if(moo2_v131_derived_combat_ship_has_special(&ctx,0,0x25u)!=0u)
+        abort();
+    ships[0x4Cu + (special26 >> 3)] |=
+        (uint8_t)(1u << (special26 & 7u));
+    check_result(&ctx,0,"special 0x26 present and not suppressed");
+    ships[0xB2u + (special26 >> 3)] |=
+        (uint8_t)(1u << (special26 & 7u));
+    check_result(&ctx,1,"suppressed special 0x26 does not grant ammo");
+    ships[0x4Cu + (special25 >> 3)] = 0;
+    ships[0x4Cu + (special26 >> 3)] = 0;
+    ships[0xB2u + (special25 >> 3)] = 0;
+    ships[0xB2u + (special26 >> 3)] = 0;
 
     set_item(ships,0,1,0,0);
     definitions[1*28+12]=0;
@@ -151,6 +146,6 @@ int main(void)
     if(moo2_v131_derived_ship_out_of_ammo(&ctx,2,&value)!=
        MOO2_V131_COMBAT_AMMO_INVALID_INPUT)abort();
 
-    printf("PASS: 24 derived original combat-ammo branch/boundary cases\n");
+    printf("PASS: derived original combat-ammo weapon, fighter, and special-bitfield cases\n");
     return 0;
 }
