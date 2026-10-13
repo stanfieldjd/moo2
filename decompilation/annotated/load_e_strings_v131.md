@@ -151,8 +151,17 @@ standalone derived C implementation is in
 All 199 generated assignments match the original instruction mapping,
 and the derived C passed a strict syntax check.
 
-Further work: reconstruct `Farload_Data_Static_`, LBX entry semantics
-and string decoding; trace all `Load_E_Strings_` callers and the
-language-selection byte initialization; recover runtime text
-allocation, lifetime and error behavior. The complete game
-is not yet decompiled.
+The `Farload_Data_Static_` wrapper has also now been decoded,
+and its original EStrings call uses `Farload_Library_Data_`
+**mode 3 (caller buffer)**, **start 0**, **count 1**, and
+**expected stride 0x5208 (21,000 bytes)**. The lower-level
+760-byte loader's original instruction/embedded-table boundaries,
+header magic, fatal error branches and buffer allocation dispatch
+are now audited in the separate farload dossier. An isolated derived
+C translation of the header and item-span calculations is in
+`decompilation/reconstructed/farload_lbx_entry_layout_v131.c`.
+
+Further work: fully reconstruct all remaining file-I/O and LBX entry
+semantics, trace all `Load_E_Strings_` callers and language-setting
+initialization, and recover resource lifetime and error behavior.
+The complete game is not yet decompiled.
