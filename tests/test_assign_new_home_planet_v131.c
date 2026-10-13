@@ -43,7 +43,7 @@ int main(void) {
     verify(moo2_v131_derived_assign_new_home_planet(
         colonies,5u,players,sizeof(players),1,-1,&selected)==MOO2_V131_ASSIGN_HOME_OK);
     verify(selected==100u);
-    /* With no eligible owner candidate, player home star is -1. */
+    /* With no eligible owner candidate, player home planet ID is -1. */
     verify(moo2_v131_derived_assign_new_home_planet(
         colonies,5u,players,sizeof(players),2,-1,&selected)==MOO2_V131_ASSIGN_HOME_OK);
     verify(selected==UINT16_MAX && readword(players+2u*0xEA9u+0x29u)==UINT16_MAX);
@@ -51,15 +51,15 @@ int main(void) {
         NULL,0u,players,sizeof(players),0,-1,&selected)==MOO2_V131_ASSIGN_HOME_OK);
     verify(selected==UINT16_MAX);
 
-    /* The selected colony's star WORD is copied without conversion. */
+    /* The selected colony's planet ID WORD is copied without conversion. */
     const uint8_t *first=colonies;
     (void)first;
-    for(uint32_t star=0;star<=UINT16_MAX;star++){
-        word(colonies+2u,(uint16_t)star);
+    for(uint32_t planet_id=0;planet_id<=UINT16_MAX;planet_id++){
+        word(colonies+2u,(uint16_t)planet_id);
         verify(moo2_v131_derived_assign_new_home_planet(
             colonies,1u,players,sizeof(players),1,-1,&selected)==MOO2_V131_ASSIGN_HOME_OK);
-        verify(selected==(uint16_t)star);
-        verify(readword(players+0xEA9u+0x29u)==(uint16_t)star);
+        verify(selected==(uint16_t)planet_id);
+        verify(readword(players+0xEA9u+0x29u)==(uint16_t)planet_id);
     }
     /* Exhaustive population comparison & excluded-index choices. */
     for(unsigned a=0;a<256u;a++)for(unsigned b=0;b<256u;b++){
@@ -80,6 +80,6 @@ int main(void) {
         colonies,2u,players,3u,1,-1,&selected)==MOO2_V131_ASSIGN_HOME_INVALID);
     verify(moo2_v131_derived_assign_new_home_planet(
         NULL,2u,players,sizeof(players),1,-1,&selected)==MOO2_V131_ASSIGN_HOME_INVALID);
-    puts("PASS: 65536 star WORD values, 65536 population pairs with exclusion, tie-breaking, zero candidate and host bounds");
+    puts("PASS: 65536 planet ID WORD values, 65536 population pairs with exclusion, tie-breaking, zero candidate and host bounds");
     return 0;
 }
