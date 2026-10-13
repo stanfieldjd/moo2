@@ -39,7 +39,7 @@ int main(void){
     uint8_t weapons[32*28]={0};
     uint8_t ordnance[256*2]={0};
     TestCallbacks callbacks={
-        NULL,-1,0,0,0,7,{0,50,99},2
+        NULL,-1,0,0,0,7,{1,50,100},2
     };
     Moo2V131BombContext ctx={
        ship,2,weapons,32,ordnance,256,random100,apply,&callbacks
@@ -60,13 +60,13 @@ int main(void){
     item[9]=3;
     require(moo2_v131_derived_fire_bomb(&ctx,1,(int16_t)slot,&output)==MOO2_V131_BOMB_OK);
     /* Scaled min15, scaled max45, spread30.
-       Random 0/50/99 -> 15/30/44 then apply adds +2 => 17+32+46=95 */
-    require(output==95 && callbacks.random_calls==3 && callbacks.apply_calls==3);
+       Random 1/50/100 -> 15/30/45 then apply adds +2 => 17+32+47=96 */
+    require(output==96 && callbacks.random_calls==3 && callbacks.apply_calls==3);
 
     /* Exhaustive low-byte firing count 0..255 with deterministic rolls. */
-    callbacks.random_seq[0]=0;
-    callbacks.random_seq[1]=0;
-    callbacks.random_seq[2]=0;
+    callbacks.random_seq[0]=1;
+    callbacks.random_seq[1]=1;
+    callbacks.random_seq[2]=1;
     for(unsigned n=0;n<256;n++) {
         item[9]=(uint8_t)n;
         callbacks.random_index=callbacks.apply_calls=callbacks.random_calls=0;
