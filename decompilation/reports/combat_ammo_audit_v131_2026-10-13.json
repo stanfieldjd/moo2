@@ -1,0 +1,54 @@
+{
+  "source_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_combat_ammo_offset": "0x194df",
+  "combat_ammo_size_bytes": 241,
+  "original_launched_fighters_offset": "0x19480",
+  "launched_fighters_size_bytes": 95,
+  "verified_opcode_sites": 43,
+  "source_named_globals": {
+    "_combat_data": "0x1a864",
+    "_missile": "0x1ab14",
+    "_weapons": "0x7803"
+  },
+  "combat_ship_stride": 313,
+  "eight_weapon_slot_step_bytes": 11,
+  "weapon_definition_stride_bytes": 28,
+  "missile_record_stride_bytes": 26,
+  "original_missile_slots_scanned": 300,
+  "original_weapon_category_count": 6,
+  "original_special_check_offset": "0x3b0d3",
+  "original_special_check_size_bytes": 75,
+  "original_bitfield_test_offset": "0x1176f0",
+  "original_bitfield_test_size_bytes": 34,
+  "special_present_offset_in_combat_ship": "0x4c",
+  "special_suppressed_offset_in_combat_ship": "0xb2",
+  "bit_index_transform": "bit-index >>3 byte index; bit-index &7 shift; result masked to 1",
+  "special_check_condition": "installed bit must equal 1 AND suppressed bit must equal 0",
+  "side_effect_warning": "Original Test_Bit_Field_ writes result to scratch CODE+0x1176EC, a side effect intentionally omitted in pure derived C",
+  "six_case_table_original_CODE_offset": "0x194c7",
+  "six_case_destinations": [
+    "0x1959a",
+    "0x1957c",
+    "0x1959a",
+    "0x19585",
+    "0x1959e",
+    "0x19575"
+  ],
+  "named_helper_calls": [
+    {
+      "origin": "0x194f7",
+      "target": "Does_Combat_Ship_Have_Special_",
+      "special_id": "0x25"
+    },
+    {
+      "origin": "0x19508",
+      "target": "Does_Combat_Ship_Have_Special_",
+      "special_id": "0x26"
+    },
+    {
+      "origin": "0x195a8",
+      "target": "Check_For_Launched_Fighters_"
+    }
+  ],
+  "scope": "byte-anchored static Watcom control-flow and symbols; derived C tests are separate and not original DOS differential validation"
+}
