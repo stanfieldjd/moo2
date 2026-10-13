@@ -38,9 +38,12 @@ the original packed population records and reports:
 - precise raw bit-10 flag on `decodePopulationEntry` for use with the
   previously verified population maintenance routines.
 
-All four job values remain separate. **Job-slot value 3 has not been
-given an invented "farmer", "worker" or "scientist" meaning.** The
-module counts records only. It does not equate bit 9 with a guessed
+All four packed job values remain separately counted. The original
+base-production dispatch table subsequently confirms **0=food,
+1=industry, 2=research, 3=null**. Thus value 3 must remain unclassified
+for a census and is not a valid base-production dispatch slot; see
+[the independent dispatch-table verification](native-base-production-floor-2026-10-12.md).
+The module counts records only. It does not equate bit 9 with a guessed
 higher-level social or citizenship concept.
 
 `web/engine/colony-economy-inspect.mjs` is a read-only composition of
