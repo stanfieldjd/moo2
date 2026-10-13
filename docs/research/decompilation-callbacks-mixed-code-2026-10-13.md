@@ -877,3 +877,63 @@ The complete 493-byte remover has **not** been fully
 reconstructed. Original proprietary game data remains
 private and no Game Lab site, Xbox controller or
 Qwen runtime changes were made.
+
+
+## Source-corrected home PLANET ID and Remove_Building_ direct star recalculation
+
+A follow-on original-data cross-reference corrected an important
+field label in the recovered `Assign_New_Home_Planet_` work.
+Colony WORD `+0x02` is a **planet index**, not the
+parent star ID. This is not a speculative naming change:
+original `Remove_Building_` CODE `0x46E2..0x46FF`
+uses that exact WORD to index the original `_planet`
+pointer at DATA `0x1B0D4` with record stride `0x11`,
+reads the planet's parent-star BYTE at `+0x02`,
+then indexes original `_star` at DATA `0x1B06C`
+with stride `0x71`. Thus the original
+`Assign_New_Home_Planet_` writes a **home planet
+ID WORD** into player `+0x29`. Its complete
+source dataflow and callback ABI remain verified;
+the explanatory code and reports have been corrected.
+
+The `Remove_Building_` dispatch for IDs **3,14,45**
+has now been source-traced into a bounded C routine,
+`decompilation/reconstructed/remove_building_star_recalc_v131.c`.
+These IDs directly clear the building-presence BYTE,
+resolve the related parent star through
+colony → planet → star, and invoke the original
+named `Compute_Star_Colony_Stuff_` helper.
+**ID45** additionally calls original
+`Update_Ship_ETAs_` with the signed colony-owner
+BYTE after star recalculation. The named callee effects
+remain **explicit callbacks**, not guessed simulations.
+
+The original `Remove_Building_` 493-byte body hash,
+all named colony/planet/star DATA symbols,
+direct-callee identities and **37 opcode sites**
+passed an independent read-only source audit.
+C regression covers all three IDs with every
+possible parent-star BYTE (256 cases per ID),
+flag-clear/callback sequencing, owner reread and
+invalid host inputs under strict C11/ASan/UBSan.
+
+Original building IDs **8,40,41** also reach the same
+star calculation but only after queue cleanup; this
+source-derived direct helper explicitly rejects
+those IDs. Other building IDs follow distinct
+economic and environmental paths. The full
+`Remove_Building_` and game remain incomplete.
+
+Additional artifacts:
+
+- `tools/audit_remove_building_star_recalc_v131.py`
+- `decompilation/reports/remove_building_star_recalc_v131_2026-10-13.json`
+- `decompilation/reconstructed/remove_building_star_recalc_v131.c`
+- `tests/test_remove_building_star_recalc_v131.c`
+- `decompilation/annotated/remove_building_star_recalc_v131.md`
+- Updated `decompilation/reconstructed/assign_new_home_planet_v131.c`
+- Updated `tools/audit_assign_new_home_planet_v131.py`
+- Updated `decompilation/reports/assign_new_home_planet_v131_2026-10-13.json`
+
+No original proprietary game assets, public Game Lab,
+Xbox controls or Qwen configuration were changed.
