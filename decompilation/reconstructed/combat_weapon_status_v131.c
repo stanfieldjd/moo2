@@ -38,8 +38,8 @@ static int16_t moo2_v131_weapon_s16(const uint8_t *p)
  * the remainder, incrementing quotient if ESI>0 AND remainder !=0.
  *
  * This is NOT equivalent to generic ceiling division for EDI<0:
- * 5/-2 => -2 (toward zero -2, then increments to -1). Actually
- * the original yields -1; preserve its exact branch behavior.
+ * 5/-2 gives truncation quotient -2; the nonzero remainder and
+ * positive numerator increment it to -1. Preserve that behavior.
  * Zero divisor causes original x86 IDIV exception; derived C reports status.
  */
 Moo2V131WeaponHelperStatus moo2_v131_derived_weapons_left(
