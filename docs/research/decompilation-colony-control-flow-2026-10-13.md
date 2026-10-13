@@ -62,8 +62,13 @@ runtime branch. The caller passes values in Watcom registers, so Ghidra
 
 There is a **non-call data write between 11 and 12**: observed assembly
 stores to colony offset `0xF5` after comparing the signed word at
-`0xE9` with the upkeep byte at `0xF0`. Exact clamp/overflow semantics
-must be verified in assembly before translating to native rules.
+`0xE9` with the upkeep byte at `0xF0`. A second decode starting from the **true routine entry** shows
+  `MOVZX EAX,[ECX+0xF0]`, then signed 16-bit `CMP AX,[ECX+0xE9]`
+  with `JL`, then a conditional `MOV AX,[ECX+0xE9]`, followed by
+  `MOV [ECX+0xF5],AX`. This establishes the stored **signed-word
+  minimum** of the zero-extended maintenance byte and industry word,
+  under original 16-bit signed comparison semantics. Do not substitute
+  an unsigned or floating-point minimum.
 
 These newly reconciled names matter because Ghidra leaves some real
 targets as anonymous `func_0x...`, despite their explicit original
@@ -114,9 +119,18 @@ signed 16-bit source counters** beginning at `colony+0xE7`, accumulating
 their sum and tracking the highest entry and its zero-based slot index.
 Ghidra's observed result stores that index at `colony+0x0B`
 if the maximum is greater than half the combined sum; otherwise it stores
-`0xFF`. Because Watcom's signed arithmetic, tie behavior, and overflow
-are not yet independently characterized, this is a **decompiler
-observation**, not a released native rule.
+`0xFF`. This has now been cross-checked against the original relocated machine-code
+bytes **starting at the actual function entry**, not arbitrary mid-instruction
+offsets: the loop reads each 16-bit counter into the low half of ESI,
+accumulates in 32-bit EDX but subsequently sign-extends DX (so only the
+wrapped low 16 bits contribute to the final sum), compares entries with
+signed `CMP CX,SI / JGE`, and implements signed divide-by-two
+toward zero with `CDQ; SUB EAX,EDX; SAR EAX,1`. Final `CMP` is signed and
+stores either the winning index or `0xFF` at offset `0x0B`.
+The winner starts at signed zero, so negative input counters do not create
+a negative winning candidate. These are **confirmed machine-instruction
+semantics**; the real-world interpretation of each source counter and its
+update sites still requires cross-reference.
 
 ## New full-function byte-level extraction: `Pass_Out_Imports_`
 
