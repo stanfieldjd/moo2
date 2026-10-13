@@ -1,57 +1,75 @@
-# Game Lab website shell (provisional brand)
+# Game Lab website (provisional name)
 
-This is the site-wide front end, not the original-game research menu.
-The intended destination is a new ISPConfig-managed virtual host on the
-authorized Contabo server. No new ISPConfig site or TLS certificate has
-yet been provisioned.
+A separate ISPConfig-managed website is deployed on the user's Contabo
+server at https://gamelab.169-58-188-138.sslip.io/ (website ID 4).
+It serves the public Game Lab site without a login; HTTPS is verified.
+The Qwen ISPConfig website is a separate site and must not be modified.
 
-## Structure
+## Routes and release truth
 
-- / — Game Lab homepage, with a directory for multiple game projects.
-- /games/space-strategy/ — first project's landing/status page.
-- /games/space-strategy/play/ — reserved for a future actual native game;
-  this route does not exist yet and must not be advertised as playable.
-- /games/<future-project>/ — future independent game detail pages.
+- `/` — umbrella homepage.
+- `/games/space-strategy/` — game status page: **not yet playable**.
+- `/games/space-strategy/controller-test/` — input/focus diagnostic.
+  The user verified the Xbox One controller test starts working after
+  holding the controller Start/Menu button for approximately 3 seconds
+  to access Edge Game Controls; this does not prove gameplay compatibility.
+- `/games/space-strategy/engine-lab/` — controller-first **non-game**
+  inspection screen with five *synthetic* systems. Its per-worker food,
+  industry and research calculations import the verified
+  `web/engine/colony-yields.mjs` primitives. No colony turn, original
+  galaxy generator, save/load, combat or gameplay is implemented there.
+- `/games/space-strategy/play/` — intentionally absent (HTTP 404)
+  until real gameplay exists.
 
-The web/site/ directory is designed to be copied as an independent static
-website root, unlike web/graphics/, which is a private engineering
-preview that can load privately decoded copyrighted game imagery.
-Do not copy the whole project workspace, web/graphics/, tools/,
-proprietary assets, original executable or private user ZIP into
-the public web root.
+## Safe deployment manifest
 
-## Run locally
+Only publish these site assets and any subsequently reviewed production
+files; **do not copy the entire `web/site` tree to the public webroot**,
+because that previously exposed `README.md` and test scripts.
 
-From the repository root:
+- `web/site/index.html` → `/index.html`
+- `web/site/favicon.svg` → `/favicon.svg`
+- `web/site/site.css` → `/site.css`
+- `web/site/site.mjs`, `web/site/site-nav.mjs` → same root paths
+- `web/site/games/space-strategy/index.html` → matching path
+- `web/site/games/space-strategy/controller-test/{index.html,probe.mjs}`
+  → matching paths
+- `web/site/games/space-strategy/engine-lab/{index.html,model.mjs,lab.mjs}`
+  → matching paths
+- **Only** `web/engine/colony-yields.mjs` → `/engine/colony-yields.mjs`
+  (required public ES module import for the test deck).
 
-    python3 -m http.server 8000 --bind 127.0.0.1 --directory web/site
+The live ISPConfig docroot is `/var/www/clients/client0/web4/web`.
+Deployment changes are made on the authorized server using source
+identified by its exact Git commit, with tests before publication.
+Do not overwrite existing `.htaccess` or unrelated ISPConfig content.
+Never include `web/graphics/private-assets`, reverse-engineering targets,
+private original-game binaries, original game art, `tools/`, `tests/`,
+`README.md` or proprietary user-supplied archives in a public deployment.
 
-Open http://127.0.0.1:8000/ for Game Lab; the first game project's page
-is at /games/space-strategy/. This static site contains no playable
-engine, game assets, telemetry, external JavaScript, fonts or stylesheets.
+## Development and tests
 
-To test structure and simulated controller input:
+For just the static homepage, serve `web/site` locally as before.
+For the engine laboratory, its imports must resolve both the site and
+`web/engine` trees. Start the **loopback-only** development server at
+the `web` directory, and open `/site/games/space-strategy/engine-lab/`:
 
+    python3 -m http.server 8000 --bind 127.0.0.1 --directory web
+
+Production places the site at `/` and the verified yield module at
+`/engine/colony-yields.mjs`. To run the tested JavaScript suite:
+
+    node --test web/engine/tests/*.mjs web/site/tests/*.test.mjs
     python3 tools/test_site_structure.py
-    node --test web/site/tests/*.test.mjs
 
-Xbox-style D-pad/left-stick moves between links, A selects and B returns;
-keyboard arrows, Enter, Escape and conventional click/touch links are
-available. Desktop/browser simulation is not proof that Xbox One Edge
-delivers all input. Hardware verification remains a separate gate.
+Tests are not a substitute for inspecting the page in a real browser or
+testing controller input on the Xbox One console. In particular, the
+new engine-lab controller navigation still needs physical-console testing.
 
-## Design and hosting constraints
+## Boundaries
 
-- Game Lab is only a working umbrella title. Neither this name nor a
-  future domain has been confirmed legally clear or registered.
-- The current verified staging DNS candidate is
-  gamelab.169-58-188-138.sslip.io. DNS resolution alone does not create
-  an ISPConfig vhost, publicly trusted HTTPS certificate or protected site.
-- Provision a separate ISPConfig website, with isolated document root
-  and per-site logs. Never reconfigure or overwrite the Qwen site.
-- Hosting the site and hosting potentially proprietary reconstructed
-  game content are separate legal decisions. Verify redistribution rights
-  before original assets or a derivative game become publicly accessible.
-- For browser/Xbox hardware testing, use a real authorized server HTTPS
-  URL with access controls. Do not expose private original imported art.
-- All page links use relative URLs so a later domain change is simple.
+Game Lab is a working title and its permanent registered domain remains
+undecided. Neither the original game's protected artwork nor its executable
+is publicly hosted. Formula tests and engine-lab scaffolding are not evidence
+of completed game parity. The existing Qwen site and runtime are outside
+this project.
