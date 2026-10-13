@@ -589,3 +589,90 @@ input checks and iteration caps are deliberate
 non-DOS differences. Original proprietary assets
 stay private, and the public Game Lab/Xbox/Qwen
 deployments were not modified.
+
+
+## Hit-resolver original-code coverage and weighted targeting
+
+The next original-source pass authenticated **both complete named
+hit-resolver function bodies** in the original v1.31 executable:
+
+| Original CODE body | Original offset | Bytes | Status |
+| --- | --- | ---: | --- |
+| `Resolve_Bomb_Hit_` | `0xCCEBD` | 641 | Entire original source-byte hash verified; target selection reconstructed |
+| `Resolve_Biological_Hit_` | `0xCD13E` | 436 | Entire original source-byte hash verified; reverse reservoir selection reconstructed |
+| **Combined source-verified bytes** | | **1,077** | **Not yet full side-effect-equivalent C** |
+
+`tools/audit_colony_hit_resolvers_v131.py`
+confirmed both original CODE-body SHA-256 digests and
+**68 original opcode/call/branch sites**. An absent-target
+biological resolver branch at CODE `0xCD185`
+jumps to a six-byte external Watcom epilogue at
+`0xCCEB7`, within the original `Destroy_Colony_`
+named symbol interval. The source prologue and
+external epilogue agree on preserved-register order.
+This is another genuine original cross-function CFG
+edge, not a function-boundary disassembly error.
+
+The isolated derived source
+`decompilation/reconstructed/colony_hit_target_selection_v131.c`
+reconstructs two major original selection subgraphs:
+
+- Biological resolver scans original colony entries
+  at `+0x0C+4*i` in reverse order,
+  excluding source DWORD low-nibble value **8**.
+  For each eligible entry it increments a running
+  count and chooses the index if the actual original
+  `Random_(eligible_count)` return equals 1.
+  This is reverse-order **reservoir sampling**
+  with original-state LCG/rejection sampling.
+- Ordinary bomb resolver scans colony byte fields
+  `+0x136+i` for i=48..0, collecting positions
+  whose byte is nonzero and whose index is not
+  in the original hard-coded exclusion set
+  **{8, 9, 26, 27, 40, 41, 42, 47}**.
+  It then builds original target-group weights from
+  eligible positions, signed colony WORDs `+0x130`
+  and `+0x132`, a nonzero WORD `+0x125`
+  treated as one slot, and colony byte `+0x0A`
+  **unless that byte equals exactly 1**.
+  The weighted selector uses the original
+  `Random_(total_weight)-1` zero-based draw,
+  splitting five source target groups. When
+  colony byte `+0x0A==1` and other weights total
+  zero, a special single-entry path bypasses RNG.
+
+Separate derived tests cover **1,280 seeded biological
+reservoir fixtures**, the complete 49-slot
+ordinary target filter, and **4,096 seeded
+weighted-selection cases**. Both passed strict
+C11, AddressSanitizer and UndefinedBehaviorSanitizer.
+Their independent expected RNG states and output
+categories were compared to the reconstructed
+original RNG state.
+
+New authoritative artifacts:
+
+- `tools/audit_colony_hit_resolvers_v131.py`
+- `decompilation/reports/colony_hit_resolvers_v131_2026-10-13.json`
+- `decompilation/reconstructed/colony_hit_target_selection_v131.c`
+- `tests/test_colony_hit_target_selection_v131.c`
+- `tests/test_bomb_weighted_target_v131.c`
+- `decompilation/annotated/colony_hit_resolvers_v131.md`
+
+The ordinary and biological resolvers' **game-state
+effects remain incomplete**: population removal,
+player statistics and traits, special defense
+status, colony building destruction, and result-event
+updates. The host selection helpers intentionally
+do not mutate the underlying colony or result-event
+structures, except that the supplied original RNG
+seed is advanced. Their input guards and explicit
+no-target result are safety-focused differences
+from the DOS executable. The next decompilation
+pass must trace and reimplement those original
+mutations, then remove the `Apply_Bomb_Hits_`
+resolver callbacks only after end-to-end validation.
+
+Original game binary/media remains private.
+No Game Lab public web, Xbox controller, or
+Qwen configuration was changed.
