@@ -1,72 +1,166 @@
-# v1.31 `Farload_Library_Data_`: original loader reconstruction in progress
+# Master of Orion II v1.31: `Farload_Library_Data_` — recovered complete instruction boundaries
 
-**Status:** original 760-byte wrapper/core loader disassembled,
-direct-call targets resolved against Watcom symbols, several
-file-header validation and allocation paths identified. This
-is not yet a complete semantically equivalent C translation.
+**Status:** every byte in this 760-byte symbol interval is accounted for
+as **744 bytes of decoded instructions** and **16 bytes of embedded
+dispatch-table data**. Original file-open, header, offset lookup,
+allocation, and return branches have been traced. This is not an
+equivalent C implementation of the complete loader; the original
+error-handler, allocation internals and full ABI remain separate work.
 
-Source original `ORION2.EXE` SHA-256:
+Authenticated source `ORION2.EXE`, SHA-256
 `4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f`.
+Original Watcom CODE offset `0x116F3B..0x117232` inclusive
+(760 bytes); relocated analysis-image virtual addresses are original
+CODE offsets plus `0x10000`.
 
-Original Watcom CODE entry `0x116F3B`, 760 bytes through
-`0x117232`; relocated analysis entry `0x126F3B`.
-The original symbol-bounded i386 decode yields **200 instructions**,
-**24 conditional/unconditional jump instructions** and one apparent
-RET in this interval. All statements below are bounded to the
-original machine instructions; direct CALLs are not treated as fully
-reconstructed callees.
+Reproducible source-hash-guarded audit:
+`tools/audit_farload_library_v131.py`.
+Recorded output:
+`decompilation/reports/farload_library_audit_2026-10-13.json`.
 
-## Original named globals and call sequence
+## Decoding correction: data was being read as code
 
-The original Watcom DATA symbol table, combined with LE relocation,
-confirms the following (DATA object 2 offsets):
+The previous linear disassembly gave **200 instructions and 24 jumps**.
+Those counts were inflated because it decoded **four embedded DWORD
+case pointers** at CODE offsets `0x117145..0x117154` as instructions.
 
-- `_farload_file_flag` at `0xC576` (relocated VA `0x17C576`)
-- `_farload_fptr` at `0x4426C` (relocated VA `0x1B426C`)
-- `_farload_file_name` at `0x44270` (relocated VA `0x1B4270`)
+Decoding separately before and after this table yields exactly:
 
-The initial routine saves EAX/EDX/EBX/ECX into a local frame,
-checks its signed data-index argument, and invokes
-`Error_Handler_` on invalid conditions. It checks the file flag,
-uses the original case-insensitive comparison helper
-`_stricmp_` against `_farload_file_name` to decide whether
-the existing file can be reused, otherwise calls
-`fclose_` and copies a new filename with `strcpy_`.
+| Original source evidence | Verified value |
+| --- | ---: |
+| Routine size | 760 bytes |
+| Embedded jump table | 16 bytes |
+| Decoded machine instructions | **194** |
+| Direct calls, all mapped to original symbols | **27** |
+| Conditional/unconditional jump instructions | **21** |
+| Return | `0x117230: RET 0x0C` |
 
-The observed direct-call sequence also includes:
+The original source is little-endian. Its table has exact DWORD
+targets `0x117197`, `0x1171BA`, `0x1171E0`,
+`0x117206`. The indirect jump at `0x117190` indexes
+those entries with `EAX = original_ECX * 4`.
+The immediately preceding `CMP [EBP-0x38],3; JA 0x11720C`
+bounds the valid indexed modes to **0..3**.
 
-- `fopen_`, `strcat_` and a second `fopen_` path,
-  consistent with opening from more than one original directory
-- `fseek_` for entry-offset positioning
-- repeated `fread_` calls for entry and payload/header reading
-- repeated `Error_Handler_` calls at validation failures
-- `Allocate_Space_No_Header_`,
-  `Allocate_First_Block_No_Header_`, and
-  `Allocate_Next_Block_No_Header_` for separate
-  allocation paths
+**Inventory gap identified:** this exact indirect JMP was not in
+the earlier `decompilation/indirect_transfers.csv` /
+`switch_tables.csv` inventories. Those earlier global counts,
+especially library/runtime switch totals, cannot be considered
+exhaustive until decoding of interspersed data regions is repaired.
+The new audit verifies this individual original switch table without
+silently changing the prior inventories.
 
-Original instruction ranges `0x117075..0x1170B6` select
-library-entry offsets from globals based on the signed input
-index. `0x1170BB..0x1170F3` seek and read two consecutive
-two-byte fields. Branches at `0x1170F8..0x11713B`
-perform size/field consistency checks and report via
-`Error_Handler_` where necessary.
+## Original loader state and file-open branches
 
-No specific compression algorithm, memory ownership policy,
-LBX entry format, file-sharing behavior, or complete fallback
-path is established by this checkpoint. Such semantics must
-come from full dataflow recovery and original-file evidence,
-rather than an inference from the names of file-I/O functions.
+Watcom original DATA object 2 globals and their original offsets:
 
-## Next steps
+- `_farload_file_flag`: `0xC576`
+- `_secondary_drive_path`: `0xC544`
+- `_lbx_header`: `0x43A6C`, a 2,048-byte header buffer
+- `_farload_fptr`: `0x4426C`
+- `_farload_file_name`: `0x44270`
 
-Reconstruct the complete 760-byte conditional CFG and original
-Watcom calling convention; identify exact meanings and units of
-the two 16-bit fields and the allocation mode, trace the
-`fread_` sizes and any decompression callbacks, and align
-the result with private lawful `estr*.lbx` inputs without
-publishing them. Follow through `Farload_Data_Static_`,
-`Load_E_Strings_`, and the now fully mapped
-`Load_H_And_Pro_File_Strings_`.
+The routine saves input EAX/EDX/EBX/ECX as stack locals. A negative
+signed EDX index takes `Error_Handler_` code **4**.
+If an LBX file is open, the routine uses case-insensitive
+`_stricmp_` to compare the requested filename to the retained
+`_farload_file_name`. An equal name branches directly to header
+lookup; a different name leads to `fclose_` then new open.
 
-No site gameplay, Xbox controls or Qwen files were changed.
+The new-open path stores the filename with `strcpy_` and
+tries `fopen_`. If that fails, it considers
+`_secondary_drive_path`, combines a candidate pathname via
+`strcpy_`/`strcat_`, and retries `fopen_`.
+Original failure paths call `Error_Handler_` with **code 1**.
+The file-open mode pointer and exact path construction are observed
+in instructions, but are not fully abstracted here into a host
+filesystem policy.
+
+## Original file header and entry selection
+
+1. At original CODE `0x117032..0x117047`, call
+   `fread_` into `_lbx_header`, passing **size 0x800
+   (2048 bytes), count 1**, and the opened file pointer.
+2. Original `0x11704C..0x11706B` zero-extends the WORD at
+   **header+2** and checks that it equals `0xFEAD`.
+   An unexpected value takes `Error_Handler_` **code 7**;
+   normal initialization sets `_farload_file_flag=1`.
+3. Original `0x117075` loads an unaligned DWORD from
+   **header-2** and `SAR 16` yields a signed count based on
+   the low 16 bits at **header+0**. That count must be
+   **strictly greater** than the requested signed EDX entry
+   index. Failure takes error **code 8**.
+4. Offsets at original CODE `0x117092..0x1170B6` select
+   two **DWORD** entry boundaries from `header+8+4*index`
+   and `header+12+4*index` respectively, and compute their
+   difference. Original `fseek_` then seeks to the first
+   boundary.
+5. Original CODE `0x1170C8..0x1170F3` performs two
+   `fread_` calls with **size 2, count 1** into
+   `[EBP-0x8]` and `[EBP-0x4]`. The low WORDs are
+   subsequently used in range/type checks and to determine
+   byte offsets and payload length.
+6. The two-word data type/format semantics still need confirmation
+   from original LBX records and cross-references. Do **not**
+   label either WORD as compressed length, frame count, or record
+   type merely from guessed structure names.
+
+### Important signed/sentinel behavior
+
+At `0x1170F8..0x117101`, exact instructions are:
+`XOR EAX,EAX`, `MOV AX,[EBP+0x14]`,
+`CMP EAX,0xFFFFFFFF`, `JNE`.
+Because the 16-bit MOV runs after clearing EAX, the compared 32-bit
+EAX must lie in **0..65535**, so it can never equal 0xFFFFFFFF.
+Consequently, the following branch that attempts to compute an
+implicit length is **unreachable under these instructions**.
+Do not invent working `-1`/wildcard-length behavior in a native
+translation. This does not establish whether the original source
+intended something else.
+
+Then original code checks the first low-WORD field against the
+requested start parameter (unsigned `JA`, error code **10**)
+and compares the second low-WORD field against a caller-supplied
+WORD (error **code 9** on mismatch). The full ABI must be
+recovered before naming all these caller parameters.
+
+## Four actual allocation modes
+
+| Original ECX mode | CODE destination | Observed behavior |
+| ---: | --- | --- |
+| 0 | `0x117197` | `Allocate_Space_No_Header_` with computed byte count; allocation failure reports error **3** |
+| 1 | `0x1171BA` | `Allocate_First_Block_No_Header_` with caller EBX and byte count; failure reports error **5** |
+| 2 | `0x1171E0` | `Allocate_Next_Block_No_Header_` with caller EBX and byte count; failure reports error **5** |
+| 3 | `0x117206` | Use the original caller EBX buffer pointer with no allocation |
+| greater than 3, unsigned | `0x11720C` directly | Retains the saved original ECX local as destination pointer; exact caller contract pending |
+
+A later `fread_` at `0x11721D` transfers the computed
+payload byte count to the selected destination. The routine
+returns that destination pointer via EAX and executes `RET 12`,
+cleaning twelve bytes of the caller's stack parameters.
+Calling conventions therefore cannot be blindly rewritten as
+ordinary 32-bit cdecl.
+
+**No decompression call appears anywhere inside this original
+760-byte routine.** That negative observation is limited to
+this routine; archive entry representation, encoding/compression
+and any work by direct callees require separate examination.
+
+## Next reconstruction boundary
+
+The high-level call chain is now:
+
+`Load_E_Strings_` →
+`Farload_Data_Static_` (90-byte wrapper) →
+**`Farload_Library_Data_` (original instruction boundaries recovered)** →
+`fopen_/fseek_/fread_`, allocation helpers, and `Error_Handler_`.
+After a successful load, `Load_E_Strings_` constructs its
+812 runtime string pointers and calls the fully reconstructed
+`Load_H_And_Pro_File_Strings_` (199 bindings).
+
+Work remaining: recover precise ABI/caller argument ownership, reduce
+the 21-branch CFG to validated complete semantic C, map all
+`Error_Handler_` codes to fatal/nonfatal behavior, decode original
+LBX entry/header semantics using lawful local files, and extend the
+global indirect-dispatch inventory to include data-embedded tables.
+No original game file or string bytes are committed here.
