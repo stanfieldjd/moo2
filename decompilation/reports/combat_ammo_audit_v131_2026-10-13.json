@@ -4,7 +4,7 @@
   "combat_ammo_size_bytes": 241,
   "original_launched_fighters_offset": "0x19480",
   "launched_fighters_size_bytes": 95,
-  "verified_opcode_sites": 43,
+  "verified_opcode_sites": 51,
   "source_named_globals": {
     "_combat_data": "0x1a864",
     "_missile": "0x1ab14",
@@ -16,6 +16,26 @@
   "missile_record_stride_bytes": 26,
   "original_missile_slots_scanned": 300,
   "original_weapon_category_count": 6,
+  "unnamed_combat_word_original_DATA_offset": "0x218ac",
+  "unnamed_combat_word_verified_writers": [
+    {
+      "function": "Strategic_Combat_",
+      "source_offset": "0x301ed"
+    },
+    {
+      "function": "Strategic_Bombardment_",
+      "source_offset": "0x325b4"
+    },
+    {
+      "function": "Tactical_Bombardment_",
+      "source_offset": "0x32807"
+    },
+    {
+      "function": "Tactical_Combat_",
+      "source_offset": "0x37b06"
+    }
+  ],
+  "unnamed_combat_word_value_source": "signed 8-bit owner at +0x63 of selected original _ship record, converted to 16-bit AX",
   "original_special_check_offset": "0x3b0d3",
   "original_special_check_size_bytes": 75,
   "original_bitfield_test_offset": "0x1176f0",
