@@ -109,6 +109,7 @@ int main(void) {
         ==MOO2_V131_SINGLE_ENTRY_OK);
     require(read16(colony+0xB4u+2u)==1u);
     /* Death with marker and missing callback safely fails closed. */
+    colony[0x13Fu]=1u; /* prior source-derived callback cleared it */
     colony[0x0Au]=1u;put16(colony+0xB4u+2u,100u);
     uint8_t old_colony[0x169u];memcpy(old_colony,colony,sizeof(old_colony));
     require(moo2_v131_derived_single_entry_bomb(&ctx,1,&returned)
