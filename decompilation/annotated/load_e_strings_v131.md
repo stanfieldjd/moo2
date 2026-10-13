@@ -15,7 +15,7 @@ Original executable identity: SHA-256
 - `Load_E_Strings_`: CODE `0xBDF65`, 384 bytes, through
   `0xBE0E4`.
 - `Load_H_And_Pro_File_Strings_`: CODE `0xBE0E5` (a separate
-  larger follow-on initializer; full semantics still unexamined).
+  follow-on initializer now reconstructed from all 600 instructions).
 - Original Watcom DATA symbol `_strings`: DATA offset
   `0x2E578`, relocated virtual address `0x19E578`.
 - Original fixed string-byte buffer starts at DATA offset
