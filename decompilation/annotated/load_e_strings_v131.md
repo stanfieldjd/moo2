@@ -140,9 +140,19 @@ licensed private source text assets, but those original LBX files
 must not be committed to GitHub or deployed publicly without
 the appropriate rights.
 
-Further work: reconstruct
-`Load_H_And_Pro_File_Strings_` fully; resolve
-`Farload_Data_Static_`, LBX entry semantics and string decode
-rules; trace all `Load_E_Strings_` callers and the language
-selection byte initialization; recover original text-link table
-ownership and lifetime.
+The follow-on initializer is now fully decoded structurally:
+**199 string-ID lookups and global assignments**, covering
+**188 distinct string IDs**, plus a final pointer copy and RET.
+Original named destinations include the personality, objective, and
+treaty label pointer arrays. The recovered assignment mapping is in
+`decompilation/reports/h_pro_string_bindings_2026-10-13.json` and the
+standalone derived C implementation is in
+`decompilation/reconstructed/h_and_pro_file_strings_v131.c`.
+All 199 generated assignments match the original instruction mapping,
+and the derived C passed a strict syntax check.
+
+Further work: reconstruct `Farload_Data_Static_`, LBX entry semantics
+and string decoding; trace all `Load_E_Strings_` callers and the
+language-selection byte initialization; recover runtime text
+allocation, lifetime and error behavior. The complete game
+is not yet decompiled.
