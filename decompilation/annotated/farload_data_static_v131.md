@@ -26,7 +26,8 @@ Original Watcom CODE symbol: `Farload_Data_Static_` at
   (EBX, EDX, EAX), and directly calls
   `Farload_Library_Data_` at original CODE `0x116F3B`
   (relocated VA `0x126F3B`). This callee is a separate,
-  760-byte function requiring full reconstruction.
+  760-byte function now fully segmented into instructions and an embedded
+  jump table; its file-I/O and allocation semantics remain incomplete.
 - Copies the returned EAX into two successive locals and
   returns it unchanged after restoring the frame and registers.
   Ends with `RET 8`, i.e. the original wrapper cleans up
@@ -45,10 +46,21 @@ behavior, failure protocol or allocation behavior of
 filenames, static buffer base `DATA+0x29370`, and two
 explicit pushed arguments including capacity `0x5208` and
 entry number `1` before calling this wrapper. The fixed ECX
-value `3` is an observed wrapper dispatch mode, not yet a
-verified type, compression or allocation enum.
+value **3** is now independently verified as the 
+**caller-supplied-buffer allocation mode**, since the original
+four-entry dispatch at CODE `0x117190` reaches `0x117206`, which
+returns the original caller EBX buffer without allocation.
 
-The immediate next decompilation target is the full
-`Farload_Library_Data_` routine and the low-level file loading
-functions it invokes. Original LBX bytes and private executable
-images must remain out of the public Game Lab site.
+The caller's two pushed arguments in the EStrings path are exactly
+**count 1** and **expected item stride 0x5208**. Original ECX=0 is
+transmitted as start index 0 into `Farload_Library_Data_`.
+Thus the observed wrapper issues an original request for one
+21,000-byte unit from entry start 0 into the existing
+`_string_data` buffer. This is a reconstruction of this
+specific caller ABI, not a general proof about every farload caller.
+
+See `decompilation/annotated/farload_library_data_v131.md`
+and `decompilation/reconstructed/farload_lbx_entry_layout_v131.c`.
+The original lower-level file-I/O, mode-specific allocation
+internals and game-resource semantics remain to reconstruct;
+private LBX files and original executables remain off the public site.
