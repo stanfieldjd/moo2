@@ -1,0 +1,63 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "handler_original_code_offset": "0x1173dc",
+  "handler_length_bytes": 439,
+  "decoded_handler_instructions": 106,
+  "handler_code_cases": {
+    "1": "0x1174c2",
+    "2": "0x1174d7",
+    "3": "0x1174ec",
+    "4": "0x117505",
+    "5": "0x117517",
+    "7": "0x117529",
+    "8": "0x11753b",
+    "9": "0x11754d",
+    "10": "0x11755f",
+    "16": "0x117571"
+  },
+  "loader_direct_error_calls": 10,
+  "original_error_helper": "Error_Handler_ -> Exit_With_Message_ -> exit_(1)",
+  "scope": "observed fatal call chain and literal error code source only; message-content semantics and all error-handler effects are not fully simulated",
+  "loader_calls": [
+    {
+      "call_offset": "0x116f6d",
+      "error_code": 4
+    },
+    {
+      "call_offset": "0x116fdf",
+      "error_code": 1
+    },
+    {
+      "call_offset": "0x11702d",
+      "error_code": 1
+    },
+    {
+      "call_offset": "0x117066",
+      "error_code": 7
+    },
+    {
+      "call_offset": "0x11708d",
+      "error_code": 8
+    },
+    {
+      "call_offset": "0x117122",
+      "error_code": 10
+    },
+    {
+      "call_offset": "0x11713b",
+      "error_code": 9
+    },
+    {
+      "call_offset": "0x1171b3",
+      "error_code": 3
+    },
+    {
+      "call_offset": "0x1171d9",
+      "error_code": 5
+    },
+    {
+      "call_offset": "0x1171ff",
+      "error_code": 5
+    }
+  ]
+}
