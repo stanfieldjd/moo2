@@ -13,15 +13,17 @@
 typedef struct {
     uint8_t *record;
     int32_t expected_owner;
+    int32_t expected_excluded;
     unsigned calls;
 } TestHome;
 static void must(int p) {
     if(!p){fputs("FAIL v1.31 Remove_Building_(9)\\n",stderr);exit(1);}
 }
-static void assign_home(void *opaque,int32_t owner) {
+static void assign_home(void *opaque,int32_t owner,int32_t excluded_colony) {
     TestHome *state=(TestHome *)opaque;
     must(state->record[0x13Fu]==0u);
     must(owner==state->expected_owner);
+    must(excluded_colony==state->expected_excluded);
     state->calls++;
 }
 int main(void) {
@@ -34,7 +36,7 @@ int main(void) {
             rec[0]=(uint8_t)owner_byte;
             rec[0x13Fu]=0xFFu;
             TestHome home={rec,owner_byte<128u?
-                (int32_t)owner_byte:(int32_t)owner_byte-256,0u};
+                (int32_t)owner_byte:(int32_t)owner_byte-256,id,0u};
             must(moo2_v131_derived_remove_building9(
                 colonies,3,(int16_t)id,assign_home,&home)
                 ==MOO2_V131_REMOVE_BUILDING9_OK);
@@ -56,7 +58,7 @@ int main(void) {
     memset(colonies,0xAAu,sizeof(colonies));
     uint8_t prior[sizeof(colonies)];
     memcpy(prior,colonies,sizeof(colonies));
-    TestHome home={colonies,0,0};
+    TestHome home={colonies,0,0,0};
     must(moo2_v131_derived_remove_building9(
         colonies,3,-1,assign_home,&home)==MOO2_V131_REMOVE_BUILDING9_INVALID);
     must(moo2_v131_derived_remove_building9(
