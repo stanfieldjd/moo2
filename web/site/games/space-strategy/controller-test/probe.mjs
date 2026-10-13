@@ -10,9 +10,9 @@ let browseEnabled = true;
 let running = false;
 browseMode.addEventListener("click", () => {
   browseEnabled = !browseEnabled;
-  browseMode.textContent = `Browser controls: ${browseEnabled ? "ON" : "OFF"}`;
+  browseMode.textContent = `Page navigation: ${browseEnabled ? "ON" : "OFF"}`;
   browseMode.setAttribute("aria-pressed", String(browseEnabled));
-  modeHelp.textContent = browseEnabled ? "ON: page navigation is enabled. Xbox Edge system controls remain under the browser." : "OFF: page-managed arrow and D-pad navigation is suppressed for input testing. Xbox Edge system controls remain under the browser. Select this button to turn navigation back on.";
+  modeHelp.textContent = browseEnabled ? "ON: page keyboard navigation is enabled. To switch Xbox Edge to Game Controls, hold the controller Menu button and choose Use game controls." : "OFF: page keyboard-arrow scrolling is suppressed. This does not switch Xbox Edge from Browsing Controls to Game Controls. Select this button to turn page navigation back on.";
 });
 let frame = 0;
 let lastInteraction = "none";
