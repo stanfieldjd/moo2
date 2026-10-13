@@ -1,0 +1,22 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_function": "Does_Combat_Planet_Have_Defenses_",
+  "original_code_offset": "0x2a142",
+  "original_function_size_bytes": 92,
+  "original_full_body_sha256": "2e091e1f69040da609a1c6935910251caff5b38a071d45b5a1e7936488ee13c9",
+  "instruction_anchors": 20,
+  "combat_colony_global": "_cmbt_colony_id DATA+0x21878 as signed 16-bit",
+  "colony_record_pointer": "_colony DATA+0x1ab18",
+  "colony_record_stride_bytes": 361,
+  "field_offsets": [
+    "0x150",
+    "0x151",
+    "0x160",
+    "0x165"
+  ],
+  "low16_packed_result": "byte150 | (byte151 << 1) | (byte160 << 2) | (byte165 << 3)",
+  "missing_colony_id": "signed -1 => EAX=0",
+  "original_result_high16_note": "Source MOVZX SI/CX/DX/AX only writes low halves; high EAX after OR can retain input register high halves. Only low16 guarantee derived, and caller Apply_Damage_To_Planet_ tests AX.",
+  "host_compatibility_choice": "C helper outputs normalized uint32_t packed value and explicitly validates colony pointers/indices",
+  "scope": "complete original 92-byte source body and selected opcode proof, not entire game or DOS register-differential execution"
+}
