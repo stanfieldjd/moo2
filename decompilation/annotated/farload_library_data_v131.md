@@ -185,6 +185,41 @@ A modern reimplementation can choose safer exception/error
 handling, but that would be a **deliberate compatibility change**,
 not the original program's observed failure behavior.
 
+## Caller ABI and isolated derived C — EStrings case resolved
+
+Original `Load_E_Strings_` sets EAX to a filename, EBX to the
+original `_string_data` address `DATA+0x29370`, EDX=0 and
+ECX=0; its stacked arguments are **1** and **0x5208**.
+The `Farload_Data_Static_` wrapper preserves those register inputs,
+pushes the stack args as zero-extended DWORDs and passes a fixed
+ECX **mode 3** to `Farload_Library_Data_`.
+
+The resulting original low-level request is therefore:
+
+- Source entry index EDX = **0**
+- Start item index (first stack argument) = **0**
+- Requested item count (second stack argument) = **1**
+- Expected item stride (third stack argument) = **0x5208**
+- Allocation mode ECX = **3**, selecting the original
+  caller-supplied EBX buffer at CODE `0x117206`
+- Final payload read = **one 21,000-byte item**, provided
+  the original entry's second 16-bit field equals 0x5208
+
+The original first item-header WORD is checked strictly greater
+than the start index; the second WORD serves as the **element
+stride in bytes** (it is both compared against the expected
+size and multiplied by the start and requested count).
+This interpretation is supported by the original dataflow, not
+merely an LBX reference guide. The meaning of every other archive
+field and all file format variants still needs independent study.
+
+A bounded C translation of these verified calculations, with
+explicit safety checks not present in the original DOS routine,
+is committed at
+`decompilation/reconstructed/farload_lbx_entry_layout_v131.c`.
+It passed strict C11 syntax/warning checks. It does not open files
+or replace the original loader's fatal-error and allocation logic.
+
 ## Next reconstruction boundary
 
 The high-level call chain is now:
@@ -197,9 +232,9 @@ After a successful load, `Load_E_Strings_` constructs its
 812 runtime string pointers and calls the fully reconstructed
 `Load_H_And_Pro_File_Strings_` (199 bindings).
 
-Work remaining: recover precise ABI/caller argument ownership, reduce
-the 21-branch CFG to validated complete semantic C, map all
-`Error_Handler_` codes to fatal/nonfatal behavior, decode original
-LBX entry/header semantics using lawful local files, and extend the
-global indirect-dispatch inventory to include data-embedded tables.
+Work remaining: verify the ABI for **other** loader callers,
+reduce the 21-branch CFG to a fully equivalent file-I/O and allocation
+implementation, cross-check original LBX headers/entry variants with
+lawfully supplied archives, and extend the global indirect-dispatch
+inventory to include data-embedded tables.
 No original game file or string bytes are committed here.
