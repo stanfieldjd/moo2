@@ -1,0 +1,27 @@
+{
+  "original_exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "entire_original_function_bodies": [
+    {
+      "name": "Assign_New_Home_Planet_",
+      "offset": "0xdcb65",
+      "size_bytes": 146,
+      "source_body_sha256": "b246802362b4d87ded1ea4efca66c4adaa18aa67f3f8b0ba6ba79b34374efd05"
+    },
+    {
+      "name": "Remove_Building_",
+      "offset": "0x45ea",
+      "size_bytes": 493,
+      "source_body_sha256": "8e0eb8d52268bf214d1ce3ec73d0e9970f0b4db1b0d1cae035810ace87179875"
+    }
+  ],
+  "original_instruction_checkpoints": 57,
+  "original_data_globals": {
+    "_NUM_COLONIES": "0x21996",
+    "_colony": "0x1ab18",
+    "_player": "0x1ff98"
+  },
+  "caller_branch": "building_id==9 after original Remove_Building_ flag clear passes signed BYTE colony[0] as EAX and original sign-extended colony index as EDX into Assign_New_Home_Planet_",
+  "home_search": "signed WORD _NUM_COLONIES original loops colony indexes from N-1 to 0, skipping EDX, matching signed owner BYTE+0, selecting max unsigned population BYTE+0x0a with >= tie rule (lowest index wins)",
+  "destination": "WORD _player[owner*0xea9 + 0x29] = selected colony WORD+0x02 star ID, or 0xffff if no matching candidate",
+  "scope": "complete original 146-byte home assignment reconstruction and building-9 call ABI; source-hash verified original CODE, tested derived C; not DOS dynamic differential execution or entire Remove_Building_ side effects"
+}
