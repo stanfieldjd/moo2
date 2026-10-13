@@ -4,7 +4,16 @@ const stop = document.getElementById("stop");
 const output = document.getElementById("output");
 const status = document.getElementById("status");
 const keys = document.getElementById("keys");
+const browseMode = document.getElementById("browseMode");
+const modeHelp = document.getElementById("modeHelp");
+let browseEnabled = true;
 let running = false;
+browseMode.addEventListener("click", () => {
+  browseEnabled = !browseEnabled;
+  browseMode.textContent = `Browser controls: ${browseEnabled ? "ON" : "OFF"}`;
+  browseMode.setAttribute("aria-pressed", String(browseEnabled));
+  modeHelp.textContent = browseEnabled ? "ON: page navigation is enabled. Xbox Edge system controls remain under the browser." : "OFF: page-managed arrow and D-pad navigation is suppressed for input testing. Xbox Edge system controls remain under the browser. Select this button to turn navigation back on.";
+});
 let frame = 0;
 let lastInteraction = "none";
 const display = document.createElement("p");
@@ -53,7 +62,8 @@ document.addEventListener("focusin", event=>{lastInteraction = `focus ${event.ta
 window.addEventListener("resize", environmentDetails);
 environmentDetails();
 document.addEventListener("keydown", event=>{
+  if (!browseEnabled && ["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(event.key)) event.preventDefault();
   keys.textContent = "Most recent keyboard input: "+event.key;
-  if (event.key === "Escape" && !running) window.location.assign("../");
+  if (event.key === "Escape" && !running && browseEnabled) window.location.assign("../");
 });
 window.addEventListener("pagehide", ()=>{running=false; cancelAnimationFrame(frame);});
