@@ -178,10 +178,14 @@ This is a **confirmed cross-reference of existing recovered targets**,
 not 2 newly discovered dynamic callbacks. No dynamic index bounds or
 behavior outside the three observed populated entries is presumed.
 
-The 137 indirect JMPs are differently distributed: 118 in the 133
-game modules and 19 in runtime/other modules. Switch-table
-reconstruction and jump-boundary analysis therefore remain a material
-**gameplay-first** task even though most indirect CALLs are support code.
+The **earlier exported** indirect-JMP inventory contained 137 sites:
+118 originating in the 133 game modules and 19 in support/runtime.
+**That export was incomplete.** A subsequent original-byte audit has
+recovered at least 187 game-module switch tables plus 18 support-module
+switch tables across verified dispatch forms (205 total). See
+`decompilation/reports/reconciled_switch_inventory_v131_2026-10-13.json`.
+This expands the **static** branch-target map; dynamic reachability,
+case behavior and other jump encodings still need reconstruction.
 
 ## Remaining decompilation work, in priority order
 
