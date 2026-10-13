@@ -1,0 +1,59 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "prior_32bit_decode_exceptions": 7,
+  "zero_filled_data_or_boundary": 5,
+  "runtime_initializer_to_add_to_code_corpus": 1,
+  "mixed_data_and_16bit_code_to_analyze_separately": 1,
+  "remaining_note": "Only this exact seven-entry inventory is triaged; 16-bit island routines and other CFG gaps remain to reconstruct.",
+  "entries": [
+    {
+      "name": "___GETDSEnd_",
+      "object_offset": "0x1001ef",
+      "interval_bytes": 1,
+      "status": "zero-data-or-boundary-label",
+      "evidence": "all 1 bytes zero"
+    },
+    {
+      "name": "anon_runtime_0012F1D8",
+      "object_offset": "0x12f1d8",
+      "interval_bytes": 8,
+      "status": "valid-code-missing-from-resynchronized-export",
+      "evidence": "initializer-table xref and eight-byte x86 mov/ret"
+    },
+    {
+      "name": "__SegmentStartRR16",
+      "object_offset": "0x158130",
+      "interval_bytes": 1,
+      "status": "zero-data-or-boundary-label",
+      "evidence": "all 1 bytes zero"
+    },
+    {
+      "name": "__IrqDataArrayRR16",
+      "object_offset": "0x158131",
+      "interval_bytes": 620,
+      "status": "zero-data-or-boundary-label",
+      "evidence": "all 620 bytes zero"
+    },
+    {
+      "name": "__VideoBasePD16",
+      "object_offset": "0x15839d",
+      "interval_bytes": 188,
+      "status": "data-prefix-followed-by-16-bit-code",
+      "evidence": "eight zero bytes; i8086 procedure prologue at +8"
+    },
+    {
+      "name": "__SegmentStartPC32",
+      "object_offset": "0x158540",
+      "interval_bytes": 1,
+      "status": "zero-data-or-boundary-label",
+      "evidence": "all 1 bytes zero"
+    },
+    {
+      "name": "__SegmentEndPC32",
+      "object_offset": "0x158694",
+      "interval_bytes": 1,
+      "status": "zero-data-or-boundary-label",
+      "evidence": "all 1 bytes zero"
+    }
+  ]
+}
