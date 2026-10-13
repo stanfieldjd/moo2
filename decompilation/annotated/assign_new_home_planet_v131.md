@@ -66,8 +66,8 @@ scan proceeds backwards.
 The final write is precisely one player WORD:
 
 ```c
-player[owner].home_star_word_at_0x29 =
-    matched ? selected_colony.star_word_at_0x02 : 0xFFFF;
+player[owner].home_planet_id_word_at_0x29 =
+    matched ? selected_colony.planet_id_word_at_0x02 : 0xFFFF;
 ```
 
 That value is a **planet ID WORD** read from colony `+0x02`,
