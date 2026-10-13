@@ -1,0 +1,58 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_watcom_function": "Fire_Ship_",
+  "function_entry": "0x28b5e",
+  "function_length_bytes": 2216,
+  "producer_instructions": {
+    "read_weapon_id": "0x28ca4 signed WORD from selected slot",
+    "scale_weapon_definitions": "0x28ca7 *28 bytes",
+    "read_category": "0x28caa byte at _weapons+12+28*weapon_id",
+    "store_local": "0x28cb2 DWORD local EBP-0x14 (subsequently compared as WORD)"
+  },
+  "original_category_byte_offset_in_definition": 12,
+  "original_weapon_definition_stride": 28,
+  "original_six_case_table_offset": "0x28b46",
+  "dispatch_site_offset": "0x28f62",
+  "verified_instructions": 17,
+  "case_map": [
+    {
+      "category": 0,
+      "target": "0x28fd1",
+      "path": "beam",
+      "named_firing_helper": "Fire_Beam_Weapon_"
+    },
+    {
+      "category": 1,
+      "target": "0x28f6a",
+      "path": "missile",
+      "named_firing_helper": "Fire_Missile_"
+    },
+    {
+      "category": 2,
+      "target": "0x28f6a",
+      "path": "missile_special_counter",
+      "named_firing_helper": "Fire_Missile_"
+    },
+    {
+      "category": 3,
+      "target": "0x290e2",
+      "path": "bomb",
+      "named_firing_helper": "Fire_Bomb_"
+    },
+    {
+      "category": 4,
+      "target": "0x28f6a",
+      "path": "missile",
+      "named_firing_helper": "Fire_Missile_"
+    },
+    {
+      "category": 5,
+      "target": "0x29113",
+      "path": "special",
+      "named_firing_helper": "Fire_Special_Weapon_"
+    }
+  ],
+  "default_for_category_gt_5": "branch 0x28f58 to shared 0x29143 without calling a firing helper",
+  "category_two_counter_write": "original 0x28f95 tests same category WORD =2; after Fire_Missile_ original 0x28fb5 overwrites slot counter with _weapons+13 byte",
+  "scope": "original-byte and named-control-flow verified category dispatch, not whole Fire_Ship_, call side effects, or original DOS differential execution"
+}
