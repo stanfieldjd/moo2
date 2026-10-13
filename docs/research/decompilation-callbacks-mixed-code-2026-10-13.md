@@ -836,7 +836,7 @@ original colony ID passed through EDX; matches the signed owner
 byte; selects the highest unsigned population BYTE at colony
 `+0x0A`, favoring the smallest index for ties because the
 comparison is `>=`; and writes the chosen colony's
-**star ID WORD at colony `+0x02`** to original player record
+**planet ID WORD at colony `+0x02`** to original player record
 `+0x29` (player stride 0xEA9), or `0xFFFF` if no
 candidate exists.
 
@@ -849,10 +849,10 @@ DATA globals, and **57 source opcode sites**. Exact results:
 
 The source-derived C tests passed strict C11 compilation
 with AddressSanitizer and UndefinedBehaviorSanitizer,
-covering 65,536 possible star IDs, 65,536 population-value
+covering 65,536 possible planet IDs, 65,536 population-value
 pairs and tie/exclusion behavior, all 256 signed owner
 byte patterns across three colony IDs, and a full
-building-9-clear-to-home-star integration test.
+building-9-clear-to-home-planet integration test.
 The C uses safe host index validation not present
 in the original DOS routine; tests are **not**
 dynamic original-DOS execution.
