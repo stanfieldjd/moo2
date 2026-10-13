@@ -1,0 +1,25 @@
+{
+  "original_exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "named_original_function": "Remove_Building_",
+  "original_function_offset": "0x45ea",
+  "original_full_body_size": 493,
+  "original_full_body_sha256": "8e0eb8d52268bf214d1ce3ec73d0e9970f0b4db1b0d1cae035810ace87179875",
+  "source_instruction_sites_verified": 37,
+  "direct_recalculation_building_ids": [
+    3,
+    14,
+    45
+  ],
+  "additional_queue_dependent_ids_rejected": [
+    8,
+    40,
+    41
+  ],
+  "first_original_write": "colony[0x136+building_id]=0 at CODE 0x460a",
+  "colony_planet_index": "SIGNED WORD colony+0x02; do not mislabel as star ID",
+  "planet_lookup": "_planet pointer DATA 0x1b0d4; planet record stride 0x11; BYTE+0x02 supplies unsigned star index",
+  "star_lookup": "_star pointer DATA 0x1b06c; star record stride 0x71; EAX pointer passed to Compute_Star_Colony_Stuff_(0xd5296)",
+  "building45_only": "after star recomputation signed colony owner BYTE+0 supplied as EAX to Update_Ship_ETAs_(0xf041c)",
+  "shared_return": "0x45e4 LEAVE/POP EDI/POP ESI/POP ECX/POP EBX/RET inside earlier Add_Building_ symbol",
+  "scope": "verified bounded Remove_Building_ call dispatch with callbacks; original queue-dependent cases and true callee effects remain incomplete"
+}
