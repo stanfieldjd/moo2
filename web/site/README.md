@@ -14,9 +14,12 @@ The Qwen ISPConfig website is a separate site and must not be modified.
   holding the controller Start/Menu button for approximately 3 seconds
   to access Edge Game Controls; this does not prove gameplay compatibility.
 - `/games/space-strategy/engine-lab/` — controller-first **non-game**
-  inspection screen with five *synthetic* systems. Its per-worker food,
-  industry and research calculations import the verified
-  `web/engine/colony-yields.mjs` primitives. No colony turn, original
+  inspection screen with five *synthetic* systems. It now includes a
+  **synthetic workforce record editor**: select a person, change the packed
+  job-slot bits on a clone, and inspect original-routine workforce totals,
+  per-worker yields and food/industry upkeep. The editor does not establish
+  the original job-reassignment procedure or calculate full colony output.
+  Changes remain tab-local and reset on reload. No colony turn, original
   galaxy generator, save/load, combat or gameplay is implemented there.
 - `/games/space-strategy/play/` — intentionally absent (HTTP 404)
   until real gameplay exists.
@@ -34,10 +37,14 @@ because that previously exposed `README.md` and test scripts.
 - `web/site/games/space-strategy/index.html` → matching path
 - `web/site/games/space-strategy/controller-test/{index.html,probe.mjs}`
   → matching paths
-- `web/site/games/space-strategy/engine-lab/{index.html,model.mjs,lab.mjs}`
+- `web/site/games/space-strategy/engine-lab/{index.html,model.mjs,lab.mjs,colony-lab.mjs}`
   → matching paths
 - **Only** `web/engine/colony-yields.mjs` → `/engine/colony-yields.mjs`
   (required public ES module import for the test deck).
+- Reviewed engine dependencies only:
+  `web/engine/{colony-economy-inspect,colony-workforce,colony-records,colony-maintenance,colony-tax}.mjs`
+  → matching `/engine/` paths for the workforce inspector. They contain
+  independently verified routines and no original game binaries or images.
 
 The live ISPConfig docroot is `/var/www/clients/client0/web4/web`.
 Deployment changes are made on the authorized server using source
@@ -64,7 +71,8 @@ Production places the site at `/` and the verified yield module at
 
 Tests are not a substitute for inspecting the page in a real browser or
 testing controller input on the Xbox One console. In particular, the
-new engine-lab controller navigation still needs physical-console testing.
+new workforce UI/controller navigation still needs physical-console testing.
+  The UI must permit controller focus scrolling to controls below the fold.
 
 ## Boundaries
 
