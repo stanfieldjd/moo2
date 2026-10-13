@@ -90,6 +90,30 @@ sets; **eleven** remain runtime-dependent. This is a target-provenance
 classification, *not* 8 completed C functions or a proof that all
 game indirect control flow is known.
 
+## Game-code indirect JMP cross-reference completed for this inventory
+
+The existing switch-table recovery held 135 bounded tables across the full
+executable. A new, independent audit used the authenticated v1.31 executable,
+its **unrelocated** LE object 1 bytes, and the exact extracted site/table/case
+indices to verify **all 118 indirect JMP sites in core game-code modules**.
+It checked every four-byte table entry against its recorded case target:
+
+- Game-module indirect JMP sites: **118**
+- Sites with existing verified switch table: **118**
+- Verified game-code switch-case entries: **943**
+- Distinct case target addresses: **800**
+- Source case-table mismatch or out-of-bounds errors: **0**
+
+This check is reproducible with `tools/audit_game_switch_coverage.py`
+and its generated report
+`decompilation/reports/game_switch_coverage_2026-10-13.json`.
+
+The *static control destinations* of this enumerated set are known.
+This does **not** prove every possible dynamic jump elsewhere, all Watcom
+function boundaries, nor decompile the 800 target blocks to equivalent C.
+The 311 flagged cross-function conditional branches remain a separate
+CFG correctness task.
+
 ## Seven prior entry-decoder failures triaged
 
 Earlier `function_cfg_extents.csv` reported seven
@@ -136,8 +160,8 @@ A 32-bit decoder must not be used to interpret this 16-bit island.
 This pass **did not finish full-game source recovery**. Next actions:
 rebuild the resynchronized control-flow corpus with synthetic function
 entries included, separately handle mixed 16/32-bit code, reduce the
-**311 cross-function conditional branches**, audit the **118 indirect
-JMP sites inside game modules**, and continue reconstructing the real
+**311 cross-function conditional branches**, preserve and expand the
+**118 verified game switch tables** to full case semantics, and continue reconstructing the real
 colony turn, diplomacy, AI, combat, map generation, save/load, and
 rendering behavior. The 11 runtime-dependent CALLs require individual
 caller/object-initialization provenance; a zero-initialized callback
