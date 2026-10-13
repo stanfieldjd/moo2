@@ -8,7 +8,7 @@
  * Observed Watcom CODE:
  *   Check_For_Launched_Fighters_ @ 0x19480, 95 bytes
  *   Is_Ship_Out_Of_Ammo_       @ 0x194DF, 241 bytes
- *   Does_Combat_Ship_Have_Special_ @ 0x3B0D3 (delegated callback)
+ *   Does_Combat_Ship_Have_Special_ @ 0x3B0D3, 75 bytes\n *   Test_Bit_Field_ @ 0x1176F0, 34 bytes (pure result only)
  *
  * Source data:
  *   _combat_data (DATA object 2 @ 0x1A864) -> combat ship records,
@@ -17,7 +17,7 @@
  *   _weapons (DATA @ 0x7803): definitions of 28 bytes; category +0x0C.
  *   unrelated unnamed DATA word @ 0x218AC -> comparison with ship +0x20.
  *
- * This isolation uses checked host memory bounds and explicit callbacks.
+ * This isolation uses checked host memory bounds and native bitfield logic.
  * Invalid-memory results are NOT original DOS gameplay outcomes;
  * the original code assumes valid indices and can read out-of-bounds.
  */
@@ -33,11 +33,6 @@ enum {
     MOO2_V131_ORIGINAL_MISSILE_SLOTS = 300
 };
 
-/* Native reproduction of the *external* Watcom helper is not included. */
-typedef uint16_t (*Moo2V131SpecialQuery)(void *context,
-                                         int16_t combat_ship_index,
-                                         uint16_t special_id);
-
 typedef struct {
     const uint8_t *combat_ship_records; /* original _combat_data pointer */
     size_t combat_ship_count;
@@ -46,8 +41,6 @@ typedef struct {
     const uint8_t *missile_records; /* original _missile pointer */
     size_t missile_record_count;  /* at least 300 if supplied */
     uint16_t unnamed_comparison_word; /* original DATA+0x218AC */
-    Moo2V131SpecialQuery has_special;
-    void *special_context;
 } Moo2V131CombatAmmoContext;
 
 typedef enum {
@@ -85,6 +78,35 @@ static uint8_t moo2_v131_ammo_category(const Moo2V131CombatAmmoContext *ctx,
 {
     return ctx->weapon_definitions[
         (size_t)weapon_id * MOO2_V131_WEAPON_DEFINITION_STRIDE + 0x0Cu];
+}
+
+/*
+ * Observed Test_Bit_Field_ at original CODE 0x1176F0, 34 bytes:
+ * Test bit field[bit_index >> 3], mask 1 << (bit_index & 7).
+ * Its original Watcom implementation also writes its return value to a
+ * scratch CODE-object DWORD at 0x1176EC before returning. This
+ * derived pure calculation intentionally omits that nonfunctional
+ * scratch side effect; full binary side-effect equivalence is not claimed.
+ */
+static uint16_t moo2_v131_ammo_bit(const uint8_t *field,unsigned bit_index)
+{
+    return (uint16_t)((field[bit_index >> 3] >> (bit_index & 7u)) & 1u);
+}
+
+/*
+ * Reconstructs full observed Does_Combat_Ship_Have_Special_ logic
+ * (original CODE 0x3B0D3, 75 bytes) using Test_Bit_Field_:
+ * bit present in ship+0x4C, and bit absent in ship+0xB2.
+ * Caller must supply an authenticated in-range ship and bit index.
+ */
+uint16_t moo2_v131_derived_combat_ship_has_special(
+    const Moo2V131CombatAmmoContext *ctx,int16_t ship_id,uint16_t special_id)
+{
+    const uint8_t *ship=ctx->combat_ship_records +
+                        (size_t)ship_id*MOO2_V131_COMBAT_SHIP_STRIDE;
+    return (uint16_t)(
+        moo2_v131_ammo_bit(ship+0x4Cu,special_id)==1u &&
+        moo2_v131_ammo_bit(ship+0xB2u,special_id)==0u);
 }
 
 /*
@@ -130,12 +152,14 @@ Moo2V131CombatAmmoStatus moo2_v131_derived_ship_out_of_ammo(
     uint16_t *out_of_ammo)
 {
     if (!out_of_ammo || !moo2_v131_ammo_valid_ship(ctx,ship_id) ||
-        !ctx->has_special || !ctx->weapon_definitions)
+        !ctx->weapon_definitions)
         return MOO2_V131_COMBAT_AMMO_INVALID_INPUT;
 
-    /* Original: special 0x25 OR 0x26 means immediate EAX=0. */
-    if (ctx->has_special(ctx->special_context,ship_id,0x25u) != 0u ||
-        ctx->has_special(ctx->special_context,ship_id,0x26u) != 0u) {
+    /* Original: special 0x25 OR 0x26 means immediate EAX=0.
+     * Both specials now use their actual original 75-byte query logic.
+     */
+    if (moo2_v131_derived_combat_ship_has_special(ctx,ship_id,0x25u) ||
+        moo2_v131_derived_combat_ship_has_special(ctx,ship_id,0x26u)) {
         *out_of_ammo=0;
         return MOO2_V131_COMBAT_AMMO_OK;
     }
