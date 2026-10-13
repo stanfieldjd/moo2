@@ -20,7 +20,7 @@ Original LE CODE object 1: 1,410,709 bytes, unrelocated.
 
 The source audit `tools/audit_colony_hit_resolvers_v131.py`
 independently checks both original function-body SHA-256 hashes,
-**68 original machine instruction anchors**, original Watcom
+**96 original machine instruction anchors**, original Watcom
 named callees and DATA globals, and the external biological
 return sequence. Its machine-readable output is
 `decompilation/reports/colony_hit_resolvers_v131_2026-10-13.json`.
@@ -200,3 +200,66 @@ remain unfinished.
 No original proprietary game binaries/assets
 were distributed. No Game Lab website,
 Xbox controller or Qwen changes were made.
+
+
+## Follow-on recovery: original branch-selected colony and player writes
+
+The authenticated two original function-body hashes remain unchanged.
+The audit now checks **96 original instruction locations** (28 newly
+anchored write/address sites) in addition to the whole-function digests.
+
+The original ordinary bomb resolver has three verified terminal writes:
+
+- CODE 0xCD07B–0xCD086 decrements colony WORD +0x130,
+  sets event BYTE +0x41 to 1, and increments event WORD +0x08.
+- CODE 0xCD0CB–0xCD0D6 decrements colony WORD +0x132,
+  sets event BYTE +0x41 to 1, and increments event WORD +0x0A.
+- CODE 0xCD0EC–0xCD0F7 transfers colony WORD +0x125
+  to event WORD +0x43, clears colony WORD +0x125,
+  then reaches event flag write at 0xCD135.
+
+The biological resolver has corresponding population-counter
+branches at 0xCD217–0xCD22E. Its selected-target path sets
+event BYTE +0x41 at 0xCD18B. On its population-removal path,
+0xCD1B9–0xCD1CF increments event WORDs +0x0C and +0x3F,
+decrements colony population count BYTE +0x0A, and copies the
+last population-entry DWORD into the selected entry. The
+later original player-statistic increment must be performed
+separately. Another verified branch at CODE 0xCD2E4
+subtracts 100 from indexed colony defense WORD +0xB4+2*index
+only after the signed-value-greater-than-100 guard.
+
+The original player-statistics address uses original _player
+DATA offset 0x1FF98 and player record stride 0xEA9:
+sign_extend(colony[0])*0xEA9 + 0x6FF
++ 2*sign_extend(event[0]), relative to the player-array base.
+The original instruction at 0xCD1E7 and 0xCD128 increments
+that 16-bit counter by 1. Other original paths at 0xCCFD2
+and 0xCD2BD add 10. All use WORD wraparound.
+
+New bounded derived modules:
+
+- `decompilation/reconstructed/colony_hit_mutations_v131.c`
+- `decompilation/reconstructed/colony_hit_player_stats_v131.c`
+
+New regression tests:
+
+- `tests/test_colony_hit_mutations_v131.c` tests all 65,536
+  16-bit initial values, copied population entry, and invalid inputs.
+- `tests/test_colony_hit_player_stats_v131.c` checks
+  3 owners, 16 opponent positions, both +1/+10 increments
+  and all 65,536 original WORD patterns.
+- `tests/test_apply_bomb_hits_colony_mutation_integration_v131.c`
+  checks that original `Apply_Bomb_Hits_` loop callbacks
+  process biological first, then ordinary hits, and
+  update colony/event counts and outer hit totals.
+
+All three committed tests pass strict C11 compilation,
+AddressSanitizer and UndefinedBehaviorSanitizer on the
+decompilation computer. Updated machine-readable original-byte
+report: `decompilation/reports/colony_hit_resolvers_v131_2026-10-13.json`.
+
+**Scope:** These are selected state-write primitives, not the full
+original resolvers. They DO NOT choose which branch executes, apply
+all original player/colony effects, or establish DOS dynamic
+equivalence. Original game assets were not committed or deployed.
