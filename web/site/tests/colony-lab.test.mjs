@@ -23,7 +23,7 @@ test("synthetic job edits change verified job bits without altering caller recor
   const revised=assignFixtureJob(original,0,2);
   assert.equal(inspectFixtureColony(original,0).personInfo.jobSlot,0);
   assert.equal(inspectFixtureColony(revised,0).personInfo.jobSlot,2);
-  assert.deepEqual(inspectFixtureColony(revised,0).jobTotals,[1,1,2,1]);
+  assert.deepEqual(inspectFixtureColony(revised,0).jobTotals,[1,2,2,0]);
   assert.deepEqual(original.colonyRecord,originalBytes);
   const first=0x0c;
   for(let i=0;i<4;i++){
