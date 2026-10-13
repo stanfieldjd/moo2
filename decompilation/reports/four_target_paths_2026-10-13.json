@@ -1,0 +1,66 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "source_verified_target_paths": 4,
+  "all_targets_have_bounded_return_paths": true,
+  "scope": "bounded source instruction graph and named shared tails; calls not followed; source-level semantics/stack correctness remain unverified",
+  "paths": [
+    {
+      "source_function": "Draw_Special_Systems_Replacement_Box_",
+      "conditional_source_offset": "0x558fb",
+      "target_entry": "0x5583a",
+      "target_owner": "Draw_Generic_Replacement_Box_",
+      "visited_instructions": 13,
+      "direct_calls_treated_as_fallthrough": 1,
+      "observed_return_offsets": [
+        "0x58d3c"
+      ],
+      "verified_shared_tail_entries": [
+        "0x56268",
+        "0x58d37"
+      ],
+      "meaning": "UI helper invocation followed by two chained shared exits"
+    },
+    {
+      "source_function": "Fleet_Box_Data_",
+      "conditional_source_offset": "0x61a57",
+      "target_entry": "0x610ca",
+      "target_owner": "First_Unselected_Icon_",
+      "visited_instructions": 43,
+      "direct_calls_treated_as_fallthrough": 5,
+      "observed_return_offsets": [
+        "0x61197"
+      ],
+      "verified_shared_tail_entries": [],
+      "meaning": "fleet UI shared path with an internal return"
+    },
+    {
+      "source_function": "Ship_Owner_",
+      "conditional_source_offset": "0x68003",
+      "target_entry": "0x6892d",
+      "target_owner": "Ship_Icon_Y_",
+      "visited_instructions": 48,
+      "direct_calls_treated_as_fallthrough": 2,
+      "observed_return_offsets": [
+        "0x68982",
+        "0x689c6"
+      ],
+      "verified_shared_tail_entries": [],
+      "meaning": "ship record classification subgraph with multiple returns"
+    },
+    {
+      "source_function": "Officer_Cost_",
+      "conditional_source_offset": "0x87a56",
+      "target_entry": "0x84807",
+      "target_owner": "Officer_Skill_Value_",
+      "visited_instructions": 40,
+      "direct_calls_treated_as_fallthrough": 2,
+      "observed_return_offsets": [
+        "0x841ba"
+      ],
+      "verified_shared_tail_entries": [
+        "0x841b5"
+      ],
+      "meaning": "officer cost/bonus subgraph leading to a shared return"
+    }
+  ]
+}
