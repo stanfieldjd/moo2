@@ -15,7 +15,7 @@
     }
   ],
   "total_original_named_resolver_bytes": 1077,
-  "original_instruction_anchors": 68,
+  "original_instruction_anchors": 96,
   "biological_shared_6_byte_epilogue": {
     "CODE_offset": "0xcceb7",
     "source_sha256": "0488d06b31fc4e6e52f9e400c94ead43b0ebe94d902f47cab4c51cbf59946c54",
@@ -46,6 +46,22 @@
     "eligible_indices": "recorded in local byte array in descending order",
     "subsequent_random_draw": "original Random_(total eligible plus other colony defenses/populations)"
   },
-  "source_mutations": "bio branch writes colony population counts, player/global stats and result event; bomb branch writes defense and colony fields; none of those full effects are reproduced by this selection-only derived C",
+  "source_mutations": "Selected original population and combat-result writes, owner-indexed 16-bit player-stat +1/+10, and packed population removal now have independent bounded C implementations; full hit resolver decision trees and all side effects remain incomplete",
+  "reconstructed_bounded_mutation_primitives": {
+    "derived_colony_population_counter_words": [
+      "0x130",
+      "0x132"
+    ],
+    "derived_result_event_counter_words": [
+      "0x08",
+      "0x0a",
+      "0x0c",
+      "0x3f"
+    ],
+    "status_transfer": "colony word+0x125 -> event word+0x43, then clear colony word",
+    "packed_population_remove": "decrement colony byte+0x0a and copy last population DWORD to selected slot+0x0c+4*index",
+    "defense_decrement": "when original signed defense word >100, subtract 100 from colony+0xb4+2*index",
+    "player_stat_source": "signed colony[0]*0xea9 + signed event[0]*2 + 0x6ff within original _player record, +1 or +10 branch effects"
+  },
   "scope": "two fully hashed resolver CODE bodies and selected branch sites, original target-selection semantics only; not all resolver side effects, dynamic DOS equivalence or gameplay completeness"
 }
