@@ -170,9 +170,15 @@ AddressSanitizer and UndefinedBehaviorSanitizer.
 ## Next original-code reconstruction boundary
 
 Recover the full `Destroy_Colony_Defense_` and
-`Apply_Bomb_Hits_` called functions, then reconstruct
 the remaining global writes in `Apply_Damage_To_Planet_`,
 including colony defense and biological-hit results.
+The `Apply_Bomb_Hits_` (95 bytes) loop is already
+reconstructed with explicit callbacks; both underlying
+hit-resolver original bodies are now byte-hash verified
+(641 and 436 bytes) and their target selection and
+original RNG draws are reconstructed, while mutation
+side effects remain incomplete. See
+`decompilation/annotated/colony_hit_resolvers_v131.md`.
 Integrate them with `Fire_Bomb_` and the now-verified
 original `Random_` state machine. A full game engine
 requires combat turn handling, galaxy-generation and
