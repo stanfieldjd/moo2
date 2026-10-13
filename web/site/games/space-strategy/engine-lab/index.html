@@ -30,6 +30,7 @@
 #controlFeedback{color:#bfff89;min-height:1.6em}
 @media(max-width:950px){.deck-grid{grid-template-columns:1fr}.starmap{min-height:420px}}
 @media(max-width:600px){.starmap{min-height:370px}.star-node{min-width:83px;min-height:52px;padding:6px;font-size:13px}.star-node:before{font-size:19px}.deck-grid{gap:15px}.deck-head{margin-top:16px}}
+.workforce{margin:26px 0 0;padding-top:22px;border-top:1px solid #507088}.workforce h3{font-size:clamp(1.1rem,2vw,1.5rem);margin:0 0 13px}.workforce-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.workforce-summary>div{background:#0b1c2b;border:1px solid #39576a;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}.workforce-summary span{color:#bdd0d6;font-size:.76rem}.workforce-summary strong{font-size:1.4rem;color:#bfff89}.worker-current{color:#eaf4ee;font-weight:750;margin:23px 0 12px}.workforce .deck-controls{margin:10px 0 20px}.workforce .deck-controls button{font-size:15px;flex:1 1 115px;min-width:100px}.workforce .explain strong{color:#e6f6dc}
 </style></head>
 <body data-view="engine-lab">
 <a class="skip" href="#map">Skip to the interactive map</a>
@@ -42,7 +43,28 @@
 <aside class="inspector" aria-label="Selected fixture inspection"><p class="code">NATIVE RULES / READ-ONLY INSPECTION</p><h2 id="systemName">Beacon</h2><p id="coords">Synthetic fixture 1 of 5</p>
 <div class="stats"><div class="stat"><label>Food per farmer</label><strong id="food">—</strong></div><div class="stat"><label>Industry per worker</label><strong id="industry">—</strong></div><div class="stat"><label>Research per scientist</label><strong id="research">—</strong></div></div>
 <p class="explain">Food retains the source engine's half-unit precision. These values do not include colony population totals, maintenance, or final turn resolution.</p>
-<div class="deck-controls"><button id="previous" type="button" class="alt">← Previous</button><button id="next" type="button" class="alt">Next →</button><button id="bonus" type="button" aria-pressed="false">Test bonus: OFF</button><a href="../">Back to project</a></div></aside>
+<div class="deck-controls"><button id="previous" type="button" class="alt">← Previous</button><button id="next" type="button" class="alt">Next →</button><button id="bonus" type="button" aria-pressed="false">Test bonus: OFF</button><a href="../">Back to project</a></div>
+<section class="workforce" aria-label="Synthetic colony workforce editor">
+<h3>Colony workforce <span class="code">/ TEST RECORD</span></h3>
+<p class="explain">Modify verified packed job-slot bits in a <strong>synthetic record</strong>. Workforce counts and maintenance are calculated by native inspectors. Changes stay in this tab and do not advance a turn.</p>
+<div class="workforce-summary">
+<div><span>Population</span><strong id="populationCount">—</strong></div>
+<div><span>Food jobs</span><strong id="foodJobs">—</strong></div>
+<div><span>Industry jobs</span><strong id="industryJobs">—</strong></div>
+<div><span>Research jobs</span><strong id="researchJobs">—</strong></div>
+<div><span>Food upkeep</span><strong id="foodUpkeep">—</strong></div>
+<div><span>Industry upkeep</span><strong id="industryUpkeep">—</strong></div>
+</div>
+<p class="worker-current" id="workerCurrent">Colonist 1</p>
+<div class="deck-controls">
+<button class="alt" id="workerPrevious" type="button">← Person</button>
+<button class="alt" id="workerNext" type="button">Person →</button>
+<button class="alt" id="jobFood" type="button">Assign food</button>
+<button class="alt" id="jobIndustry" type="button">Assign industry</button>
+<button class="alt" id="jobResearch" type="button">Assign research</button>
+</div>
+<p class="explain">Assignments are an experimental record editor, not proof of the original game's reassignment rules. This screen does not compute full colony output.</p>
+</section></aside>
 </div>
 <p id="mapInstruction" class="hint"><strong>Xbox:</strong> Hold the controller Menu button for about three seconds and select Edge's Game Controls mode. D-pad / left stick navigates fixtures; A selects; LB/RB changes fixtures. <strong>Desktop:</strong> arrows, Tab, Enter and mouse. These mappings require testing on the physical console.</p>
 <p id="controlFeedback" aria-live="polite" role="status">Waiting for controller or keyboard input.</p>
