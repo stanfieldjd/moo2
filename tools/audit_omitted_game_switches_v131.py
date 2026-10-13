@@ -131,7 +131,7 @@ def audit(exe,code):
             previously_known_raw+=1
             continue
         table=int.from_bytes(blob[site+4:site+8],"little")
-        index_reg=("eax","ecx","edx","ebx")[blob[site+3]>>3 & 3]
+        index_reg=("eax","ecx","edx","ebx","esp","ebp","esi","edi")[(blob[site+3] >> 3) & 7]
         # The SIB operand indexes the original CODE object directly.
         verify_site_instruction(code,site,table,index_reg)
         inst=local_disassembly(code,site)
