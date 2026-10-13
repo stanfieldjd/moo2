@@ -1,13 +1,14 @@
 // Console-local input diagnostic. Never transmits, persists, or logs controller details.
-const start = document.getElementById("start");
-const stop = document.getElementById("stop");
+const focusState = document.getElementById("focusState");
+const connectionState = document.getElementById("connectionState");
+const pointerState = document.getElementById("pointerState");
 const output = document.getElementById("output");
 const status = document.getElementById("status");
 const keys = document.getElementById("keys");
 const browseMode = document.getElementById("browseMode");
 const modeHelp = document.getElementById("modeHelp");
 let browseEnabled = true;
-let running = false;
+
 browseMode.addEventListener("click", () => {
   browseEnabled = !browseEnabled;
   browseMode.textContent = `Page navigation: ${browseEnabled ? "ON" : "OFF"}`;
@@ -24,11 +25,11 @@ function environmentDetails() {
   const viewport = window.visualViewport;
   const vv = viewport ? `${Math.round(viewport.width)} × ${Math.round(viewport.height)}` : "unavailable";
   const focused = document.activeElement?.id || document.activeElement?.tagName || "none";
+  focusState.textContent = `Page focus: ${document.hasFocus() ? "YES" : "NO"} | Visibility: ${document.visibilityState}`;
   display.textContent = `Viewport: ${innerWidth} × ${innerHeight} CSS px | Visual viewport: ${vv} | Display scale: ${devicePixelRatio || 1} | Focus: ${focused} | Recent pointer/focus: ${lastInteraction}`;
 }
 const labels = ["A","B","X","Y","LB","RB","LT","RT","View","Menu","LS","RS","D-pad Up","D-pad Down","D-pad Left","D-pad Right"];
 function sample() {
-  if (!running) return;
   let pads;
   try {
     if (typeof navigator.getGamepads !== "function") {
@@ -49,21 +50,17 @@ function sample() {
   environmentDetails();
   frame = requestAnimationFrame(sample);
 }
-start.addEventListener("click", ()=>{
-  running = true; start.disabled = true; stop.disabled = false;
-  status.textContent = "Test active. Press each controller control."; sample();
-});
-stop.addEventListener("click", ()=>{
-  running = false; cancelAnimationFrame(frame); start.disabled = false; stop.disabled = true;
-  status.textContent = "Test stopped.";
-});
-document.addEventListener("pointerdown", event=>{lastInteraction = `pointer ${event.pointerType || "unknown"}`; environmentDetails();});
+status.textContent = "Automatic detection active. Press controller buttons; use Edge’s Use game controls mode."; 
+window.addEventListener("gamepadconnected", e => { connectionState.textContent = "Gamepad connected event received (index "+e.gamepad.index+")"; });
+window.addEventListener("gamepaddisconnected", e => { connectionState.textContent = "Gamepad disconnected event received (index "+e.gamepad.index+")"; });
+sample();
+document.addEventListener("pointerdown", event=>{lastInteraction = `pointer ${event.pointerType || "unknown"}`; pointerState.textContent = "Pointer event: "+lastInteraction; environmentDetails();});
 document.addEventListener("focusin", event=>{lastInteraction = `focus ${event.target?.id || event.target?.tagName || "unknown"}`; environmentDetails();});
 window.addEventListener("resize", environmentDetails);
 environmentDetails();
 document.addEventListener("keydown", event=>{
   if (!browseEnabled && ["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(event.key)) event.preventDefault();
   keys.textContent = "Most recent keyboard input: "+event.key;
-  if (event.key === "Escape" && !running && browseEnabled) window.location.assign("../");
+  if (event.key === "Escape" && browseEnabled) window.location.assign("../");
 });
-window.addEventListener("pagehide", ()=>{running=false; cancelAnimationFrame(frame);});
+window.addEventListener("pagehide", ()=>{cancelAnimationFrame(frame);});
