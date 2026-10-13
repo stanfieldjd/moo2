@@ -1,0 +1,16 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_fire_ship_CODE_entry": "0x28b5e",
+  "original_fire_ship_body_size_bytes": 2216,
+  "verified_original_instruction_sites": 15,
+  "combat_record_stride": 313,
+  "weapon_slot_stride": 11,
+  "weapon_slot_counter_field_offset": "0x58 + slot*11",
+  "missile_helper_call": "0x28f85 -> Fire_Missile_ (0x2c892)",
+  "missile_mode_equal_two": "0x28f95 CMP mode,2; 0x28fad load byte at _weapons+13+28*weapon_id; 0x28fb5 store WORD at selected slot+0x58",
+  "missile_other_modes": "0x28f9a JNE to 0x28fbb; 0x28fc3 DEC WORD at selected slot+0x58",
+  "bomb_helper_call": "0x290ee -> Fire_Bomb_ (0x2a6ca)",
+  "bomb_counter_change": "0x2910c DEC WORD at selected slot+0x58",
+  "original_counter_underflow": "16-bit DEC wraps 0x0000 -> 0xffff; no bounds guard at this instruction",
+  "scope": "verified bounded Fire_Ship_ mutation sites only; surrounding missile/bomb effects and full fire eligibility are NOT decompiled"
+}
