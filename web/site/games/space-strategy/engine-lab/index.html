@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080e1c"><meta name="description" content="Interactive native yield-engine inspection prototype. Not a playable game.">
+<title>Engine Lab — Space Strategy / Game Lab</title>
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../../site.css">
+<style>
+.deck{padding:26px 0 72px}.deck-head{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;margin:30px 0 14px}
+.deck h1{font-size:clamp(2.3rem,5vw,5.8rem);margin:12px 0 16px}.deck h1 em{color:#bfff89}
+.notice{max-width:850px;background:#152c33;border-left:4px solid #bfff89;padding:15px 23px;color:#edf3de;margin:0 0 30px;font-size:clamp(17px,1.5vw,23px)}
+.deck-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:24px}
+.starmap{position:relative;min-height:510px;border:1px solid #527083;background:radial-gradient(ellipse at 50% 46%,#294e626c,transparent 65%),radial-gradient(circle at 18% 60%,#263d62,transparent 50%),#081320;overflow:hidden;isolation:isolate}
+.starmap:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,#d3e4ed 1px,transparent 1.7px);background-size:57px 43px;opacity:.43;pointer-events:none}
+.starmap:after{content:"";position:absolute;inset:22px;border:1px solid #6b8a9444;pointer-events:none}
+.map-label{position:absolute;top:24px;left:26px;z-index:1;color:#a7d4c6;letter-spacing:.16em;font-size:.72rem}
+.star-node{position:absolute;z-index:2;transform:translate(-50%,-50%);min-height:64px;min-width:115px;padding:9px 14px;background:#122538e8;border:1px solid #7497a4;color:#e9f7fa;border-radius:4px;cursor:pointer;font:800 clamp(15px,1.2vw,20px)/1.3 system-ui;text-align:center}
+.star-node:before{content:"✦";display:block;font-size:27px;line-height:26px;color:#bfff89}
+.star-node[data-selected="true"]{border:3px solid #bfff89;background:#23403d;box-shadow:0 0 0 6px #bfff8920}
+.star-node:focus-visible{outline:4px solid #fff;outline-offset:6px}
+.inspector{border:1px solid #507088;background:linear-gradient(160deg,#162a3a,#0a1729);padding:clamp(22px,3vw,42px)}
+.inspector .code{font-size:.69rem;letter-spacing:.16em;color:#a5d5bd}.inspector h2{font-size:clamp(2rem,3vw,3.1rem);margin:12px 0}
+.stats{display:grid;grid-template-columns:1fr;gap:12px;margin:25px 0}
+.stat{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0;border-top:1px solid #476175}
+.stat label{color:#c5d4e2;font-size:.85rem}.stat strong{font-size:clamp(1.5rem,2vw,2.3rem);font-variant-numeric:tabular-nums;color:#bfff89}
+.explain{font-size:.82rem;color:#b9cddd}
+.deck-controls{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.deck-controls button,.deck-controls a{display:inline-flex;align-items:center;justify-content:center;min-height:56px;min-width:110px;background:#bfff89;border:2px solid #bfff89;border-radius:3px;color:#112538;text-decoration:none;font:800 16px system-ui;cursor:pointer;padding:12px 17px}
+.deck-controls button.alt{background:#1d3445;color:#edf4ed;border-color:#69939e}
+.deck-controls button:focus-visible{outline:4px solid #fff;outline-offset:5px}
+.hint{padding-top:24px;font-size:.85rem}.hint strong{color:#e6f6dc}
+#controlFeedback{color:#bfff89;min-height:1.6em}
+@media(max-width:950px){.deck-grid{grid-template-columns:1fr}.starmap{min-height:420px}}
+@media(max-width:600px){.starmap{min-height:370px}.star-node{min-width:83px;min-height:52px;padding:6px;font-size:13px}.star-node:before{font-size:19px}.deck-grid{gap:15px}.deck-head{margin-top:16px}}
+</style></head>
+<body data-view="engine-lab">
+<a class="skip" href="#map">Skip to the interactive map</a>
+<div class="shell"><header class="topbar"><a class="wordmark" href="../../../index.html" aria-label="Game Lab home"><span class="brand-icon" aria-hidden="true">✦</span> GAME<span>LAB</span></a><nav class="top-nav" aria-label="Project navigation"><a href="../">Project overview</a><a href="../controller-test/">Controller test</a></nav></header>
+<main class="deck"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">← Space Strategy</a><span>/</span>Engine Lab</nav>
+<div class="deck-head"><div><p class="eyebrow">PROJECT 001 / INTERACTIVE ENGINE INTEGRATION</p><h1>Strategy <em>test deck.</em></h1></div><span class="status"><span class="status-dot"></span> ENGINE PROTOTYPE</span></div>
+<p class="notice"><strong>Not yet playable.</strong> These five star systems are synthetic testing fixtures, not an original game galaxy. Their food, industry and research figures come from isolated, reverse-engineered per-worker calculations—not complete colony production or a running turn simulation.</p>
+<div class="deck-grid">
+<section id="map" class="starmap" aria-label="Synthetic star navigation map" aria-describedby="mapInstruction"><span class="map-label">NAVIGATION FIELD / FIVE TEST FIXTURES</span><div id="stars"></div></section>
+<aside class="inspector" aria-label="Selected fixture inspection"><p class="code">NATIVE RULES / READ-ONLY INSPECTION</p><h2 id="systemName">Beacon</h2><p id="coords">Synthetic fixture 1 of 5</p>
+<div class="stats"><div class="stat"><label>Food per farmer</label><strong id="food">—</strong></div><div class="stat"><label>Industry per worker</label><strong id="industry">—</strong></div><div class="stat"><label>Research per scientist</label><strong id="research">—</strong></div></div>
+<p class="explain">Food retains the source engine's half-unit precision. These values do not include colony population totals, maintenance, or final turn resolution.</p>
+<div class="deck-controls"><button id="previous" type="button" class="alt">← Previous</button><button id="next" type="button" class="alt">Next →</button><button id="bonus" type="button" aria-pressed="false">Test bonus: OFF</button><a href="../">Back to project</a></div></aside>
+</div>
+<p id="mapInstruction" class="hint"><strong>Xbox:</strong> Hold the controller Menu button for about three seconds and select Edge's Game Controls mode. D-pad / left stick navigates fixtures; A selects; LB/RB changes fixtures. <strong>Desktop:</strong> arrows, Tab, Enter and mouse. These mappings require testing on the physical console.</p>
+<p id="controlFeedback" aria-live="polite" role="status">Waiting for controller or keyboard input.</p>
+</main><footer><span>GAME LAB — engine integration test</span><span>Original artwork, binaries, saves, and game files are not served.</span></footer></div>
+<script type="module" src="./lab.mjs"></script>
+</body></html>
