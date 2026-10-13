@@ -45,8 +45,17 @@ These are original DATA object 2 symbols, not absolute host pointers:
   is signed 16-bit owner/combat-ship ID.
 - Original DATA word at `0x218AC` is compared as a WORD
   with zero-extended combat-ship byte `ship+0x20`.
-  The semantic name and producer of this DATA word
-  are **not yet verified**.
+  Its original symbolic name remains unknown; its **producer
+  is now verified** as the signed 8-bit owner field `+0x63`
+  of the selected strategic `_ship` record, converted into AX.
+  The strategic ship records have original `0x81` stride.
+  Four independently decoded original combat-init paths write
+  this word: `Strategic_Combat_` at `0x301ED`,
+  `Strategic_Bombardment_` at `0x325B4`,
+  `Tactical_Bombardment_` at `0x32807`, and
+  `Tactical_Combat_` at `0x37B06`. This supports a
+  combat-side/owner comparison without proving the game's
+  exact higher-level semantic naming.
 
 ## `Is_Ship_Out_Of_Ammo_`: exact observed decision structure
 
@@ -152,8 +161,8 @@ differential execution of the DOS game.
 
 ## Remaining work
 
-Cross-reference producers of the unnamed DATA word
-`0x218AC`, the gameplay labels for weapon category
+Continue tracing consumers and initialization lifetime of the
+owner-derived DATA word `0x218AC`, the gameplay labels for weapon category
 IDs 0–5, and all callers of these helpers.
 Verify safe/wrapper behavior when original in-game
 pointers or indices are malformed. Trace the rest
