@@ -127,13 +127,22 @@ or unresolved hit-resolver side effects.
 
 ## Next work
 
-Reconstruct original `Resolve_Bomb_Hit_`
-and `Resolve_Biological_Hit_`, then remove the
-callback stand-ins only after verifying their data
-writes and all branch paths. Reconcile those
-results with the full `Apply_Damage_To_Planet_`
-branch map, `Fire_Bomb_`, original `Random_`,
-and remaining game turn/save systems.
+The entire named original `Resolve_Bomb_Hit_`
+(641 bytes) and `Resolve_Biological_Hit_` (436 bytes)
+are now authenticated by their original body hashes
+and 68 source-opcode checkpoints. Their biological
+reservoir selection and ordinary weighted hit target
+selection are reconstructed and source-RNG-tested in
+`decompilation/reconstructed/colony_hit_target_selection_v131.c`
+and explained in
+`decompilation/annotated/colony_hit_resolvers_v131.md`.
+
+**Their game-state mutations remain incomplete.**
+Keep the two callbacks until all original player,
+colony, population and event mutations and control-flow
+paths are reconstructed and verified. Then integrate
+with `Apply_Damage_To_Planet_`, `Fire_Bomb_`, original
+`Random_`, and turn/save state.
 
 No Game Lab website, Xbox controller,
 Qwen service or original copyrighted game
