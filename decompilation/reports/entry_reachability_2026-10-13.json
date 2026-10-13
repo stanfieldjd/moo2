@@ -1,0 +1,929 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "previous_non_simple_epilogue_game_branches": 92,
+  "reachable_from_symbol_entry": 63,
+  "not_established_by_bounded_walk": 29,
+  "scope": "entry-anchored, same-symbol-interval direct x86 CFG with recovered switch cases; negative result does NOT imply dead code",
+  "entries": [
+    {
+      "source_function": "Set_Refresh_",
+      "source_branch_offset": "0x78e",
+      "branch_opcode": "je",
+      "destination_offset": "0x114b65",
+      "destination_relation": "entry",
+      "destination_owner": "Set_Refresh_Full_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 7
+    },
+    {
+      "source_function": "Set_Game_Random_Seed_",
+      "source_branch_offset": "0x7d6",
+      "branch_opcode": "je",
+      "destination_offset": "0x114878",
+      "destination_relation": "entry",
+      "destination_owner": "Randomize_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 5
+    },
+    {
+      "source_function": "Get_Game_Type_From_Saved_Game_",
+      "source_branch_offset": "0x1fff",
+      "branch_opcode": "je",
+      "destination_offset": "0x1e4d",
+      "destination_relation": "interior",
+      "destination_owner": "Check_Magic_Number_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 31
+    },
+    {
+      "source_function": "Mox_Play_Sound_",
+      "source_branch_offset": "0x47de",
+      "branch_opcode": "jne",
+      "destination_offset": "0x102399",
+      "destination_relation": "entry",
+      "destination_owner": "Play_Sound_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 4
+    },
+    {
+      "source_function": "Diplomacy_Offer_Gift_",
+      "source_branch_offset": "0x9687",
+      "branch_opcode": "ja",
+      "destination_offset": "0x919a",
+      "destination_relation": "interior",
+      "destination_owner": "Diplomacy_Demand_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 23
+    },
+    {
+      "source_function": "Diplomacy_Surrender_",
+      "source_branch_offset": "0xd15d",
+      "branch_opcode": "je",
+      "destination_offset": "0x7b44",
+      "destination_relation": "interior",
+      "destination_owner": "Diplomacy_Declare_War_Resolution_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 66
+    },
+    {
+      "source_function": "Diplomacy_Offer_Money_",
+      "source_branch_offset": "0xd41b",
+      "branch_opcode": "jle",
+      "destination_offset": "0xc7e0",
+      "destination_relation": "interior",
+      "destination_owner": "Diplomacy_System_Display_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 166
+    },
+    {
+      "source_function": "Get_Event_Mineral_Depletion_Colony_",
+      "source_branch_offset": "0x13272",
+      "branch_opcode": "jne",
+      "destination_offset": "0x131ad",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Event_Climate_Change_Colony_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 31
+    },
+    {
+      "source_function": "Get_Event_Mineral_Deposit_Colony_",
+      "source_branch_offset": "0x132cf",
+      "branch_opcode": "jne",
+      "destination_offset": "0x131ad",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Event_Climate_Change_Colony_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 31
+    },
+    {
+      "source_function": "Pick_Completely_Random_Star_",
+      "source_branch_offset": "0x13b18",
+      "branch_opcode": "jle",
+      "destination_offset": "0x131ad",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Event_Climate_Change_Colony_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 61
+    },
+    {
+      "source_function": "Determine_Lucky_Players_Events_",
+      "source_branch_offset": "0x145b1",
+      "branch_opcode": "jge",
+      "destination_offset": "0x13d97",
+      "destination_relation": "interior",
+      "destination_owner": "Pick_Random_Colony_No_Outpost_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 50
+    },
+    {
+      "source_function": "Get_Text_Message_",
+      "source_branch_offset": "0x14ac2",
+      "branch_opcode": "jno",
+      "destination_offset": "0x14b10",
+      "destination_relation": "interior",
+      "destination_owner": "Decode_Text_Message_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 8
+    },
+    {
+      "source_function": "NPC_Message_Rejection_Check_",
+      "source_branch_offset": "0x176d6",
+      "branch_opcode": "jp",
+      "destination_offset": "0x1774f",
+      "destination_relation": "interior",
+      "destination_owner": "NPC_Proposal_Rejection_Accept_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 10
+    },
+    {
+      "source_function": "Is_Ship_Targeted_By_Missile_",
+      "source_branch_offset": "0x19606",
+      "branch_opcode": "jge",
+      "destination_offset": "0x194c0",
+      "destination_relation": "interior",
+      "destination_owner": "Check_For_Launched_Fighters_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 25
+    },
+    {
+      "source_function": "Ship_On_Screen_",
+      "source_branch_offset": "0x23b96",
+      "branch_opcode": "ja",
+      "destination_offset": "0x23afc",
+      "destination_relation": "interior",
+      "destination_owner": "Ship_Completely_On_Screen_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 44
+    },
+    {
+      "source_function": "Draw_Internals_Display_",
+      "source_branch_offset": "0x245b9",
+      "branch_opcode": "je",
+      "destination_offset": "0x1e981",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Weapon_Status_Display_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 9
+    },
+    {
+      "source_function": "Load_Combat_Antaran_Ship_",
+      "source_branch_offset": "0x3d112",
+      "branch_opcode": "ja",
+      "destination_offset": "0x3cb1d",
+      "destination_relation": "interior",
+      "destination_owner": "Init_Special_Devices_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 14
+    },
+    {
+      "source_function": "Check_Treaty_Proposal_",
+      "source_branch_offset": "0x43132",
+      "branch_opcode": "jge",
+      "destination_offset": "0x43166",
+      "destination_relation": "interior",
+      "destination_owner": "Diplomacy_Test_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 364
+    },
+    {
+      "source_function": "Get_Declare_War_Message_",
+      "source_branch_offset": "0x43713",
+      "branch_opcode": "jbe",
+      "destination_offset": "0x4374c",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Gift_Response_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 19
+    },
+    {
+      "source_function": "Init_Ship_Designs_",
+      "source_branch_offset": "0x4504f",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46a34",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Point_Defense_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 50
+    },
+    {
+      "source_function": "Load_Antaran_Ship_Design_",
+      "source_branch_offset": "0x45150",
+      "branch_opcode": "ja",
+      "destination_offset": "0x45b11",
+      "destination_relation": "interior",
+      "destination_owner": "Load_Large_Antaran_Design_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 4
+    },
+    {
+      "source_function": "Best_Point_Defense_Weapon_By_Size_",
+      "source_branch_offset": "0x46a92",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46a2d",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Point_Defense_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 33
+    },
+    {
+      "source_function": "Best_Missile_Weapon_NT_",
+      "source_branch_offset": "0x46c64",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46995",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Beam_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 44
+    },
+    {
+      "source_function": "Best_Beam_To_Hit_Special_",
+      "source_branch_offset": "0x46e17",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46d16",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Bomb_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 33
+    },
+    {
+      "source_function": "Best_Beam_Damage_Special_",
+      "source_branch_offset": "0x46e85",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46d16",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Bomb_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 37
+    },
+    {
+      "source_function": "Best_Beam_Defense_Special_",
+      "source_branch_offset": "0x46f03",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46d16",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Bomb_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 37
+    },
+    {
+      "source_function": "Best_Missile_Defense_Special_",
+      "source_branch_offset": "0x46f81",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46d16",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Bomb_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 37
+    },
+    {
+      "source_function": "Best_Missile_Damage_Special_",
+      "source_branch_offset": "0x47065",
+      "branch_opcode": "jne",
+      "destination_offset": "0x46995",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Beam_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 40
+    },
+    {
+      "source_function": "Best_Ship_Fuel_",
+      "source_branch_offset": "0x47100",
+      "branch_opcode": "jge",
+      "destination_offset": "0x46d16",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Bomb_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 34
+    },
+    {
+      "source_function": "Update_Equipment_On_Ships_Being_Built_",
+      "source_branch_offset": "0x471b5",
+      "branch_opcode": "jne",
+      "destination_offset": "0x46a34",
+      "destination_relation": "interior",
+      "destination_owner": "Best_Point_Defense_Weapon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 55
+    },
+    {
+      "source_function": "Ship_Strength_Vs_Shield_",
+      "source_branch_offset": "0x4f22b",
+      "branch_opcode": "jne",
+      "destination_offset": "0x4ee13",
+      "destination_relation": "interior",
+      "destination_owner": "Satelite_Strength_Vs_Ships_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 267
+    },
+    {
+      "source_function": "Add_Beam_Weapon_To_Design_",
+      "source_branch_offset": "0x51528",
+      "branch_opcode": "jle",
+      "destination_offset": "0x508a7",
+      "destination_relation": "interior",
+      "destination_owner": "Add_Missile_Weapon_To_Design_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 158
+    },
+    {
+      "source_function": "Next_Antaran_Ship_Size_",
+      "source_branch_offset": "0x547c4",
+      "branch_opcode": "jl",
+      "destination_offset": "0x53e00",
+      "destination_relation": "interior",
+      "destination_owner": "Antaran_Defensive_Force_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 14
+    },
+    {
+      "source_function": "Draw_Special_Systems_Replacement_Box_",
+      "source_branch_offset": "0x558fb",
+      "branch_opcode": "jle",
+      "destination_offset": "0x5583a",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Generic_Replacement_Box_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 49
+    },
+    {
+      "source_function": "Print_Fleet_Box_Info_",
+      "source_branch_offset": "0x6194f",
+      "branch_opcode": "je",
+      "destination_offset": "0x60ef6",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Fleet_Movement_Box_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 25
+    },
+    {
+      "source_function": "Reload_Fleet_Box_Data_",
+      "source_branch_offset": "0x61a1e",
+      "branch_opcode": "je",
+      "destination_offset": "0x81a40",
+      "destination_relation": "entry",
+      "destination_owner": "Vanish_Fleet_Movement_Box_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 8
+    },
+    {
+      "source_function": "Fleet_Box_Data_",
+      "source_branch_offset": "0x61a57",
+      "branch_opcode": "jle",
+      "destination_offset": "0x610ca",
+      "destination_relation": "interior",
+      "destination_owner": "First_Unselected_Icon_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 43
+    },
+    {
+      "source_function": "Add_Fltscrn_Big_Icon_Fields_",
+      "source_branch_offset": "0x654c7",
+      "branch_opcode": "jle",
+      "destination_offset": "0x6593d",
+      "destination_relation": "interior",
+      "destination_owner": "Button_Underneath_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 8
+    },
+    {
+      "source_function": "Ship_Owner_",
+      "source_branch_offset": "0x68003",
+      "branch_opcode": "jge",
+      "destination_offset": "0x6892d",
+      "destination_relation": "interior",
+      "destination_owner": "Ship_Icon_Y_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 10
+    },
+    {
+      "source_function": "Node_Ptr_From_Ship_Stack_",
+      "source_branch_offset": "0x68388",
+      "branch_opcode": "je",
+      "destination_offset": "0x689d4",
+      "destination_relation": "entry",
+      "destination_owner": "Ship_Stack_From_Saved_Array_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 1
+    },
+    {
+      "source_function": "System_Ship_Chosen_To_Ship_Icon_Id_",
+      "source_branch_offset": "0x68d2d",
+      "branch_opcode": "jge",
+      "destination_offset": "0x67fd6",
+      "destination_relation": "interior",
+      "destination_owner": "Fleet_Movement_Icon_Ship_Stack_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 25
+    },
+    {
+      "source_function": "Enforce_3_Planet_Minimum_",
+      "source_branch_offset": "0x6b134",
+      "branch_opcode": "jge",
+      "destination_offset": "0x6bf57",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Orion_Star_Id_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 70
+    },
+    {
+      "source_function": "Usable_Orbit_",
+      "source_branch_offset": "0x6cd8b",
+      "branch_opcode": "jne",
+      "destination_offset": "0x6bf55",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Orion_Star_Id_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 75
+    },
+    {
+      "source_function": "Make_System_Monsters_",
+      "source_branch_offset": "0x6ceb4",
+      "branch_opcode": "jbe",
+      "destination_offset": "0x6bd7a",
+      "destination_relation": "interior",
+      "destination_owner": "Generate_Orion_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 118
+    },
+    {
+      "source_function": "_Draw_Options_Game_Popup_",
+      "source_branch_offset": "0x6ff4f",
+      "branch_opcode": "jge",
+      "destination_offset": "0x6e505",
+      "destination_relation": "interior",
+      "destination_owner": "Do_Save_Game_Popup_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 448
+    },
+    {
+      "source_function": "Init_Credits_",
+      "source_branch_offset": "0x71c82",
+      "branch_opcode": "jo",
+      "destination_offset": "0x71cf4",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Star_Picture_Seg_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 47
+    },
+    {
+      "source_function": "Draw_Relocation_Links_",
+      "source_branch_offset": "0x7535d",
+      "branch_opcode": "je",
+      "destination_offset": "0x73cf6",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Black_Holes_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 52
+    },
+    {
+      "source_function": "Get_Research_Unit_String_",
+      "source_branch_offset": "0x7a83b",
+      "branch_opcode": "jo",
+      "destination_offset": "0x7a8af",
+      "destination_relation": "interior",
+      "destination_owner": "Begin_Of_Turn_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 22
+    },
+    {
+      "source_function": "Redraw_Main_Screen_After_Popups_",
+      "source_branch_offset": "0x7b4ce",
+      "branch_opcode": "je",
+      "destination_offset": "0x7b2dd",
+      "destination_relation": "interior",
+      "destination_owner": "Main_Screen_Report_Handler_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 6
+    },
+    {
+      "source_function": "Init_Main_Screen_",
+      "source_branch_offset": "0x7cf12",
+      "branch_opcode": "ja",
+      "destination_offset": "0x7cffe",
+      "destination_relation": "interior",
+      "destination_owner": "Nebula_Data_Test_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 6
+    },
+    {
+      "source_function": "Min_Font_Colors_",
+      "source_branch_offset": "0x7e84b",
+      "branch_opcode": "ja",
+      "destination_offset": "0x7e6d5",
+      "destination_relation": "interior",
+      "destination_owner": "Font_Colors2_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 71
+    },
+    {
+      "source_function": "Draw_Input_Box_Popup_",
+      "source_branch_offset": "0x81b91",
+      "branch_opcode": "je",
+      "destination_offset": "0xee8be",
+      "destination_relation": "entry",
+      "destination_owner": "Mox_Update_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 1
+    },
+    {
+      "source_function": "Officer_Cost_",
+      "source_branch_offset": "0x87a56",
+      "branch_opcode": "jle",
+      "destination_offset": "0x84807",
+      "destination_relation": "interior",
+      "destination_owner": "Officer_Skill_Value_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 18
+    },
+    {
+      "source_function": "Planet_Summary_Id_",
+      "source_branch_offset": "0x8ac66",
+      "branch_opcode": "jge",
+      "destination_offset": "0x8aa7c",
+      "destination_relation": "interior",
+      "destination_owner": "First_Planet_In_Summary_List_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 22
+    },
+    {
+      "source_function": "Summary_Planet_Index_",
+      "source_branch_offset": "0x8bf5d",
+      "branch_opcode": "jge",
+      "destination_offset": "0x8aa7c",
+      "destination_relation": "interior",
+      "destination_owner": "First_Planet_In_Summary_List_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 26
+    },
+    {
+      "source_function": "Get_Mox_Text_Box_Base_Colors_",
+      "source_branch_offset": "0x9653b",
+      "branch_opcode": "jno",
+      "destination_offset": "0x965a2",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Help_Lbx_Name_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 9
+    },
+    {
+      "source_function": "Weapon_Has_Steve_Stuff_",
+      "source_branch_offset": "0x9b51e",
+      "branch_opcode": "jl",
+      "destination_offset": "0x9b4d5",
+      "destination_relation": "interior",
+      "destination_owner": "Build_Steve_Stuff_Struct_For_Weapon_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 21
+    },
+    {
+      "source_function": "Remap_Draw_Ship_Seg_N_Centered_",
+      "source_branch_offset": "0xaabc3",
+      "branch_opcode": "je",
+      "destination_offset": "0xaab8c",
+      "destination_relation": "interior",
+      "destination_owner": "Remap_Draw_Ship_Centered_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 44
+    },
+    {
+      "source_function": "Pop_State_String_",
+      "source_branch_offset": "0xab14d",
+      "branch_opcode": "jbe",
+      "destination_offset": "0xab12f",
+      "destination_relation": "interior",
+      "destination_owner": "Conquered_String_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 11
+    },
+    {
+      "source_function": "Load_Local_Colony_Anims_",
+      "source_branch_offset": "0xaba06",
+      "branch_opcode": "js",
+      "destination_offset": "0xab9c3",
+      "destination_relation": "interior",
+      "destination_owner": "Load_Colony_Screen_Seg_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 1
+    },
+    {
+      "source_function": "Load_Planet_Screen_",
+      "source_branch_offset": "0xaba06",
+      "branch_opcode": "js",
+      "destination_offset": "0xab9c3",
+      "destination_relation": "interior",
+      "destination_owner": "Load_Colony_Screen_Seg_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 1
+    },
+    {
+      "source_function": "Draw_Colony_Info_Production_For_",
+      "source_branch_offset": "0xace84",
+      "branch_opcode": "jne",
+      "destination_offset": "0xace2d",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Colony_Info_Pop_Scanned_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 8
+    },
+    {
+      "source_function": "Print_Scanned_Satellite_",
+      "source_branch_offset": "0xad711",
+      "branch_opcode": "je",
+      "destination_offset": "0xad433",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Colony_Info_Background_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 7
+    },
+    {
+      "source_function": "Load_Xport_Anims_",
+      "source_branch_offset": "0xb5369",
+      "branch_opcode": "jl",
+      "destination_offset": "0xb55b4",
+      "destination_relation": "interior",
+      "destination_owner": "N_Colonies_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 20
+    },
+    {
+      "source_function": "Set_Refresh_Mode_",
+      "source_branch_offset": "0xb5b6a",
+      "branch_opcode": "jbe",
+      "destination_offset": "0x114c9b",
+      "destination_relation": "entry",
+      "destination_owner": "Set_Refresh_Differential_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 9
+    },
+    {
+      "source_function": "Squeze_Out_Queue_Entry_",
+      "source_branch_offset": "0xb6e1f",
+      "branch_opcode": "jno",
+      "destination_offset": "0xb6e94",
+      "destination_relation": "interior",
+      "destination_owner": "Eric_Push_Fields_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 13
+    },
+    {
+      "source_function": "Add_Random_New_Officer_Fields_",
+      "source_branch_offset": "0xb7565",
+      "branch_opcode": "jne",
+      "destination_offset": "0xb73e5",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Special_Info_Popup_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 8
+    },
+    {
+      "source_function": "Colony_Combat_Popup_",
+      "source_branch_offset": "0xbbeab",
+      "branch_opcode": "jne",
+      "destination_offset": "0xb97b7",
+      "destination_relation": "interior",
+      "destination_owner": "Defense_Colony_Selection_Popup_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 11
+    },
+    {
+      "source_function": "Product_Name_",
+      "source_branch_offset": "0xbf39c",
+      "branch_opcode": "jne",
+      "destination_offset": "0xa2ffa",
+      "destination_relation": "entry",
+      "destination_owner": "Selection_Name_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 5
+    },
+    {
+      "source_function": "Find_Best_Attack_From_Star_",
+      "source_branch_offset": "0xc9701",
+      "branch_opcode": "je",
+      "destination_offset": "0xc87b1",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Best_Escorted_Colony_Ship_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 111
+    },
+    {
+      "source_function": "Interceptions_",
+      "source_branch_offset": "0xc9abd",
+      "branch_opcode": "jne",
+      "destination_offset": "0xc87b1",
+      "destination_relation": "interior",
+      "destination_owner": "Get_Best_Escorted_Colony_Ship_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 75
+    },
+    {
+      "source_function": "Move_Transports_",
+      "source_branch_offset": "0xcaf16",
+      "branch_opcode": "jle",
+      "destination_offset": "0xca478",
+      "destination_relation": "interior",
+      "destination_owner": "Intercept_Invaders_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 143
+    },
+    {
+      "source_function": "Move_To_Unexplored_Stars_",
+      "source_branch_offset": "0xcb132",
+      "branch_opcode": "je",
+      "destination_offset": "0xca478",
+      "destination_relation": "interior",
+      "destination_owner": "Intercept_Invaders_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 108
+    },
+    {
+      "source_function": "Player_Best_Computer_",
+      "source_branch_offset": "0xcc36f",
+      "branch_opcode": "je",
+      "destination_offset": "0xcc31d",
+      "destination_relation": "interior",
+      "destination_owner": "Player_Best_Ship_Shield_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 12
+    },
+    {
+      "source_function": "Player_Best_Fuel_",
+      "source_branch_offset": "0xcc39b",
+      "branch_opcode": "je",
+      "destination_offset": "0xcc31d",
+      "destination_relation": "interior",
+      "destination_owner": "Player_Best_Ship_Shield_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 12
+    },
+    {
+      "source_function": "Player_Best_Drive_",
+      "source_branch_offset": "0xcc403",
+      "branch_opcode": "je",
+      "destination_offset": "0xcc31d",
+      "destination_relation": "interior",
+      "destination_owner": "Player_Best_Ship_Shield_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 12
+    },
+    {
+      "source_function": "Player_Best_Rifle_",
+      "source_branch_offset": "0xcc436",
+      "branch_opcode": "je",
+      "destination_offset": "0xcc31d",
+      "destination_relation": "interior",
+      "destination_owner": "Player_Best_Ship_Shield_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 12
+    },
+    {
+      "source_function": "Player_Best_Personal_Shield_",
+      "source_branch_offset": "0xcc469",
+      "branch_opcode": "je",
+      "destination_offset": "0xcc31d",
+      "destination_relation": "interior",
+      "destination_owner": "Player_Best_Ship_Shield_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 12
+    },
+    {
+      "source_function": "Colony_Pop_Prod_Produced_",
+      "source_branch_offset": "0xce027",
+      "branch_opcode": "jne",
+      "destination_offset": "0xd0b48",
+      "destination_relation": "interior",
+      "destination_owner": "Size_And_Climate_Race_Pop_Limit_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 37
+    },
+    {
+      "source_function": "Colony_Cost_To_Buy_Given_Product_",
+      "source_branch_offset": "0xd1015",
+      "branch_opcode": "jbe",
+      "destination_offset": "0xd0b48",
+      "destination_relation": "interior",
+      "destination_owner": "Size_And_Climate_Race_Pop_Limit_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 47
+    },
+    {
+      "source_function": "Do_Net_Combat_Update_",
+      "source_branch_offset": "0xdaab6",
+      "branch_opcode": "jne",
+      "destination_offset": "0xda8be",
+      "destination_relation": "interior",
+      "destination_owner": "Client_Combat_Loop_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 158
+    },
+    {
+      "source_function": "Parsecs_Between_Points_",
+      "source_branch_offset": "0xdbeae",
+      "branch_opcode": "jae",
+      "destination_offset": "0xdbd7f",
+      "destination_relation": "interior",
+      "destination_owner": "Union_Find_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 22
+    },
+    {
+      "source_function": "Draw_Modem_Setup_Screen_",
+      "source_branch_offset": "0xe25f0",
+      "branch_opcode": "jge",
+      "destination_offset": "0xe1662",
+      "destination_relation": "interior",
+      "destination_owner": "Draw_Net_Next_Turn_Screen_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 132
+    },
+    {
+      "source_function": "Bill_Default_",
+      "source_branch_offset": "0xf2075",
+      "branch_opcode": "jae",
+      "destination_offset": "0xf3d1b",
+      "destination_relation": "entry",
+      "destination_owner": "Initialize_Formatted_Paragraph_System_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 5
+    },
+    {
+      "source_function": "Cache_Player_Trooper_Anim_",
+      "source_branch_offset": "0xf3568",
+      "branch_opcode": "jne",
+      "destination_offset": "0xf34bb",
+      "destination_relation": "interior",
+      "destination_owner": "Cache_Other_Scientist_Anim_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 22
+    },
+    {
+      "source_function": "Set_Item_Value_",
+      "source_branch_offset": "0xf505d",
+      "branch_opcode": "jge",
+      "destination_offset": "0xf50b1",
+      "destination_relation": "interior",
+      "destination_owner": "Insert_Item_",
+      "status": "not_established_by_bounded_walk",
+      "decoded_reachable_addresses_in_source_interval": 29
+    },
+    {
+      "source_function": "FN_Set_Space_Size_",
+      "source_branch_offset": "0xf5d62",
+      "branch_opcode": "jl",
+      "destination_offset": "0xf5d01",
+      "destination_relation": "interior",
+      "destination_owner": "FN_Set_Y_Pos_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 20
+    },
+    {
+      "source_function": "FN_Set_Indent_",
+      "source_branch_offset": "0xf5ec5",
+      "branch_opcode": "jge",
+      "destination_offset": "0xf5de8",
+      "destination_relation": "interior",
+      "destination_owner": "FN_Set_FF_Size_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 21
+    },
+    {
+      "source_function": "Pick_Font_Color_",
+      "source_branch_offset": "0xf6874",
+      "branch_opcode": "jbe",
+      "destination_offset": "0x111b8c",
+      "destination_relation": "entry",
+      "destination_owner": "Set_Highlight_Colors_On_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 10
+    },
+    {
+      "source_function": "Print_Player_Specials_To_Bitmap_",
+      "source_branch_offset": "0xf86f1",
+      "branch_opcode": "jge",
+      "destination_offset": "0xf75a1",
+      "destination_relation": "interior",
+      "destination_owner": "Build_Maint_Chart_Bitmaps_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 156
+    },
+    {
+      "source_function": "Reference_How_To_Subscreen_",
+      "source_branch_offset": "0xf9873",
+      "branch_opcode": "jne",
+      "destination_offset": "0xf8021",
+      "destination_relation": "interior",
+      "destination_owner": "History_Subscreen_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 79
+    },
+    {
+      "source_function": "Get_Tech_Cost_",
+      "source_branch_offset": "0xff940",
+      "branch_opcode": "jne",
+      "destination_offset": "0xff86c",
+      "destination_relation": "interior",
+      "destination_owner": "New_Get_Tech_Cost_",
+      "status": "reachable_from_symbol_entry",
+      "decoded_reachable_addresses_in_source_interval": 3
+    }
+  ]
+}
