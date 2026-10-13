@@ -9,7 +9,7 @@
  *
  * Original colony record stride 0x169 (361).
  * Read colony record bytes +0x150,+0x151,+0x160,+0x165.
- * Result EAX = b150 | (b151 << 1) | (b160 << 2) | (b165 << 3).
+ * Original AX low16 = b150 | (b151 << 1) | (b160 << 2)\n *                     | (b165 << 3).\n * The source updates SI/CX/DX/AX register halves but need not clear their\n * original upper 16 bits. This C API normalizes the high EAX half to zero;\n * the original Apply_Damage_To_Planet_ caller tests AX only.
  * Original -1 colony ID returns zero.
  *
  * The source uses OR, not ADD; bytes are not assumed boolean.
