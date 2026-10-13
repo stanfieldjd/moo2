@@ -35,6 +35,8 @@ uint16_t moo2_v131_derived_get_advanced_government_type(
 {
     const uint8_t *player = player_records_base
                           + (int32_t)player_index * 0xEA9;
-    const int8_t raw = (int8_t)player[0x89F];
+    const uint8_t encoded = player[0x89F];
+    const int8_t raw = (int8_t)((encoded < 128u)
+                             ? (int32_t)encoded : ((int32_t)encoded - 256));
     return moo2_v131_derived_advanced_government_type_from_byte(raw);
 }
