@@ -1,0 +1,18 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "function": "Random_",
+  "original_code_offset": "0x1147a0",
+  "original_code_size_bytes": 128,
+  "original_body_sha256": "fed72b3293ed869db1e3ff6c93477767f0322794a2185d18c95798a49c92ff56",
+  "verified_instruction_sites": 20,
+  "original_seed_symbol": "_random_seed",
+  "original_seed_DATA_offset": "0x41e34",
+  "LCG_multiplier": "0x41c64e6d",
+  "LCG_increment": "0x3039",
+  "original_unsigned_bound": "EAX uint32 max",
+  "acceptance_limit": "(UINT32_MAX/max)*max",
+  "retry_condition": "retry if seed >= acceptance_limit",
+  "return": "1 + (seed/(UINT32_MAX/max)), 1..max inclusive for max>0",
+  "zero_maximum_original": "DIV by EAX-arg zero at 0x1147c2 BEFORE test at 0x1147d2: machine exception; dead zero-case writes 1",
+  "scope": "complete byte hash and instruction reconstruction of RNG result/state; caller seed initialization and DOS exception behavior remain outside derived C"
+}
