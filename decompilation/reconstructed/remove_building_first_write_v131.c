@@ -19,13 +19,7 @@
  * This C function makes ONLY the first verified building-presence
  * byte clear and imposes host bounds checks absent from original DOS.
  */
-#include <stddef.h>
-#include <stdint.h>
-
-typedef enum {
-    MOO2_V131_BUILDING_FIRST_WRITE_OK=0,
-    MOO2_V131_BUILDING_FIRST_WRITE_INVALID=1
-} Moo2V131BuildingFirstWriteStatus;
+#include "remove_building_first_write_v131.h"
 
 Moo2V131BuildingFirstWriteStatus
 moo2_v131_derived_remove_building_first_write(
