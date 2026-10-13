@@ -1,0 +1,46 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "verified_named_function_count": 5,
+  "complete_original_body_bytes_verified": 200,
+  "selected_original_instruction_anchors": 14,
+  "original_seed_symbol": "_random_seed",
+  "original_seed_data_offset": "0x41e34",
+  "original_command_line_seed_symbol": "_cmd_line_seed",
+  "original_cmd_line_seed_data_offset": "0x1b27c",
+  "set_game_seed_logic": "call Check_Release_Version_; if _cmd_line_seed==0 tail-jump Randomize_, otherwise tail-jump Set_Random_Seed_ with EAX=command_line_seed",
+  "randomize_logic": "call time_(NULL) then Set_Random_Seed_(time_result)",
+  "random_with_restore_logic": "save current seed; Random_(maximum); restore saved seed; MOVSX EAX,BX (signed low16 of random result)",
+  "scope": "fully verified source function-body bytes for five small seed helpers; time_/preflight side effects and full DOS runtime are not reimplemented",
+  "functions": [
+    {
+      "name": "Set_Game_Random_Seed_",
+      "original_code_offset": "0x7ca",
+      "size_bytes": 28,
+      "source_bytes_sha256": "78221b4c36c0fadda05bcd58cad26c254c8b57f8efdaaca6de48422b85fdb6c7"
+    },
+    {
+      "name": "Random_With_Restore_",
+      "original_code_offset": "0x69f05",
+      "size_bytes": 33,
+      "source_bytes_sha256": "9094bc56611b32c4d41cecc48f2ba4663d436a4e7c3745600971f8e059e1d3b5"
+    },
+    {
+      "name": "Set_Random_Seed_",
+      "original_code_offset": "0x114820",
+      "size_bytes": 44,
+      "source_bytes_sha256": "30b232c9ddb480d5a2ae8b1b088f06567ba42c956ef8eba42c01a8899aa2f737"
+    },
+    {
+      "name": "Get_Random_Seed_",
+      "original_code_offset": "0x11484c",
+      "size_bytes": 44,
+      "source_bytes_sha256": "38cab2251e3dcf251aa7560e1542f897226dd227fa9b98a4005a84f218cbd20f"
+    },
+    {
+      "name": "Randomize_",
+      "original_code_offset": "0x114878",
+      "size_bytes": 51,
+      "source_bytes_sha256": "5e02b0cac9c1f45efc31fea015101057deb5a3b6add12a713e0881432b541f1d"
+    }
+  ]
+}
