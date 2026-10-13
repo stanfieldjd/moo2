@@ -337,3 +337,62 @@ the original bitfield helper's scratch CODE-object write is
 intentionally omitted from pure C, and invalid host indices
 are explicitly rejected for safety. No website, Xbox controls,
 Qwen, or original game assets were modified by this work.
+
+
+## Follow-on weapon-state and actual firing-ammunition mutation recovery
+
+A subsequent original-v1.31 source-anchored pass isolated the **entire
+124 bytes** of three game-code helper functions:
+
+- `Weapons_Left_` (60 bytes, original CODE `0x26C60`).
+  Signed 16-bit numerator/denominator `IDIV` and a
+  specific positive-numerator remainder adjustment
+- `Weapon_Is_On_` (32 bytes, `0x3584C`);
+  compares weapon slot `+0x5A` flag against 1 and sets **AL**
+- `Weapon_Is_Off_` (32 bytes, `0x3586C`);
+  the complementary `SETNE AL` condition
+
+All three full original function-byte hashes and 26 machine-code
+instruction sites are independently verified. The derived C
+passed strict C11, ASan and UBSan, including every original
+weapon-bank slot and 4,096 status-byte combinations.
+
+The original firing routine `Fire_Ship_` is **2,216 bytes** and
+not fully reconstructed. Nevertheless, its **actual post-fire
+ammunition state mutations** have now been traced and verified
+from original instructions:
+
+- `0x28FB5`: after `Fire_Missile_`, if a local mode WORD
+  equals **2**, store the zero-extended byte at
+  `_weapons + 28*weapon_id + 13` into the selected
+  weapon-slot WORD `+0x58`
+- `0x28FC3`: after `Fire_Missile_` in other modes,
+  decrement that slot's WORD
+- `0x2910C`: after `Fire_Bomb_`,
+  decrement that slot's WORD
+
+The two original 16-bit DEC operations have modulo-65536
+behavior. Their *normal-game reachability on zero* remains
+to be verified. A separate derived C helper reproduces only
+these three bounded state writes (not missile/bomb effects),
+and its tests passed the full 65,536-value decrement domain,
+eight slots and all 256 reload-byte values under ASan/UBSan.
+
+Source and evidence:
+
+- `decompilation/reconstructed/combat_weapon_status_v131.c`
+- `decompilation/reconstructed/fire_ship_ammo_mutations_v131.c`
+- `decompilation/annotated/combat_weapon_status_v131.md`
+- `decompilation/annotated/fire_ship_ammo_mutations_v131.md`
+- `tools/audit_combat_weapon_status_v131.py`
+- `tools/audit_fire_ship_ammo_mutations_v131.py`
+- `decompilation/reports/combat_weapon_status_v131_2026-10-13.json`
+- `decompilation/reports/fire_ship_ammo_mutations_v131_2026-10-13.json`
+
+**Next priority:** source-trace `Fire_Ship_` local mode at
+`[EBP-0x14]` and the surrounding jump-table cases, then
+reconstruct `Fire_Missile_`, `Fire_Bomb_` and their original
+calling conventions and side effects. The game is not yet
+fully decompiled and no original-game differential execution
+has been performed. Original assets remain private; there
+are no website, Xbox controller or Qwen changes.
