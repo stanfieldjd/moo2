@@ -815,3 +815,65 @@ the rejection of otherwise cancelling malformed
 weighted counters are deliberate safety differences.
 No public Game Lab/Xbox/Qwen changes or publication
 of proprietary original game media occurred.
+
+
+## Full original 146-byte home-planet reassignment after building-9 removal
+
+The original source path from `Remove_Building_(colony ID,9)` has
+been extended beyond its first building-presence byte clear. Original
+CODE `0x45F6` preserves the colony index in **EDX**, and CODE
+`0x4674` passes the signed colony-owner byte in **EAX** to
+`Assign_New_Home_Planet_` (original CODE `0xDCB65`), then
+jumps to the shared Watcom epilogue at `0x45E4`.
+Both original arguments are now explicitly represented in the
+derived callback API and verified by regression.
+
+The **entire 146-byte original function `Assign_New_Home_Planet_`**
+is recovered into independently tested C. It reads `_NUM_COLONIES`
+(original DATA `0x21996`) as a signed WORD; scans the original
+361-byte colony records in descending index order; excludes the
+original colony ID passed through EDX; matches the signed owner
+byte; selects the highest unsigned population BYTE at colony
+`+0x0A`, favoring the smallest index for ties because the
+comparison is `>=`; and writes the chosen colony's
+**star ID WORD at colony `+0x02`** to original player record
+`+0x29` (player stride 0xEA9), or `0xFFFF` if no
+candidate exists.
+
+A new read-only audit validates the complete original
+`Assign_New_Home_Planet_` body (146 bytes) and the
+`Remove_Building_` body (493 bytes) by their original
+source SHA-256 digests, their Watcom symbol extents, named
+DATA globals, and **57 source opcode sites**. Exact results:
+`decompilation/reports/assign_new_home_planet_v131_2026-10-13.json`.
+
+The source-derived C tests passed strict C11 compilation
+with AddressSanitizer and UndefinedBehaviorSanitizer,
+covering 65,536 possible star IDs, 65,536 population-value
+pairs and tie/exclusion behavior, all 256 signed owner
+byte patterns across three colony IDs, and a full
+building-9-clear-to-home-star integration test.
+The C uses safe host index validation not present
+in the original DOS routine; tests are **not**
+dynamic original-DOS execution.
+
+New authoritative files:
+
+- `tools/audit_assign_new_home_planet_v131.py`
+- `decompilation/reports/assign_new_home_planet_v131_2026-10-13.json`
+- `decompilation/reconstructed/assign_new_home_planet_v131.c`
+- `decompilation/reconstructed/assign_new_home_planet_v131.h`
+- `decompilation/reconstructed/remove_building9_v131.c`
+- `decompilation/reconstructed/remove_building_first_write_v131.h`
+- `tests/test_assign_new_home_planet_v131.c`
+- `tests/test_remove_building9_v131.c`
+- `tests/test_remove_building9_assign_home_integration_v131.c`
+- `decompilation/annotated/assign_new_home_planet_v131.md`
+
+`Remove_Building_` still contains other building-ID
+branches that invoke additional colony production,
+construction-queue, star-colony and environment updates.
+The complete 493-byte remover has **not** been fully
+reconstructed. Original proprietary game data remains
+private and no Game Lab site, Xbox controller or
+Qwen runtime changes were made.
