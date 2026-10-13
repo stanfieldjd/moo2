@@ -15,7 +15,7 @@ const status=message=>{get("feedback").textContent=message;};
 function fallbackArt(){
   ctx.fillStyle="#081628";ctx.fillRect(0,0,640,480);
   ctx.fillStyle="#abd879";ctx.textAlign="center";ctx.font="bold 23px monospace";
-  ctx.fillText("MASTER OF ORION II",320,140);
+  ctx.fillText("GALACTIC TURN LAB",320,140);
   ctx.font="16px monospace";ctx.fillText("Private artwork unavailable",320,180);
   ctx.fillText("Export MAINMENU.LBX locally first",320,212);
 }

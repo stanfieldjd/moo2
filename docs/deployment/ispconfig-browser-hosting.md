@@ -1,27 +1,37 @@
-# ISPConfig hosting plan — Master of Orion II browser edition
+# ISPConfig hosting plan — Galactic Turn Lab (provisional title)
 
 ## Binding deployment decision (2026-10-12)
 
 The user has explicitly selected **the existing Contabo server's ISPConfig
-installation** to host the Master of Orion II browser game. Create a **separate
+installation** to host the independent browser-based space-strategy project (technical reference: Master of Orion II v1.31). Create a **separate
 ISPConfig-managed website/vhost for the game**. Do not install the game into
 the existing Qwen website, alter Qwen's virtual host, or repurpose any Qwen
 service or document root.
 
-**Preferred permanent domain (user delegated choice): `orion2web.com`.**
-This is a recommendation only, NOT a registered/owned domain. Availability
-could not be confirmed by authoritative RDAP; an absent A record does not
-establish that registration is possible. Confirm registrar availability,
-trademark/branding suitability and purchase authorization before registering.
-Do not set production DNS or attempt certificate issuance yet.
+**Provisional public-facing working title:** Galactic Turn Lab. The user
+raised a trademark concern about using the original game's Orion name;
+do not use `Orion` or `Master of Orion` as the website's brand or domain.
+Historical technical references may identify the original game solely
+for accurate research and compatibility evidence.
 
-**Verified free temporary DNS candidate:**
-`orion2.169-58-188-138.sslip.io`, resolving to the Contabo IPv4 address
-`169.58.188.138` during an authorized read-only check. sslip.io's DNS service
-is operated by a third party; this hostname is suitable only for optional
-staging, not a permanent identity. A valid HTTPS certificate, a separate
-ISPConfig vhost, authentication, and actual Xbox One browser tests do not yet
-exist. Do not treat working DNS resolution as site readiness.
+**Permanent candidate:** `galacticturnlab.com`. This name has **not**
+received comprehensive trademark clearance, its domain availability is
+not confirmed, and the domain is **not registered or purchased**. Do not
+register it, issue certificates for it or claim ownership without a
+separate confirmation and the user's authorization.
+
+**Verified provisional DNS candidate:**
+`galacticturnlab.169-58-188-138.sslip.io` resolved to
+`169.58.188.138` during a read-only check. sslip.io is third-party DNS.
+The staging name is not a legally cleared brand, ISPConfig vhost, deployed
+website, functioning TLS certificate, or Xbox One browser verification.
+
+**Separate copyright gate:** Renaming the site does not grant rights to
+redistribute the original game's graphics, music, executable, dialogue
+or other protected expression. The archived originals and privately
+converted assets must not be served to the public without an appropriate
+rights basis or authorization. The eventual public game design must
+receive its own intellectual-property review.
 
 The desired browser game must run from the server in computer browsers **and
 Microsoft Edge on the Xbox One itself**, using the console's Xbox controller.
@@ -34,7 +44,7 @@ Inspection of the authorized host on 2026-10-12 established:
 - Contabo host with an active ISPConfig installation;
 - Apache and MariaDB active;
 - a preexisting **Qwen ISPConfig website**, which must remain untouched;
-- **no distinct Master of Orion II ISPConfig site** yet provisioned;
+- **no distinct Galactic Turn Lab ISPConfig site** yet provisioned;
 - adequate free disk space on that host at inspection time for source-only
   staging; capacity and permissions must be rechecked before copying assets.
 
@@ -73,7 +83,7 @@ a valid HTTPS endpoint, browser hardware validation, or completion of the game.
 ## Current non-actions
 
 - No production domain selected and **no temporary domain authorized**.
-- No Master of Orion II ISPConfig website created yet.
+- No Galactic Turn Lab ISPConfig website created yet.
 - No DNS, certificates, public game assets, virtual hosts, or existing
   Qwen services changed.
 - Do not claim deployment or Xbox One playability until observed.
