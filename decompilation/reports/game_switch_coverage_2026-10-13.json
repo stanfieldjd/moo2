@@ -1,0 +1,836 @@
+{
+  "original_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "game_indirect_jump_sites": 118,
+  "sites_with_verified_switch_tables": 118,
+  "verified_game_switch_case_entries": 943,
+  "distinct_game_switch_case_targets": 800,
+  "scope": "static table bytes and case inventory only; dynamic reachability, Watcom CFG boundaries, case semantics and full code recovery remain separately unproven",
+  "sites": [
+    {
+      "site_offset": "0x218b",
+      "function": "Make_Autosave_File_Name_",
+      "table_offset": "0x2165",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5c02",
+      "function": "Get_Council_Message_",
+      "table_offset": "0x5bcd",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5dbc",
+      "function": "Next_Council_State_",
+      "table_offset": "0x5d94",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5e96",
+      "function": "Council_Finished_Voting_",
+      "table_offset": "0x5ddc",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7721",
+      "function": "Get_Main_Diplomacy_Choices_",
+      "table_offset": "0x7568",
+      "case_count": 9,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7e9a",
+      "function": "Diplomacy_Propose_Treaty_",
+      "table_offset": "0x7d47",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x85d2",
+      "function": "Get_Human_Offer_Gift_Message_",
+      "table_offset": "0x85ad",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x86e6",
+      "function": "Get_Human_Demand_Message_",
+      "table_offset": "0x86af",
+      "case_count": 9,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x9c9e",
+      "function": "Diplomacy_Need_Better_Offer_",
+      "table_offset": "0x9b68",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xb49a",
+      "function": "Diplomacy_Give_In_To_Demand_",
+      "table_offset": "0xb463",
+      "case_count": 9,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xb5c9",
+      "function": "Get_Human_Demand_Response_",
+      "table_offset": "0xb594",
+      "case_count": 9,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xb7c3",
+      "function": "Get_Human_Gift_Response_",
+      "table_offset": "0xb714",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x10732",
+      "function": "Event_Twiddle_",
+      "table_offset": "0x10612",
+      "case_count": 36,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x11bb1",
+      "function": "Get_Event_Message_",
+      "table_offset": "0x11af9",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x12fc6",
+      "function": "Get_Antaran_Victim_",
+      "table_offset": "0x12f48",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x13340",
+      "function": "Event_Monster_Update_",
+      "table_offset": "0x13318",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x144e2",
+      "function": "Event_Pirate_Activity_Strength_",
+      "table_offset": "0x14477",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x14af3",
+      "function": "Decode_Text_Message_",
+      "table_offset": "0x14a9e",
+      "case_count": 11,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x1a5aa",
+      "function": "Combat_Ship_Class_",
+      "table_offset": "0x1a52d",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x1b19b",
+      "function": "Convert_Ordinal_To_Msl_Type_",
+      "table_offset": "0x1b169",
+      "case_count": 10,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x1e5db",
+      "function": "Draw_Weapon_Status_Display_",
+      "table_offset": "0x1e2bd",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x227b3",
+      "function": "Draw_Weapon_Arcs_",
+      "table_offset": "0x226f5",
+      "case_count": 16,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x2322d",
+      "function": "Remap_Draw_Ship_Status_",
+      "table_offset": "0x23185",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x23d14",
+      "function": "Crew_Quality_String_",
+      "table_offset": "0x23ce6",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x23e41",
+      "function": "Plasma_Darken_",
+      "table_offset": "0x23dab",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x24523",
+      "function": "Get_Draw_Ship_Offsets_",
+      "table_offset": "0x24444",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x29fa8",
+      "function": "Weapon_In_Range_",
+      "table_offset": "0x29f05",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x2be32",
+      "function": "Get_Multiple_Torpedo_Coords_",
+      "table_offset": "0x2bdca",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x2bfb8",
+      "function": "Get_Multiple_Missile_Coords_",
+      "table_offset": "0x2bf4e",
+      "case_count": 9,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x2fd03",
+      "function": "Tactical_Combat_Receive_Message_",
+      "table_offset": "0x2fcc0",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x30cd5",
+      "function": "Get_Non_Player_Name_",
+      "table_offset": "0x30ca7",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x31936",
+      "function": "Qload_Ships_",
+      "table_offset": "0x316af",
+      "case_count": 8,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x38f90",
+      "function": "Ship_Can_Deploy_At_",
+      "table_offset": "0x38f35",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x39f29",
+      "function": "Ship_Center_Offsets_",
+      "table_offset": "0x39ebd",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x3d11b",
+      "function": "Load_Combat_Antaran_Ship_",
+      "table_offset": "0x3d0fa",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x3da0d",
+      "function": "Init_Diplomatic_Relations_",
+      "table_offset": "0x3d776",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x427b0",
+      "function": "Check_Treaty_Proposal_",
+      "table_offset": "0x426fd",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x4376f",
+      "function": "Get_Gift_Response_",
+      "table_offset": "0x43713",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x45159",
+      "function": "Load_Antaran_Ship_Design_",
+      "table_offset": "0x45138",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x46778",
+      "function": "Best_Warp_Drive_",
+      "table_offset": "0x4670a",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x46965",
+      "function": "Best_Beam_Weapon_",
+      "table_offset": "0x468cf",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x46bb8",
+      "function": "Best_Missile_Weapon_",
+      "table_offset": "0x46b0a",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x46c7c",
+      "function": "Best_Missile_Weapon_NT_",
+      "table_offset": "0x46bde",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x46dde",
+      "function": "Best_Strat_Special_Weapon_",
+      "table_offset": "0x46d1e",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x483b3",
+      "function": "Get_Ship_Structure_",
+      "table_offset": "0x48373",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x48619",
+      "function": "Load_Player_Ship_Palette_",
+      "table_offset": "0x485c4",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x4f12d",
+      "function": "Ship_Strength_Vs_Shield_",
+      "table_offset": "0x4ef33",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x56526",
+      "function": "Get_Weapon_Mod_Field_XYs_",
+      "table_offset": "0x56465",
+      "case_count": 14,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x567df",
+      "function": "Mod_Allowed_On_Weapon_Type_",
+      "table_offset": "0x5677c",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x57cfd",
+      "function": "Print_Weapon_Modification_Message_",
+      "table_offset": "0x57cb7",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5b526",
+      "function": "Cost_Given_M_Level_",
+      "table_offset": "0x5b505",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5c90f",
+      "function": "Get_Ship_Size_Button_Field_XY_",
+      "table_offset": "0x5c8e1",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5e620",
+      "function": "Space_Given_M_Level_",
+      "table_offset": "0x5e5e6",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5e659",
+      "function": "Space_Given_M_Level_",
+      "table_offset": "0x5e5fa",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x5f24c",
+      "function": "Get_Tech_Description_Lbx_Name_",
+      "table_offset": "0x5f228",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x65414",
+      "function": "Crew_Description_String_",
+      "table_offset": "0x653de",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x663b6",
+      "function": "Print_Fltscrn_Scanned_Star_Name_",
+      "table_offset": "0x6617d",
+      "case_count": 10,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x6a27c",
+      "function": "User_Box_",
+      "table_offset": "0x6a247",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x6a853",
+      "function": "Load_H_Strings_",
+      "table_offset": "0x6a802",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x6aa43",
+      "function": "Get_Font_File_",
+      "table_offset": "0x6aa1f",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x6aae3",
+      "function": "Get_Officer_Data_LBX_Name_",
+      "table_offset": "0x6aabf",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x6abb6",
+      "function": "Get_Monetary_Unit_String_",
+      "table_offset": "0x6ab92",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x6ca3c",
+      "function": "Upgrade_Planet_Guarded_By_Monster_",
+      "table_offset": "0x6c9da",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x71b8e",
+      "function": "Init_Credits_",
+      "table_offset": "0x71b68",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x725f2",
+      "function": "Check_Function_Keys_",
+      "table_offset": "0x72580",
+      "case_count": 10,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7a231",
+      "function": "Toggle_Game_Option_",
+      "table_offset": "0x7a1f6",
+      "case_count": 8,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7a80c",
+      "function": "Get_Research_Unit_String_",
+      "table_offset": "0x7a7e8",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7c4ec",
+      "function": "Generate_Number_Of_Nebulas_",
+      "table_offset": "0x7c4c3",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7cf1b",
+      "function": "Init_Main_Screen_",
+      "table_offset": "0x7cef9",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7e536",
+      "function": "Font_Colors_",
+      "table_offset": "0x7e4c8",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x7e86b",
+      "function": "Min_Font_Colors_",
+      "table_offset": "0x7e80a",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x89413",
+      "function": "Get_Skill_Description_LBX_Name_",
+      "table_offset": "0x893ef",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x90b0a",
+      "function": "Get_Ship_Icon_Coords_",
+      "table_offset": "0x90a44",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x916d6",
+      "function": "Build_Nonplayer_Ship_",
+      "table_offset": "0x916a7",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x96557",
+      "function": "Get_Help_Lbx_Name_",
+      "table_offset": "0x96533",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x99642",
+      "function": "Adjust_Shield_Display_Status_",
+      "table_offset": "0x99608",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x9aa54",
+      "function": "Draw_Beam_",
+      "table_offset": "0x9a647",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x9b575",
+      "function": "Draw_Beam2_",
+      "table_offset": "0x9b51e",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x9d78b",
+      "function": "Draw_Plasma_Web_",
+      "table_offset": "0x9d570",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x9ec24",
+      "function": "Play_Ship_Explosion_SFX_",
+      "table_offset": "0x9ebf3",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0x9fc83",
+      "function": "Option_String_",
+      "table_offset": "0x9fc25",
+      "case_count": 18,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa3367",
+      "function": "Draw_Current_Selection_",
+      "table_offset": "0xa32e0",
+      "case_count": 18,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa453d",
+      "function": "Decrement_Bomb_Counters_",
+      "table_offset": "0xa4513",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa45e7",
+      "function": "Allocate_Hit_",
+      "table_offset": "0xa45c4",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa50d0",
+      "function": "Do_Colony_Info_Pop_Stuff_For_Pop_",
+      "table_offset": "0xa4ece",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa51cb",
+      "function": "Do_Colony_Info_Pop_Stuff_For_Pop_",
+      "table_offset": "0xa4ee2",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa6701",
+      "function": "Veggie_Type_For_Colony_",
+      "table_offset": "0xa6688",
+      "case_count": 10,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa673b",
+      "function": "Veggie_Type_For_Colony_",
+      "table_offset": "0xa66b0",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa6778",
+      "function": "Veggie_Type_For_Colony_",
+      "table_offset": "0xa66c0",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa81ff",
+      "function": "Action_Anim_",
+      "table_offset": "0xa81df",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa82a4",
+      "function": "Pick_Next_Action_",
+      "table_offset": "0xa8274",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xa85d2",
+      "function": "Do_Legal_Move_Check_",
+      "table_offset": "0xa8565",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xab69e",
+      "function": "Player_Troop_Name_",
+      "table_offset": "0xab685",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xab73c",
+      "function": "Player_Troop_Anim_",
+      "table_offset": "0xab713",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xabaa4",
+      "function": "C_Anims_",
+      "table_offset": "0xab9fe",
+      "case_count": 36,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xac18c",
+      "function": "Insert_Bldg_Into_Array_",
+      "table_offset": "0xac04e",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xac8f8",
+      "function": "Colony_Type_",
+      "table_offset": "0xac8cf",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xb38ab",
+      "function": "Switched_cmp_",
+      "table_offset": "0xb384f",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xb8830",
+      "function": "Draw_Selection_Popup_",
+      "table_offset": "0xb87ce",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xb9896",
+      "function": "Player_Attacked_Popup_",
+      "table_offset": "0xb97bf",
+      "case_count": 7,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xc01bf",
+      "function": "Colony_Building_Score_",
+      "table_offset": "0xbff62",
+      "case_count": 47,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xc0a67",
+      "function": "Colony_Building_Score_",
+      "table_offset": "0xc001e",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xc9a3b",
+      "function": "Gather_Intercepting_Ships_",
+      "table_offset": "0xc99b8",
+      "case_count": 8,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xd8ac9",
+      "function": "Do_Attacker_Beat_Colony_Stuff_",
+      "table_offset": "0xd87ba",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xda801",
+      "function": "Client_Combat_Loop_",
+      "table_offset": "0xda291",
+      "case_count": 24,
+      "dispatch_evidence": "repnz-scan"
+    },
+    {
+      "site_offset": "0xdab11",
+      "function": "Do_Net_Combat_Update_",
+      "table_offset": "0xdaa55",
+      "case_count": 19,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xdc48d",
+      "function": "Compute_Ground_Combat_Info_",
+      "table_offset": "0xdc3be",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xdecb6",
+      "function": "sprintf_msg_",
+      "table_offset": "0xdec0c",
+      "case_count": 23,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xdef0a",
+      "function": "sprintf_msg_",
+      "table_offset": "0xdec68",
+      "case_count": 12,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xe56a3",
+      "function": "Set_Multi_Player_Game_Type_",
+      "table_offset": "0xe5681",
+      "case_count": 4,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xe5ad4",
+      "function": "Main_Receive_Message_",
+      "table_offset": "0xe598f",
+      "case_count": 68,
+      "dispatch_evidence": "repnz-scan"
+    },
+    {
+      "site_offset": "0xe718c",
+      "function": "Make_Difference_Buffer_",
+      "table_offset": "0xe70d7",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xf3649",
+      "function": "_Print_String_Bill_",
+      "table_offset": "0xf358b",
+      "case_count": 9,
+      "dispatch_evidence": "repnz-scan"
+    },
+    {
+      "site_offset": "0xf456a",
+      "function": "Process_Command_",
+      "table_offset": "0xf438c",
+      "case_count": 9,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xf4f8c",
+      "function": "Get_Item_Value_",
+      "table_offset": "0xf4f52",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xf500c",
+      "function": "Set_Item_Value_",
+      "table_offset": "0xf4fd3",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xf7505",
+      "function": "Build_Maint_Chart_Bitmaps_",
+      "table_offset": "0xf71fc",
+      "case_count": 6,
+      "dispatch_evidence": "cmp/ja"
+    },
+    {
+      "site_offset": "0xff6f1",
+      "function": "Draw_Application_Description_",
+      "table_offset": "0xff61b",
+      "case_count": 5,
+      "dispatch_evidence": "cmp/ja"
+    }
+  ]
+}
