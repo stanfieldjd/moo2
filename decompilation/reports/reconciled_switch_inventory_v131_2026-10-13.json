@@ -1,0 +1,23 @@
+{
+  "source_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "source_inventory": "Watcom original v1.31, original unrelocated LE code bytes",
+  "legacy_verified_switch_sites": 135,
+  "legacy_verified_case_entries": 1080,
+  "added_game_sites": 69,
+  "added_support_sites": 1,
+  "added_total_sites": 70,
+  "reconciled_known_switch_sites": 205,
+  "reconciled_known_game_sites": 187,
+  "reconciled_known_support_sites": 18,
+  "reconciled_known_game_case_entries": 1484,
+  "reconciled_known_support_case_entries": 141,
+  "reconciled_known_case_entries": 1625,
+  "inventory_is_exhaustive": false,
+  "caveat": "These are distinct original-byte-verified table sites in the three audited representations, not complete executable switch coverage or equivalent C semantics. Some other indirect transfers remain unresolved.",
+  "inputs": [
+    "decompilation/switch_tables.csv",
+    "decompilation/switch_targets.csv",
+    "decompilation/reports/omitted_game_switches_v131_2026-10-13.json",
+    "decompilation/reports/omitted_prescaled_dispatches_v131_2026-10-13.json"
+  ]
+}
