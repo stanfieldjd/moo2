@@ -28,7 +28,7 @@ function interval:
    The signed player index is multiplied by original record stride
    **`0xEA9`**.
 2. Load the player-record base pointer from original DATA global
-   **`_players`** at DATA object 2 offset `0x1FF98`,
+   **`_player`** at DATA object 2 offset `0x1FF98`,
    then load and **signed-extend the byte** at relative record
    offset **`0x89F`** into EAX.
 3. `CDQ; SUB EAX,EDX; SAR EAX,1` computes the signed input
@@ -56,6 +56,23 @@ The special `raw == -1` behavior would be silently
 lost if code used floor division, unsigned interpretation,
 or an ordinary division of a widened value without the
 original low-byte test.
+
+## Portable derived C verification
+
+The isolated C source was compiled as C11 with
+`-Wall -Wextra -Werror -pedantic -O2`. Its signed-byte helper
+was compared with an independently expressed emulation of
+the observed divide-by-two, low-byte unsigned dispatch, and
+four return cases for **all 256** possible signed-byte inputs.
+A separate record-access check covered all 256 stored byte
+encodings at one player-record offset and compared the
+record wrapper's output to the verified helper. Both checks passed.
+
+This is a **derived-code self-consistency verification**, not
+dynamic equivalence testing inside the original DOS executable.
+The original symbol table confirms the global pointer is
+`_player` (singular), at original DATA object 2 offset
+`0x1FF98`.
 
 ## Reconstructed code
 
