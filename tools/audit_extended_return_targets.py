@@ -58,7 +58,7 @@ def recognize_exit(blob,decoded,addr):
             if len(parts)!=2 or parts[0] not in REGS or not (
                 parts[1] in REGS or parts[1].startswith("[ebp") or parts[1].startswith("0x")
             ):return None
-        elif op=="xor" and args in ("eax,eax","ax,ax","edx,edx"):
+        elif op=="xor" and args in ("eax,eax","ax,ax","edx,edx","al,al"):
             pass
         elif op=="jmp" and args.startswith("0x"):
             target=int(args,16)
@@ -100,16 +100,16 @@ def audit(exe,code,reachability):
     expected={
         "source_not_established_by_bounded_walk":29,
         "destination_is_another_named_function_entry":8,
-        "straight_line_return_sequence":32,
+        "straight_line_return_sequence":34,
         "one_hop_to_return_epilogue":10,
-        "reachable_nontrivial_cfg_target":13
+        "reachable_nontrivial_cfg_target":11
     }
     if dict(counts)!=expected:raise ValueError(f"Unexpected classification totals: {dict(counts)}")
     return {
         "original_sha256":SOURCE_SHA,
         "input_candidates":92,
         "classifications":dict(counts),
-        "summary":"50 source-reachable sites have statically recognizable exit or other-entry shapes; 13 are other reachable CFG paths; 29 not established by bounded traversal",
+        "summary":"52 source-reachable sites have statically recognizable exit or other-entry shapes; 11 are other reachable CFG paths; 29 not established by bounded traversal",
         "limit":"structural machine-code classification only; no stack correctness, case semantics, or false-positive/dead-code determination",
         "entries":result,
     }
