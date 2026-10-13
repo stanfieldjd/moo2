@@ -58,7 +58,7 @@ def audit(exe,code):
           if r["segment"]=="2"}
     for name,expected in [
         ("_combat_data",0x1A864),("_missile",0x1AB14),
-        ("_weapons",0x7803)
+        ("_weapons",0x7803),("_ship",0x1FF9C)
     ]:
         if data.get(name)!=expected:
             raise ValueError(f"Original DATA symbol differs: {name}")
@@ -105,6 +105,16 @@ def audit(exe,code):
         0x117701:("shr","eax,cl"),
         0x117703:("and","eax,0x1"),
         0x117706:("mov","ds:0x1176ec,eax"),
+        # Combat-phase initialization writes this word from the strategic
+        # _ship record's owner byte at +0x63, using ship stride 0x81.
+        0x301E7:("movsx","ax,byte ptr [edx+eax*1+0x63]"),
+        0x301ED:("mov","ds:0x218ac,ax"),
+        0x325AE:("movsx","ax,byte ptr [edx+eax*1+0x63]"),
+        0x325B4:("mov","ds:0x218ac,ax"),
+        0x32801:("movsx","ax,byte ptr [edx+eax*1+0x63]"),
+        0x32807:("mov","ds:0x218ac,ax"),
+        0x37B00:("movsx","ax,byte ptr [edx+eax*1+0x63]"),
+        0x37B06:("mov","ds:0x218ac,ax"),
     })
     for addr,expected in required.items():
         actual=instruction(code,addr)
@@ -142,6 +152,14 @@ def audit(exe,code):
         "missile_record_stride_bytes":26,
         "original_missile_slots_scanned":300,
         "original_weapon_category_count":6,
+        "unnamed_combat_word_original_DATA_offset":"0x218ac",
+        "unnamed_combat_word_verified_writers":[
+          {"function":"Strategic_Combat_","source_offset":"0x301ed"},
+          {"function":"Strategic_Bombardment_","source_offset":"0x325b4"},
+          {"function":"Tactical_Bombardment_","source_offset":"0x32807"},
+          {"function":"Tactical_Combat_","source_offset":"0x37b06"}
+        ],
+        "unnamed_combat_word_value_source":"signed 8-bit owner at +0x63 of selected original _ship record, converted to 16-bit AX",
         "original_special_check_offset":"0x3b0d3",
         "original_special_check_size_bytes":75,
         "original_bitfield_test_offset":"0x1176f0",
