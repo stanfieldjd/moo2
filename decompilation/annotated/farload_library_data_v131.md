@@ -146,6 +146,45 @@ ordinary 32-bit cdecl.
 this routine; archive entry representation, encoding/compression
 and any work by direct callees require separate examination.
 
+## Fatal loader error routes independently decompiled
+
+A second hash-guarded audit traced all **10** direct
+`Farload_Library_Data_` calls to `Error_Handler_`
+at original CODE `0x1173DC`. That handler is a **439-byte**
+function with 106 decoded instructions; it uses
+`strcpy_`, `strcat_`, `itoa_`, and case-selected DATA
+messages, then converges on `Exit_With_Message_`
+at CODE `0x116487`. Its original called helper invokes
+Watcom runtime `exit_(1)` at CODE `0x12F2F4`.
+These original error paths are **fatal**, not ordinary
+negative return values.
+
+| Error condition recognized at the loader call site | Original handler code | CODE call offset |
+| --- | ---: | --- |
+| Negative entry index | 4 | `0x116F6D` |
+| Initial or secondary file open failed | 1 | `0x116FDF`, `0x11702D` |
+| LBX header signature mismatch | 7 | `0x117066` |
+| Entry index beyond header count | 8 | `0x11708D` |
+| Entry WORD/count condition failed | 10 | `0x117122` |
+| Entry type/stride WORD differs from caller | 9 | `0x11713B` |
+| Ordinary allocation failed (mode 0) | 3 | `0x1171B3` |
+| Block allocation failed (modes 1, 2) | 5 | `0x1171D9`, `0x1171FF` |
+
+`Error_Handler_` also contains direct dispatch branches
+for codes **2** and **16**, which these 10 loader calls
+do not use. Code 6 has no separate selected message in
+the observed dispatch. All routes converge on the fatal
+helper; callers must not assume a successful return.
+
+Reproducible audit:
+`tools/audit_farload_error_handler_v131.py`.
+Persisted metadata:
+`decompilation/reports/farload_error_handler_audit_2026-10-13.json`.
+
+A modern reimplementation can choose safer exception/error
+handling, but that would be a **deliberate compatibility change**,
+not the original program's observed failure behavior.
+
 ## Next reconstruction boundary
 
 The high-level call chain is now:
