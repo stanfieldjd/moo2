@@ -505,3 +505,87 @@ The outstanding combat bottleneck is the full
 control flow, and original game save/turn systems.
 No Game Lab public website, Xbox controls or
 Qwen configuration was modified.
+
+
+## Further original planetary combat recovery: damage, defenses and hit loop
+
+The source-authenticated original MOO2 v1.31 executable provided
+three additional planet-combat targets:
+
+1. **`Apply_Damage_To_Planet_` (775 bytes, CODE `0x2A3C3`)**:
+   complete original function byte digest verified and **65**
+   original instruction checkpoints audited. The biological
+   `flags & 0x80` and conventional branches, seven original
+   helper calls, and original named combat-state writes are mapped.
+   The body as a whole is **not fully reconstructed in C**.
+   Two bounded source-equivalent arithmetic expressions now are:
+   original special-ID-7 conventional damage
+   `trunc_toward_zero(signed16(damage)/4)-1` using
+   WORD wraparound, and biological probability reductions
+   selected by original defender-player bytes
+   `+0x182` and `+0x1D8` (half or quarter,
+   first taking precedence). They passed exhaustive
+   original WORD-input tests, and the biological
+   predicate was integrated with the recovered source
+   `Random_(100)` seed sequence.
+2. **`Does_Combat_Planet_Have_Defenses_`
+   (92 bytes, CODE `0x2A142`)**: entire original
+   body digest verified and 20 opcode anchors audited.
+   With signed combat colony ID −1 it returns zero;
+   otherwise it reads four original `_colony`
+   bytes `+0x150`, `+0x151`, `+0x160`,
+   `+0x165` from a 361-byte record and
+   OR-packs them shifted by 0,1,2,3 bits.
+   The lower AX word is established; the original
+   code does not necessarily zero the upper half
+   of EAX because it updates SI/CX/DX/AX halves.
+   The derived C normalizes the high word for safe
+   host callers, while the original planet-damage
+   caller tests AX. It passed 66,560 packed-value tests.
+3. **`Apply_Bomb_Hits_` (95 bytes, CODE `0xCD2F2`)**:
+   complete original body verified with 40 instruction
+   checks and a separate checksum on its actual
+   7-byte shared epilogue at CODE `0xCCDA5`.
+   The exit is a valid cross-function jump inside the
+   `Handle_Leader_At_Lost_Colony_` symbol interval,
+   which explains why the legacy 95-byte linear CFG
+   appeared to lack a RET. Its ordinary and biological
+   hit-processing loop is now standalone derived C
+   with explicit `Resolve_Bomb_Hit_` and
+   `Resolve_Biological_Hit_` callbacks. Regression
+   covers original callback order, hit counters,
+   32-bit accumulated hit value, zero-progress and
+   shared-return cases.
+
+The current source/authenticated artifacts are:
+
+- `tools/audit_apply_damage_to_planet_v131.py`
+- `decompilation/reports/apply_damage_to_planet_v131_2026-10-13.json`
+- `decompilation/annotated/apply_damage_to_planet_v131.md`
+- `decompilation/reconstructed/planet_special7_damage_v131.c`
+- `decompilation/reconstructed/planet_bio_threshold_v131.c`
+- `tests/test_planet_special7_damage_v131.c`
+- `tests/test_planet_bio_threshold_v131.c`
+- `tests/test_planet_bio_random_integration_v131.c`
+- `tools/audit_combat_planet_defenses_v131.py`
+- `decompilation/reports/combat_planet_defenses_v131_2026-10-13.json`
+- `decompilation/reconstructed/combat_planet_defenses_v131.c`
+- `tests/test_combat_planet_defenses_v131.c`
+- `tools/audit_apply_bomb_hits_v131.py`
+- `decompilation/reports/apply_bomb_hits_v131_2026-10-13.json`
+- `decompilation/reconstructed/apply_bomb_hits_v131.c`
+- `tests/test_apply_bomb_hits_v131.c`
+- `decompilation/annotated/apply_bomb_hits_v131.md`
+
+Next source reconstruction boundary is original
+`Resolve_Bomb_Hit_` (641 bytes),
+`Resolve_Biological_Hit_` (436 bytes),
+and `Destroy_Colony_Defense_` (549 bytes).
+The original planet-damage, bomb effects and
+combat subsystem remain incompletely decompiled;
+the reconstructed C has not been differentially
+run against the original DOS game. Safe host
+input checks and iteration caps are deliberate
+non-DOS differences. Original proprietary assets
+stay private, and the public Game Lab/Xbox/Qwen
+deployments were not modified.
