@@ -90,29 +90,55 @@ sets; **eleven** remain runtime-dependent. This is a target-provenance
 classification, *not* 8 completed C functions or a proof that all
 game indirect control flow is known.
 
-## Game-code indirect JMP cross-reference completed for this inventory
+## Original game switch-table coverage — expanded and corrected
 
-The existing switch-table recovery held 135 bounded tables across the full
-executable. A new, independent audit used the authenticated v1.31 executable,
-its **unrelocated** LE object 1 bytes, and the exact extracted site/table/case
-indices to verify **all 118 indirect JMP sites in core game-code modules**.
-It checked every four-byte table entry against its recorded case target:
+**The prior 118-game-switch inventory was incomplete.** Its independent
+source-byte audit was correct *for those 118 exported sites*, but linear
+disassembly missed additional indexed jumps, including original
+machine instructions after embedded dispatch-table data. It must not
+be interpreted as exhaustive original game-code coverage.
 
-- Game-module indirect JMP sites: **118**
-- Sites with existing verified switch table: **118**
-- Verified game-code switch-case entries: **943**
-- Distinct case target addresses: **800**
-- Source case-table mismatch or out-of-bounds errors: **0**
-
-This check is reproducible with `tools/audit_game_switch_coverage.py`
-and its generated report
+The original bounded-export baseline was 135 switch tables across all
+modules (118 game, 17 support) with 1,080 original case entries.
+The prior game subset contained 943 case entries and 800 distinct
+case destinations. The audit remains at
+`tools/audit_game_switch_coverage.py` and
 `decompilation/reports/game_switch_coverage_2026-10-13.json`.
 
-The *static control destinations* of this enumerated set are known.
-This does **not** prove every possible dynamic jump elsewhere, all Watcom
-function boundaries, nor decompile the 800 target blocks to equivalent C.
-The 311 flagged cross-function conditional branches remain a separate
-CFG correctness task.
+The expanded original-byte audits subsequently added:
+
+- **68 game-code CS-indexed SIB switches** omitted from that export,
+  with **537** bounded table entries. 67 have nearby CMP/JA
+  upper-bound evidence; one has a source `REPNE SCASW` scan
+  with original count 14
+- **1 further game-code prescaled switch**, in
+  `Do_Colony_Info_Military_Stuff_For_` at CODE `0xACF3E`
+- **1 support-code prescaled switch**, in
+  `Farload_Library_Data_` at CODE `0x117190`, which selects
+  the original four allocation modes
+
+A separate source-hash-guarded reconciliation independently
+rechecked the original DWORD values and ensured the old and new
+site inventories did not overlap:
+
+| Verified static inventory | Distinct switch sites | Case entries |
+| --- | ---: | ---: |
+| Game modules | **187** | **1,484** |
+| Support/runtime modules | **18** | **141** |
+| **All currently recovered** | **205** | **1,625** |
+
+- `tools/audit_omitted_game_switches_v131.py`
+- `tools/audit_omitted_prescaled_dispatches_v131.py`
+- `tools/reconcile_v131_switch_inventories.py`
+- `decompilation/reports/reconciled_switch_inventory_v131_2026-10-13.json`
+
+This **remains a lower bound**. These audits are scoped to source-export
+tables and two observed original x86 indexed-jump instruction families.
+Other indirect-transfer encodings or missed symbol entries might still
+be absent. Static DWORD branch-target provenance is not proof of
+runtime reachability, full case semantics, or equivalent C recovery.
+The separate 311 cross-function conditional-branch inventory
+still requires calling-convention and entry-alignment review.
 
 ## Cross-function conditional branches: target-byte audit
 
@@ -270,7 +296,7 @@ This pass **did not finish full-game source recovery**. Next actions:
 rebuild the resynchronized control-flow corpus with synthetic function
 entries included, separately handle mixed 16/32-bit code, investigate the **11 entry-reachable nontrivial game CFG destinations** and **29 game branch sites not established reachable** (without treating the latter as dead code), verify
 shared-tail stack discipline and 61 support-module cases, preserve and expand the
-**118 verified game switch tables** to full case semantics, and continue reconstructing the real
+**187 currently verified game switch tables** to full case semantics, and continue reconstructing the real
 colony turn, diplomacy, AI, combat, map generation, save/load, and
 rendering behavior. The 11 runtime-dependent CALLs require individual
 caller/object-initialization provenance; a zero-initialized callback
