@@ -10,16 +10,7 @@
  * This function performs ONLY the selected +1 or +10 increment.
  * Original DOS code does not bounds-check; host validation is deliberate.
  */
-#include <stddef.h>
-#include <stdint.h>
-typedef enum {
-    MOO2_V131_OWNER_STAT_OK=0,
-    MOO2_V131_OWNER_STAT_INVALID=1
-} Moo2V131OwnerStatStatus;
-typedef enum {
-    MOO2_V131_OWNER_STAT_INCREMENT_ONE=1,
-    MOO2_V131_OWNER_STAT_INCREMENT_TEN=10
-} Moo2V131OwnerStatDelta;
+#include "colony_hit_player_stats_v131.h"
 Moo2V131OwnerStatStatus moo2_v131_derived_colony_hit_owner_stat(
     uint8_t *players,size_t player_buffer_bytes,
     const uint8_t *colony,size_t colony_buffer_bytes,
