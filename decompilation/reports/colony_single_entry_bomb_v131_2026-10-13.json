@@ -1,0 +1,22 @@
+{
+  "original_exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "named_function": "Resolve_Bomb_Hit_",
+  "original_code_offset": "0xccebd",
+  "original_code_size_bytes": 641,
+  "entire_original_body_sha256": "ee665889d157c0882ac1512a67f1f940bf25a1d3d76811dcad0f30558d53dc89",
+  "remove_building_source_body_sha256": "8e0eb8d52268bf214d1ce3ec73d0e9970f0b4db1b0d1cae035810ace87179875",
+  "remove_building_original_function_size_bytes": 493,
+  "remove_building_first_write": "Original CODE 0x460a clears colony BYTE+0x136+signed building ID, before other building-dependent effects. Host C only reconstructs this first write.",
+  "verified_original_opcode_sites": 47,
+  "entry_guard": "original colony count BYTE+0x0A ==1 and original weighted non-population target total ==0",
+  "single_population_entry_type": "DWORD at colony+0x0C, masked to low nibble (0..15)",
+  "signed_defense_field": "colony WORD+0xB4+2*entry_type",
+  "defense_above_100_path": "if signed WORD >100, subtract 100 and set event BYTE+0x41=1",
+  "defense_at_most_100_path": "increment event WORD+0x0C, zero selected defense WORD, set colony count BYTE+0x0A to 0, optionally call Remove_Building_(colony index,9), set event BYTE+0x42, increment owner/opponent player WORD by 10, set event BYTE+0x41",
+  "building_remove_guard": "colony BYTE+0x13F nonzero",
+  "remove_building_named_original_CODE": "0x45ea",
+  "remove_building_parameter": "EAX=(colony pointer-_colony pointer)/0x169, EDX=9",
+  "player_stat_address": "_player + signed colony BYTE[0]*0xEA9 + 0x6FF + 2*signed event BYTE[0]",
+  "original_return": "EAX=1 then shared exit through 0xCD139; full enclosing 641-byte resolver remains incomplete",
+  "scope": "original executable and bounded branch fully source-instruction verified; derived C host guards and Remove_Building callback do not establish entire DOS game equivalence"
+}
