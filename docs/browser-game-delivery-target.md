@@ -46,7 +46,7 @@ A completed release must satisfy **all** of the following:
    frame rate, memory usage, performance and input delay on actual hardware.
 5. **Save/load:** Persist and resume complete games with verified save/load
    integrity. Server-hosted access must not leak personal or proprietary assets.
-6. **Deployment:** Install the playable result on the actual selected server,
+6. **Deployment:** Install the playable result on the existing **Contabo ISPConfig server**, using a **new, separate ISPConfig-managed website** for Master of Orion II, without modifying the Qwen site. The permanent domain is **not chosen yet**; do not assume one. Once a hostname is selected,
    configure HTTPS and access control, and verify the deployed route end-to-end
    from a computer **and the Xbox One Edge browser**, over the normal network
    without localhost, developer mode or local software installation. Verify
@@ -91,6 +91,9 @@ artwork, fonts, sprites, sounds and animations; some items that end in
 frame metadata. Do not commit proprietary files or generated artwork to the
 public GitHub repository, expose game archives on an unauthenticated server,
 or claim rights that have not been established.
+
+
+The chosen hosting platform and outstanding domain are documented in [ISPConfig deployment plan](deployment/ispconfig-browser-hosting.md). Work on the native engine and UI can proceed before hostname selection. Do not create a placeholder public hostname or issue a certificate without a real approved hostname.
 
 ## Verified status as of 2026-10-12
 
