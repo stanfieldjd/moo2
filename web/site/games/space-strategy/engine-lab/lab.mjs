@@ -65,7 +65,7 @@ function selectSystem(index) {
 }
 function cycleSystem(direction) {
   selectSystem(stepSystem(selected,direction));
-  nodes[selected].focus({preventScroll:true});
+  nodes[selected].focus();
 }
 function shiftPerson(direction) {
   const count=fixtures[selected].colonyRecord[0x0a];
@@ -97,7 +97,7 @@ function moveFocus(direction) {
   if (!elements.length)return;
   const active=elements.indexOf(document.activeElement);
   focusedIndex=active<0?0:(active+direction+elements.length)%elements.length;
-  elements[focusedIndex].focus({preventScroll:true});
+  elements[focusedIndex].focus();
   const target=elements[focusedIndex];
   feedback.textContent="Focused "+(target.getAttribute("aria-label")||target.textContent)+
     ". Press A or Enter to activate.";
@@ -132,7 +132,7 @@ function poll() {
     const active=document.activeElement;
     if(controls().includes(active))active.click();
     else {
-      nodes[selected].focus({preventScroll:true});
+      nodes[selected].focus();
       nodes[selected].click();
     }
   }
