@@ -20,7 +20,7 @@ OPS={
 0x2A14D:("cmp","eax,0xffffffff"),
 0x2A150:("je","0x2a197"),
 0x2A152:("imul","eax,eax,0x169"),
-0x2A158:("mov","edx,ds:0x1ab18"),
+0x2A158:("mov","edx,dword ptr ds:0x1ab18"),
 0x2A160:("movzx","si,byte ptr [eax+0x150]"),
 0x2A168:("movzx","cx,byte ptr [eax+0x151]"),
 0x2A170:("movzx","dx,byte ptr [eax+0x160]"),
