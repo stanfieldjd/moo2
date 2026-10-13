@@ -1,6 +1,6 @@
 /*
  * DERIVED original Watcom v1.31 Delete_From_Colony_Queue_
- * and its first Defragment_Queue_ branch. NOT original MicroProse C.
+ * and an anonymous 99-byte colony-queue compaction routine. NOT original MicroProse C.
  *
  * Source executable SHA256:
  * 4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f
@@ -12,9 +12,9 @@
  * if queue WORD <= -100, ship_id = -(word + 100), then
  * _ship[ship_id*0x81 +0x64] BYTE = 5;
  * _ship[ship_id*0x81 +0x65] WORD = 0xFFFF.
- * original CALL Defragment_Queue_ at CODE 0xA1E6E.
+ * original CALL 0xA20ED at CODE 0xA1E6E (anonymous colony queue shift).
  *
- * Defragment_Queue_ original CODE 0xA20ED..0xA214F branch:
+ * Anonymous original CODE 0xA20ED..0xA214F (99 bytes):
  * queue[index..5] = queue[index+1..6]; queue[6] = -1.
  * If queue[index] == -10, repeat compaction from SAME slot,
  * skipping consecutive -10 entries (original JE 0xA20F2).
@@ -58,7 +58,7 @@ Moo2V131QueueDeleteStatus moo2_v131_derived_delete_colony_queue_slot(
         ship[0x64u]=5u;
         moo2_v131_delete_queue_w16(ship+0x65u,UINT16_MAX);
     }
-    /* Source Defragment_Queue_: skip -10 placeholders if they become
+    /* Source anonymous 0xA20ED routine: skip -10 placeholders if they become
        the queue value at the removed position. At most 7-index passes
        can be needed for original seven queue WORDs. */
     for(;;) {
