@@ -25,22 +25,7 @@
  * The DOS code has no host array/pointer guards; those here are
  * intentional. Original specific nebula imagery remains user-local.
  */
-#include <stddef.h>
-#include <stdint.h>
-
-typedef struct {
-    const uint8_t *data;
-    size_t size;
-} Moo2V131NebulaBitmap;
-typedef struct {
-    const uint8_t *nebula_records; /* count*5 bytes */
-    size_t nebula_count;           /* original unsigned _NUM_NEBULAS */
-    const Moo2V131NebulaBitmap *images; /* count image pointers */
-} Moo2V131NebulaContext;
-typedef enum {
-    MOO2_V131_NEBULA_OK=0,
-    MOO2_V131_NEBULA_INVALID=1
-} Moo2V131NebulaStatus;
+#include "point_in_nebula_v131.h"
 
 static int32_t moo2_v131_nebula_s16(const uint8_t *ptr) {
     uint16_t v=(uint16_t)(ptr[0]|((uint16_t)ptr[1]<<8));
