@@ -113,3 +113,7 @@ original behavior.
 No proprietary original game executable or art was
 published. The Game Lab website, Xbox controls,
 and Qwen were not modified.
+
+## Follow-on: complete source-derived star recalculation
+
+Original `Compute_Star_Colony_Stuff_` at CODE `0xD5296` (311 bytes) is now reconstructed as C rather than left as an unknown callback. `decompilation/reconstructed/compute_star_colony_stuff_v131.c` rebuilds eight star-byte bitmasks from five planet slots, colony building flags and player feature bytes. `tests/test_remove_building_compute_star_integration_v131.c` uses the real derived C in the previously recovered direct ID 3/14/45 callback slot, exercising eight original owners and all three building removals. `Update_Ship_ETAs_` for ID45 remains a separate unresolved callback. See `decompilation/annotated/compute_star_colony_stuff_v131.md` and its full original-body hash/84-opcode audit.
