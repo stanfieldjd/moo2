@@ -1,0 +1,43 @@
+{
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_named_function_bodies": [
+    {
+      "name": "Update_Ship_ETAs_",
+      "CODE_offset": "0xf041c",
+      "body_bytes": 253,
+      "original_SHA256": "5a1ebf719a02098beadf2b344252ce74850a8f6fc2c978dbb0f21910b603e78b"
+    },
+    {
+      "name": "Move_Player_1_Turn_To_Star_",
+      "CODE_offset": "0xdbb0c",
+      "body_bytes": 422,
+      "original_SHA256": "01baaeca994622f9d2d56541ef9b5a5463ffdd619a20054c34c4230e8e2c64cb"
+    }
+  ],
+  "original_instruction_sites": 76,
+  "shared_external_return": {
+    "original_CODE": "0xef792",
+    "bytes": 7,
+    "original_SHA256": "1c903070ad87dea1760b46e99addec3215f3983c955b643356bd4e063a57466a",
+    "located_in_named_function": "Can_Order_Ship_"
+  },
+  "original_DATA": {
+    "_NUM_SHIPS": "0x21994",
+    "_ship": "0x1ff9c",
+    "_star": "0x1b06c"
+  },
+  "reverse_source_scan": "_NUM_SHIPS signed WORD, ship stride 0x81, highest index first",
+  "selected_ship_states": [
+    1,
+    2
+  ],
+  "selected_ship_owner_condition": "signed ship BYTE+0x63 != input EAX low WORD (owner); equality skips",
+  "target_star_decoder": "signed WORD(ship+0x65 - (state1?500:1000)), star stride 0x71",
+  "target_coordinates": "signed WORDs star+0x0f and +0x11",
+  "local_initial_coordinates": "signed WORDs ship+0x67 and +0x69; original ship coordinates are not written",
+  "movement_call": "Move_Player_1_Turn_To_Star_ CODE 0xdbb0c, original 422 bytes; EAX owner, ECX star, EDX x, EBX y, 5 stack args: BYTE ship+0x6c, x*, y*, conditional optional byte*, required byte*",
+  "optional_pointer": "source ship BYTE+0x6b zero => pointer; nonzero => NULL",
+  "turn_count": "local WORD increment for each source movement call, ship BYTE+0x6d assigned only its low BYTE on arrival; already-arrived writes zero",
+  "C_safety_differences": "invalid original pointers/indexes rejected, callback failures and iteration cap reported; no original DOS equivalence asserted for malformed state",
+  "scope": "complete named ETA-source loop recovered with external original movement logic represented by typed callback; ship physics/collisions not yet reconstructed or dynamically compared with original DOS run"
+}
