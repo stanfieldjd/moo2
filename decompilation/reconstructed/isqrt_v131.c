@@ -17,7 +17,7 @@
  * whose unsigned 32-bit square is <= input. The DOS support stack
  * probe is unnecessary in this bounded portable C function.
  */
-#include <stdint.h>
+#include "isqrt_v131.h"
 
 uint32_t moo2_v131_derived_isqrt(uint32_t source_value)
 {
