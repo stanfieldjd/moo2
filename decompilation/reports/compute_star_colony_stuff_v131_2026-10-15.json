@@ -1,0 +1,31 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "source_function": "Compute_Star_Colony_Stuff_",
+  "original_CODE_offset": "0xd5296",
+  "original_complete_function_body_bytes": 311,
+  "original_complete_function_SHA256": "b599c172a8a790494eb319c9edd73c881f6fea26a6e708ebf75cd3feae9d1ee0",
+  "verified_original_instruction_sites": 84,
+  "shared_external_epilogue": "0xd1f97",
+  "shared_epilogue_SHA256": "a0a1f6af6d85bfeba680dfae738040640b858b18484a2aff60f23f3f7f7b6dc1",
+  "original_named_DATA": {
+    "_planet": "0x1b0d4",
+    "_colony": "0x1ab18",
+    "_player": "0x1ff98"
+  },
+  "star_planet_slots": "five signed WORDs, star+0x4a+2*i, i=4..0",
+  "planet_colony_lookup": "_planet record stride 17, signed colony index WORD+0x00 or -1",
+  "colony_owner_lookup": "_colony record stride 361, signed BYTE+0x00 owner, shifted 1<<owner",
+  "player_record_stride": 3753,
+  "source_rebuilt_star_bytes": {
+    "0x38": "any colony owner",
+    "0x39": "colony building +45",
+    "0x3b": "any building +40,+8,+41 AND player BYTE+0x1cb ==3",
+    "0x3c": "any building +40,+8,+41 AND player BYTE+0x1c7 ==3",
+    "0x3d": "player BYTE+0x1c1 ==3",
+    "0x3e": "player BYTE+0x17a ==3",
+    "0x3f": "colony building +3",
+    "0x40": "colony building +14"
+  },
+  "source_calls": "none inside the original complete 311-byte body",
+  "scope": "entire source instruction-defined star field rebuild; host preflight and owner index checks are non-DOS safety differences, not original DOS dynamic differential execution"
+}
