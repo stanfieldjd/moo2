@@ -58,3 +58,7 @@ All three new programs passed strict C11 compilation, AddressSanitizer and Undef
 For **valid original-format game state**, the 311-byte function's observed source dataflow has been translated, without unresolved original function calls. The derived host C deliberately validates planet/colony/player indices before clearing star fields; the original DOS code does not provide equivalent safe error handling and may behave differently for malformed records.
 
 This does **not** fully reconstruct `Remove_Building_`, `Update_Ship_ETAs_`, other star/combat systems, galaxy generation, game turns, save/load, or the eventual Game Lab browser engine. The original copyrighted executable and assets remain local; the public Game Lab deployment and unrelated Qwen services were not modified.
+
+## Follow-on integration with original building-45 ETA loop
+
+`Update_Ship_ETAs_` is no longer an opaque outer-loop placeholder in the new building-45 integration test. Its complete named 253-byte original source loop is reconstructed in `decompilation/reconstructed/update_ship_etas_v131.c`, verifying that an ID45 removal updates the original star field BYTE `+0x39` before recalculating eligible other-player ship ETA bytes. The `Move_Player_1_Turn_To_Star_` movement physics is still unresolved and supplied as an explicit test callback. Original ETA source hash and 76 x86 instruction sites are covered by `tools/audit_update_ship_etas_v131.py`.
