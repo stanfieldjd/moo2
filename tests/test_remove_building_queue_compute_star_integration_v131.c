@@ -100,7 +100,7 @@ int main(void) {
             need(ships[0x64u]==5u);
             need(moo2_v131_delete_queue_s16(ships+0x65u)==-1);
             need(stars[0x38u]==bit);
-            const uint8_t expected_flags=id==41?0u:bit;
+            const uint8_t expected_flags=j>=2u?0u:bit;
             need(stars[0x3bu]==expected_flags);
             need(stars[0x3cu]==expected_flags);
         }
