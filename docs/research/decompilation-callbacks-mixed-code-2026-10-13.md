@@ -1195,3 +1195,111 @@ original DOS dynamic differential run,
 web deployment, Xbox/Qwen configuration
 change or distribution of copyrighted
 game binaries occurred.
+
+
+## 2026-10-15: original one-turn movement and nebula/warp source reconstruction
+
+The original named **422-byte**
+`Move_Player_1_Turn_To_Star_` at
+CODE `0xDBB0C` has been translated into
+source-derived C, along with the original
+**114-byte anonymous per-nebula bitmap lookup**
+at `0xDB9C8`, the **66-byte** named
+`Point_Is_In_Some_Nebula_` at `0xDBA3A`,
+the **73-byte** named
+`Point_Is_In_Warp_Field_Interdictor_Of_Star_`
+at `0xDBAC3`, and the previously
+reconstructed **155-byte** `isqrt_`.
+
+Original source checks were performed
+against the authenticated local
+`ORION2.EXE`, not guessed game
+rules. `tools/audit_move_player_one_turn_v131.py`
+independently verifies the full-body
+SHA-256 of all five code regions,
+original named function extents,
+Watcom DATA globals `_nebula`,
+`_nebula_pict_seg`, `_NUM_NEBULAS`,
+and `_star`, and **124 exact source x86
+instruction checkpoints**. This includes
+direct calls from movement into `isqrt_`,
+the named nebula wrapper, and the warp
+interdictor helper. Machine-readable
+evidence:
+`decompilation/reports/move_player_one_turn_v131_2026-10-15.json`.
+
+Source behavior reconstructed:
+
+- Repeated speed-dependent **30-unit
+  projected-coordinate increments** using
+  unsigned `isqrt_` and source
+  round-up integer-division arithmetic.
+- Arrival when the current step count
+  squared times 900 reaches the signed
+  squared original distance.
+- Individual nebula test: five-byte
+  origin record, signed coordinate
+  differences divided by **three**,
+  synthetic bitmap cells of value **>5**,
+  then first-match wrapper over the
+  unsigned count of nebulas.
+- Original warp interdictor test:
+  destination star owner bitmap at
+  `+0x39`, excluding one owner bit,
+  and source signed squared radius
+  threshold **8100 (90 units)**.
+- The original destination-arrival
+  branch clears the *low WORD* of the
+  locally saved owner before the warp
+  check; this counterintuitive behavior
+  is explicitly preserved.
+- The original movement routine
+  reports nebula/warp conditions through
+  optional/required status BYTE pointers,
+  updating supplied coordinate WORDs
+  rather than the persistent ship record.
+
+The corresponding original-derived C
+functions and test files are:
+
+- `decompilation/reconstructed/move_player_one_turn_v131.c`
+- `decompilation/reconstructed/point_in_nebula_v131.c`
+- `decompilation/reconstructed/point_in_warp_field_v131.c`
+- `tests/test_move_player_one_turn_v131.c`
+- `tests/test_point_in_nebula_v131.c`
+- `tests/test_point_in_warp_field_v131.c`
+- `tests/test_eta_with_recovered_movement_v131.c`
+- `tests/test_building45_full_original_movement_v131.c`
+- `decompilation/annotated/move_player_one_turn_v131.md`
+
+Source-consistency tests passed strict
+C11, AddressSanitizer and
+UndefinedBehaviorSanitizer. In
+particular, the **253-byte** original
+`Update_Ship_ETAs_` now runs with
+the recovered real movement function
+instead of a placeholder movement callback,
+including 80 owner/state/speed combinations
+and a 1,000-turn low-byte ETA wrap test.
+
+The recovered chain was also connected
+from **original building-45 removal**
+through **original star-colony bitmask
+recomputation**, **ship ETA traversal**,
+and **ship movement** in 80 integrated
+cases without test-only gameplay movement.
+Modern host bounds checks remain
+non-DOS safety adaptations.
+
+**Caveat:** Full machine-code
+provenance, isolated regression and
+cross-function source-consistency tests
+are not an original DOS dynamic
+differential run. Unusual DOS edge
+states, cross-system game behavior,
+and the remaining thousands of original
+functions are still incomplete.
+The Game Lab website, Xbox controller
+and unrelated Qwen environment
+were not altered. Original proprietary
+game executable and artwork remain local.
