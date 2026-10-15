@@ -1138,3 +1138,60 @@ and browser deployment remain unfinished.
 No original proprietary executable/artwork,
 Game Lab website, Xbox controls or Qwen
 runtime were modified.
+
+
+## 2026-10-15: full original integer square root recovered for ship movement
+
+The original `Move_Player_1_Turn_To_Star_` code
+calls `isqrt_` at CODE `0x124C92`
+from movement CODE `0xDBB66`, after forming
+a squared ship-to-star coordinate distance.
+
+The entire original **155-byte `isqrt_`**
+Watcom routine is now reconstructed as unsigned
+32-bit integer arithmetic in
+`decompilation/reconstructed/isqrt_v131.c`.
+The original full-body SHA-256 is
+`712fab862da65b98b408b6bcaf4da8352fdb00306b0e40dfeeae616211d6c1b8`.
+A new read-only source audit
+`tools/audit_isqrt_v131.py` verifies the
+original executable identity, named Watcom
+function extent, complete body digest and
+**53 exact x86 instruction checkpoints**.
+The audited report is
+`decompilation/reports/isqrt_v131_2026-10-15.json`.
+
+Original arithmetic: return
+`floor(sqrt(unsigned 32-bit input))`,
+saturating to `65535` for
+`input>=0xFFFE0001`, with original
+binary-search bounds `[0,256]`
+below 65,536 and `[256,65535]`
+otherwise. The portable C omits a
+Watcom runtime stack-probe prologue
+that has no role in numeric behavior.
+
+`tests/test_isqrt_v131.c` passed strict
+C11/ASan/UBSan using an independent
+bitwise integer-square-root reference,
+all 65,536 16-bit inputs, every 16-bit
+root square and neighboring inputs, and
+200,000 pseudorandom 32-bit inputs.
+The full source and limitations are
+documented in
+`decompilation/annotated/isqrt_v131.md`.
+
+**Remaining:** the original 422-byte
+`Move_Player_1_Turn_To_Star_` includes
+coordinate movement and additional obstacle
+checks using original nebula and warp-field
+helpers. The previously recovered 253-byte
+`Update_Ship_ETAs_` loop must still
+keep its movement callback until those
+original effects are reconstructed and
+integrated; testing `isqrt_` does not
+prove game-equivalent movement. No
+original DOS dynamic differential run,
+web deployment, Xbox/Qwen configuration
+change or distribution of copyrighted
+game binaries occurred.
