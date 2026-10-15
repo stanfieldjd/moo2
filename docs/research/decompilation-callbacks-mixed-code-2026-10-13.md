@@ -1063,3 +1063,78 @@ the much larger game engine. The original DOS
 executable has not been dynamically differential-tested,
 and the public Game Lab/Xbox/Qwen services remain
 unchanged.
+
+
+## 2026-10-15: source-derived ship ETA loop and building45 integration
+
+The original named `Update_Ship_ETAs_` at CODE
+`0xF041C` (253 bytes) has now been independently
+source-authenticated and translated into a bounded
+C control loop. Original complete body SHA-256:
+`5a1ebf719a02098beadf2b344252ce74850a8f6fc2c978dbb0f21910b603e78b`.
+The original 422-byte movement callee
+`Move_Player_1_Turn_To_Star_` at CODE `0xDBB0C`
+and the seven-byte Watcom shared return
+`0xEF792` are also authenticated, but the actual
+movement algorithm remains unreconstructed.
+
+The original source reads signed `_NUM_SHIPS` from
+DATA `0x21994` and iterates 129-byte `_ship`
+records **in descending index order**, keeping
+status BYTE `+0x64` equal to 1 or 2 and
+skipping ships whose signed owner BYTE `+0x63`
+**equals** the original EAX owner argument. For
+ship states 1/2 the destination star is
+original WORD `+0x65` minus respectively 500/1000
+using the low signed 16 bits. The star has 113-byte
+stride and coordinates at WORDs `+0x0F,+0x11`.
+The source copies ship coordinate WORDs `+0x67,+0x69`
+to locals, calls `Move_Player_1_Turn_To_Star_`
+until destination coordinates match, counts each
+call in a WORD, and writes only that count's
+low BYTE into ship `+0x6D`. It does NOT
+write the simulated coordinates into the ship
+record during ETA estimation.
+
+Read-only `tools/audit_update_ship_etas_v131.py`
+verifies the original EXE, full source bodies
+of both named functions, shared external
+epilogue, named DATA globals and **76 exact
+source instruction sites**. Machine report:
+`decompilation/reports/update_ship_etas_v131_2026-10-15.json`.
+
+New derived C:
+
+- `decompilation/reconstructed/update_ship_etas_v131.c`
+- `tests/test_update_ship_etas_v131.c`
+- `tests/test_remove_building45_star_eta_integration_v131.c`
+- `decompilation/annotated/update_ship_etas_v131.md`
+
+The standalone ETA regression checks reverse
+ship traversal, owner filtering, encoded
+destination indexes, two movement states,
+optional movement callback parameters,
+zero-distance journeys, low-byte ETA wrap,
+non-progressing callbacks, and error guards.
+
+The integrated building45 regression uses
+`Remove_Building_`'s previously recovered
+flag-clear path, the full derived
+`Compute_Star_Colony_Stuff_` star-status
+reconstruction, and the new `Update_Ship_ETAs_`
+source loop across eight player IDs. The
+ETA movement step remains a **deterministic
+test callback**, not an assertion of original
+space movement physics. Both C tests
+passed strict C11/ASan/UBSan, without DOS
+differential execution.
+
+Next: source-reconstruct original
+`Move_Player_1_Turn_To_Star_` (422 bytes)
+and its helper arithmetic/collision behavior,
+then replace the callback only after
+original-data validation. The complete game
+and browser deployment remain unfinished.
+No original proprietary executable/artwork,
+Game Lab website, Xbox controls or Qwen
+runtime were modified.
