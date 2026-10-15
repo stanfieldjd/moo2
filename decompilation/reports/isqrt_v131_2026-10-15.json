@@ -1,0 +1,15 @@
+{
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "named_function": "isqrt_",
+  "CODE_offset": "0x124c92",
+  "complete_original_function_bytes": 155,
+  "original_body_SHA256": "712fab862da65b98b408b6bcaf4da8352fdb00306b0e40dfeeae616211d6c1b8",
+  "original_instruction_anchors_verified": 53,
+  "source_math": "floor(sqrt(unsigned 32-bit EAX)), result <=65535",
+  "saturation": "input>=0xFFFE0001 returns 65535",
+  "source_search_bounds": "input<=65535: low0,high256; else low256,high65535",
+  "source_binary_search": "middle=(low+high)/2; unsigned middle^2 <= input => low=middle else high=middle; return low when low+1>=high",
+  "original_runtime_call": "0x124c97 calls Watcom stack probe at CODE 0x12f1e0; omitted in portable host C",
+  "first_movement_caller": "Move_Player_1_Turn_To_Star_ CODE 0xdbb66 calls this function on 32-bit squared coordinate distance",
+  "scope": "complete original integer arithmetic translated; no original DOS execution or full movement/collision logic reconstructed"
+}
