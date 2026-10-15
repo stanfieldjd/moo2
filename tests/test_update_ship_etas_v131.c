@@ -79,19 +79,30 @@ int main(void) {
     init_ship(ships+1u*0x81u,2u,2u,2u,1u,5u,-6,2);
     init_ship(ships+2u*0x81u,1u,7u,1u,0u,8u,0,0);
     init_ship(ships+3u*0x81u,3u,3u,1u,0u,2u,0,0);
-    /* In source, caller owner is EXCLUDED, so only ship 0/1/3?
-       State3 skips and owner7 skipped by input argument7. */
-    size_t processed=999;
-    fixture.expected_owner=2;
-    fixture.expected_star=2;
-    fixture.expected_6c=5;
-    fixture.expected_optional=0;
-    fixture.speed=1;
-    fixture.target_x=-6;fixture.target_y=2;
-    fixture.calls=0;
+    /* Reverse-scan source: owner7 skipped, state3 skipped;
+       ship3 (state2) precedes ship0 (state1), both owner1/star0. */
+    init_ship(ships+0u*0x81u,1u,1u,0u,0u,4u,0,0);
+    init_ship(ships+1u*0x81u,1u,7u,0u,0u,4u,0,0);
+    init_ship(ships+2u*0x81u,3u,1u,0u,0u,4u,0,0);
+    init_ship(ships+3u*0x81u,2u,1u,0u,0u,4u,0,0);
+    size_t processed=999u;
+    fixture.expected_owner=1;
+    fixture.expected_star=0;
+    fixture.expected_6c=4;
+    fixture.expected_optional=1;
+    fixture.speed=5;
+    fixture.target_x=10;fixture.target_y=8;
+    fixture.calls=0u;
     ensure(moo2_v131_derived_update_ship_etas(
-        &ctx,7,&processed)==MOO2_V131_ETA_INVALID ||
-           1); /* Not used for distinct sequential callback expectations. */
+        &ctx,7,&processed)==MOO2_V131_ETA_OK);
+    ensure(processed==2u && fixture.calls==4u);
+    ensure(ships[0u*0x81u+0x6Du]==2u);
+    ensure(ships[3u*0x81u+0x6Du]==2u);
+    ensure(ships[1u*0x81u+0x6Du]==0xE7u);
+    ensure(ships[2u*0x81u+0x6Du]==0xE7u);
+    /* Coordinates are NOT committed to original ship record. */
+    ensure(moo2_v131_eta_s16(ships+3u*0x81u+0x67u)==0);
+
     /* Individual scenarios avoid dependence on callback's current
        test-expectation selection across ships. */
     ctx.ship_count=1u;
