@@ -19,13 +19,7 @@
  * produce a zero shifted DL and hence an all-ones inverted mask;
  * host API accepts only 0..7 to avoid ambiguous malformed owners.
  */
-#include <stddef.h>
-#include <stdint.h>
-
-typedef enum {
-    MOO2_V131_WARP_OK=0,
-    MOO2_V131_WARP_INVALID=1
-} Moo2V131WarpStatus;
+#include "point_in_warp_field_v131.h"
 
 Moo2V131WarpStatus moo2_v131_derived_is_in_warp_field(
     const uint8_t *star,size_t star_size,
