@@ -155,3 +155,7 @@ No proprietary game executable, artwork or
 media was committed to the public GitHub source
 repository. No Game Lab website, Xbox controller
 or Qwen configuration was changed.
+
+## Follow-on: complete source-derived star recalculation
+
+The original `Compute_Star_Colony_Stuff_` dependency (CODE `0xD5296`, 311 bytes) has now been independently reconstructed in `decompilation/reconstructed/compute_star_colony_stuff_v131.c`. `tests/test_remove_building_queue_compute_star_integration_v131.c` integrates that real implementation with source-derived original queue deletion and compaction for building IDs 8, 40 and 41. Star BYTE flags `+0x3B` and `+0x3C` are cleared only when the last of the three qualifying buildings is removed. ID22 still performs queue deletion **without** star recalculation. The source audit verifies the entire 311-byte body and 84 original instruction positions. The outer wrapper retains a callback boundary as an integration interface; the integrated test now supplies the reconstructed original calculation rather than a fake placeholder. See `decompilation/annotated/compute_star_colony_stuff_v131.md`.
