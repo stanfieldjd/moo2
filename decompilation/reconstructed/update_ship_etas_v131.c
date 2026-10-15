@@ -98,8 +98,9 @@ Moo2V131EtaResult moo2_v131_derived_update_ship_etas(
         const int16_t target_x=(int16_t)moo2_v131_eta_s16(star+0x0Fu);
         const int16_t target_y=(int16_t)moo2_v131_eta_s16(star+0x11u);
         uint16_t turns=0u;
+        size_t total_steps=0u;
         while(x!=target_x || y!=target_y) {
-            if((size_t)turns>=ctx->max_steps_per_ship) {
+            if(total_steps>=ctx->max_steps_per_ship) {
                 if(processed_ship_count)*processed_ship_count=processed;
                 return MOO2_V131_ETA_ITERATION_LIMIT;
             }
@@ -110,6 +111,7 @@ Moo2V131EtaResult moo2_v131_derived_update_ship_etas(
             uint8_t required_byte=0u;
             uint8_t *optional=ship[0x6Bu]==0u?&optional_byte:NULL;
             turns=(uint16_t)(turns+1u);
+            total_steps++;
             if(!ctx->move_one_turn(ctx->opaque,ship_owner,star_id,
                                    ship[0x6Cu],&x,&y,optional,&required_byte)) {
                 if(processed_ship_count)*processed_ship_count=processed;
