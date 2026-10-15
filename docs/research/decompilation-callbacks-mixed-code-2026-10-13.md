@@ -1006,3 +1006,60 @@ remains unfinished.
 
 No original proprietary game assets, Game Lab public
 site, Xbox controller or Qwen installation was changed.
+
+
+## 2026-10-15: full 311-byte star-colony calculation reconstructed
+
+The complete original `Compute_Star_Colony_Stuff_` Watcom
+function at CODE `0xD5296` (**311 source bytes**) is
+now reconstructed as working C, with eight original star
+status fields `+0x38,+0x39,+0x3B,+0x3C,+0x3D,+0x3E,+0x3F,+0x40`.
+The entire original function-body SHA-256 and its
+8-byte external shared epilogue at `0xD1F97` were
+independently verified against authenticated local
+`ORION2.EXE`. The new read-only source audit passes
+**84 exact x86 instruction checkpoints**, including
+global DATA pointers and named Watcom boundaries.
+
+Original algorithm: clear eight status bytes, reverse-scan
+five signed planet ID WORDs in the 113-byte star record,
+follow `_planet` (17-byte planet stride) to the colony,
+then `_colony` (361-byte stride) and its owner.
+Owner bit `1 << owner` is ORed into star fields based on
+colony building bytes 3, 8, 14, 40, 41, and 45 and
+original `_player` (3,753-byte stride) feature bytes
+`+0x17A,+0x1C1,+0x1C7,+0x1CB` being exactly 3.
+No original callee remains inside the complete 311-byte
+routine. The derived C preflights host pointers/indices
+before mutating the star, an explicit non-DOS safety
+difference.
+
+Files committed:
+
+- `decompilation/reconstructed/compute_star_colony_stuff_v131.c`
+- `decompilation/reconstructed/compute_star_colony_stuff_v131.h`
+- `tools/audit_compute_star_colony_stuff_v131.py`
+- `decompilation/reports/compute_star_colony_stuff_v131_2026-10-15.json`
+- `tests/test_compute_star_colony_stuff_v131.c`
+- `tests/test_remove_building_compute_star_integration_v131.c`
+- `tests/test_remove_building_queue_compute_star_integration_v131.c`
+- `decompilation/annotated/compute_star_colony_stuff_v131.md`
+
+Three source-derived C regressions passed strict C11,
+ASan, and UBSan. The standalone test exercises
+8,192 owner/building/technology configurations plus
+all five planet slots and invalid host state.
+The direct integration confirms original building
+IDs 3, 14 and 45 recompute star flags after removal.
+The queue-dependent integration runs the actual
+`Delete_From_Colony_Queue_` ship reset/compaction
+before recomputation for building IDs 8, 40 and 41.
+ID22 correctly skips recomputation.
+
+Remaining source work is the full original
+`Remove_Building_` dispatcher and other original
+helpers such as `Update_Ship_ETAs_`, along with
+the much larger game engine. The original DOS
+executable has not been dynamically differential-tested,
+and the public Game Lab/Xbox/Qwen services remain
+unchanged.
