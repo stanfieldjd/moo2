@@ -1,0 +1,47 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_complete_named_bodies": [
+    {
+      "symbol": "Move_Player_1_Turn_To_Star_",
+      "CODE_offset": "0xdbb0c",
+      "body_bytes": 422,
+      "complete_source_body_SHA256": "01baaeca994622f9d2d56541ef9b5a5463ffdd619a20054c34c4230e8e2c64cb"
+    },
+    {
+      "symbol": "Point_Is_In_Some_Nebula_",
+      "CODE_offset": "0xdba3a",
+      "body_bytes": 66,
+      "complete_source_body_SHA256": "78203712436446f44a76e139d6b3a899fda9595d48ad58a0d415441ba558f307"
+    },
+    {
+      "symbol": "Point_Is_In_Warp_Field_Interdictor_Of_Star_",
+      "CODE_offset": "0xdbac3",
+      "body_bytes": 73,
+      "complete_source_body_SHA256": "c9c753a493dd59543b8929aadcc4ea4e02bdfad1ca32c227074b91a22dbfb305"
+    },
+    {
+      "symbol": "isqrt_",
+      "CODE_offset": "0x124c92",
+      "body_bytes": 155,
+      "complete_source_body_SHA256": "712fab862da65b98b408b6bcaf4da8352fdb00306b0e40dfeeae616211d6c1b8"
+    }
+  ],
+  "unnamed_per_nebula_body": {
+    "CODE_offset": "0xdb9c8",
+    "size": 114,
+    "complete_source_body_SHA256": "4cc37fb9b315c032a08140ed6bb70828d18cbab39d92f13629297a5ffc7e34a8"
+  },
+  "verified_exact_original_opcode_sites": 124,
+  "source_environment_calls": {
+    "0xdba57": "0xdb9c8 per-nebula bitmap lookup",
+    "0xdbb66": "0x124c92 isqrt",
+    "0xdbc45": "0xdba3a Point_Is_In_Some_Nebula",
+    "0xdbc67": "0xdbac3 warp interdictor"
+  },
+  "nebula_data": "_nebula pointer 5-byte records, _NUM_NEBULAS unsigned BYTE, _nebula_pict_seg original 16-byte records with bitmap pointer +12; signed coordinate differences divide by 3, bitmap BYTE+16 >5",
+  "warp_data": "star BYTE+0x39 bit mask excludes player shift bit, signed squared distance <=8100 from signed star WORDs+0x0f,+0x11",
+  "movement_data": "signed dx/dy, original isqrt of 32-bit squared-distance, steps of 30 times t; roundup (abs(delta)*t*30+sqrt-1)/sqrt, stop on destination/nebula/warp/maximum speed",
+  "original_arrival_owner_local_effect": "CODE 0xdbba8 clears low16 of originally saved owner EAX on destination-arrival branch; subsequent warp check receives excluded owner 0 on that branch",
+  "movement_stack_args": "speed, output X*, output Y*, optional nebula flag*, required warp flag*; original RET 0x14",
+  "reconstruction_limitations": "valid original-format input and safe host bounds; original DOS dynamic differential execution not performed, original game assets are not included"
+}
