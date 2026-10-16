@@ -1,0 +1,33 @@
+{
+  "status": "source-verified-static-reconstruction",
+  "source_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "named_full_bodies": [
+    {
+      "name": "Colony_Food_Maintenance_",
+      "CODE_offset": "0xceb4b",
+      "bytes": 330,
+      "sha256": "005961c516ea2f30e4534b7e7c5eb4ede279dc9c53d89a49fd2f5214b5f84030"
+    },
+    {
+      "name": "Event_Check_Space_Anomaly_",
+      "CODE_offset": "0x1341e",
+      "bytes": 80,
+      "sha256": "dd82062b1a3404b5917ee04dceea3459291b8f96f1fda2b0b9ded5e7041932b4"
+    }
+  ],
+  "instruction_checkpoints": 73,
+  "independent_controlled_fixtures": 10,
+  "exception": "anomaly event -> zero BYTE +0xef, preserve existing four category and eight per-player bytes",
+  "non_exception": "zero four BYTE counters at +0xfc/+0xff/+0xfe/+0xfd and 8 bytes +0x104..+0x10b; traverse DWORD entries from +0x0c with BYTE+0x0a count",
+  "player_states": "for tag 0..7: player BYTE+0x8b0 nonzero ->1; otherwise BYTE+0x8b1 nonzero ->0; otherwise ->2",
+  "classification": "owner==tag -> BYTE+0xfc; otherwise bit10=1 -> BYTE+0xfe; otherwise -> BYTE+0xfd; per-tag BYTE+0x104+tag always also increments",
+  "special_tag": "tag 9 increments BYTE+0xff by 2; tags 8,10..15 have no effect",
+  "output": "sum of four zero-extended category bytes, ceil(total/2) for nonnegative counters; low result byte -> BYTE+0xef",
+  "shared_tail": "CODE 0xd1f97 leave;pop edi;pop esi;pop edx;pop ecx;pop ebx;ret",
+  "limitations": [
+    "No original DOS dynamic differential execution",
+    "Underlying gameplay meanings of player flags and list DWORD remain unverified",
+    "No native implementation or game-wide feature completion claimed"
+  ]
+}
