@@ -1,0 +1,11 @@
+# v1.31 BC production: numeric output, source-control edges, and optional reporting
+
+Source: exact official locally supplied `ORION2.EXE` v1.31 SHA-256 `4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f`; original Watcom LE CODE function `Colony_BC_Production_` begins CODE `0xD03F1`, length 1239 bytes. Full reproducible evidence and limitations: `tools/audit_colony_bc_production_v131.py`, `decompilation/annotated/colony_bc_production_v131.md`, `decompilation/reports/colony_bc_production_v131_2026-10-16.json`, original untouched text disassembly `analysis/Colony_BC_Production_.disasm`. No executable bytes or game assets were committed.
+
+The original v1.31 production result is a WORD at colony `+0xED`, not an unbounded integer. Empty colony population or a positive `Event_Check_Space_Anomaly_` result forces zero. The normal path integrates packed-population membership, the source player's production baseline, original signed morale corrections and other condition-specific bonuses. An existing colony WORD `+0x127` is included with 16-bit AX semantics before the final WORD write. An optional breakdown string is formatted after numeric calculation; this is not a dependency of the original production arithmetic.
+
+The original byte disassembler output contains continuation lines at `0xD040A`, `0xD0431`, and `0xD0885`. They are bytes belonging to longer preceding instructions, not additional instruction entries. The audit reconstructs them and verifies an exact 1239-byte, 381-instruction decode and all 72 source direct transfers. This independently resolves the false missing-byte impression from a naive line-by-line decoder.
+
+The original named `Event_Check_Space_Anomaly_`, `Colony_Officer_`, `Owned_Officer_Level_`, and `sprintf_` callees are authenticated by exact original named-body hashes. Runtime string content and the full signed-domain production modifier meanings are not established here. Selected controlled population-split and positive quarter-rounding fixtures pass, but no original DOS runtime differential execution or complete native gameplay implementation has been performed.
+
+The new evidence does not change the project's recorded whole-executable 87% completion estimate.

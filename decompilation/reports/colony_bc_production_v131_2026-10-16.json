@@ -1,0 +1,493 @@
+{
+  "status": "source-verified-static-control-flow-and-selected-production-paths",
+  "original_game_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "full_named_bodies": [
+    {
+      "name": "Colony_BC_Production_",
+      "offset": "0xd03f1",
+      "bytes": 1239,
+      "sha256": "4ea7459e0e93d44fa342b14b568351a51a2ff317c3291cc98500da0639edc4ac"
+    },
+    {
+      "name": "Event_Check_Space_Anomaly_",
+      "offset": "0x1341e",
+      "bytes": 80,
+      "sha256": "dd82062b1a3404b5917ee04dceea3459291b8f96f1fda2b0b9ded5e7041932b4"
+    },
+    {
+      "name": "Colony_Officer_",
+      "offset": "0xcd9f2",
+      "bytes": 68,
+      "sha256": "a573f1396f45fe66f4484dfc1965704989b7a3af6301a75b173c13ec9a98afcc"
+    },
+    {
+      "name": "Owned_Officer_Level_",
+      "offset": "0x84951",
+      "bytes": 86,
+      "sha256": "c067e6142cc3347a958ff8a7d868a10f4039296419eb9acf5b989f0b7f438586"
+    },
+    {
+      "name": "sprintf_",
+      "offset": "0x1165f2",
+      "bytes": 48,
+      "sha256": "f46feba187f8dac98b214d9f95e9f7de8d387731802675ace60857d61d0f3b38"
+    }
+  ],
+  "complete_decoded_body_bytes": 1239,
+  "decoded_instruction_count": 381,
+  "objdump_continuation_lines_reconstructed": [
+    {
+      "address": "0xd040a",
+      "continuation_bytes": 2,
+      "op_start": "0xd0403"
+    },
+    {
+      "address": "0xd0431",
+      "continuation_bytes": 2,
+      "op_start": "0xd042a"
+    },
+    {
+      "address": "0xd0885",
+      "continuation_bytes": 1,
+      "op_start": "0xd087e"
+    }
+  ],
+  "verified_opcode_anchors": 71,
+  "direct_transfer_inventory": [
+    {
+      "instruction": "0xd0401",
+      "operation": "jne",
+      "target": "0xd0411"
+    },
+    {
+      "instruction": "0xd040c",
+      "operation": "jmp",
+      "target": "0xceb17"
+    },
+    {
+      "instruction": "0xd0420",
+      "operation": "call",
+      "target": "0x1341e"
+    },
+    {
+      "instruction": "0xd0428",
+      "operation": "je",
+      "target": "0xd0450"
+    },
+    {
+      "instruction": "0xd0435",
+      "operation": "je",
+      "target": "0xceb17"
+    },
+    {
+      "instruction": "0xd0448",
+      "operation": "jne",
+      "target": "0xd0442"
+    },
+    {
+      "instruction": "0xd044b",
+      "operation": "jmp",
+      "target": "0xceb17"
+    },
+    {
+      "instruction": "0xd0468",
+      "operation": "call",
+      "target": "0xcd9f2"
+    },
+    {
+      "instruction": "0xd04b2",
+      "operation": "jmp",
+      "target": "0xd04de"
+    },
+    {
+      "instruction": "0xd04c3",
+      "operation": "jae",
+      "target": "0xd04de"
+    },
+    {
+      "instruction": "0xd04d4",
+      "operation": "je",
+      "target": "0xd04db"
+    },
+    {
+      "instruction": "0xd04d9",
+      "operation": "jmp",
+      "target": "0xd04de"
+    },
+    {
+      "instruction": "0xd04e4",
+      "operation": "jb",
+      "target": "0xd04b4"
+    },
+    {
+      "instruction": "0xd0507",
+      "operation": "je",
+      "target": "0xd051a"
+    },
+    {
+      "instruction": "0xd0533",
+      "operation": "jle",
+      "target": "0xd0593"
+    },
+    {
+      "instruction": "0xd0565",
+      "operation": "je",
+      "target": "0xd0593"
+    },
+    {
+      "instruction": "0xd0571",
+      "operation": "jl",
+      "target": "0xd0582"
+    },
+    {
+      "instruction": "0xd0580",
+      "operation": "jmp",
+      "target": "0xd0593"
+    },
+    {
+      "instruction": "0xd05a7",
+      "operation": "jb",
+      "target": "0xd05c3"
+    },
+    {
+      "instruction": "0xd05a9",
+      "operation": "jbe",
+      "target": "0xd05b1"
+    },
+    {
+      "instruction": "0xd05ad",
+      "operation": "je",
+      "target": "0xd05ba"
+    },
+    {
+      "instruction": "0xd05af",
+      "operation": "jmp",
+      "target": "0xd05c3"
+    },
+    {
+      "instruction": "0xd05b8",
+      "operation": "jmp",
+      "target": "0xd05ca"
+    },
+    {
+      "instruction": "0xd05c1",
+      "operation": "jmp",
+      "target": "0xd05ca"
+    },
+    {
+      "instruction": "0xd05d5",
+      "operation": "jb",
+      "target": "0xd061a"
+    },
+    {
+      "instruction": "0xd05d7",
+      "operation": "jbe",
+      "target": "0xd05e5"
+    },
+    {
+      "instruction": "0xd05dd",
+      "operation": "jb",
+      "target": "0xd061a"
+    },
+    {
+      "instruction": "0xd05e3",
+      "operation": "ja",
+      "target": "0xd061a"
+    },
+    {
+      "instruction": "0xd05ff",
+      "operation": "jle",
+      "target": "0xd061a"
+    },
+    {
+      "instruction": "0xd0608",
+      "operation": "je",
+      "target": "0xd060f"
+    },
+    {
+      "instruction": "0xd060d",
+      "operation": "jmp",
+      "target": "0xd061a"
+    },
+    {
+      "instruction": "0xd063b",
+      "operation": "jne",
+      "target": "0xd0647"
+    },
+    {
+      "instruction": "0xd064e",
+      "operation": "je",
+      "target": "0xd0653"
+    },
+    {
+      "instruction": "0xd065a",
+      "operation": "je",
+      "target": "0xd0666"
+    },
+    {
+      "instruction": "0xd067f",
+      "operation": "jb",
+      "target": "0xd06a1"
+    },
+    {
+      "instruction": "0xd0681",
+      "operation": "jbe",
+      "target": "0xd0689"
+    },
+    {
+      "instruction": "0xd0685",
+      "operation": "je",
+      "target": "0xd0692"
+    },
+    {
+      "instruction": "0xd0687",
+      "operation": "jmp",
+      "target": "0xd06a1"
+    },
+    {
+      "instruction": "0xd0690",
+      "operation": "jmp",
+      "target": "0xd069e"
+    },
+    {
+      "instruction": "0xd06a5",
+      "operation": "je",
+      "target": "0xd06f4"
+    },
+    {
+      "instruction": "0xd06b7",
+      "operation": "je",
+      "target": "0xd06d3"
+    },
+    {
+      "instruction": "0xd06bc",
+      "operation": "call",
+      "target": "0x84951"
+    },
+    {
+      "instruction": "0xd06d1",
+      "operation": "jmp",
+      "target": "0xd06ee"
+    },
+    {
+      "instruction": "0xd06d7",
+      "operation": "je",
+      "target": "0xd06f4"
+    },
+    {
+      "instruction": "0xd06dc",
+      "operation": "call",
+      "target": "0x84951"
+    },
+    {
+      "instruction": "0xd0720",
+      "operation": "je",
+      "target": "0xceb17"
+    },
+    {
+      "instruction": "0xd0731",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0746",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0754",
+      "operation": "je",
+      "target": "0xd076f"
+    },
+    {
+      "instruction": "0xd0765",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0771",
+      "operation": "jle",
+      "target": "0xd078a"
+    },
+    {
+      "instruction": "0xd0780",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd078c",
+      "operation": "jge",
+      "target": "0xd07a5"
+    },
+    {
+      "instruction": "0xd079b",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd07a9",
+      "operation": "je",
+      "target": "0xd07c4"
+    },
+    {
+      "instruction": "0xd07ba",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd07c8",
+      "operation": "je",
+      "target": "0xd07e3"
+    },
+    {
+      "instruction": "0xd07d9",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd07e7",
+      "operation": "je",
+      "target": "0xd0802"
+    },
+    {
+      "instruction": "0xd07f8",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0806",
+      "operation": "je",
+      "target": "0xd0821"
+    },
+    {
+      "instruction": "0xd0817",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0825",
+      "operation": "je",
+      "target": "0xd0840"
+    },
+    {
+      "instruction": "0xd0836",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0844",
+      "operation": "je",
+      "target": "0xd085f"
+    },
+    {
+      "instruction": "0xd0855",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0863",
+      "operation": "je",
+      "target": "0xd087e"
+    },
+    {
+      "instruction": "0xd0874",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd0886",
+      "operation": "je",
+      "target": "0xd08a6"
+    },
+    {
+      "instruction": "0xd089c",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd08ac",
+      "operation": "call",
+      "target": "0x1165f2"
+    },
+    {
+      "instruction": "0xd08c3",
+      "operation": "jmp",
+      "target": "0xceb08"
+    }
+  ],
+  "named_direct_callees": [
+    {
+      "name": "Event_Check_Space_Anomaly_",
+      "target": "0x1341e",
+      "calls": [
+        "0xd0420"
+      ]
+    },
+    {
+      "name": "Colony_Officer_",
+      "target": "0xcd9f2",
+      "calls": [
+        "0xd0468"
+      ]
+    },
+    {
+      "name": "Owned_Officer_Level_",
+      "target": "0x84951",
+      "calls": [
+        "0xd06bc",
+        "0xd06dc"
+      ]
+    },
+    {
+      "name": "sprintf_",
+      "target": "0x1165f2",
+      "calls": [
+        "0xd0731",
+        "0xd0746",
+        "0xd0765",
+        "0xd0780",
+        "0xd079b",
+        "0xd07ba",
+        "0xd07d9",
+        "0xd07f8",
+        "0xd0817",
+        "0xd0836",
+        "0xd0855",
+        "0xd0874",
+        "0xd089c",
+        "0xd08ac"
+      ]
+    }
+  ],
+  "authenticated_CODE_indexed_table": {
+    "offset": "0xcd4e6",
+    "bytes": [
+      0,
+      0,
+      1,
+      2,
+      3,
+      25,
+      25,
+      25
+    ],
+    "sha256": "59f534fc4d2ed728a8bd38cf136dea4a78ac39176d0d941ef82ef3d2be8450e8"
+  },
+  "controlled_synthetic_fixtures": 12,
+  "source_observations": [
+    "BYTE+0x0a ==0 -> store 0 at colony WORD+0xed and return through shared tail",
+    "nonzero Event_Check_Space_Anomaly_ -> store 0 at colony WORD+0xed; optional EDI text gets _anomaly_msg",
+    "original owner-player BYTE+0x8a4 doubled plus 4 contributes to base",
+    "reverse packed colony entries low nibble <8; look up player BYTE+0x8b6 to split two counts",
+    "positive-domain raw base count product uses +2 and signed quarter arithmetic",
+    "government-group==3 bypasses BYTE+0x07 morale correction",
+    "colony WORD+0x127 added before final WORD+0xed production write at CODE 0xd0717",
+    "optional breakdown formatting after WORD+0xed write, with shared return at 0xceb17 and final shared formatter at 0xceb08"
+  ],
+  "limits": [
+    "No DOS dynamic differential execution",
+    "All source-wide numeric/signed domain and production modifier semantics not established",
+    "Controlled fixtures demonstrate selected paths, not full native gameplay equivalence"
+  ]
+}
