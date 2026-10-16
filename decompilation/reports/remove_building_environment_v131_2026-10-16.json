@@ -1,0 +1,69 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "source_verified_complete_named_function_bodies": [
+    {
+      "symbol": "Remove_Building_",
+      "original_CODE_offset": "0x45ea",
+      "body_bytes": 493,
+      "original_complete_body_sha256": "8e0eb8d52268bf214d1ce3ec73d0e9970f0b4db1b0d1cae035810ace87179875"
+    },
+    {
+      "symbol": "First_Prod_Colony_Queue_Slot_",
+      "original_CODE_offset": "0xa1c5d",
+      "body_bytes": 250,
+      "original_complete_body_sha256": "11867a68c2ee5ba78c659d3427ce47578b18c2eaa2fa0eea7cfaabb34f0f6a05"
+    },
+    {
+      "symbol": "Delete_Prod_From_Colony_Queue_",
+      "original_CODE_offset": "0xa206f",
+      "body_bytes": 50,
+      "original_complete_body_sha256": "ff7eaeb75eddf9e05c4f489a5ec8b2be1bc833b06cce80336e8ad75d483da4c9"
+    },
+    {
+      "symbol": "Delete_From_Colony_Queue_",
+      "original_CODE_offset": "0xa1e19",
+      "body_bytes": 94,
+      "original_complete_body_sha256": "f3826251d3060f54504bbd3cfefbfd77b33c9c55fbf3f535b57d6e94ffa14316"
+    },
+    {
+      "symbol": "Colony_Environmental_Stuff_",
+      "original_CODE_offset": "0xd1ced",
+      "body_bytes": 108,
+      "original_complete_body_sha256": "94c8b7df7075f34a74650d3dc72ff466c6d9e69d57afaaa2502679d16131a086"
+    },
+    {
+      "symbol": "Enforce_Population_Limits_At_Colony_",
+      "original_CODE_offset": "0xdc97c",
+      "body_bytes": 489,
+      "original_complete_body_sha256": "6e728e998d84105e2a3004ad1809c94ea1acf201db4ab907a6a935be54b92845"
+    },
+    {
+      "symbol": "Colony_Calculation_",
+      "original_CODE_offset": "0xd2a70",
+      "body_bytes": 65,
+      "original_complete_body_sha256": "e667850010cdc8cb620bb98fcc6fe0c2b12971f572a8c48930c88833b940d63d"
+    }
+  ],
+  "exact_original_opcode_checkpoints": 88,
+  "original_named_DATA": {
+    "_colony": "0x1ab18",
+    "_planet": "0x1b0d4"
+  },
+  "building_ids": [
+    15,
+    23,
+    24,
+    28
+  ],
+  "first_write": "colony[0x136+building_id]=0 at CODE 0x460a",
+  "building15": "direct environmental+population-limits+colony-calculation path (CODE 0x47aa)",
+  "building23_24_and_28": "if unsigned planet BYTE+8 <2, original Delete_Prod_From_Colony_Queue_(colony,44), then common environment/population/colony calculation",
+  "product44_queue": "for positive DX44, First_Prod_Colony_Queue_Slot_ scans seven exact matching queue WORDs; repeated Delete_From_Colony_Queue_ compacts and removes -10 placeholders",
+  "environmental_source": "colony+0xe2 starts planet BYTE+8; if value==1 and (colony+0x14d or +0x14e nonzero), replace with 2",
+  "building_flag_prerequisites": "ID23 removal clears colony+0x14d, ID24 clears colony+0x14e; both flags are tested after that initial clear by the environmental function",
+  "environmental_unreachable_conditional": "CODE 0xd1d1e CMP AL,AL; subsequent JNE at 0xd1d20 can never be taken; consequently colony+0x152 is irrelevant in the observed path",
+  "food_state": "Colony_Food2_Per_Farmer_(colony pointer, signed colony owner, EBX0) at 0xce03e; low WORD zero => colony BYTE+0xe0=0 else 255",
+  "shared_downstream_calls": "Colony_Environmental_Stuff_ 0xd1ced -> Enforce_Population_Limits_At_Colony_ 0xdc97c -> Colony_Calculation_ 0xd2a70",
+  "original_register_preservation": "Environmental and population-limit routines push/pop EDX; final MOV EAX,EDX sends original colony index to Colony_Calculation_",
+  "scope": "fully source-authenticated building dispatch, specialized queue purge, full environmental arithmetic with food callback; population limits, colony calculation and food per farmer source effects not yet replaced; no DOS dynamic differential execution"
+}
