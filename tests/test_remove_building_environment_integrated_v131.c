@@ -1,4 +1,4 @@
-/* Original source-derived Remove_Building_ ID15/24/28 integrated
+/* Original source-derived Remove_Building_ ID15/23/24/28 integrated
  * with actual Colony_Environmental_Stuff_ (108 bytes).
  * Real Enforce_Population_Limits_At_Colony_ and Colony_Calculation_
  * stay explicit order-checking callbacks until their effects are rebuilt.
@@ -71,13 +71,13 @@ int main(void){
         colonies,2u,planets,2u,environment,limits,calculation,&h
     };
     unsigned cases=0;
-    for(unsigned id_index=0;id_index<3u;id_index++)
+    for(unsigned id_index=0;id_index<4u;id_index++)
       for(unsigned planet_status=0;planet_status<4u;planet_status++)
       for(unsigned flags=0;flags<4u;flags++)
       for(unsigned f=0;f<2u;f++) {
         memset(colonies,0,sizeof(colonies));
         uint8_t *colony=colonies+0x169u;
-        int16_t building=(int16_t)(id_index==0?15:id_index==1?24:28);
+        int16_t building=(int16_t)(id_index==0?15:id_index==1?23:id_index==2?24:28);
         h.colony=colony;
         h.building_id=building;
         h.colony_id=1;
@@ -90,7 +90,8 @@ int main(void){
         put16(colony+2u,1);
         planets[0x11u+0x08u]=(uint8_t)planet_status;
         h.environmental_result=(int32_t)(planet_status==1u &&
-            ((flags&1u)!=0u || ((flags&2u)!=0u && building!=24))
+            (((flags&1u)!=0u && building!=23) ||
+             ((flags&2u)!=0u && building!=24))
             ?2u:planet_status);
         const int32_t q[7]={44,-10,3,44,-1,-1,-1};
         for(unsigned slot=0;slot<7u;slot++)
@@ -107,6 +108,6 @@ int main(void){
         require(colony[0x136u+(unsigned)building]==0);
         cases++;
       }
-    printf("PASS %u integrated original building15/24/28 -> production44 purge -> real 108-byte colony environment -> pop/calc boundaries\n",cases);
+    printf("PASS %u integrated original building15/23/24/28 -> production44 purge -> real 108-byte colony environment -> pop/calc boundaries\n",cases);
     return 0;
 }
