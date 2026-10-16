@@ -1,0 +1,94 @@
+{
+  "status": "source-verified-planet-special-10-11-new-game-generation-provenance",
+  "official_game_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "Watcom_LE_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "complete_source_verified_named_bodies": [
+    {
+      "name": "Init_New_Game_",
+      "CODE_offset": "0x2479",
+      "length": 801,
+      "sha256": "d09b0be693dc6e48b44811a5f3022630220f97546948222d874aa0734d10cc2d"
+    },
+    {
+      "name": "Generate_Home_Worlds_",
+      "CODE_offset": "0x6b8cd",
+      "length": 745,
+      "sha256": "f4cfb1e0dc82a25d1796a96fae93be264e61d1d24ae2498c65b52e03643b9f9e"
+    },
+    {
+      "name": "Modify_Home_Worlds_",
+      "CODE_offset": "0x6c4af",
+      "length": 576,
+      "sha256": "868919235947ff50eeca75301fa7c6ae5d07cee7b73a9937a101aa9d497a2f05"
+    },
+    {
+      "name": "Generate_Orion_",
+      "CODE_offset": "0x6bbbc",
+      "length": 459,
+      "sha256": "697f4b6bb2041aca6d49a43a33333e406ed42444bd1ef89f353ad3b6423678cc"
+    },
+    {
+      "name": "Enforce_Artifacts_Special_",
+      "CODE_offset": "0x6b5b2",
+      "length": 33,
+      "sha256": "f5b424bd3263c800e1af3d7f018fb1b2f672084c26c14e7bbbbc59d98f51ad27"
+    },
+    {
+      "name": "Colony_Research_Per_Scientist_",
+      "CODE_offset": "0xcfdc6",
+      "length": 177,
+      "sha256": "7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14"
+    }
+  ],
+  "opcode_anchors_checked": 28,
+  "original_new_game_named_direct_calls": [
+    {
+      "caller": "Init_New_Game_",
+      "callee": "Generate_Home_Worlds_"
+    },
+    {
+      "caller": "Generate_Home_Worlds_",
+      "callee": "Modify_Home_Worlds_"
+    },
+    {
+      "caller": "Generate_Home_Worlds_",
+      "callee": "Generate_Orion_"
+    }
+  ],
+  "original_homeworld_code_10": {
+    "function": "Modify_Home_Worlds_",
+    "CODE_gate": "0x6c61f",
+    "original_source_player_flag": "BYTE player+0x8af !=0",
+    "CODE_write": "0x6c635",
+    "planet_record_stride": 17,
+    "outcome": "planet BYTE+0xf = 10, star BYTE+0x28 = 10 if gate true"
+  },
+  "original_orion_code_11": {
+    "function": "Generate_Orion_",
+    "CODE_write": "0x6bd3e",
+    "outcome": "planet BYTE+0xf = 11",
+    "initial_planet_owner_word": "-1, original CODE 0x6bd17",
+    "limit": "initially unowned does not imply colony reachable at that point"
+  },
+  "independent_artifact_writer": {
+    "function": "Enforce_Artifacts_Special_",
+    "CODE_write": "0x6b5bc",
+    "source_target": "planet BYTE+0xf = 10",
+    "limit": "No direct caller established in original named CALL graph"
+  },
+  "source_consumption": {
+    "function": "Colony_Research_Per_Scientist_",
+    "CODE_read": "0xcfe42",
+    "same_global_planet_DATA": "0x1b0d4",
+    "planet_byte_10_add": 2,
+    "planet_byte_11_add": 5
+  },
+  "bounded_synthetic_checks": 13,
+  "conformance_limits": [
+    "Source demonstrates explicit new-game assignment of codes 10 and 11, not every combined player/colony state",
+    "No original DOS savegame/dynamic-differential runtime validation was performed",
+    "No proof yet that a 0x8af-enabled homeworld achieves all particular synthetic research worker, settings, gravity, ownership and morale predicates",
+    "No evidence that Orion's initial owner WORD -1 is a colonized game state",
+    "The original function raw bytes and complete bodies were checked; no claim of full machine-instruction CFG coverage for large generation functions"
+  ]
+}
