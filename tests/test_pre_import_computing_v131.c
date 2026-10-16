@@ -44,7 +44,7 @@ static int stage_callback(void *opaque,
        put16(colony+0xE9u,h->replicator_e9);
     }
     if(stage>=MOO2_V131_PRE_RESEARCH_PRODUCTION) {
-        int cmp=h->replicator_f0<h->replicator_e9?
+        int cmp=(int)h->replicator_f0<h->replicator_e9?
              (int)h->replicator_f0:h->replicator_e9;
         must(read16(colony+0xF5u)==cmp);
     }
@@ -101,7 +101,7 @@ int main(void){
         must(colony[0xDDu]==h.expected_food &&
              colony[0xDEu]==h.expected_worker &&
              colony[0xDFu]==h.expected_scientist);
-        const int expected=h.replicator_f0<h.replicator_e9?
+        const int expected=(int)h.replicator_f0<h.replicator_e9?
               (int)h.replicator_f0:h.replicator_e9;
         must(read16(colony+0xF5u)==expected);
         cases++;
