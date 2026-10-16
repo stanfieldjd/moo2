@@ -1,0 +1,50 @@
+{
+  "status": "original-source-verified-byte-offsets-and-race-option-indexes",
+  "source_executable_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "segment": "Watcom LE DATA object 2",
+  "source_functions": [
+    {
+      "name": "Gravity_Player_Production_Factor_",
+      "CODE_offset": "0xCDF2C",
+      "sha256": "a0660fd4edfd3b57bb91c406ca614e6c445ff509fb191eb5b757bdc254142200"
+    },
+    {
+      "name": "Convert_Player_To_Flags_",
+      "CODE_offset": "0x4AD97"
+    },
+    {
+      "name": "Convert_Flags_To_Player_",
+      "CODE_offset": "0x4AE38"
+    }
+  ],
+  "original_named_option_array": {
+    "name": "_option_toggle",
+    "DATA_offset": "0x236DC"
+  },
+  "verified_fields": [
+    {
+      "player_BYTE": "+0x8A9",
+      "option_WORD_DATA": "0x236DC",
+      "zero_based_option_index": 0
+    },
+    {
+      "player_BYTE": "+0x8AA",
+      "option_WORD_DATA": "0x236DE",
+      "zero_based_option_index": 1
+    }
+  ],
+  "original_planet_gravity": {
+    "named_global": "_planet",
+    "DATA_offset": "0x1B0D4",
+    "planet_record_stride": 17,
+    "planet_BYTE": "+0x06"
+  },
+  "confidence": {
+    "function_source_bytes": "verified",
+    "option_slot_mapping": "verified",
+    "original_UI_trait_names": "unknown",
+    "normal_valid_domain": "not_fully_proven",
+    "original_DOS_dynamic_comparison": "untested"
+  },
+  "audit": "tools/audit_gravity_production_factor_v131.py"
+}

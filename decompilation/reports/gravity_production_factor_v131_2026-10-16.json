@@ -1,0 +1,291 @@
+{
+  "status": "source-verified-gravity-factor-and-race-option-0-1",
+  "official_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "verified_original_function_bodies": [
+    {
+      "name": "Gravity_Player_Production_Factor_",
+      "CODE_offset": "0xcdf2c",
+      "bytes": 167,
+      "SHA256": "a0660fd4edfd3b57bb91c406ca614e6c445ff509fb191eb5b757bdc254142200",
+      "decoded_instructions": 52,
+      "decoder_continuation_rows": [
+        {
+          "at": "0xcdf7e",
+          "from": "0xcdf77",
+          "bytes": 1
+        },
+        {
+          "at": "0xcdfa1",
+          "from": "0xcdf9a",
+          "bytes": 1
+        },
+        {
+          "at": "0xcdfbc",
+          "from": "0xcdfb5",
+          "bytes": 1
+        }
+      ],
+      "opcode_checks": 29,
+      "complete_original_direct_branches": [
+        {
+          "from": "0xcdf35",
+          "to": "0xcdfc9",
+          "opcode": "jne"
+        },
+        {
+          "from": "0xcdf3f",
+          "to": "0xcdfc9",
+          "opcode": "jge"
+        },
+        {
+          "from": "0xcdf58",
+          "to": "0xcdf65",
+          "opcode": "jb"
+        },
+        {
+          "from": "0xcdf5a",
+          "to": "0xcdf8b",
+          "opcode": "jbe"
+        },
+        {
+          "from": "0xcdf5e",
+          "to": "0xcdfa6",
+          "opcode": "je"
+        },
+        {
+          "from": "0xcdf67",
+          "to": "0xcdfce",
+          "opcode": "jne"
+        },
+        {
+          "from": "0xcdf7f",
+          "to": "0xcdfc9",
+          "opcode": "jne"
+        },
+        {
+          "from": "0xcdfa2",
+          "to": "0xcdf81",
+          "opcode": "jne"
+        },
+        {
+          "from": "0xcdfa4",
+          "to": "0xcdfc9",
+          "opcode": "jmp"
+        },
+        {
+          "from": "0xcdfbd",
+          "to": "0xcdfc9",
+          "opcode": "jne"
+        }
+      ]
+    },
+    {
+      "name": "Convert_Player_To_Flags_",
+      "CODE_offset": "0x4ad97",
+      "bytes": 161,
+      "SHA256": "e84d39178d6ef63e679d205d734a991add5d774997653e3edba64b2a371f9d95",
+      "decoded_instructions": 46,
+      "decoder_continuation_rows": [
+        {
+          "at": "0x4add1",
+          "from": "0x4adca",
+          "bytes": 1
+        },
+        {
+          "at": "0x4adf4",
+          "from": "0x4aded",
+          "bytes": 1
+        },
+        {
+          "at": "0x4ae11",
+          "from": "0x4ae0a",
+          "bytes": 2
+        },
+        {
+          "at": "0x4ae1a",
+          "from": "0x4ae13",
+          "bytes": 2
+        },
+        {
+          "at": "0x4ae25",
+          "from": "0x4ae1e",
+          "bytes": 2
+        }
+      ],
+      "opcode_checks": 7
+    },
+    {
+      "name": "Convert_Flags_To_Player_",
+      "CODE_offset": "0x4ae38",
+      "bytes": 188,
+      "SHA256": "55e168ee1847ba7de6868476a4acff3811b89d1b996c8555c0dec08666eb0fd5",
+      "decoded_instructions": 60,
+      "decoder_continuation_rows": [
+        {
+          "at": "0x4ae70",
+          "from": "0x4ae69",
+          "bytes": 1
+        },
+        {
+          "at": "0x4aeae",
+          "from": "0x4aea7",
+          "bytes": 1
+        },
+        {
+          "at": "0x4aebd",
+          "from": "0x4aeb6",
+          "bytes": 1
+        }
+      ],
+      "opcode_checks": 7
+    },
+    {
+      "name": "Colony_Job_Production_",
+      "CODE_offset": "0xce280",
+      "bytes": 996,
+      "SHA256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860",
+      "decoded_instructions": 283,
+      "decoder_continuation_rows": [
+        {
+          "at": "0xce2d8",
+          "from": "0xce2d1",
+          "bytes": 1
+        },
+        {
+          "at": "0xce41f",
+          "from": "0xce418",
+          "bytes": 1
+        },
+        {
+          "at": "0xce427",
+          "from": "0xce420",
+          "bytes": 1
+        },
+        {
+          "at": "0xce436",
+          "from": "0xce42f",
+          "bytes": 1
+        },
+        {
+          "at": "0xce43e",
+          "from": "0xce437",
+          "bytes": 1
+        },
+        {
+          "at": "0xce451",
+          "from": "0xce44a",
+          "bytes": 1
+        },
+        {
+          "at": "0xce459",
+          "from": "0xce452",
+          "bytes": 1
+        }
+      ],
+      "opcode_checks": 6
+    }
+  ],
+  "decoded_instructions_across_four_bodies": 441,
+  "source_opcode_checks": 49,
+  "source_direct_named_callers": [
+    "Colony_Job_Production_",
+    "Colony_Pop_Prod_Produced_"
+  ],
+  "bounded_result_matrix": [
+    {
+      "planet_gravity_BYTE": 0,
+      "race_8a9": false,
+      "race_8aa": false,
+      "factor": 3
+    },
+    {
+      "planet_gravity_BYTE": 0,
+      "race_8a9": false,
+      "race_8aa": true,
+      "factor": 3
+    },
+    {
+      "planet_gravity_BYTE": 0,
+      "race_8a9": true,
+      "race_8aa": false,
+      "factor": 4
+    },
+    {
+      "planet_gravity_BYTE": 0,
+      "race_8a9": true,
+      "race_8aa": true,
+      "factor": 4
+    },
+    {
+      "planet_gravity_BYTE": 1,
+      "race_8a9": false,
+      "race_8aa": false,
+      "factor": 4
+    },
+    {
+      "planet_gravity_BYTE": 1,
+      "race_8a9": false,
+      "race_8aa": true,
+      "factor": 4
+    },
+    {
+      "planet_gravity_BYTE": 1,
+      "race_8a9": true,
+      "race_8aa": false,
+      "factor": 3
+    },
+    {
+      "planet_gravity_BYTE": 1,
+      "race_8a9": true,
+      "race_8aa": true,
+      "factor": 3
+    },
+    {
+      "planet_gravity_BYTE": 2,
+      "race_8a9": false,
+      "race_8aa": false,
+      "factor": 2
+    },
+    {
+      "planet_gravity_BYTE": 2,
+      "race_8a9": false,
+      "race_8aa": true,
+      "factor": 4
+    },
+    {
+      "planet_gravity_BYTE": 2,
+      "race_8a9": true,
+      "race_8aa": false,
+      "factor": 2
+    },
+    {
+      "planet_gravity_BYTE": 2,
+      "race_8a9": true,
+      "race_8aa": true,
+      "factor": 4
+    }
+  ],
+  "controlled_fixture_assertions": 145,
+  "source_race_option_fields": [
+    {
+      "player_offset": "0x8a9",
+      "option_WORD_address": "0x236dc",
+      "option_toggle_index": 0
+    },
+    {
+      "player_offset": "0x8aa",
+      "option_WORD_address": "0x236de",
+      "option_toggle_index": 1
+    }
+  ],
+  "normal_factor": "colony BYTE+0x14f nonzero or tag>=8 =>4; planet BYTE+0x06=0 => player+0x8a9 ? 4:3; =1 => player+0x8a9 ? 3:4; =2 => player+0x8aa ?4:2",
+  "job_gravity_term": "-5*(4-factor)*per-population production base",
+  "unresolved_outside_domain": "planet gravity BYTE >=3 reaches original CODE 0xcdf60 MOV EAX,EBX; no local default assignment proven",
+  "limits": [
+    "Original DOS runtime not executed",
+    "All real-state constraints and user-facing option names not established",
+    "The original planet BYTE+0x06 normal range 0..2 remains to be proved globally",
+    "No native game or user-authorized rule changes"
+  ]
+}
