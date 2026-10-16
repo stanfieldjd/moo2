@@ -1,0 +1,165 @@
+{
+  "status": "source-authenticated-optional-breakdown-to-numeric-path",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "fully_verified_named_original_bodies": [
+    {
+      "name": "Colony_Job_Production_",
+      "CODE_offset": "0xce280",
+      "bytes": 996,
+      "sha256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860",
+      "decoded_instructions": 283,
+      "continuation_lines_rejoined": [
+        {
+          "at": "0xce2d8",
+          "from": "0xce2d1",
+          "bytes": 1
+        },
+        {
+          "at": "0xce41f",
+          "from": "0xce418",
+          "bytes": 1
+        },
+        {
+          "at": "0xce427",
+          "from": "0xce420",
+          "bytes": 1
+        },
+        {
+          "at": "0xce436",
+          "from": "0xce42f",
+          "bytes": 1
+        },
+        {
+          "at": "0xce43e",
+          "from": "0xce437",
+          "bytes": 1
+        },
+        {
+          "at": "0xce451",
+          "from": "0xce44a",
+          "bytes": 1
+        },
+        {
+          "at": "0xce459",
+          "from": "0xce452",
+          "bytes": 1
+        }
+      ]
+    },
+    {
+      "name": "Colony_Pop_Base_Prod_Produced_",
+      "CODE_offset": "0xce22c",
+      "bytes": 84,
+      "sha256": "964117fde615677bbecb22bd682edf239015961f1ef758b03b67aaec5c0e0661",
+      "decoded_instructions": 23,
+      "continuation_lines_rejoined": []
+    },
+    {
+      "name": "Colony_Empire_Base_Research_Produced_",
+      "CODE_offset": "0xcfe77",
+      "bytes": 253,
+      "sha256": "1e72e37daea066aa98c587b71c86f1faae81775b60886693b9a3d33b8888e0f9",
+      "decoded_instructions": 67,
+      "continuation_lines_rejoined": [
+        {
+          "at": "0xcfebc",
+          "from": "0xcfeb5",
+          "bytes": 1
+        },
+        {
+          "at": "0xcff6e",
+          "from": "0xcff67",
+          "bytes": 1
+        }
+      ]
+    },
+    {
+      "name": "Colony_Research_Per_Scientist_",
+      "CODE_offset": "0xcfdc6",
+      "bytes": 177,
+      "sha256": "7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14",
+      "decoded_instructions": 57,
+      "continuation_lines_rejoined": [
+        {
+          "at": "0xcfdeb",
+          "from": "0xcfde4",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe03",
+          "from": "0xcfdfc",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe1c",
+          "from": "0xcfe15",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe33",
+          "from": "0xcfe2c",
+          "bytes": 2
+        }
+      ]
+    }
+  ],
+  "original_opcode_anchors": 35,
+  "temp_breakdown_start_local": "EBP-0x4d4",
+  "nested_research_breakdown_offset": "0x226",
+  "same_local_numeric_read": "EBP-0x2ae",
+  "source_original_pointer_gate": "optional external breakdown pointer controls passing ECX = temp local buffer or ECX = 0",
+  "source_original_numeric_dependency": "job always reads EBP-0x2ae when building eligible population contribution, including when temp buffer was not passed",
+  "research_helper_specific_write": "when EBX nonnull and planet BYTE+0xf is 10 or 11, original helper ADDs 2 or 5 to DWORD [EBX+0x226]",
+  "synthetic_fixture_count": 11,
+  "synthetic_examples": [
+    {
+      "base": 3,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "base": 3,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "base": 5,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "base": 5,
+      "nested_breakdown_plus_226": 2,
+      "raw_worker": 10,
+      "aggregate": 10,
+      "final_signed_job_output": 1
+    },
+    {
+      "base": 8,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "base": 8,
+      "nested_breakdown_plus_226": 5,
+      "raw_worker": 13,
+      "aggregate": 13,
+      "final_signed_job_output": 1
+    }
+  ],
+  "limitations": [
+    "No original DOS runtime/savegame differential test; no asserted user-observed gameplay bug",
+    "Synthetic fixtures choose hypothetical state satisfying separated branch predicates; not a validated game-state domain",
+    "No whole-engine native code equivalence or global buffer lifetime proof",
+    "Caller-independent helper cache behavior assumed to be fresh and normal for fixtures"
+  ]
+}
