@@ -1,0 +1,115 @@
+{
+  "status": "source-verified-original-homeworld-multi-stage-worker-job-rebalance",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "complete_original_function_body_audits": [
+    {
+      "name": "Twiddle_Initial_Homeworld_",
+      "CODE_offset": "0xd55be",
+      "bytes": 530,
+      "SHA256": "63231cd00c846d3dc955e8144437ae7deb45d76525ee8d52866b275a2173e891",
+      "decoded_source_instructions": 152,
+      "objdump_continuation_rows_recombined": 2,
+      "selected_opcode_checks": 56
+    },
+    {
+      "name": "Twiddle_Initial_Homeworlds_",
+      "CODE_offset": "0xd5832",
+      "bytes": 693,
+      "SHA256": "c5ca5500d59e4b1a4e386416845502c62a4359981fa350afdc779e9c92f7987b",
+      "decoded_source_instructions": 202,
+      "objdump_continuation_rows_recombined": 1,
+      "selected_opcode_checks": 3
+    },
+    {
+      "name": "Init_Homeworld_Colony2_",
+      "CODE_offset": "0x3a3d",
+      "bytes": 1386,
+      "SHA256": "58e4c26cdfe04526e297334cca9b26e4c411c86cfe65da5b3f78834b6b8b3454",
+      "decoded_source_instructions": 366,
+      "objdump_continuation_rows_recombined": 9,
+      "selected_opcode_checks": 8
+    },
+    {
+      "name": "Pre_Import_Computing_",
+      "CODE_offset": "0xd1d59",
+      "bytes": 198,
+      "SHA256": "7aa1ea0d54d5e89f82905724eb7fc1609c1e2b9a715c828f557fb4a9224d6628",
+      "decoded_source_instructions": 59,
+      "objdump_continuation_rows_recombined": 1,
+      "selected_opcode_checks": 2
+    },
+    {
+      "name": "Pass_Out_Imports_",
+      "CODE_offset": "0xcf8f0",
+      "bytes": 1238,
+      "SHA256": "e35af6d4ee3106edd7af2f4f6377a18453e107323c620993b3f577871eff4234",
+      "decoded_source_instructions": 334,
+      "objdump_continuation_rows_recombined": 10,
+      "selected_opcode_checks": 3
+    },
+    {
+      "name": "Colony_Job_Production_",
+      "CODE_offset": "0xce280",
+      "bytes": 996,
+      "SHA256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860",
+      "decoded_source_instructions": 283,
+      "objdump_continuation_rows_recombined": 7,
+      "selected_opcode_checks": 5
+    }
+  ],
+  "fully_decoded_original_instruction_count": 1396,
+  "source_opcode_anchor_count": 77,
+  "named_original_CALL_site_checks": 10,
+  "original_CALC_call_sites": [
+    "0xd561a",
+    "0xd564c",
+    "0xd567e",
+    "0xd56b2",
+    "0xd56e4"
+  ],
+  "original_IMPORT_call_sites": [
+    "0xd5626",
+    "0xd568b",
+    "0xd56bd",
+    "0xd56ec"
+  ],
+  "source_original_population_reset": "backwards over colony BYTE+0x0a entries beginning at colony+0x0c, clear job bits7/8 with AND WORD 0xfe7f and set job2 with OR BYTE+1 0x01",
+  "conditional_stages": [
+    {
+      "name": "surplus_to_industry",
+      "source_guard": "cursor<end AND unsigned BYTE colony+0xf0 > signed WORD colony+0xe9",
+      "job": 1,
+      "site": "0xd5642..0xd5649"
+    },
+    {
+      "name": "gated_to_food",
+      "source_guard": "BYTE colony+0xdd !=0 AND cursor<end AND unsigned BYTE colony+0xef > signed WORD colony+0xe7",
+      "job": 0,
+      "site": "0xd5679"
+    },
+    {
+      "name": "industry_balance",
+      "source_guard": "cursor<end AND signed WORD colony+0xe9 < signed WORD colony+0xeb",
+      "job": 1,
+      "site": "0xd56a8..0xd56af"
+    },
+    {
+      "name": "restore_previous_to_research",
+      "source_guard": "signed WORD colony+0xeb <= signed WORD colony+0xe9; original ECX first decremented by4",
+      "job": 2,
+      "site": "0xd56d4..0xd56e0"
+    }
+  ],
+  "packed_job_BITMASK_HEX": "0x180",
+  "packed_active_BIT_HEX": "0x200",
+  "controlled_source_model_assertions": 1170,
+  "limits": [
+    "Original Pre_Import_Computing_ and Pass_Out_Imports_ recompute/mutate colony inputs between loop iterations; stage guards cannot be treated as constant over the whole routine",
+    "Full original DOS runtime state/return values not executed, no final exact homeworld worker distribution asserted",
+    "Final backstep ECX-4 is source-authenticated but no global index/safety proof under all hypothetical states",
+    "Homeworld code10 preservation was addressed in prior checkpoint, not all later external side effects",
+    "No proof valid game save exposes prior synthetic research reporting-dependent 0-vs-1 difference",
+    "No native game implementation or revised whole executable decompilation percentage"
+  ]
+}

@@ -1,0 +1,13 @@
+# Original home-world worker redistribution: source-controlled research retention
+
+The original Master of Orion II v1.31 `Twiddle_Initial_Homeworld_` is now reconstructed at the machine-code level in the domain relevant to preserving or replacing original research workers. It is called by `Twiddle_Initial_Homeworlds_` after colony creation.
+
+The routine first sweeps **backward** through the population entries. Each packed original 4-byte entry has job bits **7 and 8** reset with `AND WORD 0xFE7F` (CODE `0xD55E6`), then job bit 8 is set with `OR BYTE entry+1,1` (CODE `0xD55EB`). Thus every initially counted colonist becomes a **research worker (job 2)** at that point, with active participation bit 9 unaffected.
+
+Four later stages conditionally reassign individual workers: an early industry stage based on BYTE colony `+0xF0` versus signed WORD `+0xE9`; a food stage gated by BYTE `+0xDD` and BYTE `+0xEF` versus signed WORD `+0xE7`; a later industry stage based on signed WORD `+0xE9 < +0xEB`; and a possible one-entry backward restoration to research when signed WORD `+0xEB <= +0xE9`. Exact original source locations and branch conditions are listed in `decompilation/annotated/initial_homeworld_worker_rebalance_v131.md`.
+
+Importantly, the original routine makes **five direct calls to `Pre_Import_Computing_` and four to `Pass_Out_Imports_`** across these stages. Their source effects mean the tested colony field values need not remain static as job assignments change. Any future native reconstruction must therefore preserve the ordered recalculation behavior rather than assume the original initial research workers all survive or simulate the four phases on frozen output values.
+
+`tools/audit_initial_homeworld_worker_rebalance_v131.py` authenticates the official v1.31 original EXE SHA-256 `4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f`, Watcom LE CODE SHA-256 `f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837`, **six entire original named function bodies** and their contiguously decoded **1,396 original instructions**, 77 targeted opcode anchors, 10 direct-call sites and 1,170 bounded controlled assertions. Machine-readable audit: `decompilation/reports/initial_homeworld_worker_rebalance_v131_2026-10-16.json`.
+
+This verifies original **redistribution logic and its dependencies**, not a final original DOS colony worker allocation, verified legal initial save-state combination, or an observed display-triggered research-production defect. No native executable changes, website work or revision of the previous unrecalculated 87% whole-game estimate is asserted.
