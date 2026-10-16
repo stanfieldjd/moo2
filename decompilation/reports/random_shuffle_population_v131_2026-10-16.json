@@ -1,0 +1,32 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_full_named_function_bodies": [
+    {
+      "symbol": "Random_",
+      "original_CODE_offset": "0x1147a0",
+      "complete_body_bytes": 128,
+      "full_body_SHA256": "fed72b3293ed869db1e3ff6c93477767f0322794a2185d18c95798a49c92ff56"
+    },
+    {
+      "symbol": "Shuffle_Int_",
+      "original_CODE_offset": "0xeea3c",
+      "complete_body_bytes": 70,
+      "full_body_SHA256": "89379ad9f18797040d7bf7d33ef316c72c77d746f75c9ba95e5e47a3147e2315"
+    },
+    {
+      "symbol": "Shuffle_",
+      "original_CODE_offset": "0xeea82",
+      "complete_body_bytes": 190,
+      "full_body_SHA256": "d5dc211bc4f2300aa5c591335beac6e905aac5d6134309eb71e0a1a26e28a604"
+    }
+  ],
+  "verified_exact_original_instruction_checkpoints": 71,
+  "original_random_seed_DATA": "0x41e34",
+  "Random_source": "unsigned q=UINT32_MAX/n, cutoff=q*n; 32bit state=state*0x41C64E6D+0x3039; repeat until state<cutoff; return state/q+1 (1..n)",
+  "Random_divide_zero": "source unsigned DIV by n occurs before n==0 test, original would trap for n0; derived host rejects n0",
+  "Shuffle_source_4byte": "for signed i=0..count-1: j=Random(count-i)+i-1; swap original four-byte entries[i] and [j]",
+  "dispatch": "original generic Shuffle_ CODE 0xeeac4 dispatches stride EDX4 to exact Shuffle_Int_ entry CODE 0xeea3c",
+  "shared_return": "Shuffle_Int_ source jumps to shared LEAVE POP EDI ESI ECX EBX RET at CODE 0xee9ef",
+  "C_host_difference": "100000 RNG rejection retry cap, input and memory bounds checks; original can trap or loop on malformed source inputs",
+  "scope": "full numerical seed and original 4-byte population shuffle source reconstructed, not DOS dynamic differential execution"
+}
