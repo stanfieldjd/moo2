@@ -1,0 +1,1454 @@
+{
+  "status": "reconciled-source-authenticated-original-v131-switch-sites",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "legacy_source_site_count": 135,
+  "additional_verified_game_sites": 68,
+  "additional_verified_prescaled_sites": 2,
+  "merged_site_count": 205,
+  "verified_original_case_entries": 1625,
+  "unique_case_destination_addresses": 1404,
+  "table_source_counts": {
+    "legacy_verified": 135,
+    "omitted_game_verified": 68,
+    "prescaled_verified": 2
+  },
+  "site_provenance": [
+    {
+      "site_offset": "0x218b",
+      "table_offset": "0x2165",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5c02",
+      "table_offset": "0x5bcd",
+      "case_count": 7,
+      "distinct_targets": 7,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5dbc",
+      "table_offset": "0x5d94",
+      "case_count": 7,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5e96",
+      "table_offset": "0x5ddc",
+      "case_count": 7,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7721",
+      "table_offset": "0x7568",
+      "case_count": 9,
+      "distinct_targets": 8,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7e9a",
+      "table_offset": "0x7d47",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x85d2",
+      "table_offset": "0x85ad",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x86e6",
+      "table_offset": "0x86af",
+      "case_count": 9,
+      "distinct_targets": 9,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x9c9e",
+      "table_offset": "0x9b68",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xb49a",
+      "table_offset": "0xb463",
+      "case_count": 9,
+      "distinct_targets": 9,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xb5c9",
+      "table_offset": "0xb594",
+      "case_count": 9,
+      "distinct_targets": 1,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xb7c3",
+      "table_offset": "0xb714",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x10732",
+      "table_offset": "0x10612",
+      "case_count": 36,
+      "distinct_targets": 29,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x11bb1",
+      "table_offset": "0x11af9",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x12fc6",
+      "table_offset": "0x12f48",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x13340",
+      "table_offset": "0x13318",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x144e2",
+      "table_offset": "0x14477",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x14af3",
+      "table_offset": "0x14a9e",
+      "case_count": 11,
+      "distinct_targets": 11,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x1a5aa",
+      "table_offset": "0x1a52d",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x1b19b",
+      "table_offset": "0x1b169",
+      "case_count": 10,
+      "distinct_targets": 10,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x1e5db",
+      "table_offset": "0x1e2bd",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x227b3",
+      "table_offset": "0x226f5",
+      "case_count": 16,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x2322d",
+      "table_offset": "0x23185",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x23d14",
+      "table_offset": "0x23ce6",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x23e41",
+      "table_offset": "0x23dab",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x24523",
+      "table_offset": "0x24444",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x29fa8",
+      "table_offset": "0x29f05",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x2be32",
+      "table_offset": "0x2bdca",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x2bfb8",
+      "table_offset": "0x2bf4e",
+      "case_count": 9,
+      "distinct_targets": 9,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x2fd03",
+      "table_offset": "0x2fcc0",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x30cd5",
+      "table_offset": "0x30ca7",
+      "case_count": 7,
+      "distinct_targets": 7,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x31936",
+      "table_offset": "0x316af",
+      "case_count": 8,
+      "distinct_targets": 8,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x38f90",
+      "table_offset": "0x38f35",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x39f29",
+      "table_offset": "0x39ebd",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x3d11b",
+      "table_offset": "0x3d0fa",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x3da0d",
+      "table_offset": "0x3d776",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x427b0",
+      "table_offset": "0x426fd",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x4376f",
+      "table_offset": "0x43713",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x45159",
+      "table_offset": "0x45138",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x46778",
+      "table_offset": "0x4670a",
+      "case_count": 7,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x46965",
+      "table_offset": "0x468cf",
+      "case_count": 7,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x46bb8",
+      "table_offset": "0x46b0a",
+      "case_count": 7,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x46c7c",
+      "table_offset": "0x46bde",
+      "case_count": 7,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x46dde",
+      "table_offset": "0x46d1e",
+      "case_count": 7,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x483b3",
+      "table_offset": "0x48373",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x48619",
+      "table_offset": "0x485c4",
+      "case_count": 7,
+      "distinct_targets": 7,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x4f12d",
+      "table_offset": "0x4ef33",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x56526",
+      "table_offset": "0x56465",
+      "case_count": 14,
+      "distinct_targets": 14,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x567df",
+      "table_offset": "0x5677c",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x57cfd",
+      "table_offset": "0x57cb7",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5b526",
+      "table_offset": "0x5b505",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5c90f",
+      "table_offset": "0x5c8e1",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5e620",
+      "table_offset": "0x5e5e6",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5e659",
+      "table_offset": "0x5e5fa",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x5f24c",
+      "table_offset": "0x5f228",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x65414",
+      "table_offset": "0x653de",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x663b6",
+      "table_offset": "0x6617d",
+      "case_count": 10,
+      "distinct_targets": 10,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x6a27c",
+      "table_offset": "0x6a247",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x6a853",
+      "table_offset": "0x6a802",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x6aa43",
+      "table_offset": "0x6aa1f",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x6aae3",
+      "table_offset": "0x6aabf",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x6abb6",
+      "table_offset": "0x6ab92",
+      "case_count": 5,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x6ca3c",
+      "table_offset": "0x6c9da",
+      "case_count": 5,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x71b8e",
+      "table_offset": "0x71b68",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x725f2",
+      "table_offset": "0x72580",
+      "case_count": 10,
+      "distinct_targets": 8,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7a231",
+      "table_offset": "0x7a1f6",
+      "case_count": 8,
+      "distinct_targets": 8,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7a80c",
+      "table_offset": "0x7a7e8",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7c4ec",
+      "table_offset": "0x7c4c3",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7cf1b",
+      "table_offset": "0x7cef9",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7e536",
+      "table_offset": "0x7e4c8",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x7e86b",
+      "table_offset": "0x7e80a",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x89413",
+      "table_offset": "0x893ef",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x90b0a",
+      "table_offset": "0x90a44",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x916d6",
+      "table_offset": "0x916a7",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x96557",
+      "table_offset": "0x96533",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x99642",
+      "table_offset": "0x99608",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x9aa54",
+      "table_offset": "0x9a647",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x9b575",
+      "table_offset": "0x9b51e",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x9d78b",
+      "table_offset": "0x9d570",
+      "case_count": 4,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x9ec24",
+      "table_offset": "0x9ebf3",
+      "case_count": 6,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x9fc83",
+      "table_offset": "0x9fc25",
+      "case_count": 18,
+      "distinct_targets": 16,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa3367",
+      "table_offset": "0xa32e0",
+      "case_count": 18,
+      "distinct_targets": 16,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa453d",
+      "table_offset": "0xa4513",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa45e7",
+      "table_offset": "0xa45c4",
+      "case_count": 4,
+      "distinct_targets": 2,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa50d0",
+      "table_offset": "0xa4ece",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa51cb",
+      "table_offset": "0xa4ee2",
+      "case_count": 5,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa6701",
+      "table_offset": "0xa6688",
+      "case_count": 10,
+      "distinct_targets": 9,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa673b",
+      "table_offset": "0xa66b0",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa6778",
+      "table_offset": "0xa66c0",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa81ff",
+      "table_offset": "0xa81df",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa82a4",
+      "table_offset": "0xa8274",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xa85d2",
+      "table_offset": "0xa8565",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xab69e",
+      "table_offset": "0xab685",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xab73c",
+      "table_offset": "0xab713",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xabaa4",
+      "table_offset": "0xab9fe",
+      "case_count": 36,
+      "distinct_targets": 18,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xac18c",
+      "table_offset": "0xac04e",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xac8f8",
+      "table_offset": "0xac8cf",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xb38ab",
+      "table_offset": "0xb384f",
+      "case_count": 7,
+      "distinct_targets": 7,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xb8830",
+      "table_offset": "0xb87ce",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xb9896",
+      "table_offset": "0xb97bf",
+      "case_count": 7,
+      "distinct_targets": 7,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xc01bf",
+      "table_offset": "0xbff62",
+      "case_count": 47,
+      "distinct_targets": 42,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xc0a67",
+      "table_offset": "0xc001e",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xc9a3b",
+      "table_offset": "0xc99b8",
+      "case_count": 8,
+      "distinct_targets": 2,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xd8ac9",
+      "table_offset": "0xd87ba",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xda801",
+      "table_offset": "0xda291",
+      "case_count": 24,
+      "distinct_targets": 13,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xdab11",
+      "table_offset": "0xdaa55",
+      "case_count": 19,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xdc48d",
+      "table_offset": "0xdc3be",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xdecb6",
+      "table_offset": "0xdec0c",
+      "case_count": 23,
+      "distinct_targets": 23,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xdef0a",
+      "table_offset": "0xdec68",
+      "case_count": 12,
+      "distinct_targets": 12,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xe56a3",
+      "table_offset": "0xe5681",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xe5ad4",
+      "table_offset": "0xe598f",
+      "case_count": 68,
+      "distinct_targets": 65,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xe718c",
+      "table_offset": "0xe70d7",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xf3649",
+      "table_offset": "0xf358b",
+      "case_count": 9,
+      "distinct_targets": 9,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xf456a",
+      "table_offset": "0xf438c",
+      "case_count": 9,
+      "distinct_targets": 9,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xf4f8c",
+      "table_offset": "0xf4f52",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xf500c",
+      "table_offset": "0xf4fd3",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xf7505",
+      "table_offset": "0xf71fc",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0xff6f1",
+      "table_offset": "0xff61b",
+      "case_count": 5,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x10ac97",
+      "table_offset": "0x10abf1",
+      "case_count": 35,
+      "distinct_targets": 35,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x10cbc8",
+      "table_offset": "0x10cb43",
+      "case_count": 22,
+      "distinct_targets": 22,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x1150b4",
+      "table_offset": "0x11507f",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x11534c",
+      "table_offset": "0x11531b",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x11550c",
+      "table_offset": "0x1154db",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x11c926",
+      "table_offset": "0x11c8f7",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x11c9ca",
+      "table_offset": "0x11c99b",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x11cc56",
+      "table_offset": "0x11cc2b",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x127ac1",
+      "table_offset": "0x127a67",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x127e44",
+      "table_offset": "0x127de7",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x12e99f",
+      "table_offset": "0x12e95a",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x12ecd4",
+      "table_offset": "0x12ecaa",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x146919",
+      "table_offset": "0x146844",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x146ae9",
+      "table_offset": "0x146854",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x147a74",
+      "table_offset": "0x147a48",
+      "case_count": 4,
+      "distinct_targets": 3,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x147d62",
+      "table_offset": "0x147d14",
+      "case_count": 10,
+      "distinct_targets": 8,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x1539ac",
+      "table_offset": "0x15395a",
+      "case_count": 12,
+      "distinct_targets": 5,
+      "source": "legacy_verified"
+    },
+    {
+      "site_offset": "0x20f",
+      "table_offset": "0x2f",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x376",
+      "table_offset": "0x43",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x6a7",
+      "table_offset": "0x3eb",
+      "case_count": 44,
+      "distinct_targets": 35,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x423f",
+      "table_offset": "0x3fc1",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x5305",
+      "table_offset": "0x521d",
+      "case_count": 7,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x67bb",
+      "table_offset": "0x65ef",
+      "case_count": 7,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x7011",
+      "table_offset": "0x6ee0",
+      "case_count": 8,
+      "distinct_targets": 8,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x740e",
+      "table_offset": "0x720b",
+      "case_count": 7,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x826d",
+      "table_offset": "0x80c0",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x8dc9",
+      "table_offset": "0x8b55",
+      "case_count": 9,
+      "distinct_targets": 9,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x9690",
+      "table_offset": "0x94b1",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xd59d",
+      "table_offset": "0xd4e5",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xd6b3",
+      "table_offset": "0xd4fd",
+      "case_count": 22,
+      "distinct_targets": 21,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xda0f",
+      "table_offset": "0xd555",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xe198",
+      "table_offset": "0xde6a",
+      "case_count": 11,
+      "distinct_targets": 10,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xe3c1",
+      "table_offset": "0xdeb0",
+      "case_count": 14,
+      "distinct_targets": 14,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xebb7",
+      "table_offset": "0xdee8",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xff9e",
+      "table_offset": "0xfedd",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x113a2",
+      "table_offset": "0x112e1",
+      "case_count": 36,
+      "distinct_targets": 34,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x11c27",
+      "table_offset": "0x11b11",
+      "case_count": 19,
+      "distinct_targets": 19,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x120cc",
+      "table_offset": "0x11b5d",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x1239c",
+      "table_offset": "0x12282",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x12836",
+      "table_offset": "0x12296",
+      "case_count": 29,
+      "distinct_targets": 23,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x1762f",
+      "table_offset": "0x17547",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x17731",
+      "table_offset": "0x176b6",
+      "case_count": 6,
+      "distinct_targets": 3,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x17772",
+      "table_offset": "0x176ce",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x1956d",
+      "table_offset": "0x194c7",
+      "case_count": 6,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x202be",
+      "table_offset": "0x20052",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x22336",
+      "table_offset": "0x22203",
+      "case_count": 16,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x22cad",
+      "table_offset": "0x22b16",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x23a42",
+      "table_offset": "0x23993",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x23b9f",
+      "table_offset": "0x23b05",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x28f62",
+      "table_offset": "0x28b46",
+      "case_count": 6,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x2cac7",
+      "table_offset": "0x2c882",
+      "case_count": 4,
+      "distinct_targets": 3,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x3352d",
+      "table_offset": "0x32f3b",
+      "case_count": 17,
+      "distinct_targets": 16,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x36d9f",
+      "table_offset": "0x36cb4",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x39a1b",
+      "table_offset": "0x39532",
+      "case_count": 6,
+      "distinct_targets": 3,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x3fec6",
+      "table_offset": "0x3fe11",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x42aad",
+      "table_offset": "0x4270d",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x42fea",
+      "table_offset": "0x4271d",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x43205",
+      "table_offset": "0x43126",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x432c6",
+      "table_offset": "0x43136",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x43ab1",
+      "table_offset": "0x439b5",
+      "case_count": 9,
+      "distinct_targets": 7,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x51895",
+      "table_offset": "0x51685",
+      "case_count": 8,
+      "distinct_targets": 8,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x5e0c6",
+      "table_offset": "0x5e07d",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x617ae",
+      "table_offset": "0x614de",
+      "case_count": 10,
+      "distinct_targets": 10,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x702a3",
+      "table_offset": "0x7011f",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x71022",
+      "table_offset": "0x70d9c",
+      "case_count": 6,
+      "distinct_targets": 6,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x7dd4f",
+      "table_offset": "0x7dad8",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x83d2e",
+      "table_offset": "0x83cfa",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x94a1b",
+      "table_offset": "0x94979",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x9527a",
+      "table_offset": "0x9510e",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x95330",
+      "table_offset": "0x9511e",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x99d07",
+      "table_offset": "0x99add",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x9a04e",
+      "table_offset": "0x99fec",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x9a4f0",
+      "table_offset": "0x9a37d",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x9f08d",
+      "table_offset": "0x9ec57",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x9f0f5",
+      "table_offset": "0x9ec6b",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0x9f42a",
+      "table_offset": "0x9f362",
+      "case_count": 7,
+      "distinct_targets": 7,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xc1c76",
+      "table_offset": "0xc10d2",
+      "case_count": 7,
+      "distinct_targets": 6,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xc2fa5",
+      "table_offset": "0xc2c9e",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xec90d",
+      "table_offset": "0xec819",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xec988",
+      "table_offset": "0xec829",
+      "case_count": 7,
+      "distinct_targets": 7,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xf50d5",
+      "table_offset": "0xf5039",
+      "case_count": 20,
+      "distinct_targets": 20,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xf6fbf",
+      "table_offset": "0xf6c98",
+      "case_count": 5,
+      "distinct_targets": 5,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xfb908",
+      "table_offset": "0xfaca6",
+      "case_count": 5,
+      "distinct_targets": 4,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xfc1c2",
+      "table_offset": "0xfbfa9",
+      "case_count": 5,
+      "distinct_targets": 3,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xff376",
+      "table_offset": "0xff075",
+      "case_count": 5,
+      "distinct_targets": 3,
+      "source": "omitted_game_verified"
+    },
+    {
+      "site_offset": "0xacf3e",
+      "table_offset": "0xace92",
+      "case_count": 4,
+      "distinct_targets": 2,
+      "source": "prescaled_verified"
+    },
+    {
+      "site_offset": "0x117190",
+      "table_offset": "0x117145",
+      "case_count": 4,
+      "distinct_targets": 4,
+      "source": "prescaled_verified"
+    }
+  ],
+  "scope": "Only the union of three independently original-byte authenticated switch reports. Not an exhaustive set of all indirect jumps or C-level semantics."
+}

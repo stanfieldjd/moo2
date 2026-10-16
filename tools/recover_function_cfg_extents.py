@@ -87,9 +87,16 @@ def provisional_owner(addr):
     return sorted_entries[i] if i>=0 else None
 code_size=(ROOT/'decompilation/code_object_1.bin').stat().st_size
 switch_targets={}
-st=ROOT/'decompilation/switch_targets.csv'
+# Prefer the cumulative *independently source-verified* Watcom switch-target
+# inventory, rather than losing 70 additional authenticated dispatch sites.
+# Fall back to the historic 135-site export only in workbenches that have not
+# run the original-byte-checked switch merger.
+st=ROOT/'decompilation/switch_targets_reconciled.csv'
+if not st.exists():
+    st=ROOT/'decompilation/switch_targets.csv'
 if st.exists():
-    for rr in csv.DictReader(st.open()): switch_targets.setdefault(int(rr['site_hex'],16),[]).append(int(rr['target_offset']))
+    for rr in csv.DictReader(st.open()):
+        switch_targets.setdefault(int(rr['site_hex'],16),[]).append(int(rr['target_offset']))
 
 def direct_target(ops):
     m=target_rx.match(ops)
@@ -160,6 +167,9 @@ MAN.write_text(json.dumps({
     'matches_provisional_end':exact,'extends_beyond_provisional_end':extended,
     'ends_before_provisional_end':truncated,'entry_decode_failures':ambiguous,
     'cfg_membership_records':len(memberships),
+    'switch_target_inventory':st.name,
+    'source_verified_switch_sites':len(switch_targets),
+    'source_verified_switch_cases':sum(map(len,switch_targets.values())),
     'recombined_objdump_continuation_rows':continuation_rows,
     'recombined_objdump_continuation_bytes':continuation_bytes,
     'orphan_objdump_continuation_rows':len(orphan_continuations),

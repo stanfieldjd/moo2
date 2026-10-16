@@ -1,0 +1,341 @@
+{
+  "status": "source-verified-v131-CFG-expanded-from-reconciled-switch-targets",
+  "original_exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_code_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "parent_git_commit": "5d6c4d9757bfc97229eb8c4b5ac3395815b64744",
+  "all_function_entry_records": 5635,
+  "source_verified_switch_sites": 205,
+  "source_verified_switch_cases": 1625,
+  "added_original_source_verified_sites": 70,
+  "newly_added_sites_already_reachable_after_recovery": 63,
+  "newly_added_sites_still_unreached": [
+    "0xe198",
+    "0xe3c1",
+    "0xebb7",
+    "0x12836",
+    "0x3352d",
+    "0x36d9f",
+    "0x117190"
+  ],
+  "previous_cfg_membership_records": 367349,
+  "new_cfg_membership_records": 372703,
+  "increased_cfg_instruction_memberships": 5354,
+  "relative_membership_increase_percent": 1.46,
+  "functions_with_instruction_membership_gain": 54,
+  "functions_with_instruction_membership_loss": 0,
+  "previous_functions_matching_provisional_end": 4879,
+  "new_functions_matching_provisional_end": 4882,
+  "previous_functions_ending_short": 708,
+  "new_functions_ending_short": 705,
+  "previous_unresolved_cfg_edges": 425,
+  "new_unresolved_cfg_edges": 446,
+  "unresolved_count_explanation": "Additional source-confirmed reachable control-flow paths can expose more unresolved edges. 425 -> 446 here is increased inspection of reachable branches, not lost source CFG coverage.",
+  "largest_function_gains": [
+    {
+      "name": "Auto_Design_Ship_",
+      "CODE_offset": 333477,
+      "before_instructions": 166,
+      "after_instructions": 1177,
+      "membership_gain": 1011,
+      "original_covered_provisional_bytes": 3877,
+      "previous_status": "shorter",
+      "current_status": "matches"
+    },
+    {
+      "name": "Assign_Empire_Building_",
+      "CODE_offset": 790766,
+      "before_instructions": 764,
+      "after_instructions": 1463,
+      "membership_gain": 699,
+      "original_covered_provisional_bytes": 5734,
+      "previous_status": "matches+unresolved",
+      "current_status": "matches+unresolved"
+    },
+    {
+      "name": "Get_Diplomacy_Statement_",
+      "CODE_offset": 54629,
+      "before_instructions": 146,
+      "after_instructions": 560,
+      "membership_gain": 414,
+      "original_covered_provisional_bytes": 2226,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Setup_Next_Event_",
+      "CODE_offset": 70513,
+      "before_instructions": 120,
+      "after_instructions": 491,
+      "membership_gain": 371,
+      "original_covered_provisional_bytes": 2044,
+      "previous_status": "extends",
+      "current_status": "extends+unresolved"
+    },
+    {
+      "name": "Get_Event_Message_",
+      "CODE_offset": 72557,
+      "before_instructions": 234,
+      "after_instructions": 496,
+      "membership_gain": 262,
+      "original_covered_provisional_bytes": 1744,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Draw_Shield_Arcs_",
+      "CODE_offset": 139843,
+      "before_instructions": 110,
+      "after_instructions": 333,
+      "membership_gain": 223,
+      "original_covered_provisional_bytes": 1266,
+      "previous_status": "extends",
+      "current_status": "extends"
+    },
+    {
+      "name": "Insert_Item_",
+      "CODE_offset": 1003657,
+      "before_instructions": 34,
+      "after_instructions": 223,
+      "membership_gain": 189,
+      "original_covered_provisional_bytes": 849,
+      "previous_status": "shorter",
+      "current_status": "matches"
+    },
+    {
+      "name": "Diplomacy_Demand_",
+      "CODE_offset": 35705,
+      "before_instructions": 161,
+      "after_instructions": 327,
+      "membership_gain": 166,
+      "original_covered_provisional_bytes": 2380,
+      "previous_status": "shorter",
+      "current_status": "shorter+unresolved"
+    },
+    {
+      "name": "Print_Gate_Info_",
+      "CODE_offset": 608649,
+      "before_instructions": 71,
+      "after_instructions": 227,
+      "membership_gain": 156,
+      "original_covered_provisional_bytes": 646,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Check_Treaty_Proposal_",
+      "CODE_offset": 272173,
+      "before_instructions": 462,
+      "after_instructions": 604,
+      "membership_gain": 142,
+      "original_covered_provisional_bytes": 2585,
+      "previous_status": "shorter",
+      "current_status": "shorter"
+    },
+    {
+      "name": "Screen_Control_",
+      "CODE_offset": 1179,
+      "before_instructions": 19,
+      "after_instructions": 151,
+      "membership_gain": 132,
+      "original_covered_provisional_bytes": 738,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Destroy_Ship_FX_",
+      "CODE_offset": 650363,
+      "before_instructions": 321,
+      "after_instructions": 451,
+      "membership_gain": 130,
+      "original_covered_provisional_bytes": 1795,
+      "previous_status": "shorter",
+      "current_status": "shorter"
+    },
+    {
+      "name": "Print_Fleet_Box_Info_",
+      "CODE_offset": 398598,
+      "before_instructions": 208,
+      "after_instructions": 333,
+      "membership_gain": 125,
+      "original_covered_provisional_bytes": 1297,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Fire_Ship_",
+      "CODE_offset": 166750,
+      "before_instructions": 418,
+      "after_instructions": 541,
+      "membership_gain": 123,
+      "original_covered_provisional_bytes": 2216,
+      "previous_status": "shorter+unresolved",
+      "current_status": "shorter+unresolved"
+    },
+    {
+      "name": "Draw_Ship_",
+      "CODE_offset": 131170,
+      "before_instructions": 282,
+      "after_instructions": 399,
+      "membership_gain": 117,
+      "original_covered_provisional_bytes": 1487,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Determine_Good_Message_",
+      "CODE_offset": 261669,
+      "before_instructions": 47,
+      "after_instructions": 156,
+      "membership_gain": 109,
+      "original_covered_provisional_bytes": 515,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Get_Demand_Response_",
+      "CODE_offset": 276953,
+      "before_instructions": 225,
+      "after_instructions": 321,
+      "membership_gain": 96,
+      "original_covered_provisional_bytes": 1213,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Diplomacy_Test_",
+      "CODE_offset": 274758,
+      "before_instructions": 118,
+      "after_instructions": 189,
+      "membership_gain": 71,
+      "original_covered_provisional_bytes": 686,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Calc_Tech_Value_",
+      "CODE_offset": 968773,
+      "before_instructions": 588,
+      "after_instructions": 655,
+      "membership_gain": 67,
+      "original_covered_provisional_bytes": 2388,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Diplomacy_Offer_Gift_",
+      "CODE_offset": 38085,
+      "before_instructions": 129,
+      "after_instructions": 184,
+      "membership_gain": 55,
+      "original_covered_provisional_bytes": 1108,
+      "previous_status": "shorter",
+      "current_status": "matches+unresolved"
+    },
+    {
+      "name": "Get_Main_Repulsive_Diplomacy_Choices_",
+      "CODE_offset": 29223,
+      "before_instructions": 148,
+      "after_instructions": 199,
+      "membership_gain": 51,
+      "original_covered_provisional_bytes": 869,
+      "previous_status": "shorter",
+      "current_status": "shorter+unresolved"
+    },
+    {
+      "name": "Draw_Ship_To_Bitmap_",
+      "CODE_offset": 142118,
+      "before_instructions": 119,
+      "after_instructions": 170,
+      "membership_gain": 51,
+      "original_covered_provisional_bytes": 622,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Adjust_Reflection_Field_Display_Status_",
+      "CODE_offset": 630780,
+      "before_instructions": 27,
+      "after_instructions": 67,
+      "membership_gain": 40,
+      "original_covered_provisional_bytes": 229,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Ship_Completely_On_Screen_",
+      "CODE_offset": 145831,
+      "before_instructions": 76,
+      "after_instructions": 111,
+      "membership_gain": 35,
+      "original_covered_provisional_bytes": 370,
+      "previous_status": "shorter",
+      "current_status": "shorter"
+    },
+    {
+      "name": "Print_Ship_Size_Error_Message_",
+      "CODE_offset": 385169,
+      "before_instructions": 44,
+      "after_instructions": 79,
+      "membership_gain": 35,
+      "original_covered_provisional_bytes": 271,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Add_Building_",
+      "CODE_offset": 16345,
+      "before_instructions": 356,
+      "after_instructions": 390,
+      "membership_gain": 34,
+      "original_covered_provisional_bytes": 1553,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "main2_",
+      "CODE_offset": 87,
+      "before_instructions": 184,
+      "after_instructions": 216,
+      "membership_gain": 32,
+      "original_covered_provisional_bytes": 1092,
+      "previous_status": "shorter",
+      "current_status": "shorter"
+    },
+    {
+      "name": "Draw_Reflection_Field_Hit_",
+      "CODE_offset": 631693,
+      "before_instructions": 96,
+      "after_instructions": 123,
+      "membership_gain": 27,
+      "original_covered_provisional_bytes": 462,
+      "previous_status": "matches",
+      "current_status": "matches"
+    },
+    {
+      "name": "Diplomacy_Break_Treaty_",
+      "CODE_offset": 32980,
+      "before_instructions": 115,
+      "after_instructions": 141,
+      "membership_gain": 26,
+      "original_covered_provisional_bytes": 565,
+      "previous_status": "shorter",
+      "current_status": "shorter+unresolved"
+    },
+    {
+      "name": "Remap_Draw_With_Mask_",
+      "CODE_offset": 610606,
+      "before_instructions": 165,
+      "after_instructions": 191,
+      "membership_gain": 26,
+      "original_covered_provisional_bytes": 686,
+      "previous_status": "matches",
+      "current_status": "matches"
+    }
+  ],
+  "measurement_scope": "Original source verified game+support switch cases connected to conservative x86 CFG; counts are per-function instruction memberships, not unique instructions, translated semantic functions, original DOS runtime parity or native browser gameplay completion.",
+  "remaining_uncertainties": [
+    "Seven original authenticated additional switch sites have not yet become reachable under current conservative entry-point traversal",
+    "Remaining indirect edges, boundary merges and Watcom CODE inline tables require continued source verification",
+    "This is not a measured whole-executable semantic decompilation percentage"
+  ]
+}
