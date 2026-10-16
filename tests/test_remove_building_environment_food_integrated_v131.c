@@ -86,7 +86,8 @@ int main(void) {
       for(unsigned planet_type=0;planet_type<3;planet_type++)
       for(unsigned planet_food=0;planet_food<2;planet_food++)
       for(unsigned player_tech=0;player_tech<2;player_tech++)
-      for(unsigned bits=0;bits<4;bits++) {
+      for(unsigned bits=0;bits<4;bits++)
+      for(unsigned prerequisites=0;prerequisites<4;prerequisites++) {
         memset(colonies,0,sizeof(colonies));
         memset(players,0,sizeof(players));
         uint8_t *colony=colonies+0x169u;
@@ -99,17 +100,18 @@ int main(void) {
         colony[0]=(uint8_t)owner;
         put16(colony+2u,1);
         colony[0x136u+(unsigned)building]=1u;
-        colony[0x14du]=1u;
-        colony[0x14eu]=1u;
+        colony[0x14du]=(uint8_t)(prerequisites&1u);
+        colony[0x14eu]=(uint8_t)((prerequisites&2u)?1u:0u);
         colony[0x164u]=(uint8_t)(bits&1u);
         colony[0x13au]=(uint8_t)(bits&2u);
         planets[0x11u+8u]=(uint8_t)planet_type;
         planets[0x11u+0x0bu]=(uint8_t)planet_food;
         players[(size_t)owner*0xEA9u+0x134u]=(uint8_t)(player_tech?3u:0u);
-        int environmental_remaining=(building==23||building==24)?
-            1:1; /* other corresponding prerequisite is still present */
+        unsigned remaining=(unsigned)(
+            ((prerequisites&1u)!=0u && building!=23) ||
+            ((prerequisites&2u)!=0u && building!=24));
         f.expected_environment=(uint8_t)(planet_type==1u &&
-                          environmental_remaining?2u:planet_type);
+                          remaining?2u:planet_type);
         uint32_t food_value=planet_food*2u;
         if(food_value==0u && player_tech)food_value=2u;
         if(food_value!=0u) {
