@@ -1,0 +1,15 @@
+# MOO2 v1.31: shared job-production per-population modifier arithmetic
+
+Source canonical official DOS `ORION2.EXE` v1.31 SHA-256 `4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f`. Original Watcom LE CODE body `Colony_Job_Production_` at CODE `0xCE280` spans 996 bytes and SHA-256 `853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860`; neither original executable nor proprietary assets are committed.
+
+This checkpoint deepens original source-static reconstruction from whole-body instruction coverage to the *independently testable signed per-population worker calculation*, CODE `0xCE390–0xCE61B`. Only eligible packed DWORD entries with bit 9 set and bits 7/8 equal to current job 0 food, 1 industry or 2 research enter the stage. Original nested helpers produce a signed low-WORD population base `B` and a gravity factor `G` in the previously authenticated bounded set 2/3/4.
+
+Source-stage components include `20*B` base, `-5*(4-G)*B` gravity adjustment, `officer_bonus*B`, a packed DWORD bit-10 penalty `-5*B`, conditional signed-morale-`BYTE*B`, job-specific government-`group*B`, an owner/star-state `-10*B` for food/industry, and a **scalar** signed settings-table BYTE added once rather than multiplied by B. The source also includes an inherited component from its nested breakdown structure, treated as an independent input for bounded fixtures, not assigned invented gameplay semantics.
+
+Original government group is a signed owner government BYTE divided by two with source original signed truncation. Food/industry groups 6 and 7 add `10*B` and `20*B`; research group 0/1/4/5 adds `-10/-5/+10/+15` times B respectively. Government group 3 suppresses the morale term. Population tag 8 separately suppresses morale for food/research but not industry. Packed DWORD bit 10 carries its own `-5*B` modifier.
+
+The indexed settings table is source **CODE** at `0xCD4D7`: original unsigned BYTEs `[246,0,10,20,40,5,8,10,15,20,2,4,6,8,10]`, signed values `[-10,0,10,20,40,5,8,10,15,20,2,4,6,8,10]`. Its selector at Watcom **DATA** `0x21CB0` is in the original `_settings` record; player BYTE `+0x28 == 100` bypasses the table contribution. No claims are made for settings-selector values 15+.
+
+After source signed summation, the worker's raw contribution is added to the aggregate **only if strictly positive**. The aggregate's subsequent signed `IDIV` rounding (+20/40 food or +10/20 industry/research) and optional 0x256-byte breakdown-buffer copy are verified in the earlier whole-body audit and preserved unchanged.
+
+Reproducible proof is in `tools/audit_colony_job_worker_modifiers_v131.py`, `decompilation/reports/colony_job_worker_modifiers_v131_2026-10-16.json` and `decompilation/annotated/colony_job_worker_modifiers_v131.md`, with 41 controlled source-derived fixture cases and complete original instruction identity. These are **static reconstruction checks**, not DOS dynamic differential execution or verified in-game state domains. The source binary, existing raw disassembly and user website remain unchanged; no whole-executable completion percentage is recalculated.

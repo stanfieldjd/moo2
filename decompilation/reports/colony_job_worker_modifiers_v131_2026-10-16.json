@@ -1,0 +1,85 @@
+{
+  "status": "source-verified-bounded-job-worker-production-modifiers",
+  "official_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "full_original_job_body": {
+    "name": "Colony_Job_Production_",
+    "CODE_offset": "0xce280",
+    "bytes": 996,
+    "SHA256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860"
+  },
+  "all_decoded_original_instructions": 283,
+  "all_original_direct_transfers": 62,
+  "source_disassembly_continuation_rows": [
+    {
+      "at": "0xce2d8",
+      "from": "0xce2d1",
+      "bytes": 1
+    },
+    {
+      "at": "0xce41f",
+      "from": "0xce418",
+      "bytes": 1
+    },
+    {
+      "at": "0xce427",
+      "from": "0xce420",
+      "bytes": 1
+    },
+    {
+      "at": "0xce436",
+      "from": "0xce42f",
+      "bytes": 1
+    },
+    {
+      "at": "0xce43e",
+      "from": "0xce437",
+      "bytes": 1
+    },
+    {
+      "at": "0xce451",
+      "from": "0xce44a",
+      "bytes": 1
+    },
+    {
+      "at": "0xce459",
+      "from": "0xce452",
+      "bytes": 1
+    }
+  ],
+  "exact_original_instruction_anchors": 80,
+  "original_settings_modifier_CODE": {
+    "offset": "0xcd4d7",
+    "signed_bytes": [
+      -10,
+      0,
+      10,
+      20,
+      40,
+      5,
+      8,
+      10,
+      15,
+      20,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "sha256": "348ad136315e48429a9a5c1d1be7c999dcbe1d34abd267e26a4615d08d38e522"
+  },
+  "settings_selector_DATA": "0x21cb0",
+  "original_settings_record_DATA": "0x21bdc",
+  "controlled_synthetic_fixture_count": 41,
+  "eligible_packed_worker": "DWORD packed entry bit 9 must be set; job selector extracted from bits 7 and 8 must equal current job 0/1/2",
+  "gravity_multiplier": "negative 5 times (4 - Gravity_Player_Production_Factor_()) times source base",
+  "other_worker_components": "20*base, officer_bonus*base, packed DWORD bit 10: status test [entry+1]&4 = packed DWORD bit10 => -5*base, optional morale*base, government multiplier*base, star-related -10*base, signed CODE table setting, and inherited contribution from nested producer",
+  "final_positive_gate": "only worker signed total >0 is added to job-production accumulator; original job returns signed IDIV after the worker loop",
+  "caveats": [
+    "No DOS runtime differential comparison",
+    "Only bounded per-worker multiplication and source branch effects modeled",
+    "Nested helper inherited component passed as fixture input, not rederived",
+    "All player/planet legal state domains and signed overflow not established"
+  ]
+}
