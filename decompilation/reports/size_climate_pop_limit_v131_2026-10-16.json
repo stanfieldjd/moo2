@@ -1,0 +1,61 @@
+{
+  "original_EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "authenticated_complete_function_bodies": [
+    {
+      "original_name": "Size_And_Climate_Max_Population_",
+      "CODE_offset": "0xd0a18",
+      "complete_body_bytes": 49,
+      "original_sha256": "405533edb6bdde5d69b314322b9a8a024bacd606529689968521f5c02b54bb14"
+    },
+    {
+      "original_name": "Size_And_Climate_Race_Pop_Limit_",
+      "CODE_offset": "0xd0a93",
+      "complete_body_bytes": 188,
+      "original_sha256": "7c8629ad880163c090835f05037b1bde31bf058a183d30069b2af1b014eb032d"
+    }
+  ],
+  "verified_exact_i386_opcodes": 80,
+  "lookups": {
+    "_planet_max_population": {
+      "source": "original initialized LE DATA segment 2",
+      "original_offset": "0x5806",
+      "values": [
+        5,
+        10,
+        15,
+        20,
+        25
+      ],
+      "original_sha256": "40872669c921a1dcd7c03fa241ebe872f8e6e0adb7f17f9583edd7347cb7e480"
+    },
+    "climate_percentage": {
+      "source": "original LE CODE object 1 inside _climate_maintenance_modifiers region",
+      "original_offset": "0xcd4eb",
+      "values": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        40,
+        60,
+        80,
+        100,
+        30,
+        60,
+        30,
+        60,
+        60,
+        120
+      ],
+      "original_sha256": "2da9ae3d665157adb1edb27e449f922b394ca5759cd607e3b5849af221ea8468"
+    }
+  },
+  "max_population": "min(100,climate_percentage[environment]+25*bonus)*planet_max_population[size], add50, signed divide by100",
+  "race0_7": "bonus if player BYTE+0x8b6 !=0; when player BYTE+0x8ab !=0: climate 4/6->8,5/8->9; player BYTE+0x8ac !=0 adds signed low WORD of 2*(size+1)",
+  "race8": "automatic +25% climate bonus, no player record",
+  "race9": "no climate bonus, no player record",
+  "remaining_original_dependencies": "no other callees of these two source functions; upstream Colony_Race_Pop_Limit_ adds owner tech and building bonus",
+  "host_limitations": "only source-valid size0..4, environment0..15, race0..9; no differential original DOS execution or proof of malformed-state equivalence"
+}
