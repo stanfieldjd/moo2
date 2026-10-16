@@ -2,6 +2,9 @@
 #define MOO2_V131_PRE_IMPORT_COMPUTING_H
 #include <stddef.h>
 #include <stdint.h>
+/* Original source call IDs. The industry-to-tax entry (7) is
+ * executed directly by source-derived C and never sent to the
+ * pending_callee callback. Nine other stages are pending. */
 typedef enum {
     MOO2_V131_PRE_MORALE=0,
     MOO2_V131_PRE_INDUSTRY_MAINTENANCE=1,
