@@ -1409,3 +1409,119 @@ their effects. No original DOS differential
 run or public Game Lab/Xbox/Qwen
 deployment changes occurred. Original
 copyrighted executable/artwork stay local.
+
+
+## 2026-10-16: population limit selection, race caps and original seeded shuffle
+
+Completed a further source-derived subsystem:
+the **489-byte** original
+`Enforce_Population_Limits_At_Colony_`
+at CODE `0xDC97C`, the **81-byte**
+`Colony_Race_Pop_Limit_` wrapper
+at `0xD0C1D`, the **128-byte**
+`Random_` at `0x1147A0`,
+and the original **70-byte**
+`Shuffle_Int_` at `0xEEA3C`
+for four-byte population entries.
+
+The original population routine reverse-scans
+colony population records at offset `+0x0C`
+(count BYTE `+0x0A`), caches up to ten
+per-class signed-WORD capacity results,
+marks indexes in a 42-byte array, and calls
+original `Shuffle_` on four-byte entries.
+For marked thresholds **1 through 41**,
+it repeatedly removes excess population:
+choose first qualifying source victim among
+the original priority buckets (class9;
+other; owner matching record bits4..6;
+class8; owner matching class), decrement
+population count and overwrite that entry
+with the last four-byte record. Capacity0's
+flag is not processed because original
+threshold loop starts at1.
+
+The final original food check calls
+`Colony_Food2_Per_Farmer_`; when low AX=0,
+eligible non-type8 entries with original
+status word `&0x180 ==0` are rewritten
+to `(word & 0xFE7F)|0x80`.
+
+The separate race limit wrapper calls the
+still-unreconstructed source
+`Size_And_Climate_Race_Pop_Limit_`
+at `0xD0A93` with planet size BYTE `+0x05`,
+colony environmental BYTE `+0xE2`,
+and race class. It adds **5** for owning
+player technology BYTE `+0x11A==3`
+and **2** when colony building
+BYTE `+0x145` is present.
+This means building **15** removal
+changes capacity **before**
+population-limit enforcement.
+
+Original `Random_` operates on
+`_random_seed` DATA `0x41E34`:
+32-bit LCG `seed = seed*0x41C64E6D+0x3039`
+with cutoff `(UINT32_MAX/n)*n`
+and rejection while seed>=cutoff;
+returns `seed/(UINT32_MAX/n)+1`.
+`Shuffle_Int_` uses one such draw
+on remaining range for each
+four-byte population entry,
+swapping it with index
+`i+Random(count-i)-1`.
+The original generic `Shuffle_`
+dispatches stride4 to that helper;
+no synthetic shuffle is now used
+in the latest integration test.
+
+New reconstructed source:
+
+- `decompilation/reconstructed/enforce_population_limits_v131.c`
+- `decompilation/reconstructed/colony_race_pop_limit_v131.c`
+- `decompilation/reconstructed/random_shuffle_population_v131.c`
+
+Source audits:
+
+- `tools/audit_enforce_population_limits_v131.py`: **168**
+  original x86 checkpoints and **six**
+  complete named source function-body
+  hashes (including existing food,
+  Shuffle, size/climate, memset).
+- `tools/audit_random_shuffle_population_v131.py`: **71**
+  original x86 checkpoints and full
+  source hashes of `Random_`,
+  `Shuffle_Int_`, and `Shuffle_`.
+- Committed machine-readable reports
+  `decompilation/reports/enforce_population_limits_v131_2026-10-16.json`
+  and `decompilation/reports/random_shuffle_population_v131_2026-10-16.json`.
+
+Strict C11/ASan/UBSan source-derived
+regressions cover **17,630**
+class/count/capacity combinations,
+**2,560** race-capacity cases,
+**4,300** random-seed shuffle
+permutations plus exact original
+seed vectors, **320** food/pop
+integration cases, and **32**
+fully linked building15/23/24/28
+→ queue44 → environment → food
+→ population limit cases using the
+actual recovered seed/shuffle routines.
+
+Detailed source limitations and findings:
+`decompilation/annotated/enforce_population_limits_v131.md`.
+
+Remaining callbacks: original
+`Size_And_Climate_Race_Pop_Limit_`
+(188-byte source body authenticated
+but effects not yet reconstructed),
+and subsequent original colony
+calculation / production effects.
+Original DOS dynamic differential
+execution has **not** occurred.
+Host bounds/callback guards are not
+DOS behavior. The Game Lab frontend,
+Xbox controls and unrelated Qwen
+service have not been altered.
