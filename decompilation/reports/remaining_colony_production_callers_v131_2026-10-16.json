@@ -1,0 +1,1511 @@
+{
+  "status": "source-verified-static-caller-control-flow",
+  "EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "verified_named_helper_source_bodies": [
+    {
+      "name": "Event_Check_Space_Anomaly_",
+      "CODE_start": "0x1341e",
+      "bytes": 80,
+      "sha256": "dd82062b1a3404b5917ee04dceea3459291b8f96f1fda2b0b9ded5e7041932b4"
+    },
+    {
+      "name": "Colony_Job_Production_",
+      "CODE_start": "0xce280",
+      "bytes": 996,
+      "sha256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860"
+    },
+    {
+      "name": "Format_Quotient_",
+      "CODE_start": "0xcda36",
+      "bytes": 158,
+      "sha256": "3460b3c71f1cc964a63b1583e2020119e091473cd311af582562386b370e8b12"
+    },
+    {
+      "name": "Colony_Officer_",
+      "CODE_start": "0xcd9f2",
+      "bytes": 68,
+      "sha256": "a573f1396f45fe66f4484dfc1965704989b7a3af6301a75b173c13ec9a98afcc"
+    },
+    {
+      "name": "Owned_Officer_Level_",
+      "CODE_start": "0x84951",
+      "bytes": 86,
+      "sha256": "c067e6142cc3347a958ff8a7d868a10f4039296419eb9acf5b989f0b7f438586"
+    },
+    {
+      "name": "sprintf_",
+      "CODE_start": "0x1165f2",
+      "bytes": 48,
+      "sha256": "f46feba187f8dac98b214d9f95e9f7de8d387731802675ace60857d61d0f3b38"
+    },
+    {
+      "name": "memset_",
+      "CODE_start": "0x119c70",
+      "bytes": 24,
+      "sha256": "e1bb125f736118af8cb392e308cbf68630169cada23d288f5adad0c3eb4fdc8c"
+    }
+  ],
+  "verified_production_callers": {
+    "Colony_Research_Production_": {
+      "original_complete_body": {
+        "CODE_start": "0xcff74",
+        "bytes": 1103,
+        "sha256": "8d893da4d56dcd193a65a5db6d642ea8b375543797047ed6b149db71fb201341"
+      },
+      "complete_decoded_instruction_count": 316,
+      "complete_decoded_bytes": 1103,
+      "rejoined_objdump_byte_continuations": [
+        {
+          "at": "0xcff8d",
+          "from": "0xcff86",
+          "bytes": 2
+        },
+        {
+          "at": "0xcffb4",
+          "from": "0xcffad",
+          "bytes": 2
+        },
+        {
+          "at": "0xd0105",
+          "from": "0xd00fe",
+          "bytes": 2
+        },
+        {
+          "at": "0xd0121",
+          "from": "0xd011a",
+          "bytes": 1
+        },
+        {
+          "at": "0xd013e",
+          "from": "0xd0137",
+          "bytes": 1
+        },
+        {
+          "at": "0xd0175",
+          "from": "0xd016e",
+          "bytes": 2
+        },
+        {
+          "at": "0xd0186",
+          "from": "0xd017f",
+          "bytes": 1
+        },
+        {
+          "at": "0xd01b2",
+          "from": "0xd01ab",
+          "bytes": 2
+        },
+        {
+          "at": "0xd01c3",
+          "from": "0xd01bc",
+          "bytes": 1
+        }
+      ],
+      "original_direct_call_count": 32,
+      "callee_count_by_name": {
+        "Event_Check_Space_Anomaly_": 1,
+        "Colony_Job_Production_": 1,
+        "sprintf_": 22,
+        "Format_Quotient_": 8
+      },
+      "complete_direct_control_transfer_count": 72,
+      "complete_direct_control_transfer_inventory": [
+        {
+          "at": "0xcff84",
+          "op": "jne",
+          "dest": "0xcff94"
+        },
+        {
+          "at": "0xcff8f",
+          "op": "jmp",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xcffa3",
+          "op": "call",
+          "dest": "0x1341e"
+        },
+        {
+          "at": "0xcffab",
+          "op": "je",
+          "dest": "0xcffd3"
+        },
+        {
+          "at": "0xcffb8",
+          "op": "je",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xcffcb",
+          "op": "jne",
+          "dest": "0xcffc5"
+        },
+        {
+          "at": "0xcffce",
+          "op": "jmp",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xcffd5",
+          "op": "je",
+          "dest": "0xcffdf"
+        },
+        {
+          "at": "0xcffdd",
+          "op": "jmp",
+          "dest": "0xcffe1"
+        },
+        {
+          "at": "0xcffe8",
+          "op": "call",
+          "dest": "0xce280"
+        },
+        {
+          "at": "0xcfff7",
+          "op": "je",
+          "dest": "0xd0000"
+        },
+        {
+          "at": "0xcfffe",
+          "op": "jmp",
+          "dest": "0xd0002"
+        },
+        {
+          "at": "0xd000c",
+          "op": "je",
+          "dest": "0xd0015"
+        },
+        {
+          "at": "0xd0013",
+          "op": "jmp",
+          "dest": "0xd0017"
+        },
+        {
+          "at": "0xd0021",
+          "op": "je",
+          "dest": "0xd002a"
+        },
+        {
+          "at": "0xd0028",
+          "op": "jmp",
+          "dest": "0xd002c"
+        },
+        {
+          "at": "0xd0033",
+          "op": "je",
+          "dest": "0xd003c"
+        },
+        {
+          "at": "0xd003a",
+          "op": "jmp",
+          "dest": "0xd003e"
+        },
+        {
+          "at": "0xd0059",
+          "op": "je",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xd006a",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd007f",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0090",
+          "op": "je",
+          "dest": "0xd00ae"
+        },
+        {
+          "at": "0xd00a4",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd00b2",
+          "op": "je",
+          "dest": "0xd00cd"
+        },
+        {
+          "at": "0xd00c3",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd00d1",
+          "op": "je",
+          "dest": "0xd00ec"
+        },
+        {
+          "at": "0xd00e2",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0107",
+          "op": "je",
+          "dest": "0xd0133"
+        },
+        {
+          "at": "0xd0129",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0135",
+          "op": "jne",
+          "dest": "0xd00f6"
+        },
+        {
+          "at": "0xd013f",
+          "op": "je",
+          "dest": "0xd015f"
+        },
+        {
+          "at": "0xd0155",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0177",
+          "op": "je",
+          "dest": "0xd0198"
+        },
+        {
+          "at": "0xd018e",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd019a",
+          "op": "jne",
+          "dest": "0xd0169"
+        },
+        {
+          "at": "0xd01b4",
+          "op": "je",
+          "dest": "0xd01d5"
+        },
+        {
+          "at": "0xd01cb",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd01d7",
+          "op": "jne",
+          "dest": "0xd01a6"
+        },
+        {
+          "at": "0xd01dd",
+          "op": "je",
+          "dest": "0xd0203"
+        },
+        {
+          "at": "0xd01ed",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd01f9",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0207",
+          "op": "je",
+          "dest": "0xd022d"
+        },
+        {
+          "at": "0xd0217",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd0223",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0231",
+          "op": "je",
+          "dest": "0xd0257"
+        },
+        {
+          "at": "0xd0241",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd024d",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd025b",
+          "op": "jle",
+          "dest": "0xd0281"
+        },
+        {
+          "at": "0xd026b",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd0277",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0285",
+          "op": "jge",
+          "dest": "0xd02ab"
+        },
+        {
+          "at": "0xd0295",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd02a1",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd02af",
+          "op": "jle",
+          "dest": "0xd02d5"
+        },
+        {
+          "at": "0xd02bf",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd02cb",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd02d9",
+          "op": "jge",
+          "dest": "0xd02ff"
+        },
+        {
+          "at": "0xd02e9",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd02f5",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0303",
+          "op": "je",
+          "dest": "0xd0329"
+        },
+        {
+          "at": "0xd0313",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xd031f",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd032d",
+          "op": "je",
+          "dest": "0xd0348"
+        },
+        {
+          "at": "0xd033e",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd034c",
+          "op": "je",
+          "dest": "0xd0367"
+        },
+        {
+          "at": "0xd035d",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0369",
+          "op": "je",
+          "dest": "0xd0382"
+        },
+        {
+          "at": "0xd0378",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd0386",
+          "op": "je",
+          "dest": "0xd03a1"
+        },
+        {
+          "at": "0xd0397",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd03a7",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xd03be",
+          "op": "jmp",
+          "dest": "0xceb08"
+        }
+      ],
+      "exact_machine_opcode_anchors": 23,
+      "verified_output_field": "colony WORD+0xEB",
+      "off_body_shared_return_targets": [
+        "0xceb17",
+        "0xceb08"
+      ]
+    },
+    "Colony_Food_Production_": {
+      "original_complete_body": {
+        "CODE_start": "0xce664",
+        "bytes": 1209,
+        "sha256": "cfd054077a2fa2a0b676a7cda660388de06c3b63a46f8a3f516bc5e245555aac"
+      },
+      "complete_decoded_instruction_count": 351,
+      "complete_decoded_bytes": 1209,
+      "rejoined_objdump_byte_continuations": [
+        {
+          "at": "0xce67d",
+          "from": "0xce676",
+          "bytes": 2
+        },
+        {
+          "at": "0xce6a4",
+          "from": "0xce69d",
+          "bytes": 2
+        },
+        {
+          "at": "0xce7c9",
+          "from": "0xce7c2",
+          "bytes": 2
+        },
+        {
+          "at": "0xce7e5",
+          "from": "0xce7de",
+          "bytes": 1
+        },
+        {
+          "at": "0xce803",
+          "from": "0xce7fc",
+          "bytes": 2
+        },
+        {
+          "at": "0xce824",
+          "from": "0xce81d",
+          "bytes": 1
+        },
+        {
+          "at": "0xce84a",
+          "from": "0xce843",
+          "bytes": 1
+        },
+        {
+          "at": "0xce877",
+          "from": "0xce870",
+          "bytes": 1
+        },
+        {
+          "at": "0xce8b3",
+          "from": "0xce8ac",
+          "bytes": 2
+        },
+        {
+          "at": "0xce8be",
+          "from": "0xce8b7",
+          "bytes": 1
+        },
+        {
+          "at": "0xce8f5",
+          "from": "0xce8ee",
+          "bytes": 2
+        },
+        {
+          "at": "0xce900",
+          "from": "0xce8f9",
+          "bytes": 1
+        },
+        {
+          "at": "0xceae0",
+          "from": "0xcead9",
+          "bytes": 1
+        }
+      ],
+      "original_direct_call_count": 35,
+      "callee_count_by_name": {
+        "Event_Check_Space_Anomaly_": 1,
+        "memset_": 1,
+        "Colony_Job_Production_": 1,
+        "sprintf_": 23,
+        "Format_Quotient_": 9
+      },
+      "complete_direct_control_transfer_count": 70,
+      "complete_direct_control_transfer_inventory": [
+        {
+          "at": "0xce674",
+          "op": "jne",
+          "dest": "0xce684"
+        },
+        {
+          "at": "0xce67f",
+          "op": "jmp",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xce693",
+          "op": "call",
+          "dest": "0x1341e"
+        },
+        {
+          "at": "0xce69b",
+          "op": "je",
+          "dest": "0xce6c3"
+        },
+        {
+          "at": "0xce6a8",
+          "op": "je",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xce6bb",
+          "op": "jne",
+          "dest": "0xce6b5"
+        },
+        {
+          "at": "0xce6be",
+          "op": "jmp",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xce6d0",
+          "op": "jne",
+          "dest": "0xce6e8"
+        },
+        {
+          "at": "0xce6df",
+          "op": "call",
+          "dest": "0x119c70"
+        },
+        {
+          "at": "0xce6e6",
+          "op": "jmp",
+          "dest": "0xce6ff"
+        },
+        {
+          "at": "0xce6ea",
+          "op": "je",
+          "dest": "0xce6f4"
+        },
+        {
+          "at": "0xce6f2",
+          "op": "jmp",
+          "dest": "0xce6f6"
+        },
+        {
+          "at": "0xce6fa",
+          "op": "call",
+          "dest": "0xce280"
+        },
+        {
+          "at": "0xce706",
+          "op": "je",
+          "dest": "0xce70f"
+        },
+        {
+          "at": "0xce716",
+          "op": "je",
+          "dest": "0xce71f"
+        },
+        {
+          "at": "0xce730",
+          "op": "je",
+          "dest": "0xceb17"
+        },
+        {
+          "at": "0xce741",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce756",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce767",
+          "op": "je",
+          "dest": "0xce78b"
+        },
+        {
+          "at": "0xce781",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce78f",
+          "op": "je",
+          "dest": "0xce7b0"
+        },
+        {
+          "at": "0xce7a6",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce7cb",
+          "op": "jle",
+          "dest": "0xce7fc"
+        },
+        {
+          "at": "0xce7f2",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce805",
+          "op": "jge",
+          "dest": "0xce83b"
+        },
+        {
+          "at": "0xce825",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xce831",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce83d",
+          "op": "jne",
+          "dest": "0xce7ba"
+        },
+        {
+          "at": "0xce84b",
+          "op": "je",
+          "dest": "0xce870"
+        },
+        {
+          "at": "0xce866",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce878",
+          "op": "je",
+          "dest": "0xce89d"
+        },
+        {
+          "at": "0xce893",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce8b5",
+          "op": "je",
+          "dest": "0xce8db"
+        },
+        {
+          "at": "0xce8d1",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce8dd",
+          "op": "jne",
+          "dest": "0xce8a7"
+        },
+        {
+          "at": "0xce8f7",
+          "op": "je",
+          "dest": "0xce91d"
+        },
+        {
+          "at": "0xce913",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce91f",
+          "op": "jne",
+          "dest": "0xce8e9"
+        },
+        {
+          "at": "0xce925",
+          "op": "je",
+          "dest": "0xce94b"
+        },
+        {
+          "at": "0xce935",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xce941",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce94f",
+          "op": "je",
+          "dest": "0xce975"
+        },
+        {
+          "at": "0xce95f",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xce96b",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce979",
+          "op": "je",
+          "dest": "0xce99f"
+        },
+        {
+          "at": "0xce989",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xce995",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce9a3",
+          "op": "jle",
+          "dest": "0xce9c9"
+        },
+        {
+          "at": "0xce9b3",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xce9bf",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce9cd",
+          "op": "jge",
+          "dest": "0xce9f3"
+        },
+        {
+          "at": "0xce9dd",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xce9e9",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xce9f7",
+          "op": "jle",
+          "dest": "0xcea1d"
+        },
+        {
+          "at": "0xcea07",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcea13",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcea21",
+          "op": "jge",
+          "dest": "0xcea47"
+        },
+        {
+          "at": "0xcea31",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcea3d",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcea4b",
+          "op": "je",
+          "dest": "0xcea71"
+        },
+        {
+          "at": "0xcea5b",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcea67",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcea76",
+          "op": "je",
+          "dest": "0xcea93"
+        },
+        {
+          "at": "0xcea89",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcea98",
+          "op": "je",
+          "dest": "0xceab5"
+        },
+        {
+          "at": "0xceaab",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xceabc",
+          "op": "je",
+          "dest": "0xceaeb"
+        },
+        {
+          "at": "0xcead2",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xceaf1",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xceb0f",
+          "op": "call",
+          "dest": "0x1165f2"
+        }
+      ],
+      "exact_machine_opcode_anchors": 15,
+      "verified_output_field": "colony WORD+0xE7",
+      "off_body_shared_return_targets": []
+    },
+    "Colony_Industry_Production_": {
+      "original_complete_body": {
+        "CODE_start": "0xcee1b",
+        "bytes": 1789,
+        "sha256": "e68780a7e7632b271363fa37540d0428dd0c57c20ac173ac1ccee4ebe9e45f1d"
+      },
+      "complete_decoded_instruction_count": 519,
+      "complete_decoded_bytes": 1789,
+      "rejoined_objdump_byte_continuations": [
+        {
+          "at": "0xcee43",
+          "from": "0xcee3c",
+          "bytes": 2
+        },
+        {
+          "at": "0xcee6a",
+          "from": "0xcee63",
+          "bytes": 2
+        },
+        {
+          "at": "0xcf167",
+          "from": "0xcf160",
+          "bytes": 2
+        },
+        {
+          "at": "0xcf183",
+          "from": "0xcf17c",
+          "bytes": 1
+        },
+        {
+          "at": "0xcf1a0",
+          "from": "0xcf199",
+          "bytes": 1
+        },
+        {
+          "at": "0xcf1d7",
+          "from": "0xcf1d0",
+          "bytes": 2
+        },
+        {
+          "at": "0xcf1e8",
+          "from": "0xcf1e1",
+          "bytes": 1
+        },
+        {
+          "at": "0xcf214",
+          "from": "0xcf20d",
+          "bytes": 2
+        },
+        {
+          "at": "0xcf225",
+          "from": "0xcf21e",
+          "bytes": 1
+        },
+        {
+          "at": "0xcf49d",
+          "from": "0xcf496",
+          "bytes": 1
+        },
+        {
+          "at": "0xcf4b1",
+          "from": "0xcf4aa",
+          "bytes": 1
+        }
+      ],
+      "original_direct_call_count": 40,
+      "callee_count_by_name": {
+        "Event_Check_Space_Anomaly_": 1,
+        "Colony_Job_Production_": 1,
+        "Colony_Officer_": 1,
+        "Owned_Officer_Level_": 2,
+        "sprintf_": 26,
+        "Format_Quotient_": 9
+      },
+      "complete_direct_control_transfer_count": 100,
+      "complete_direct_control_transfer_inventory": [
+        {
+          "at": "0xcee3a",
+          "op": "jne",
+          "dest": "0xcee4a"
+        },
+        {
+          "at": "0xcee45",
+          "op": "jmp",
+          "dest": "0xcf50c"
+        },
+        {
+          "at": "0xcee59",
+          "op": "call",
+          "dest": "0x1341e"
+        },
+        {
+          "at": "0xcee61",
+          "op": "je",
+          "dest": "0xcee89"
+        },
+        {
+          "at": "0xcee6e",
+          "op": "je",
+          "dest": "0xcf50c"
+        },
+        {
+          "at": "0xcee81",
+          "op": "jne",
+          "dest": "0xcee7b"
+        },
+        {
+          "at": "0xcee84",
+          "op": "jmp",
+          "dest": "0xcf50c"
+        },
+        {
+          "at": "0xcee8b",
+          "op": "je",
+          "dest": "0xcee95"
+        },
+        {
+          "at": "0xcee93",
+          "op": "jmp",
+          "dest": "0xcee97"
+        },
+        {
+          "at": "0xceea5",
+          "op": "call",
+          "dest": "0xce280"
+        },
+        {
+          "at": "0xceeb4",
+          "op": "je",
+          "dest": "0xceebd"
+        },
+        {
+          "at": "0xceebb",
+          "op": "jmp",
+          "dest": "0xceebf"
+        },
+        {
+          "at": "0xceec9",
+          "op": "je",
+          "dest": "0xceed2"
+        },
+        {
+          "at": "0xceed0",
+          "op": "jmp",
+          "dest": "0xceed4"
+        },
+        {
+          "at": "0xceede",
+          "op": "je",
+          "dest": "0xceee7"
+        },
+        {
+          "at": "0xceee5",
+          "op": "jmp",
+          "dest": "0xceee9"
+        },
+        {
+          "at": "0xceefa",
+          "op": "je",
+          "dest": "0xcef19"
+        },
+        {
+          "at": "0xcef20",
+          "op": "je",
+          "dest": "0xcef2e"
+        },
+        {
+          "at": "0xcef46",
+          "op": "je",
+          "dest": "0xcef64"
+        },
+        {
+          "at": "0xcef81",
+          "op": "je",
+          "dest": "0xcef8e"
+        },
+        {
+          "at": "0xcef89",
+          "op": "jmp",
+          "dest": "0xcf0ed"
+        },
+        {
+          "at": "0xcef90",
+          "op": "call",
+          "dest": "0xcd9f2"
+        },
+        {
+          "at": "0xcefd0",
+          "op": "jne",
+          "dest": "0xcefd5"
+        },
+        {
+          "at": "0xcefdc",
+          "op": "je",
+          "dest": "0xcefe8"
+        },
+        {
+          "at": "0xcefef",
+          "op": "je",
+          "dest": "0xcefff"
+        },
+        {
+          "at": "0xcf003",
+          "op": "je",
+          "dest": "0xcf050"
+        },
+        {
+          "at": "0xcf01a",
+          "op": "je",
+          "dest": "0xcf02b"
+        },
+        {
+          "at": "0xcf01f",
+          "op": "call",
+          "dest": "0x84951"
+        },
+        {
+          "at": "0xcf029",
+          "op": "jmp",
+          "dest": "0xcf03e"
+        },
+        {
+          "at": "0xcf02f",
+          "op": "je",
+          "dest": "0xcf03e"
+        },
+        {
+          "at": "0xcf034",
+          "op": "call",
+          "dest": "0x84951"
+        },
+        {
+          "at": "0xcf05f",
+          "op": "jle",
+          "dest": "0xcf0d8"
+        },
+        {
+          "at": "0xcf079",
+          "op": "jmp",
+          "dest": "0xcf0b6"
+        },
+        {
+          "at": "0xcf091",
+          "op": "jge",
+          "dest": "0xcf0ad"
+        },
+        {
+          "at": "0xcf0ab",
+          "op": "jne",
+          "dest": "0xcf0b3"
+        },
+        {
+          "at": "0xcf0b1",
+          "op": "jne",
+          "dest": "0xcf0b6"
+        },
+        {
+          "at": "0xcf0ba",
+          "op": "jg",
+          "dest": "0xcf07b"
+        },
+        {
+          "at": "0xcf0c0",
+          "op": "je",
+          "dest": "0xcf0d8"
+        },
+        {
+          "at": "0xcf0da",
+          "op": "jle",
+          "dest": "0xcf0e7"
+        },
+        {
+          "at": "0xcf0e5",
+          "op": "jmp",
+          "dest": "0xcf0e9"
+        },
+        {
+          "at": "0xcf0f9",
+          "op": "je",
+          "dest": "0xcf50c"
+        },
+        {
+          "at": "0xcf10a",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf11f",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf130",
+          "op": "je",
+          "dest": "0xcf14e"
+        },
+        {
+          "at": "0xcf144",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf169",
+          "op": "je",
+          "dest": "0xcf195"
+        },
+        {
+          "at": "0xcf18b",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf197",
+          "op": "jne",
+          "dest": "0xcf158"
+        },
+        {
+          "at": "0xcf1a1",
+          "op": "je",
+          "dest": "0xcf1c1"
+        },
+        {
+          "at": "0xcf1b7",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf1d9",
+          "op": "je",
+          "dest": "0xcf1fa"
+        },
+        {
+          "at": "0xcf1f0",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf1fc",
+          "op": "jne",
+          "dest": "0xcf1cb"
+        },
+        {
+          "at": "0xcf216",
+          "op": "je",
+          "dest": "0xcf237"
+        },
+        {
+          "at": "0xcf22d",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf239",
+          "op": "jne",
+          "dest": "0xcf208"
+        },
+        {
+          "at": "0xcf23f",
+          "op": "je",
+          "dest": "0xcf265"
+        },
+        {
+          "at": "0xcf24f",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf25b",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf269",
+          "op": "je",
+          "dest": "0xcf28f"
+        },
+        {
+          "at": "0xcf279",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf285",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf293",
+          "op": "je",
+          "dest": "0xcf2b9"
+        },
+        {
+          "at": "0xcf2a3",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf2af",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf2bd",
+          "op": "jle",
+          "dest": "0xcf2e3"
+        },
+        {
+          "at": "0xcf2cd",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf2d9",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf2e7",
+          "op": "jge",
+          "dest": "0xcf30d"
+        },
+        {
+          "at": "0xcf2f7",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf303",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf311",
+          "op": "jle",
+          "dest": "0xcf337"
+        },
+        {
+          "at": "0xcf321",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf32d",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf33b",
+          "op": "jge",
+          "dest": "0xcf361"
+        },
+        {
+          "at": "0xcf34b",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf357",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf365",
+          "op": "je",
+          "dest": "0xcf38b"
+        },
+        {
+          "at": "0xcf375",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf381",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf38f",
+          "op": "je",
+          "dest": "0xcf3aa"
+        },
+        {
+          "at": "0xcf3a0",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf3ae",
+          "op": "je",
+          "dest": "0xcf3c9"
+        },
+        {
+          "at": "0xcf3bf",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf3cd",
+          "op": "je",
+          "dest": "0xcf3e8"
+        },
+        {
+          "at": "0xcf3de",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf3ec",
+          "op": "je",
+          "dest": "0xcf407"
+        },
+        {
+          "at": "0xcf3fd",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf40b",
+          "op": "je",
+          "dest": "0xcf42c"
+        },
+        {
+          "at": "0xcf422",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf430",
+          "op": "je",
+          "dest": "0xcf456"
+        },
+        {
+          "at": "0xcf440",
+          "op": "call",
+          "dest": "0xcda36"
+        },
+        {
+          "at": "0xcf44c",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf45d",
+          "op": "je",
+          "dest": "0xcf4aa"
+        },
+        {
+          "at": "0xcf471",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf48f",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf4b2",
+          "op": "je",
+          "dest": "0xcf4e0"
+        },
+        {
+          "at": "0xcf4c8",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf4e6",
+          "op": "call",
+          "dest": "0x1165f2"
+        },
+        {
+          "at": "0xcf504",
+          "op": "call",
+          "dest": "0x1165f2"
+        }
+      ],
+      "exact_machine_opcode_anchors": 11,
+      "verified_output_field": "colony WORD+0xE9; BYTE+0xFB is initially zeroed",
+      "off_body_shared_return_targets": []
+    }
+  },
+  "bounded_selected_caller_arithmetic_fixtures": 12,
+  "limitations": [
+    "No DOS runtime differential test; no proof of full native port",
+    "The 996-byte Colony_Job_Production_ callee has only full-body SHA identity in THIS audit; its internal algorithm is not reconstructed here",
+    "The food/industry/research caller reports establish complete source instruction and control-flow coverage, NOT complete semantic proofs for all external globals",
+    "Existing analysis disassembly files and proprietary executable remain unchanged"
+  ]
+}
