@@ -1,0 +1,177 @@
+{
+  "status": "source-verified-gravity-table-and-homeworld-normalization",
+  "official_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "initialized_DATA_SHA256": "082ccc1437b37d070d96f6c240702a461484876d06912753547ddab71caf3b6b",
+  "original_gravity_DATA_table": {
+    "symbol": "_gravity_table",
+    "offset": "0x572a",
+    "bytes": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      2,
+      1,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1,
+      2,
+      2,
+      2
+    ],
+    "sha256": "5e2b1977479b4a37b5911f9657539829f8c996b97973d378323c1989a7769f13",
+    "last_exclusive": "0x5743",
+    "next_symbol": "_gravity_to_atmosphere",
+    "row_selector": "original planet BYTE+0x0a",
+    "column_selector": "planet BYTE+0x05",
+    "original_element_formula": "gravity_table[5*BYTE_0A+BYTE_05]"
+  },
+  "original_full_body_audits": [
+    {
+      "name": "Enforce_Gravity_",
+      "CODE_offset": "0x6b45c",
+      "full_bytes": 88,
+      "SHA256": "979ee3606a0579ddd747533cd711ff670f7e31a1bc4acf9e8de5a9df1fa9c268",
+      "machine_instructions": 30,
+      "decoder_continuations": [
+        {
+          "at": "0x6b493",
+          "from": "0x6b48c",
+          "bytes": 1
+        }
+      ],
+      "exact_machine_instruction_anchors": 7
+    },
+    {
+      "name": "Enforce_Mineral_Richness_",
+      "CODE_offset": "0x6b4da",
+      "full_bytes": 216,
+      "SHA256": "143f14604521a269fc41003b8ed5b1e44f3d48fe81a15259bc0acde31622e394",
+      "machine_instructions": 65,
+      "decoder_continuations": [
+        {
+          "at": "0x6b542",
+          "from": "0x6b53b",
+          "bytes": 1
+        }
+      ],
+      "exact_machine_instruction_anchors": 8
+    },
+    {
+      "name": "Modify_Home_Worlds_",
+      "CODE_offset": "0x6c4af",
+      "full_bytes": 576,
+      "SHA256": "868919235947ff50eeca75301fa7c6ae5d07cee7b73a9937a101aa9d497a2f05",
+      "machine_instructions": 147,
+      "decoder_continuations": [
+        {
+          "at": "0x6c55d",
+          "from": "0x6c556",
+          "bytes": 1
+        },
+        {
+          "at": "0x6c626",
+          "from": "0x6c61f",
+          "bytes": 1
+        }
+      ],
+      "exact_machine_instruction_anchors": 10
+    },
+    {
+      "name": "Gravity_Player_Production_Factor_",
+      "CODE_offset": "0xcdf2c",
+      "full_bytes": 167,
+      "SHA256": "a0660fd4edfd3b57bb91c406ca614e6c445ff509fb191eb5b757bdc254142200",
+      "machine_instructions": 52,
+      "decoder_continuations": [
+        {
+          "at": "0xcdf7e",
+          "from": "0xcdf77",
+          "bytes": 1
+        },
+        {
+          "at": "0xcdfa1",
+          "from": "0xcdf9a",
+          "bytes": 1
+        },
+        {
+          "at": "0xcdfbc",
+          "from": "0xcdfb5",
+          "bytes": 1
+        }
+      ],
+      "exact_machine_instruction_anchors": 5
+    }
+  ],
+  "total_machine_instructions_decoded": 294,
+  "exact_opcode_anchor_count": 30,
+  "direct_original_homeworld_CALL_sites": [
+    {
+      "CODE": "0x6c60c",
+      "target": "0x6b4da"
+    },
+    {
+      "CODE": "0x6c68c",
+      "target": "0x6b45c"
+    }
+  ],
+  "original_homeworld_rule": "if player BYTE+0x8a9 nonzero -> planet gravity0; else if player BYTE+0x8aa nonzero -> gravity2; else gravity1; Enforce_Gravity_ writes BYTE planet+0x06",
+  "verified_bounded_5_by_5_original_DATA_matrix": [
+    [
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2,
+      2,
+      2
+    ]
+  ],
+  "controlled_synthetic_checks": 159,
+  "caveats": [
+    "Source lookup is bounded here to selector BYTE values 0..4, source has no bounds validation",
+    "No proof every other gravity writer is constrained to this DATA table or homeworld override",
+    "Enforce_Gravity_ can additionally modify other planet fields; only gravity-byte write is modeled",
+    "No original DOS runtime differential or complete saved-game reachability proof"
+  ]
+}
