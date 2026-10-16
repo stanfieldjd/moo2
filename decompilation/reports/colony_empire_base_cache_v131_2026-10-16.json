@@ -1,0 +1,363 @@
+{
+  "status": "source-verified-original-per-job-empire-base-cache-behavior",
+  "source_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "source_bodies": [
+    {
+      "name": "Colony_Empire_Base_Food2_Produced_",
+      "CODE_offset": "0xce0c6",
+      "full_bytes": 358,
+      "SHA256": "705a9348d1b7e97003bd711a8553e114d453b5fbe745b0706c47dffe1de913c2",
+      "decoded_machine_instructions": 95,
+      "source_transfer_count": 25,
+      "continuation_rows": 4,
+      "exact_opcode_checks": 33,
+      "direct_transfer_inventory": [
+        {
+          "at": "0xce0db",
+          "opcode": "jne",
+          "target": "0xce0ea"
+        },
+        {
+          "at": "0xce0df",
+          "opcode": "jne",
+          "target": "0xce0ea"
+        },
+        {
+          "at": "0xce0e8",
+          "opcode": "jmp",
+          "target": "0xce0f8"
+        },
+        {
+          "at": "0xce0f2",
+          "opcode": "call",
+          "target": "0xce03e"
+        },
+        {
+          "at": "0xce0ff",
+          "opcode": "jle",
+          "target": "0xce225"
+        },
+        {
+          "at": "0xce10b",
+          "opcode": "jne",
+          "target": "0xce11f"
+        },
+        {
+          "at": "0xce119",
+          "opcode": "jne",
+          "target": "0xce11f"
+        },
+        {
+          "at": "0xce11d",
+          "opcode": "je",
+          "target": "0xce141"
+        },
+        {
+          "at": "0xce12e",
+          "opcode": "call",
+          "target": "0x119c70"
+        },
+        {
+          "at": "0xce14b",
+          "opcode": "jne",
+          "target": "0xce219"
+        },
+        {
+          "at": "0xce159",
+          "opcode": "jge",
+          "target": "0xce1dd"
+        },
+        {
+          "at": "0xce17a",
+          "opcode": "je",
+          "target": "0xce1f1"
+        },
+        {
+          "at": "0xce18d",
+          "opcode": "jb",
+          "target": "0xce19b"
+        },
+        {
+          "at": "0xce18f",
+          "opcode": "jbe",
+          "target": "0xce1c0"
+        },
+        {
+          "at": "0xce193",
+          "opcode": "jbe",
+          "target": "0xce19f"
+        },
+        {
+          "at": "0xce197",
+          "opcode": "je",
+          "target": "0xce1c0"
+        },
+        {
+          "at": "0xce199",
+          "opcode": "jmp",
+          "target": "0xce1f1"
+        },
+        {
+          "at": "0xce19d",
+          "opcode": "jne",
+          "target": "0xce1f1"
+        },
+        {
+          "at": "0xce1be",
+          "opcode": "jmp",
+          "target": "0xce1f1"
+        },
+        {
+          "at": "0xce1db",
+          "opcode": "jmp",
+          "target": "0xce1ba"
+        },
+        {
+          "at": "0xce1dd",
+          "opcode": "jne",
+          "target": "0xce1e6"
+        },
+        {
+          "at": "0xce1e4",
+          "opcode": "jmp",
+          "target": "0xce1f1"
+        },
+        {
+          "at": "0xce1ea",
+          "opcode": "jne",
+          "target": "0xce1f1"
+        },
+        {
+          "at": "0xce1f3",
+          "opcode": "je",
+          "target": "0xce203"
+        },
+        {
+          "at": "0xce217",
+          "opcode": "jmp",
+          "target": "0xce225"
+        }
+      ]
+    },
+    {
+      "name": "Colony_Empire_Base_Industry_Produced_",
+      "CODE_offset": "0xced47",
+      "full_bytes": 212,
+      "SHA256": "35aa50fa88250f254ba329b69bc8ed99ba7b9d647fe29f1fcffa1e7ecb4c24d8",
+      "decoded_machine_instructions": 61,
+      "source_transfer_count": 14,
+      "continuation_rows": 3,
+      "exact_opcode_checks": 25,
+      "direct_transfer_inventory": [
+        {
+          "at": "0xced5c",
+          "opcode": "jne",
+          "target": "0xced6b"
+        },
+        {
+          "at": "0xced60",
+          "opcode": "jne",
+          "target": "0xced6b"
+        },
+        {
+          "at": "0xced69",
+          "opcode": "jmp",
+          "target": "0xced79"
+        },
+        {
+          "at": "0xced73",
+          "opcode": "call",
+          "target": "0xcec95"
+        },
+        {
+          "at": "0xced83",
+          "opcode": "jne",
+          "target": "0xced97"
+        },
+        {
+          "at": "0xced91",
+          "opcode": "jne",
+          "target": "0xced97"
+        },
+        {
+          "at": "0xced95",
+          "opcode": "je",
+          "target": "0xcedb9"
+        },
+        {
+          "at": "0xceda6",
+          "opcode": "call",
+          "target": "0x119c70"
+        },
+        {
+          "at": "0xcedc3",
+          "opcode": "jne",
+          "target": "0xcee08"
+        },
+        {
+          "at": "0xcedcb",
+          "opcode": "jge",
+          "target": "0xcede3"
+        },
+        {
+          "at": "0xcede1",
+          "opcode": "jmp",
+          "target": "0xcedea"
+        },
+        {
+          "at": "0xcede3",
+          "opcode": "jne",
+          "target": "0xcedea"
+        },
+        {
+          "at": "0xcedec",
+          "opcode": "je",
+          "target": "0xcedf6"
+        },
+        {
+          "at": "0xcee06",
+          "opcode": "jmp",
+          "target": "0xcee14"
+        }
+      ]
+    },
+    {
+      "name": "Colony_Empire_Base_Research_Produced_",
+      "CODE_offset": "0xcfe77",
+      "full_bytes": 253,
+      "SHA256": "1e72e37daea066aa98c587b71c86f1faae81775b60886693b9a3d33b8888e0f9",
+      "decoded_machine_instructions": 67,
+      "source_transfer_count": 17,
+      "continuation_rows": 2,
+      "exact_opcode_checks": 28,
+      "direct_transfer_inventory": [
+        {
+          "at": "0xcfe8c",
+          "opcode": "jne",
+          "target": "0xcfe9b"
+        },
+        {
+          "at": "0xcfe90",
+          "opcode": "jne",
+          "target": "0xcfe9b"
+        },
+        {
+          "at": "0xcfe99",
+          "opcode": "jmp",
+          "target": "0xcfea9"
+        },
+        {
+          "at": "0xcfea3",
+          "opcode": "call",
+          "target": "0xcfdc6"
+        },
+        {
+          "at": "0xcfeb3",
+          "opcode": "jne",
+          "target": "0xcfec7"
+        },
+        {
+          "at": "0xcfec1",
+          "opcode": "jne",
+          "target": "0xcfec7"
+        },
+        {
+          "at": "0xcfec5",
+          "opcode": "je",
+          "target": "0xcfee9"
+        },
+        {
+          "at": "0xcfed6",
+          "opcode": "call",
+          "target": "0x119c70"
+        },
+        {
+          "at": "0xcfef3",
+          "opcode": "jne",
+          "target": "0xcff67"
+        },
+        {
+          "at": "0xcff02",
+          "opcode": "jge",
+          "target": "0xcff33"
+        },
+        {
+          "at": "0xcff1f",
+          "opcode": "jne",
+          "target": "0xcff3a"
+        },
+        {
+          "at": "0xcff28",
+          "opcode": "jne",
+          "target": "0xcff3a"
+        },
+        {
+          "at": "0xcff31",
+          "opcode": "jmp",
+          "target": "0xcff3a"
+        },
+        {
+          "at": "0xcff33",
+          "opcode": "jne",
+          "target": "0xcff3a"
+        },
+        {
+          "at": "0xcff3c",
+          "opcode": "je",
+          "target": "0xcff4f"
+        },
+        {
+          "at": "0xcff62",
+          "opcode": "jmp",
+          "target": "0xcee14"
+        },
+        {
+          "at": "0xcff6f",
+          "opcode": "jmp",
+          "target": "0xcee10"
+        }
+      ]
+    }
+  ],
+  "all_source_instructions": 223,
+  "all_direct_calls_and_branches": 56,
+  "exact_instruction_anchors": 86,
+  "controlled_cache_fixtures": 23,
+  "cache_addresses": {
+    "food": {
+      "key_colony_DATA": "0xb568",
+      "key_tag_DATA": "0xb56c",
+      "cache_DATA": "0x32358",
+      "colony_owned_cached_BYTE": "0xdd"
+    },
+    "industry": {
+      "key_colony_DATA": "0xb56d",
+      "key_tag_DATA": "0xb571",
+      "cache_DATA": "0x32362",
+      "colony_owned_cached_BYTE": "0xde"
+    },
+    "research": {
+      "key_colony_DATA": "0xb572",
+      "key_tag_DATA": "0xb576",
+      "cache_DATA": "0x3236c",
+      "colony_owned_cached_BYTE": "0xdf"
+    }
+  },
+  "cache_sentinel": 99,
+  "cache_slots": 10,
+  "invalidated_on": [
+    "colony pointer mismatch",
+    "tag byte mismatch",
+    "non-null breakdown pointer"
+  ],
+  "cache_hit": "signed BYTE cache slot value is sign extended into AX; upper 16-bit EAX not claimed",
+  "cache_miss": "normal parent helper return plus tag-specific original contribution is stored as low BYTE in slot",
+  "food_exception": "base <=0 returns early without updating cache keys or sentinel array",
+  "limitations": [
+    "No original DOS execution or actual valid-state differential comparison",
+    "This models low WORD return only, not potentially undefined EAX upper register bits",
+    "Source-verified static model restricted to original ten slot indexes 0..9",
+    "Additional food climate-component subbranches not modeled except as controlled input"
+  ]
+}
