@@ -1605,3 +1605,83 @@ tests establish source consistency, not full binary
 equivalence. Host bounds checks intentionally differ from
 malformed DOS behavior. No original copyrighted binary/assets,
 Game Lab website, Xbox controls or Qwen runtime were changed.
+
+
+## 2026-10-16: exact original colony calculation dispatch after population
+
+The entire original **65-byte**
+`Colony_Calculation_` named Watcom routine
+at CODE `0xD2A70` is now source-reconstructed
+as an explicit order-preserving C dispatch.
+
+Original EAX low WORD is sign-extended
+to a colony index; the original colony
+record stride is `0x169`. When the
+colony BYTE `+0x06==0`, the original
+calls:
+
+- `Pre_Import_Computing_`
+  at original CODE `0xD1D59`
+  (198-byte named function, real
+  production effects still pending);
+- `Pass_Out_Imports_`
+  at original CODE `0xCF8F0`
+  (1,238-byte named function, effects
+  still pending), passing EAX
+  signed owner BYTE and EDX colony pointer.
+
+When `colony+0x06!=0`, the original
+skips both of those calls. The
+original then **always** calls
+`Update_Player_Stats_` original
+CODE `0xD2710` (864-byte named
+function, effects still pending),
+passing `_player + signed colony
+owner BYTE * 0xEA9`. The source
+reloads owner separately for import
+and again for stats; the dispatcher
+preserves that property.
+
+`tools/audit_colony_calculation_dispatch_v131.py`
+checks four **complete original Watcom
+function-body SHA-256 digests**, 21
+exact x86 opcode sites, named DATA
+globals and all three direct
+call destinations. Reproducible report:
+`decompilation/reports/colony_calculation_dispatch_v131_2026-10-16.json`.
+
+Source:
+`decompilation/reconstructed/colony_calculation_dispatch_v131.c`
+and header.
+
+Standalone regression
+`tests/test_colony_calculation_dispatch_v131.c`
+passed **64** active/inactive/owner-reload
+cases plus all three callback failure
+boundaries. The end-to-end
+`tests/test_building_population_colony_dispatch_v131.c`
+passed **32** original building15/23/24/28
+→ product44 queue → environmental
+→ food → size/climate race population
+→ original seeded RNG/shuffle →
+population enforcement →
+`Colony_Calculation_` dispatch
+cases, with those three unresolved
+direct function effects represented
+by distinct source-named callbacks.
+This does not claim those economic
+effects were implemented.
+
+Detailed source provenance:
+`decompilation/annotated/colony_calculation_dispatch_v131.md`.
+
+The next large decompilation targets
+are original `Pre_Import_Computing_`,
+`Pass_Out_Imports_`, and
+`Update_Player_Stats_`.
+Neither their complete economic effects
+nor a DOS runtime differential
+comparison is done. Original
+copyrighted game media remain local.
+No Game Lab, Xbox, or unrelated Qwen
+deployment changes were made.
