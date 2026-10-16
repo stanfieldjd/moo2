@@ -1,0 +1,59 @@
+{
+  "status": "source-verified-original-food-industry-counter-category-routes",
+  "official_EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "full_original_function_bodies": [
+    {
+      "name": "Colony_Food_Maintenance_",
+      "CODE_offset": "0xceb4b",
+      "bytes": 330,
+      "sha256": "005961c516ea2f30e4534b7e7c5eb4ede279dc9c53d89a49fd2f5214b5f84030",
+      "decoded_instructions": 87,
+      "source_disasm_continuation_rows": 4,
+      "exact_opcode_checkpoints": 26
+    },
+    {
+      "name": "Colony_Industry_Maintenance_",
+      "CODE_offset": "0xcf546",
+      "bytes": 297,
+      "sha256": "a3d24386fbaa9dfe229d88dcb34c2c661f3dc2169cdec44481c558542e0fb0ed",
+      "decoded_instructions": 79,
+      "source_disasm_continuation_rows": 5,
+      "exact_opcode_checkpoints": 20
+    },
+    {
+      "name": "Convert_Player_To_Flags_",
+      "CODE_offset": "0x4ad97",
+      "bytes": 161,
+      "sha256": "e84d39178d6ef63e679d205d734a991add5d774997653e3edba64b2a371f9d95",
+      "decoded_instructions": 46,
+      "source_disasm_continuation_rows": 5,
+      "exact_opcode_checkpoints": 5
+    },
+    {
+      "name": "Convert_Flags_To_Player_",
+      "CODE_offset": "0x4ae38",
+      "bytes": 188,
+      "sha256": "55e168ee1847ba7de6868476a4acff3811b89d1b996c8555c0dec08666eb0fd5",
+      "decoded_instructions": 60,
+      "source_disasm_continuation_rows": 3,
+      "exact_opcode_checkpoints": 5
+    }
+  ],
+  "total_original_instructions_decoded": 272,
+  "original_opcode_checkpoints": 56,
+  "original_source_owner_population_logic": "tag = packed DWORD&0xf; bit10 = packed DWORD bit10; owner = colony BYTE+0x00; tag<8 derives weight from tag player original +0x8b0 and +0x8b1",
+  "food_rule": "flag+0x8b0 => weight1; else flag+0x8b1 => weight0; else weight2. Bucket owner:FC, foreign packed bit10:FE, else FD; tag9 adds2 to FF; tag8 and tags10..15 excluded",
+  "industry_rule": "flag+0x8b0 => weight1 else0. Bucket owner:100, foreign packed bit10:103, else102; tag8 adds2 to 101; tag9 and tags10..15 excluded",
+  "source_original_race_option_zero_based_indexes": {
+    "player_BYTE_0x8B0": 8,
+    "player_BYTE_0x8B1": 9
+  },
+  "bounded_source_classification_assertions": 5130,
+  "limits": [
+    "Source audit models per packed colonist categorical contributions, not all population loops' later maintenance gameplay or original DOS runtime",
+    "The complete legal player race-option combinations or colonist tags and original saved-state witnesses remain unresolved",
+    "For tag>=10, the source category contribution is absent; the source does not assert such tags legal",
+    "No dynamic parity for original research-display condition or native browser game completion"
+  ]
+}

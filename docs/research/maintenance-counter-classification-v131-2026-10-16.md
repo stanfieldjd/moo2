@@ -1,0 +1,11 @@
+# Source-verified v1.31 population categories in food/industry maintenance
+
+The source v1.31 food and industry maintenance counters were previously traced to rounded sums. The *per-population increments* are now authenticated: each routine examines the original packed entry low nibble (tag) and **bit10**, then indexes a player record for tags below 8.
+
+For ordinary tags 0–7, food gives weight **1** when source player BYTE+0x8B0 is nonzero; else **0** when BYTE+0x8B1 is nonzero; else **2**. Industry gives weight **1** only when BYTE+0x8B0 is nonzero, else **0**. Both routines distribute this weight between the colony-owner counter and two distinct foreign-population counters according to packed bit10, and also increment a per-tag scratch counter.
+
+The original special tag rules differ. **Tag 9** contributes two units to food maintenance counter BYTE+0xFF and none to industry; **tag 8** contributes two units to industry BYTE+0x101 and none to food. Each source increment is an 8-bit ADD with wrap semantics. The original +0x8B0 and +0x8B1 player fields map through the existing named race-option conversion functions to **_option_toggle WORD slots 8 and 9**, respectively. This is a field-offset relationship, not a recovered human-visible race-option label.
+
+Source auditor `tools/audit_maintenance_counter_classification_v131.py` verifies the official original MicroProse ORION2.EXE v1.31 SHA-256 `4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f`, extracted CODE SHA-256 `f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837`, four complete named-function SHA digests, 272 contiguous original source instructions, 56 opcode anchors and 5,130 controlled assertions. Full original instruction locations are in `decompilation/annotated/maintenance_counter_classification_v131.md` and the structured report `decompilation/reports/maintenance_counter_classification_v131_2026-10-16.json`.
+
+**Limits:** legitimate original savegame population/tag/option combinations and final dynamic homeworld worker redistribution remain unresolved. No original DOS runtime comparison, gameplay-rule changes, website changes or new executable completion percentage is asserted.
