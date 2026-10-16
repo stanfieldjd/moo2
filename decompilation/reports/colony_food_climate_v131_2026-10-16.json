@@ -1,0 +1,57 @@
+{
+  "status": "source-authenticated-bounded-food-climate-adjustment",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "initialized_DATA_SHA256": "082ccc1437b37d070d96f6c240702a461484876d06912753547ddab71caf3b6b",
+  "verified_named_body": {
+    "name": "Colony_Empire_Base_Food2_Produced_",
+    "offset": "0xce0c6",
+    "bytes": 358,
+    "sha256": "705a9348d1b7e97003bd711a8553e114d453b5fbe745b0706c47dffe1de913c2"
+  },
+  "source_decoded_instructions": 95,
+  "decoder_continuation_rows": 4,
+  "validated_direct_internal_branches": 23,
+  "exact_opcode_anchors": 54,
+  "original_DATA_food_table": {
+    "symbol": "_food_per_farmer_table",
+    "offset": "0x581c",
+    "bytes": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      2,
+      2,
+      1,
+      2,
+      3
+    ],
+    "sha256": "00723b29c9735d5b593affde81837443b627641360d56ca40823caf383978979",
+    "reference_8_DATA": "0x5824",
+    "reference_9_DATA": "0x5825"
+  },
+  "different_adjacent_DATA_table": {
+    "symbol": "_climate_modifier_table",
+    "offset": "0x5817",
+    "bytes": [
+      0,
+      0,
+      0,
+      246,
+      236
+    ],
+    "sha256": "d742b1a62b60c33d63c043e624f700af96f1fdf38b2d67638922274f1e60179f"
+  },
+  "climate_formula": "if tag<8 and player BYTE+0x8ab !=0: climate 4 or 6 =>2*(food_table[8]-food_table[climate]); climate 5 or 8 =>2*(food_table[9]-food_table[climate]); otherwise 0",
+  "cache_miss_effects": "for tag<8: signed player BYTE+0x8a1 plus climate; tag==8 adds 6; tag==9 adds 4; write low 8 bits of WORD result to food cache",
+  "optional_breakdown_writes": "WORD at +4+2*tag is signed player bonus (or 6/4), DWORD at +0x222 is climate increment (including zero)",
+  "bounded_synthetic_fixtures": 31,
+  "scope_limitations": [
+    "Original DOS runtime differential not performed",
+    "Source climate BYTE branch gates table indexing to codes 4/5/6/8; no invalid pointer domains modeled",
+    "All source globals/caller lifetimes and invalid-state cases not established",
+    "This audits cache miss only; original cache-hit return path is separately audited"
+  ]
+}
