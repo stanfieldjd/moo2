@@ -1525,3 +1525,83 @@ Host bounds/callback guards are not
 DOS behavior. The Game Lab frontend,
 Xbox controls and unrelated Qwen
 service have not been altered.
+
+
+## 2026-10-16: original size/climate tables and complete planet-population capacity
+
+**Completed original size/climate population formulas.** The entire
+**49-byte** `Size_And_Climate_Max_Population_` at CODE `0xD0A18`,
+entire **188-byte** `Size_And_Climate_Race_Pop_Limit_` at
+CODE `0xD0A93`, and both direct original lookup tables were
+reconstructed in source-derived C.
+
+Original `_planet_max_population` table at initialized DATA
+`0x5806` is exactly five bytes `[5,10,15,20,25]`.
+The 16-byte climate weighting table at original CODE
+`0xCD4EB` is exactly
+`[25,25,25,25,25,25,40,60,80,100,30,60,30,60,60,120]`.
+The original max-pop source computes
+`(min(100,climate_pct[env]+25*bonus)*base_pop[size]+50)/100`
+with signed division. Race type 8 automatically adds 25 climate
+percentage points; races 0..7 get this bonus if
+player BYTE `+0x8B6` is nonzero. Their BYTE `+0x8AB`
+remaps climate 4/6→8 and 5/8→9. Their BYTE `+0x8AC`
+adds `2*(planet_size+1)` to result. Race9 gets no
+player-dependent bonus.
+
+**The remaining population-limit capacity fixture is replaced.**
+The full building15/23/24/28 →
+product44 queue deletion → environmental calculation →
+original food formula → original race-capacity wrappers →
+original seeded `Random_`/`Shuffle_Int_` →
+population-limit enforcement regression
+now calls the source-derived size/climate formula.
+The last unreconstructed function in that particular
+outer building-removal path is the downstream
+`Colony_Calculation_` and its own production/turn dependencies,
+not the capacity, food, or seeded shuffle arithmetic.
+
+New original-source audit
+`tools/audit_size_climate_pop_limit_v131.py` verified
+both **complete original function bodies**, both
+original lookup table sequences, named Watcom symbols and
+**80 exact original x86 instruction sites**.
+Evidence:
+`decompilation/reports/size_climate_pop_limit_v131_2026-10-16.json`.
+Tests `tests/test_size_climate_pop_limit_v131.c`
+passed 160 base-size/climate/bonus combinations and
+6,400 race/trait/size/climate combinations;
+`tests/test_building_population_full_original_capacity_v131.c`
+passed 32 end-to-end source-derived building-to-population cases.
+
+**Additional original function recovered:** full **206-byte**
+`Planet_Max_Population_For_Player_` CODE `0xD0B4F`,
+with its external shared Watcom epilogue at `0xCEB17`.
+The original uses direct size/climate capacity for uncolonized
+or inactive planets, owning colony race capacity for an
+existing empty colony, and the **largest** capacity among
+represented population classes **9 through 1** for a colony
+with population. Class **0** is never checked by its original
+max-selection loop. Its entire CODE body, both callee bodies,
+the shared epilogue and **72 exact original instruction sites**
+are verified with
+`tools/audit_planet_max_population_v131.py` and
+`decompilation/reports/planet_max_population_v131_2026-10-16.json`.
+The integrated C test `tests/test_planet_max_population_v131.c`
+passed uncolonized, established, occupied multi-race, player
+technology, colony owner, class0, and invalid-state cases.
+
+Source:
+`decompilation/reconstructed/size_climate_pop_limit_v131.c`,
+`decompilation/reconstructed/planet_max_population_v131.c`.
+Details:
+`decompilation/annotated/size_climate_pop_limit_v131.md`
+and
+`decompilation/annotated/planet_max_population_v131.md`.
+
+No original DOS dynamic differential run was performed.
+Strict C11/AddressSanitizer/UndefinedBehaviorSanitizer host
+tests establish source consistency, not full binary
+equivalence. Host bounds checks intentionally differ from
+malformed DOS behavior. No original copyrighted binary/assets,
+Game Lab website, Xbox controls or Qwen runtime were changed.
