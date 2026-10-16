@@ -1,0 +1,18 @@
+{
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "named_original_function": "Colony_Food2_Per_Farmer_",
+  "original_CODE_offset": "0xce03e",
+  "original_body_bytes": 136,
+  "complete_original_body_SHA256": "6aef5f245db959b949a22eb0cfccd03b65db2c103a18c4dc47f5bbabcf9a04e4",
+  "exact_source_instruction_checkpoints": 43,
+  "DATA_globals": {
+    "_planet": "0x1b0d4",
+    "_player": "0x1ff98"
+  },
+  "planet_food": "signed colony planet ID WORD+2 -> 17-byte planet record -> BYTE+0x0b; MOVZX DX retains upper original EDX; ADD EDX,EDX doubles full 32-bit register",
+  "player_tech_fallback": "if low16 food==0 and signed player owner record BYTE+0x134==3, set EDX=2",
+  "conditional_bonuses": "when signed low16 food>0, colony BYTE+0x164 nonzero adds 4; colony BYTE+0x13a nonzero adds 2",
+  "optional_stats_writes": "DWORD+0 initial signextended base WORD; WORD+0x52=2 technology; WORD+0x21c=4 flag164; WORD+0x1c8=2 flag13a; only write fields for source-triggered conditions",
+  "caller": "Colony_Environmental_Stuff_ at CODE 0xd1d39 passes colony EAX, signed owner EDX, and EBX=0, and tests AX==0 to write colony+0xe0",
+  "scope": "complete named 136-byte source-body arithmetic and optional output effects, independent host mathematical regression; no original DOS dynamic differential execution"
+}
