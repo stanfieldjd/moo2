@@ -1,0 +1,101 @@
+{
+  "status": "source-verified-static-reconstruction",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "authenticated_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "authenticated_initialized_DATA_SHA256": "082ccc1437b37d070d96f6c240702a461484876d06912753547ddab71caf3b6b",
+  "full_named_bodies": [
+    {
+      "name": "Colony_BC_Maintenance_",
+      "offset": "0xd094f",
+      "bytes": 197,
+      "sha256": "2a9e964cfbd9c9068ba9998f3d4e8c55ddc39bb4546107fc097a915b6133bfe5"
+    },
+    {
+      "name": "Event_Check_Space_Anomaly_",
+      "offset": "0x1341e",
+      "bytes": 80,
+      "sha256": "dd82062b1a3404b5917ee04dceea3459291b8f96f1fda2b0b9ded5e7041932b4"
+    }
+  ],
+  "verified_instruction_checkpoints": 48,
+  "building_maintenance_DATA": {
+    "symbol": "_buildings",
+    "offset": "0x6b3d",
+    "record_stride": 19,
+    "count": 49,
+    "maintenance_signed_WORD_offset": 12,
+    "values": [
+      0,
+      1,
+      2,
+      5,
+      4,
+      3,
+      3,
+      1,
+      3,
+      0,
+      2,
+      0,
+      3,
+      8,
+      2,
+      1,
+      10,
+      0,
+      3,
+      3,
+      1,
+      2,
+      1,
+      5,
+      3,
+      2,
+      2,
+      2,
+      1,
+      2,
+      2,
+      3,
+      1,
+      3,
+      3,
+      1,
+      2,
+      0,
+      2,
+      1,
+      2,
+      4,
+      6,
+      4,
+      0,
+      3,
+      3,
+      2,
+      0
+    ],
+    "table_SHA256": "5d20847fb80f0a7668ead6e3afc36300cbce9edf11bee04b77903711800cf9e2"
+  },
+  "climate_CODE": {
+    "symbol": "_climate_maintenance_modifiers",
+    "offset": "0xcd4ba",
+    "values": [
+      50,
+      25,
+      0,
+      25,
+      0
+    ]
+  },
+  "observed_event_gate": "Event_Check_Space_Anomaly_ returns nonzero only for event code 2/4/6 and matching planet anomaly ID",
+  "observed_maintenance": "zero when colony BYTE+0x0a=0 or Event_Check_Space_Anomaly_ returns nonzero; otherwise 49 buildings + BYTE+0x114 scaled by climate modifier with +5000 then signed divide by 10000, stored low 8 bits at +0xf2",
+  "observed_net": "BYTE+0xf2 minus WORD+0xed; low WORD stored at +0xf9",
+  "source_shared_epilogue": "unconditional JMP 0xd1f97 to leave/pop/pop/pop/pop/pop/ret",
+  "controlled_arithmetic_fixtures": 4,
+  "limitations": [
+    "No DOS runtime differential test",
+    "No guarantee of in-game input ranges",
+    "No claim that this procedure accounts for all upkeep paths"
+  ]
+}
