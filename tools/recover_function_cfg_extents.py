@@ -6,7 +6,7 @@ are followed unless they land on another known function entry. This deliberately
 produces conservative extents: indirect jumps and undecodable instructions end a
 path rather than guessing.
 """
-import csv, json, re
+import csv, hashlib, json, re
 from collections import deque
 from pathlib import Path
 
@@ -17,15 +17,47 @@ OUT=ROOT/'decompilation/function_cfg_extents.csv'
 MAN=ROOT/'decompilation/function_cfg_extents.json'
 MEM=ROOT/'decompilation/function_cfg_membership.csv'
 
-# addr: bytes mnemonic operands
+# Original GNU objdump may wrap an instruction after 7 displayed bytes.
+# The following line then contains only the remaining byte tokens. The old
+# parser silently ignored those continuation rows, making CFG fall-through
+# land in the middle of a real x86 instruction and falsely ending a function.
 rx=re.compile(r'^\s*([0-9a-f]+):\s+((?:[0-9a-f]{2}\s+)+)\s*([a-z][a-z0-9.]*)\s*(.*)$',re.I)
+rx_more=re.compile(r'^\s*([0-9a-f]+):\s+((?:[0-9a-f]{2}\s*)+)$',re.I)
 target_rx=re.compile(r'^(?:0x)?([0-9a-f]+)(?:\s|$)',re.I)
-ins={}
+# Fail if the supplied locally extracted CODE is not the authenticated
+# v1.31 image; every decoded source byte is checked against the image.
+CODE_BIN=ROOT/'decompilation/code_object_1.bin'
+source_code=CODE_BIN.read_bytes()
+if hashlib.sha256(source_code).hexdigest()!='f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837':
+    raise ValueError('Expected original v1.31 CODE object SHA-256')
+ins={};continuation_rows=0;continuation_bytes=0;orphan_continuations=[]
+last=None
 for line in DIS.open(errors='replace'):
     m=rx.match(line)
-    if not m: continue
-    addr=int(m.group(1),16); nbytes=len(m.group(2).split())
-    ins[addr]=(nbytes,m.group(3).lower(),m.group(4).strip())
+    if m:
+        addr=int(m.group(1),16); raw=bytes.fromhex(m.group(2).strip())
+        nbytes=len(raw)
+        if source_code[addr:addr+nbytes]!=raw:
+            raise ValueError(f'Original CODE instruction bytes differ at {addr:#x}')
+        ins[addr]=(nbytes,m.group(3).lower(),m.group(4).strip())
+        last=addr
+        continue
+    m=rx_more.match(line)
+    if m:
+        addr=int(m.group(1),16); raw=bytes.fromhex(m.group(2).strip())
+        nbytes=len(raw)
+        if source_code[addr:addr+nbytes]!=raw:
+            raise ValueError(f'Original CODE continuation bytes differ at {addr:#x}')
+        if last is not None and last in ins and addr==last+ins[last][0] and ins[last][0]+nbytes<=15:
+            size,op,ops=ins[last]
+            ins[last]=(size+nbytes,op,ops)
+            continuation_rows+=1;continuation_bytes+=nbytes
+        else:
+            orphan_continuations.append(addr)
+        continue
+    # Noninstruction section headers and entry markers break byte
+    # continuation ownership to avoid merging unrelated intervals.
+    last=None
 
 rows=list(csv.DictReader(FUN.open()))
 # Merge compiler-proven synthetic entries (direct CALL targets and runtime
@@ -128,6 +160,9 @@ MAN.write_text(json.dumps({
     'matches_provisional_end':exact,'extends_beyond_provisional_end':extended,
     'ends_before_provisional_end':truncated,'entry_decode_failures':ambiguous,
     'cfg_membership_records':len(memberships),
-    'method':'recursive direct-CFG traversal; calls not followed; other known CODE entries are hard boundaries; unconditional jumps into another provisional function body are classified as Watcom shared tails; indirect transfers terminate path'
+    'recombined_objdump_continuation_rows':continuation_rows,
+    'recombined_objdump_continuation_bytes':continuation_bytes,
+    'orphan_objdump_continuation_rows':len(orphan_continuations),
+    'method':'original v1.31 source-byte-verified GNU objdump multiline-instruction normalization; recursive direct-CFG traversal; calls not followed; other known CODE entries are hard boundaries; unconditional jumps into another provisional function body are classified as Watcom shared tails; indirect transfers terminate path'
 },indent=2)+'\n')
 print(json.dumps(json.loads(MAN.read_text()),indent=2))
