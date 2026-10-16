@@ -20,6 +20,7 @@ BODIES=[
  ("Colony_Research_Per_Scientist_",0xCFDC6,177,"7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14"),
  ("Colony_Food2_Per_Farmer_",0xCE03E,136,"6aef5f245db959b949a22eb0cfccd03b65db2c103a18c4dc47f5bbabcf9a04e4"),
  ("Colony_Environmental_Stuff_",0xD1CED,108,"94c8b7df7075f34a74650d3dc72ff466c6d9e69d57afaaa2502679d16131a086"),
+ ("Colony_Industry_To_Tax_",0xD08F6,89,"0801f833e5ad497d8d59d069ee8b40e532829f85bedbeeb7ad4d28ca4805cd84"),
 ]
 MINERAL_AT=0xCD4B5
 MINERAL_BYTES=bytes([1,2,3,5,8])
@@ -102,6 +103,32 @@ OPCODES={
 0xCFE54:("inc","edx"),
 0xCFE65:("add","edx,0x5"),
 0xCFE73:("mov","eax,edx"),0xCFE76:("ret",""),
+# Original complete 89-byte Industry_To_Tax_ source
+0xD08F6:("push","ebx"),
+0xD08F7:("push","ecx"),
+0xD08F8:("push","edx"),
+0xD08F9:("mov","ebx,eax"),
+0xD08FB:("movsx","eax,word ptr [eax+0xe9]"),
+0xD0902:("movzx","edx,byte ptr [ebx+0xf0]"),
+0xD0909:("sub","eax,edx"),
+0xD090B:("mov","edx,eax"),
+0xD090D:("test","eax,eax"),
+0xD090F:("jg","0xd091e"),
+0xD0911:("mov","word ptr [ebx+0x127],0x0"),
+0xD091E:("movsx","eax,byte ptr [ebx]"),
+0xD0921:("imul","eax,eax,0xea9"),
+0xD0927:("mov","ecx,dword ptr ds:0x1ff98"),
+0xD092D:("movzx","eax,byte ptr [ecx+eax*1+0x31]"),
+0xD0932:("imul","eax,edx"),
+0xD0935:("mov","ecx,0x64"),
+0xD093A:("cdq",""),
+0xD093B:("idiv","ecx"),
+0xD093D:("mov","word ptr [ebx+0x127],ax"),
+0xD0944:("sub","word ptr [ebx+0xe9],ax"),
+0xD094B:("pop","edx"),
+0xD094C:("pop","ecx"),
+0xD094D:("pop","ebx"),
+0xD094E:("ret",""),
 }
 def loadcsv(filename):
     with (ROOT/"decompilation"/filename).open(newline="") as f:return list(csv.DictReader(f))
@@ -159,9 +186,9 @@ def audit(exe,code):
       "pre_import_first_writes":"memset_ zero four bytes colony+0xef...+0xf2, then Food2 result low AL -> colony+0xdd, Worker result low AL -> +0xde, Research result low AL -> +0xdf",
       "environment_original":"original Colony_Environmental_Stuff_ is invoked between food and worker and recomputes original e0 and e2 based on colony/player/planet",
       "signed_cap_after_replicators":"after original Colony_Replicators_, output signed min(zeroextend BYTE+0xf0, signed WORD+0xe9) as low WORD+0xf5",
-      "resolved_nested_math":["Colony_Food2_Per_Farmer_","Colony_Environmental_Stuff_","Colony_Industry_Per_Worker_","Colony_Research_Per_Scientist_"],
-      "ten_unresolved_effects":["Colony_Morale_","Colony_Industry_Maintenance_","Colony_Industry_Production_","Colony_Food_Production_","Colony_Food_Maintenance_","Colony_Replicators_","Colony_Research_Production_","Colony_Industry_To_Tax_","Colony_BC_Production_","Colony_BC_Maintenance_"],
-      "limitations":"original outer 198-byte function control and verified math rebuilt; ten named original economy callees are callbacks, no original DOS differential game-state execution"
+      "resolved_nested_math":["Colony_Food2_Per_Farmer_","Colony_Environmental_Stuff_","Colony_Industry_Per_Worker_","Colony_Research_Per_Scientist_","Colony_Industry_To_Tax_"],
+      "nine_unresolved_effects":["Colony_Morale_","Colony_Industry_Maintenance_","Colony_Industry_Production_","Colony_Food_Production_","Colony_Food_Maintenance_","Colony_Replicators_","Colony_Research_Production_","Colony_BC_Production_","Colony_BC_Maintenance_"],
+      "limitations":"original outer 198-byte function control and verified math rebuilt; nine named original economy callees are callbacks, no original DOS differential game-state execution"
     }
 if __name__=="__main__":
     p=argparse.ArgumentParser(description=__doc__)
