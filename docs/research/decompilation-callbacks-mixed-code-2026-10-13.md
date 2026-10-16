@@ -1303,3 +1303,109 @@ The Game Lab website, Xbox controller
 and unrelated Qwen environment
 were not altered. Original proprietary
 game executable and artwork remain local.
+
+
+## 2026-10-16: four environmental building IDs, actual product44 purge, 108-byte environment and 136-byte food
+
+Original CODE `Remove_Building_` at
+`0x45EA` clears a building flag before
+dispatching. Its environmental branch
+applies to **IDs 15, 23, 24, 28**,
+verified by the actual `JBE 24` after
+the separate `JBE 22` dispatch.
+Earlier notes had omitted **ID23**;
+the missing ID was discovered and corrected
+while checking complete dispatch conditions.
+
+IDs **23/24/28** inspect original planet
+BYTE `+0x08`; when it is **less than 2**
+they delete all production queue items
+with product ID **44**, then join ID15 at
+the common environment/population/colony
+calculation sequence. The original
+`First_Prod_Colony_Queue_Slot_` treats
+positive item 44 as an exact WORD match;
+`Delete_Prod_From_Colony_Queue_` repeats
+the match/delete operation through the
+original seven-slot queue and its previously
+recovered `-10` sentinel compactor.
+
+The entire original **108-byte**
+`Colony_Environmental_Stuff_` was
+reconstructed. It derives colony BYTE
+`+0xE2` from original planet BYTE `+0x08`,
+promoting base value **1** to **2**
+if either colony flag `+0x14D` or
+`+0x14E` is present. Building **23**
+clears the first flag, and building **24**
+clears the second **before** recalculation.
+An apparent additional conditional reads
+BYTE `+0x152` only after the original
+`CMP AL,AL; JNE` sequence; the JNE
+is never taken. The function sets colony
+BYTE `+0xE0` to 0 or 255 from the
+low AX result of original food production.
+
+The entire original **136-byte**
+`Colony_Food2_Per_Farmer_` was
+also reconstructed in C. It doubles
+planet food BYTE `+0x0B`; if low
+WORD zero and player technology
+BYTE `+0x134==3`, uses fallback 2;
+and when food is positive adds 4 for
+colony flag `+0x164` and 2 for
+colony flag `+0x13A`. Optional original
+statistics-buffer writes to DWORD+0
+and WORD offsets `+0x52,+0x21C,+0x1C8`
+were reconstructed and tested.
+A subtle original `MOVZX DX,BYTE`
+preserves upper EDX bits; the derived
+full 32-bit result preserves this too.
+
+Read-only original-executable source
+audits passed:
+
+- `tools/audit_remove_building_environment_v131.py`:
+  seven complete named function-body hashes,
+  two named DATA pointers and **88 x86
+  instruction checkpoints**.
+- `tools/audit_colony_food_per_farmer_v131.py`:
+  complete 136-byte food body hash,
+  two DATA pointers and **43 x86
+  instruction checkpoints**.
+
+Reports:
+`decompilation/reports/remove_building_environment_v131_2026-10-16.json`
+and
+`decompilation/reports/colony_food_per_farmer_v131_2026-10-16.json`.
+
+New reconstructed source:
+
+- `decompilation/reconstructed/remove_building_environment_v131.c`
+- `decompilation/reconstructed/colony_environmental_stuff_v131.c` and header
+- `decompilation/reconstructed/colony_food_per_farmer_v131.c` and header
+
+New C regressions, compiled with strict
+C11/AddressSanitizer/UndefinedBehaviorSanitizer:
+
+- 3,072 building/planet/queue cases;
+- 6,144 environment-flag/food callback cases;
+- 128 building/environment order integration cases;
+- 32,768 complete food-and-statistics cases;
+- 6,144 full source-derived building ->
+  queue -> environment -> **actual food**
+  integration cases.
+
+The principal unresolved downstream functions
+in this branch remain
+`Enforce_Population_Limits_At_Colony_`
+(489 original bytes) and
+`Colony_Calculation_` (65-byte wrapper
+with additional original downstream
+production/colony effects). The C port
+preserves their original call ordering
+as typed callbacks and does not invent
+their effects. No original DOS differential
+run or public Game Lab/Xbox/Qwen
+deployment changes occurred. Original
+copyrighted executable/artwork stay local.
