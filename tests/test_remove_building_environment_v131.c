@@ -1,5 +1,5 @@
 /*
- * Source v1.31 Remove_Building_ IDs15,24,28 and product44 queue
+ * Source v1.31 Remove_Building_ IDs15,23,24,28 and product44 queue
  * deletion tests. Downstream environmental/pop/colony subsystems
  * are distinct original named functions, represented by verifying
  * call-order callbacks; no gameplay behavior invented.
@@ -76,9 +76,9 @@ int main(void) {
     /* Every original branch and planet byte state. Product44
        removal affects only 24/28 when planet BYTE+8 is 0 or 1. */
     for(unsigned planet_state=0;planet_state<=255u;planet_state++)
-      for(unsigned variant=0;variant<3u;variant++)
+      for(unsigned variant=0;variant<4u;variant++)
       for(unsigned colony_id=0;colony_id<3u;colony_id++) {
-        int16_t building=(int16_t)(variant==0?15:variant==1?24:28);
+        int16_t building=(int16_t)(variant==0?15:variant==1?23:variant==2?24:28);
         uint8_t *colony=colonies+(size_t)colony_id*0x169u;
         memset(colonies,0,sizeof(colonies));
         word(colony+2u,1);
@@ -134,6 +134,6 @@ int main(void) {
     check(moo2_v131_derived_remove_building_environment(
         &ctx,0,15,&purged)==MOO2_V131_BUILDING_ENV_CALLBACK_FAILED);
     check(h.step==2u && colony[0x136u+15u]==0u);
-    puts("PASS: 2304 original colony/planet/building paths, exact product44 queue deletion, 3-step callbacks, nontransactional errors");
+    puts("PASS: 3072 original colony/planet/building paths, exact product44 queue deletion, 3-step callbacks, nontransactional errors");
     return 0;
 }
