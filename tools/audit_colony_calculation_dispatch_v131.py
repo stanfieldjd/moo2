@@ -3,7 +3,7 @@
 
 Verify original DOS EXE hash, complete 65-byte named function,
 three authenticated direct callee bodies, global DATA symbol
-locations, exact 29 i386 opcode anchors and active/inactive
+locations, exact original i386 opcode anchors and active/inactive
 production gating. Callee effects not reconstructed in this audit.
 """
 import argparse,csv,hashlib,json,re,subprocess
