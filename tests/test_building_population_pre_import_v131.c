@@ -25,6 +25,7 @@
 #include "../decompilation/reconstructed/size_climate_pop_limit_v131.c"
 #include "../decompilation/reconstructed/colony_calculation_dispatch_v131.c"
 #include "../decompilation/reconstructed/colony_worker_scientist_v131.c"
+#include "../decompilation/reconstructed/colony_industry_to_tax_v131.c"
 #include "../decompilation/reconstructed/pre_import_computing_v131.c"
 
 static void check(int good){
@@ -126,7 +127,8 @@ static int pending_preimport(void *opaque,Moo2V131PreImportStage stage,
                              uint8_t *colony) {
     Harness *h=(Harness*)opaque;
     check(h->sequence==2u && colony==h->colony);
-    check(h->pending_calls==(unsigned)stage);
+    check((unsigned)stage==(h->pending_calls>=7u?
+             h->pending_calls+1u:h->pending_calls));
     check(colony[0xDDu]==(uint8_t)(h->food.planets[0x11u+0x0Bu]*2u));
     check(colony[0xDEu]==3u); /* original minerals index2 -> 3 */
     check(colony[0xDFu]==3u); /* original scientist base=3 */
@@ -150,7 +152,8 @@ static int pre_import(void *opaque,uint8_t *colony) {
     };
     check(moo2_v131_derived_pre_import_computing(
         &pc,colony,0x169u)==MOO2_V131_PREIMPORT_OK);
-    check(h->pending_calls==10u && colony[0xF5u]==3u);
+    check(h->pending_calls==9u && colony[0xF5u]==3u);
+    check(colony[0x127u]==0u && colony[0x128u]==0u);
     h->pre_calls++;
     return 1;
 }
@@ -240,7 +243,7 @@ int main(void) {
         check(h.sequence==3u && h.env_food_calls==1u &&
               h.limits_food_calls==1u && h.shuffle_calls==1u &&
               h.pre_calls==1u && h.import_calls==1u &&
-              h.stat_calls==1u && h.pending_calls==10u);
+              h.stat_calls==1u && h.pending_calls==9u);
         check(h.rng_seed!=UINT32_C(0x12345678));
         check(removed==(building!=15u && planet_state<2u?2u:0u));
         const unsigned capacity=4u+(building==15u?0u:2u)+
