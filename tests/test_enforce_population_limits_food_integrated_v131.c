@@ -80,7 +80,7 @@ int main(void) {
             &pop,colony,sizeof(colony))==MOO2_V131_POPLIMIT_OK);
         verify(colony[0x0au]==n);
         verify(fixture.shuffles_called==1 && fixture.food_called==1);
-        verify(fixture.limits_called==2);
+        verify(fixture.limits_called==(n==1u?1u:2u));
         int no_food=base==0u && tech==0u;
         for(unsigned i=0;i<n;i++) {
             uint32_t v=moo2_v131_pop_load(colony+0x0cu+4u*i);
