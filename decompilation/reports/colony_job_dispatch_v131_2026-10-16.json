@@ -1,0 +1,570 @@
+{
+  "status": "source-verified-static-indirect-job-dispatch",
+  "EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "LE_INITIALIZED_DATA_sha256": "082ccc1437b37d070d96f6c240702a461484876d06912753547ddab71caf3b6b",
+  "dispatch_symbol": "_colony_empire_base_functions",
+  "dispatch_DATA_offset": "0xb55c",
+  "dispatch_3xDWORD_SHA256": "75647e47f704410f38e1a68dfcfee8d47d9af95c90669291aa441d597244b1b9",
+  "dispatch_slots": [
+    {
+      "job_selector": 0,
+      "original_CODE_target": "0xce0c6",
+      "verified_function": "Colony_Empire_Base_Food2_Produced_",
+      "function_bytes": 358,
+      "function_sha256": "705a9348d1b7e97003bd711a8553e114d453b5fbe745b0706c47dffe1de913c2"
+    },
+    {
+      "job_selector": 1,
+      "original_CODE_target": "0xced47",
+      "verified_function": "Colony_Empire_Base_Industry_Produced_",
+      "function_bytes": 212,
+      "function_sha256": "35aa50fa88250f254ba329b69bc8ed99ba7b9d647fe29f1fcffa1e7ecb4c24d8"
+    },
+    {
+      "job_selector": 2,
+      "original_CODE_target": "0xcfe77",
+      "verified_function": "Colony_Empire_Base_Research_Produced_",
+      "function_bytes": 253,
+      "function_sha256": "1e72e37daea066aa98c587b71c86f1faae81775b60886693b9a3d33b8888e0f9"
+    }
+  ],
+  "verified_function_body_procedures": [
+    {
+      "name": "Colony_Pop_Base_Prod_Produced_",
+      "start": "0xce22c",
+      "bytes": 84,
+      "sha256": "964117fde615677bbecb22bd682edf239015961f1ef758b03b67aaec5c0e0661",
+      "complete_instruction_count": 23,
+      "complete_decoded_bytes": 84,
+      "extra_byte_rows": [],
+      "direct_transfers": [
+        {
+          "at": "0xce258",
+          "op": "jg",
+          "dest": "0xce271"
+        },
+        {
+          "at": "0xce25f",
+          "op": "jne",
+          "dest": "0xce26a"
+        },
+        {
+          "at": "0xce268",
+          "op": "jbe",
+          "dest": "0xce271"
+        },
+        {
+          "at": "0xce275",
+          "op": "jge",
+          "dest": "0xcee17"
+        },
+        {
+          "at": "0xce27b",
+          "op": "jmp",
+          "dest": "0xcee14"
+        }
+      ],
+      "indirect_dispatch_sites": [
+        {
+          "at": "0xce24e",
+          "table_DATA_offset": "0xb55c",
+          "slot_targets": [
+            "0xce0c6",
+            "0xced47",
+            "0xcfe77"
+          ]
+        }
+      ],
+      "exact_opcode_anchors": 15
+    },
+    {
+      "name": "Gravity_Player_Production_Factor_",
+      "start": "0xcdf2c",
+      "bytes": 167,
+      "sha256": "a0660fd4edfd3b57bb91c406ca614e6c445ff509fb191eb5b757bdc254142200",
+      "complete_instruction_count": 52,
+      "complete_decoded_bytes": 167,
+      "extra_byte_rows": [
+        {
+          "at": "0xcdf7e",
+          "from": "0xcdf77",
+          "bytes": 1
+        },
+        {
+          "at": "0xcdfa1",
+          "from": "0xcdf9a",
+          "bytes": 1
+        },
+        {
+          "at": "0xcdfbc",
+          "from": "0xcdfb5",
+          "bytes": 1
+        }
+      ],
+      "direct_transfers": [
+        {
+          "at": "0xcdf35",
+          "op": "jne",
+          "dest": "0xcdfc9"
+        },
+        {
+          "at": "0xcdf3f",
+          "op": "jge",
+          "dest": "0xcdfc9"
+        },
+        {
+          "at": "0xcdf58",
+          "op": "jb",
+          "dest": "0xcdf65"
+        },
+        {
+          "at": "0xcdf5a",
+          "op": "jbe",
+          "dest": "0xcdf8b"
+        },
+        {
+          "at": "0xcdf5e",
+          "op": "je",
+          "dest": "0xcdfa6"
+        },
+        {
+          "at": "0xcdf67",
+          "op": "jne",
+          "dest": "0xcdfce"
+        },
+        {
+          "at": "0xcdf7f",
+          "op": "jne",
+          "dest": "0xcdfc9"
+        },
+        {
+          "at": "0xcdfa2",
+          "op": "jne",
+          "dest": "0xcdf81"
+        },
+        {
+          "at": "0xcdfa4",
+          "op": "jmp",
+          "dest": "0xcdfc9"
+        },
+        {
+          "at": "0xcdfbd",
+          "op": "jne",
+          "dest": "0xcdfc9"
+        }
+      ],
+      "indirect_dispatch_sites": [],
+      "exact_opcode_anchors": 17
+    },
+    {
+      "name": "Colony_Empire_Base_Food2_Produced_",
+      "start": "0xce0c6",
+      "bytes": 358,
+      "sha256": "705a9348d1b7e97003bd711a8553e114d453b5fbe745b0706c47dffe1de913c2",
+      "complete_instruction_count": 95,
+      "complete_decoded_bytes": 358,
+      "extra_byte_rows": [
+        {
+          "at": "0xce114",
+          "from": "0xce10d",
+          "bytes": 1
+        },
+        {
+          "at": "0xce171",
+          "from": "0xce16a",
+          "bytes": 1
+        },
+        {
+          "at": "0xce179",
+          "from": "0xce172",
+          "bytes": 1
+        },
+        {
+          "at": "0xce220",
+          "from": "0xce219",
+          "bytes": 1
+        }
+      ],
+      "direct_transfers": [
+        {
+          "at": "0xce0db",
+          "op": "jne",
+          "dest": "0xce0ea"
+        },
+        {
+          "at": "0xce0df",
+          "op": "jne",
+          "dest": "0xce0ea"
+        },
+        {
+          "at": "0xce0e8",
+          "op": "jmp",
+          "dest": "0xce0f8"
+        },
+        {
+          "at": "0xce0f2",
+          "op": "call",
+          "dest": "0xce03e"
+        },
+        {
+          "at": "0xce0ff",
+          "op": "jle",
+          "dest": "0xce225"
+        },
+        {
+          "at": "0xce10b",
+          "op": "jne",
+          "dest": "0xce11f"
+        },
+        {
+          "at": "0xce119",
+          "op": "jne",
+          "dest": "0xce11f"
+        },
+        {
+          "at": "0xce11d",
+          "op": "je",
+          "dest": "0xce141"
+        },
+        {
+          "at": "0xce12e",
+          "op": "call",
+          "dest": "0x119c70"
+        },
+        {
+          "at": "0xce14b",
+          "op": "jne",
+          "dest": "0xce219"
+        },
+        {
+          "at": "0xce159",
+          "op": "jge",
+          "dest": "0xce1dd"
+        },
+        {
+          "at": "0xce17a",
+          "op": "je",
+          "dest": "0xce1f1"
+        },
+        {
+          "at": "0xce18d",
+          "op": "jb",
+          "dest": "0xce19b"
+        },
+        {
+          "at": "0xce18f",
+          "op": "jbe",
+          "dest": "0xce1c0"
+        },
+        {
+          "at": "0xce193",
+          "op": "jbe",
+          "dest": "0xce19f"
+        },
+        {
+          "at": "0xce197",
+          "op": "je",
+          "dest": "0xce1c0"
+        },
+        {
+          "at": "0xce199",
+          "op": "jmp",
+          "dest": "0xce1f1"
+        },
+        {
+          "at": "0xce19d",
+          "op": "jne",
+          "dest": "0xce1f1"
+        },
+        {
+          "at": "0xce1be",
+          "op": "jmp",
+          "dest": "0xce1f1"
+        },
+        {
+          "at": "0xce1db",
+          "op": "jmp",
+          "dest": "0xce1ba"
+        },
+        {
+          "at": "0xce1dd",
+          "op": "jne",
+          "dest": "0xce1e6"
+        },
+        {
+          "at": "0xce1e4",
+          "op": "jmp",
+          "dest": "0xce1f1"
+        },
+        {
+          "at": "0xce1ea",
+          "op": "jne",
+          "dest": "0xce1f1"
+        },
+        {
+          "at": "0xce1f3",
+          "op": "je",
+          "dest": "0xce203"
+        },
+        {
+          "at": "0xce217",
+          "op": "jmp",
+          "dest": "0xce225"
+        }
+      ],
+      "indirect_dispatch_sites": [],
+      "exact_opcode_anchors": 0
+    },
+    {
+      "name": "Colony_Empire_Base_Industry_Produced_",
+      "start": "0xced47",
+      "bytes": 212,
+      "sha256": "35aa50fa88250f254ba329b69bc8ed99ba7b9d647fe29f1fcffa1e7ecb4c24d8",
+      "complete_instruction_count": 61,
+      "complete_decoded_bytes": 212,
+      "extra_byte_rows": [
+        {
+          "at": "0xced8c",
+          "from": "0xced85",
+          "bytes": 1
+        },
+        {
+          "at": "0xcede0",
+          "from": "0xcedd9",
+          "bytes": 1
+        },
+        {
+          "at": "0xcee0f",
+          "from": "0xcee08",
+          "bytes": 1
+        }
+      ],
+      "direct_transfers": [
+        {
+          "at": "0xced5c",
+          "op": "jne",
+          "dest": "0xced6b"
+        },
+        {
+          "at": "0xced60",
+          "op": "jne",
+          "dest": "0xced6b"
+        },
+        {
+          "at": "0xced69",
+          "op": "jmp",
+          "dest": "0xced79"
+        },
+        {
+          "at": "0xced73",
+          "op": "call",
+          "dest": "0xcec95"
+        },
+        {
+          "at": "0xced83",
+          "op": "jne",
+          "dest": "0xced97"
+        },
+        {
+          "at": "0xced91",
+          "op": "jne",
+          "dest": "0xced97"
+        },
+        {
+          "at": "0xced95",
+          "op": "je",
+          "dest": "0xcedb9"
+        },
+        {
+          "at": "0xceda6",
+          "op": "call",
+          "dest": "0x119c70"
+        },
+        {
+          "at": "0xcedc3",
+          "op": "jne",
+          "dest": "0xcee08"
+        },
+        {
+          "at": "0xcedcb",
+          "op": "jge",
+          "dest": "0xcede3"
+        },
+        {
+          "at": "0xcede1",
+          "op": "jmp",
+          "dest": "0xcedea"
+        },
+        {
+          "at": "0xcede3",
+          "op": "jne",
+          "dest": "0xcedea"
+        },
+        {
+          "at": "0xcedec",
+          "op": "je",
+          "dest": "0xcedf6"
+        },
+        {
+          "at": "0xcee06",
+          "op": "jmp",
+          "dest": "0xcee14"
+        }
+      ],
+      "indirect_dispatch_sites": [],
+      "exact_opcode_anchors": 0
+    },
+    {
+      "name": "Colony_Empire_Base_Research_Produced_",
+      "start": "0xcfe77",
+      "bytes": 253,
+      "sha256": "1e72e37daea066aa98c587b71c86f1faae81775b60886693b9a3d33b8888e0f9",
+      "complete_instruction_count": 67,
+      "complete_decoded_bytes": 253,
+      "extra_byte_rows": [
+        {
+          "at": "0xcfebc",
+          "from": "0xcfeb5",
+          "bytes": 1
+        },
+        {
+          "at": "0xcff6e",
+          "from": "0xcff67",
+          "bytes": 1
+        }
+      ],
+      "direct_transfers": [
+        {
+          "at": "0xcfe8c",
+          "op": "jne",
+          "dest": "0xcfe9b"
+        },
+        {
+          "at": "0xcfe90",
+          "op": "jne",
+          "dest": "0xcfe9b"
+        },
+        {
+          "at": "0xcfe99",
+          "op": "jmp",
+          "dest": "0xcfea9"
+        },
+        {
+          "at": "0xcfea3",
+          "op": "call",
+          "dest": "0xcfdc6"
+        },
+        {
+          "at": "0xcfeb3",
+          "op": "jne",
+          "dest": "0xcfec7"
+        },
+        {
+          "at": "0xcfec1",
+          "op": "jne",
+          "dest": "0xcfec7"
+        },
+        {
+          "at": "0xcfec5",
+          "op": "je",
+          "dest": "0xcfee9"
+        },
+        {
+          "at": "0xcfed6",
+          "op": "call",
+          "dest": "0x119c70"
+        },
+        {
+          "at": "0xcfef3",
+          "op": "jne",
+          "dest": "0xcff67"
+        },
+        {
+          "at": "0xcff02",
+          "op": "jge",
+          "dest": "0xcff33"
+        },
+        {
+          "at": "0xcff1f",
+          "op": "jne",
+          "dest": "0xcff3a"
+        },
+        {
+          "at": "0xcff28",
+          "op": "jne",
+          "dest": "0xcff3a"
+        },
+        {
+          "at": "0xcff31",
+          "op": "jmp",
+          "dest": "0xcff3a"
+        },
+        {
+          "at": "0xcff33",
+          "op": "jne",
+          "dest": "0xcff3a"
+        },
+        {
+          "at": "0xcff3c",
+          "op": "je",
+          "dest": "0xcff4f"
+        },
+        {
+          "at": "0xcff62",
+          "op": "jmp",
+          "dest": "0xcee14"
+        },
+        {
+          "at": "0xcff6f",
+          "op": "jmp",
+          "dest": "0xcee10"
+        }
+      ],
+      "indirect_dispatch_sites": [],
+      "exact_opcode_anchors": 0
+    }
+  ],
+  "extra_authenticated_named_callees": [
+    {
+      "name": "Colony_Food2_Per_Farmer_",
+      "offset": "0xce03e",
+      "bytes": 136,
+      "sha256": "6aef5f245db959b949a22eb0cfccd03b65db2c103a18c4dc47f5bbabcf9a04e4"
+    },
+    {
+      "name": "Colony_Industry_Per_Worker_",
+      "offset": "0xcec95",
+      "bytes": 178,
+      "sha256": "1e58a5b42e7d04cbc1d412b55ba007dbee502d5f0c257a96890c93d5689d8aa9"
+    },
+    {
+      "name": "Colony_Research_Per_Scientist_",
+      "offset": "0xcfdc6",
+      "bytes": 177,
+      "sha256": "7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14"
+    },
+    {
+      "name": "memset_",
+      "offset": "0x119c70",
+      "bytes": 24,
+      "sha256": "e1bb125f736118af8cb392e308cbf68630169cada23d288f5adad0c3eb4fdc8c"
+    }
+  ],
+  "source_shared_return_tail": {
+    "CODE_start": "0xcee10",
+    "bytes": "668945fc8b45fcc95f5ec3",
+    "external_branch_endpoints": [
+      "0xcee10",
+      "0xcee14",
+      "0xcee17"
+    ]
+  },
+  "controlled_selected_branch_fixtures": 8,
+  "limits": [
+    "No DOS dynamic execution or comprehensive native-game equivalence",
+    "Three empire-base targets are source-authenticated and full-byte decoded; their modifier meanings remain to be reconstructed",
+    "The indirect selector's behavior is only traced for the three original table slots (0,1,2)",
+    "Gravity helper's behavior for unexpected gravity BYTE values and malformed player tags is not established"
+  ]
+}
