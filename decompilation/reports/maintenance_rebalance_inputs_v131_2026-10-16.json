@@ -1,0 +1,87 @@
+{
+  "status": "original-source-verified-maintenance-byte-producers-and-homeworld-rebalance-inputs",
+  "original_EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "fully_authenticated_source_functions": [
+    {
+      "name": "memset_",
+      "CODE_offset": "0x119c70",
+      "original_bytes": 24,
+      "sha256": "e1bb125f736118af8cb392e308cbf68630169cada23d288f5adad0c3eb4fdc8c",
+      "decoded_instructions": 12,
+      "recombined_continuation_rows": 0,
+      "exact_opcode_checks": 4
+    },
+    {
+      "name": "Colony_Food_Maintenance_",
+      "CODE_offset": "0xceb4b",
+      "original_bytes": 330,
+      "sha256": "005961c516ea2f30e4534b7e7c5eb4ede279dc9c53d89a49fd2f5214b5f84030",
+      "decoded_instructions": 87,
+      "recombined_continuation_rows": 4,
+      "exact_opcode_checks": 14
+    },
+    {
+      "name": "Colony_Industry_Maintenance_",
+      "CODE_offset": "0xcf546",
+      "original_bytes": 297,
+      "sha256": "a3d24386fbaa9dfe229d88dcb34c2c661f3dc2169cdec44481c558542e0fb0ed",
+      "decoded_instructions": 79,
+      "recombined_continuation_rows": 5,
+      "exact_opcode_checks": 14
+    },
+    {
+      "name": "Colony_BC_Maintenance_",
+      "CODE_offset": "0xd094f",
+      "original_bytes": 197,
+      "sha256": "2a9e964cfbd9c9068ba9998f3d4e8c55ddc39bb4546107fc097a915b6133bfe5",
+      "decoded_instructions": 57,
+      "recombined_continuation_rows": 1,
+      "exact_opcode_checks": 5
+    },
+    {
+      "name": "Pre_Import_Computing_",
+      "CODE_offset": "0xd1d59",
+      "original_bytes": 198,
+      "sha256": "7aa1ea0d54d5e89f82905724eb7fc1609c1e2b9a715c828f557fb4a9224d6628",
+      "decoded_instructions": 59,
+      "recombined_continuation_rows": 1,
+      "exact_opcode_checks": 14
+    },
+    {
+      "name": "Twiddle_Initial_Homeworld_",
+      "CODE_offset": "0xd55be",
+      "original_bytes": 530,
+      "sha256": "63231cd00c846d3dc955e8144437ae7deb45d76525ee8d52866b275a2173e891",
+      "decoded_instructions": 152,
+      "recombined_continuation_rows": 2,
+      "exact_opcode_checks": 6
+    },
+    {
+      "name": "Pass_Out_Imports_",
+      "CODE_offset": "0xcf8f0",
+      "original_bytes": 1238,
+      "sha256": "e35af6d4ee3106edd7af2f4f6377a18453e107323c620993b3f577871eff4234",
+      "decoded_instructions": 334,
+      "recombined_continuation_rows": 10,
+      "exact_opcode_checks": 4
+    }
+  ],
+  "original_instructions_fully_decoded": 780,
+  "opcode_anchors_verified": 61,
+  "named_direct_CALL_edges_verified": 8,
+  "source_reset": "Pre_Import_Computing_ passes EAX=colony+0xef, EBX=4, EDX=0 to named memset_ at CODE 0xd1d6a. memset_ passes count in ECX to original helper 0x138220",
+  "food_byte_0xEF": "Colony_Food_Maintenance_ clears eight bytes at colony+0x104, counts four counters colony+0xfc..0xff, then stores low BYTE ceil(sum/2) at CODE 0xcec8a (anomaly branch stores 0 at 0xceb78)",
+  "industry_byte_0xF0": "Colony_Industry_Maintenance_ clears eight bytes at colony+0x10c, counts four counters colony+0x100..0x103, then stores low BYTE ceil(sum/2) at CODE 0xcf664 (anomaly branch stores 0 at 0xcf573)",
+  "bc_byte_0xF2": "Colony_BC_Maintenance_ writes colony BYTE+0xf2 in source zero and computed branches; original CODE 0xd0960,0xd0985,0xd09f1",
+  "source_call_order": "Pre_Import_Computing_: reset EF..F2, then industry maintenance before industry production, food production before food maintenance, replicators, industry cap and research production, then BC maintenance",
+  "original_consumers": "Twiddle_Initial_Homeworld_ reads BYTE+0xf0 and BYTE+0xef at 0xd562f and 0xd5666; Pass_Out_Imports_ reads food BYTE+0xef at 0xcf978,0xcfa6a,0xcfce2",
+  "controlled_byte_rounding_assertions": 8200,
+  "limits": [
+    "The source rounds four nonnegative counters up to half, then stores only the low BYTE: larger synthetic sums can wrap modulo 256; real counter-value reachability not proven",
+    "Original helper 0x138220 and counter accumulation semantics outside named maintenance summaries are not fully independently audited here",
+    "Per-colony import and maintenance calls mutate fields between job-assignment comparisons",
+    "No final original DOS game-state worker distribution or runtime research discrepancy proven",
+    "Native browser game, original executable coverage percentage and whole save-state parity remain incomplete"
+  ]
+}
