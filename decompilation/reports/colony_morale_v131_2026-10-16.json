@@ -1,0 +1,432 @@
+{
+  "status": "source-verified-static-control-flow-and-selected-arithmetic",
+  "EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "full_verified_named_function_bodies": [
+    {
+      "name": "Colony_Morale_",
+      "CODE_start": "0xcdb25",
+      "bytes": 982,
+      "sha256": "48ceed247ef96250b8d8f42d877f40be558159fad96e7e1e382c5754fe42cdac"
+    },
+    {
+      "name": "Mixed_Race_Morale_Penalty_",
+      "CODE_start": "0xcdad4",
+      "bytes": 81,
+      "sha256": "0bbeb8a34235ce051f7c8c00e86abce69f0793ea04020f466b08caa8075c2f8c"
+    },
+    {
+      "name": "Colony_Officer_",
+      "CODE_start": "0xcd9f2",
+      "bytes": 68,
+      "sha256": "a573f1396f45fe66f4484dfc1965704989b7a3af6301a75b173c13ec9a98afcc"
+    },
+    {
+      "name": "Owned_Officer_Level_",
+      "CODE_start": "0x84951",
+      "bytes": 86,
+      "sha256": "c067e6142cc3347a958ff8a7d868a10f4039296419eb9acf5b989f0b7f438586"
+    },
+    {
+      "name": "sprintf_",
+      "CODE_start": "0x1165f2",
+      "bytes": 48,
+      "sha256": "f46feba187f8dac98b214d9f95e9f7de8d387731802675ace60857d61d0f3b38"
+    }
+  ],
+  "decoded_entire_morale_body_bytes": 982,
+  "decoded_morale_instruction_count": 280,
+  "selected_machine_instruction_anchors": 66,
+  "complete_direct_control_transfer_inventory": [
+    {
+      "from": "0xcdb8a",
+      "type": "call",
+      "to": "0xcdad4"
+    },
+    {
+      "from": "0xcdbac",
+      "type": "je",
+      "to": "0xcdd33"
+    },
+    {
+      "from": "0xcdbb4",
+      "type": "call",
+      "to": "0xcd9f2"
+    },
+    {
+      "from": "0xcdbbc",
+      "type": "je",
+      "to": "0xcdbf6"
+    },
+    {
+      "from": "0xcdbd1",
+      "type": "je",
+      "to": "0xcdbe6"
+    },
+    {
+      "from": "0xcdbd3",
+      "type": "call",
+      "to": "0x84951"
+    },
+    {
+      "from": "0xcdbe4",
+      "type": "jmp",
+      "to": "0xcdbf3"
+    },
+    {
+      "from": "0xcdbea",
+      "type": "je",
+      "to": "0xcdbf6"
+    },
+    {
+      "from": "0xcdbec",
+      "type": "call",
+      "to": "0x84951"
+    },
+    {
+      "from": "0xcdbfd",
+      "type": "je",
+      "to": "0xcdc06"
+    },
+    {
+      "from": "0xcdc04",
+      "type": "jmp",
+      "to": "0xcdc08"
+    },
+    {
+      "from": "0xcdc12",
+      "type": "jne",
+      "to": "0xcdc1b"
+    },
+    {
+      "from": "0xcdc19",
+      "type": "jmp",
+      "to": "0xcdc1d"
+    },
+    {
+      "from": "0xcdc27",
+      "type": "je",
+      "to": "0xcdc30"
+    },
+    {
+      "from": "0xcdc2e",
+      "type": "jmp",
+      "to": "0xcdc32"
+    },
+    {
+      "from": "0xcdc58",
+      "type": "je",
+      "to": "0xcdcb2"
+    },
+    {
+      "from": "0xcdc61",
+      "type": "je",
+      "to": "0xcdc88"
+    },
+    {
+      "from": "0xcdc86",
+      "type": "jne",
+      "to": "0xcdcb2"
+    },
+    {
+      "from": "0xcdcb5",
+      "type": "ja",
+      "to": "0xcdcc7"
+    },
+    {
+      "from": "0xcdcbe",
+      "type": "jne",
+      "to": "0xcdcc7"
+    },
+    {
+      "from": "0xcdcce",
+      "type": "je",
+      "to": "0xcdce3"
+    },
+    {
+      "from": "0xcdce1",
+      "type": "jmp",
+      "to": "0xcdd0c"
+    },
+    {
+      "from": "0xcdcea",
+      "type": "je",
+      "to": "0xcdcff"
+    },
+    {
+      "from": "0xcdcfd",
+      "type": "jmp",
+      "to": "0xcdd0c"
+    },
+    {
+      "from": "0xcdd02",
+      "type": "ja",
+      "to": "0xcdd0c"
+    },
+    {
+      "from": "0xcdd35",
+      "type": "je",
+      "to": "0xceb17"
+    },
+    {
+      "from": "0xcdd3e",
+      "type": "jne",
+      "to": "0xcdd55"
+    },
+    {
+      "from": "0xcdd4d",
+      "type": "jne",
+      "to": "0xcdd47"
+    },
+    {
+      "from": "0xcdd50",
+      "type": "jmp",
+      "to": "0xceb17"
+    },
+    {
+      "from": "0xcdd60",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcdd75",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcdda0",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcddae",
+      "type": "je",
+      "to": "0xcddcb"
+    },
+    {
+      "from": "0xcddc1",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcddcf",
+      "type": "je",
+      "to": "0xcddec"
+    },
+    {
+      "from": "0xcdde2",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcddf0",
+      "type": "je",
+      "to": "0xcde0d"
+    },
+    {
+      "from": "0xcde03",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcde11",
+      "type": "je",
+      "to": "0xcde2e"
+    },
+    {
+      "from": "0xcde24",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcde32",
+      "type": "je",
+      "to": "0xcde4f"
+    },
+    {
+      "from": "0xcde45",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcde53",
+      "type": "je",
+      "to": "0xcde70"
+    },
+    {
+      "from": "0xcde66",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcde74",
+      "type": "je",
+      "to": "0xcde91"
+    },
+    {
+      "from": "0xcde87",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcde95",
+      "type": "je",
+      "to": "0xcdeb2"
+    },
+    {
+      "from": "0xcdea8",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcdeb6",
+      "type": "je",
+      "to": "0xcded3"
+    },
+    {
+      "from": "0xcdec9",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcded9",
+      "type": "call",
+      "to": "0x1165f2"
+    },
+    {
+      "from": "0xcdef6",
+      "type": "jmp",
+      "to": "0xceb0e"
+    }
+  ],
+  "direct_call_inventory": [
+    {
+      "target": "0x84951",
+      "callee": "Owned_Officer_Level_",
+      "sites": [
+        "0xcdbd3",
+        "0xcdbec"
+      ]
+    },
+    {
+      "target": "0xcd9f2",
+      "callee": "Colony_Officer_",
+      "sites": [
+        "0xcdbb4"
+      ]
+    },
+    {
+      "target": "0xcdad4",
+      "callee": "Mixed_Race_Morale_Penalty_",
+      "sites": [
+        "0xcdb8a"
+      ]
+    },
+    {
+      "target": "0x1165f2",
+      "callee": "sprintf_",
+      "sites": [
+        "0xcdd60",
+        "0xcdd75",
+        "0xcdda0",
+        "0xcddc1",
+        "0xcdde2",
+        "0xcde03",
+        "0xcde24",
+        "0xcde45",
+        "0xcde66",
+        "0xcde87",
+        "0xcdea8",
+        "0xcdec9",
+        "0xcded9"
+      ]
+    }
+  ],
+  "verified_CODE_table_slices": {
+    "base_byte_morale": {
+      "CODE_offset": "0xcd4c4",
+      "unsigned_bytes": [
+        252,
+        252,
+        252,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "signed_bytes": [
+        -4,
+        -4,
+        -4,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "5e372738eead39ccb1f597e9fe1ccf5c64e2158e4582ea6ca9473469daf2ef7f"
+    },
+    "penalty_by_government_group": {
+      "CODE_offset": "0xcd4cc",
+      "unsigned_bytes": [
+        246,
+        249,
+        252
+      ],
+      "signed_bytes": [
+        -10,
+        -7,
+        -4
+      ],
+      "sha256": "68bc449df5ccfb88d407a85d8d79358aeb6ec77844e7b657adcab13dd87fae68"
+    },
+    "extra_bonus_by_government": {
+      "CODE_offset": "0xcd4cf",
+      "unsigned_bytes": [
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "signed_bytes": [
+        4,
+        4,
+        4,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "57e56a86aec374538c104986467b0120b3b83b312b6cbd108b84d2964e99c555"
+    }
+  },
+  "verified_Watcom_DATA_globals": [
+    "_player",
+    "_planet",
+    "_colony",
+    "_leaders",
+    "_unification_has_no_morale_msg",
+    "_no_barracks_msg"
+  ],
+  "controlled_source_derived_fixtures": 30,
+  "source_observed_morale_writes": [
+    "BYTE colony+0x07 from table at CODE 0xcd4c4",
+    "AL/BYTE accumulations at CODE 0xcdd0c..0xcdd30 wrap modulo 256"
+  ],
+  "source_observed_gates": [
+    "derived signed-half government ==3 skips bonus evaluation",
+    "output-formatting callback pointer EDI null jumps to shared epilogue 0xceb17",
+    "formatting path branches to 0xceb0e after preparing final arguments"
+  ],
+  "limits": [
+    "No original DOS dynamic differential comparison",
+    "Formatter external string data not dynamically verified",
+    "Complete game-state semantics and native gameplay equivalence not established"
+  ]
+}
