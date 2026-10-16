@@ -1,0 +1,30 @@
+{
+  "status": "source-verified-static-reconstruction",
+  "EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "named_complete_bodies": [
+    {
+      "name": "Colony_Industry_Maintenance_",
+      "offset": "0xcf546",
+      "size": 297,
+      "sha256": "a3d24386fbaa9dfe229d88dcb34c2c661f3dc2169cdec44481c558542e0fb0ed"
+    },
+    {
+      "name": "Event_Check_Space_Anomaly_",
+      "offset": "0x1341e",
+      "size": 80,
+      "sha256": "dd82062b1a3404b5917ee04dceea3459291b8f96f1fda2b0b9ded5e7041932b4"
+    }
+  ],
+  "verified_instruction_checkpoints": 55,
+  "tested_synthetic_fixtures": 7,
+  "observed_exception": "nonzero Event_Check_Space_Anomaly_ zeroes colony BYTE+0xf0 and jumps directly to shared return (other counters not reset on this branch)",
+  "observed_non_exception": "clear 8 per-owner bytes and four category bytes; inspect colony +0x0c 4-byte entries up to unsigned count BYTE+0x0a; classify low nibble and bit 10; use player[low nibble].BYTE+0x8b0 flag for ids 0..7; id 8 always counts +2",
+  "observed_output": "add four category BYTE counters, signed Watcom ceil-half for nonnegative totals; store low 8 bits to BYTE+0xf0",
+  "shared_epilogue": "branch to CODE 0xd1f97, leave/pop edi/esi/edx/ecx/ebx/ret",
+  "limitations": [
+    "No original DOS differential execution",
+    "No verified in-game array length limit",
+    "No semantic interpretation established for player BYTE+0x8b0 or each category beyond machine-observed effects"
+  ]
+}
