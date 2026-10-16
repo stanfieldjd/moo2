@@ -1,0 +1,217 @@
+{
+  "status": "source-verified-special-homeworld-colony-and-research-worker-conditional-path",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "original_full_function_hashes_and_instruction_scopes": [
+    {
+      "name": "Init_New_Game_",
+      "CODE_offset": "0x2479",
+      "full_named_bytes": 801,
+      "SHA256": "d09b0be693dc6e48b44811a5f3022630220f97546948222d874aa0734d10cc2d",
+      "decoded_instructions_within_scope": 2,
+      "decoded_scope": "0x252a..0x2530 only",
+      "continuation_lines": [],
+      "opcode_anchors": 1
+    },
+    {
+      "name": "Generate_Home_Worlds_",
+      "CODE_offset": "0x6b8cd",
+      "full_named_bytes": 745,
+      "SHA256": "f4cfb1e0dc82a25d1796a96fae93be264e61d1d24ae2498c65b52e03643b9f9e",
+      "decoded_instructions_within_scope": 203,
+      "decoded_scope": "whole indexed body",
+      "continuation_lines": [
+        {
+          "at": "0x6b973",
+          "from": "0x6b96c",
+          "bytes": 1
+        }
+      ],
+      "opcode_anchors": 1
+    },
+    {
+      "name": "Modify_Home_Worlds_",
+      "CODE_offset": "0x6c4af",
+      "full_named_bytes": 576,
+      "SHA256": "868919235947ff50eeca75301fa7c6ae5d07cee7b73a9937a101aa9d497a2f05",
+      "decoded_instructions_within_scope": 147,
+      "decoded_scope": "whole indexed body",
+      "continuation_lines": [
+        {
+          "at": "0x6c55d",
+          "from": "0x6c556",
+          "bytes": 1
+        },
+        {
+          "at": "0x6c626",
+          "from": "0x6c61f",
+          "bytes": 1
+        }
+      ],
+      "opcode_anchors": 8
+    },
+    {
+      "name": "Init_Homeworld_Colony_",
+      "CODE_offset": "0x3fa7",
+      "full_named_bytes": 16,
+      "SHA256": "8d537d2c9c40af052e9ac30b4d1b6dee1175a26a0f65e1120311f39e464f0b92",
+      "decoded_instructions_within_scope": 6,
+      "decoded_scope": "whole indexed body",
+      "continuation_lines": [],
+      "opcode_anchors": 2
+    },
+    {
+      "name": "Init_Homeworld_Colony2_",
+      "CODE_offset": "0x3a3d",
+      "full_named_bytes": 1386,
+      "SHA256": "58e4c26cdfe04526e297334cca9b26e4c411c86cfe65da5b3f78834b6b8b3454",
+      "decoded_instructions_within_scope": 366,
+      "decoded_scope": "whole indexed body",
+      "continuation_lines": [
+        {
+          "at": "0x3b2f",
+          "from": "0x3b28",
+          "bytes": 1
+        },
+        {
+          "at": "0x3be1",
+          "from": "0x3bda",
+          "bytes": 1
+        },
+        {
+          "at": "0x3ca6",
+          "from": "0x3c9f",
+          "bytes": 1
+        },
+        {
+          "at": "0x3ce4",
+          "from": "0x3cdd",
+          "bytes": 1
+        },
+        {
+          "at": "0x3db4",
+          "from": "0x3dad",
+          "bytes": 1
+        },
+        {
+          "at": "0x3ddb",
+          "from": "0x3dd4",
+          "bytes": 1
+        },
+        {
+          "at": "0x3dfb",
+          "from": "0x3df4",
+          "bytes": 1
+        },
+        {
+          "at": "0x3e36",
+          "from": "0x3e2f",
+          "bytes": 1
+        },
+        {
+          "at": "0x3e50",
+          "from": "0x3e49",
+          "bytes": 1
+        }
+      ],
+      "opcode_anchors": 37
+    },
+    {
+      "name": "Init_Colony_",
+      "CODE_offset": "0x2d75",
+      "full_named_bytes": 147,
+      "SHA256": "e3c19307db41b1902c6c43dbf1d2345d0467c153997fc69faf286633991fc72c",
+      "decoded_instructions_within_scope": 23,
+      "decoded_scope": "0x2d75..0x2dc0 only",
+      "continuation_lines": [],
+      "opcode_anchors": 6
+    },
+    {
+      "name": "Colony_Job_Production_",
+      "CODE_offset": "0xce280",
+      "full_named_bytes": 996,
+      "SHA256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860",
+      "decoded_instructions_within_scope": 283,
+      "decoded_scope": "whole indexed body",
+      "continuation_lines": [
+        {
+          "at": "0xce2d8",
+          "from": "0xce2d1",
+          "bytes": 1
+        },
+        {
+          "at": "0xce41f",
+          "from": "0xce418",
+          "bytes": 1
+        },
+        {
+          "at": "0xce427",
+          "from": "0xce420",
+          "bytes": 1
+        },
+        {
+          "at": "0xce436",
+          "from": "0xce42f",
+          "bytes": 1
+        },
+        {
+          "at": "0xce43e",
+          "from": "0xce437",
+          "bytes": 1
+        },
+        {
+          "at": "0xce451",
+          "from": "0xce44a",
+          "bytes": 1
+        },
+        {
+          "at": "0xce459",
+          "from": "0xce452",
+          "bytes": 1
+        }
+      ],
+      "opcode_anchors": 6
+    }
+  ],
+  "total_original_instructions_decoded_within_stated_scopes": 1030,
+  "source_opcode_anchor_count": 61,
+  "verified_original_direct_call_chain": [
+    {
+      "caller": "Init_New_Game_",
+      "CODE_site": "0x252a",
+      "callee": "Generate_Home_Worlds_"
+    },
+    {
+      "caller": "Generate_Home_Worlds_",
+      "CODE_site": "0x6bb46",
+      "callee": "Modify_Home_Worlds_"
+    },
+    {
+      "caller": "Modify_Home_Worlds_",
+      "CODE_site": "0x6c6a3",
+      "callee": "Init_Homeworld_Colony_"
+    },
+    {
+      "caller": "Init_Homeworld_Colony_",
+      "CODE_site": "0x3fb1",
+      "callee": "Init_Homeworld_Colony2_"
+    },
+    {
+      "caller": "Init_Homeworld_Colony2_",
+      "CODE_site": "0x3aba",
+      "callee": "Init_Colony_"
+    }
+  ],
+  "shared_original_planet_id": "Modify_Home_Worlds_ writes selected planet BYTE+0xf at CODE 0x6c635 using [EBP-0x4], then passes same [EBP-0x4] at 0x6c697 to Init_Homeworld_Colony_, which forwards it to Init_Colony_ for colony WORD+0x02",
+  "original_colony_initialization": "Init_Colony_ writes owner BYTE+0x00, planet WORD+0x02, and planet-owner WORD+0x00 linked to new colony slot",
+  "original_population_baseline": "source byte settings 0x21cb5 !=2 sets count to8, otherwise source computes count and enforces minimum1",
+  "original_worker_packed_source": "low nibble=owner index, bits 7-8=job from i%3 if planet BYTE+0x0b nonzero and player BYTE+0x8b1 zero, otherwise (i%2+1)&3; packed bit9 set for participation; if initial count>=3 both source branches contain research job2",
+  "population_fixture_assertions": 420,
+  "limits": [
+    "Homeworld code10 assignment requires original player option BYTE+0x8af nonzero; legal selection combos not globally established",
+    "A conditional source path with special10, colony and research worker is not full proof of reachable DOS savegame inputs",
+    "Complete original DOS dynamic differential output is untested",
+    "Init_New_Game_ and Init_Colony_ have only bounded instruction scopes decoded; their entire indexed function bodies are separately SHA-256 authenticated",
+    "Native remaster implementation and full executable coverage not established"
+  ]
+}
