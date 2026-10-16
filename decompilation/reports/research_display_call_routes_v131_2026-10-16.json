@@ -1,0 +1,314 @@
+{
+  "status": "source-verified-null-vs-display-research-production-caller-routes",
+  "official_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "verified_original_bodies": [
+    {
+      "name": "Evaluate_Screen_Input_",
+      "CODE_offset": "0xafdee",
+      "bytes": 1038,
+      "SHA256": "a0579d92fb89aea2a0809b75f01118b3a429b99966d61b683582fb62337d5ff8",
+      "instructions": 6,
+      "byte_continuations": [],
+      "scope_decoded": "UI source CALL block only",
+      "cross_route_opcode_checks": 5
+    },
+    {
+      "name": "Pre_Import_Computing_",
+      "CODE_offset": "0xd1d59",
+      "bytes": 198,
+      "SHA256": "7aa1ea0d54d5e89f82905724eb7fc1609c1e2b9a715c828f557fb4a9224d6628",
+      "instructions": 59,
+      "byte_continuations": [
+        {
+          "at": "0xd1de3",
+          "from": "0xd1ddc",
+          "bytes": 1
+        }
+      ],
+      "scope_decoded": "entire named function",
+      "cross_route_opcode_checks": 2
+    },
+    {
+      "name": "Show_Research_Production_",
+      "CODE_offset": "0xd03c3",
+      "bytes": 46,
+      "SHA256": "35af9c760df4df787a67e4bcc0591c0c9d71b70291212916211269aeba5081a8",
+      "instructions": 11,
+      "byte_continuations": [],
+      "scope_decoded": "entire named function",
+      "cross_route_opcode_checks": 5
+    },
+    {
+      "name": "Colony_Research_Production_",
+      "CODE_offset": "0xcff74",
+      "bytes": 1103,
+      "SHA256": "8d893da4d56dcd193a65a5db6d642ea8b375543797047ed6b149db71fb201341",
+      "instructions": 316,
+      "byte_continuations": [
+        {
+          "at": "0xcff8d",
+          "from": "0xcff86",
+          "bytes": 2
+        },
+        {
+          "at": "0xcffb4",
+          "from": "0xcffad",
+          "bytes": 2
+        },
+        {
+          "at": "0xd0105",
+          "from": "0xd00fe",
+          "bytes": 2
+        },
+        {
+          "at": "0xd0121",
+          "from": "0xd011a",
+          "bytes": 1
+        },
+        {
+          "at": "0xd013e",
+          "from": "0xd0137",
+          "bytes": 1
+        },
+        {
+          "at": "0xd0175",
+          "from": "0xd016e",
+          "bytes": 2
+        },
+        {
+          "at": "0xd0186",
+          "from": "0xd017f",
+          "bytes": 1
+        },
+        {
+          "at": "0xd01b2",
+          "from": "0xd01ab",
+          "bytes": 2
+        },
+        {
+          "at": "0xd01c3",
+          "from": "0xd01bc",
+          "bytes": 1
+        }
+      ],
+      "scope_decoded": "entire named function",
+      "cross_route_opcode_checks": 15
+    },
+    {
+      "name": "Colony_Job_Production_",
+      "CODE_offset": "0xce280",
+      "bytes": 996,
+      "SHA256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860",
+      "instructions": 283,
+      "byte_continuations": [
+        {
+          "at": "0xce2d8",
+          "from": "0xce2d1",
+          "bytes": 1
+        },
+        {
+          "at": "0xce41f",
+          "from": "0xce418",
+          "bytes": 1
+        },
+        {
+          "at": "0xce427",
+          "from": "0xce420",
+          "bytes": 1
+        },
+        {
+          "at": "0xce436",
+          "from": "0xce42f",
+          "bytes": 1
+        },
+        {
+          "at": "0xce43e",
+          "from": "0xce437",
+          "bytes": 1
+        },
+        {
+          "at": "0xce451",
+          "from": "0xce44a",
+          "bytes": 1
+        },
+        {
+          "at": "0xce459",
+          "from": "0xce452",
+          "bytes": 1
+        }
+      ],
+      "scope_decoded": "entire named function",
+      "cross_route_opcode_checks": 12
+    },
+    {
+      "name": "Colony_Pop_Base_Prod_Produced_",
+      "CODE_offset": "0xce22c",
+      "bytes": 84,
+      "SHA256": "964117fde615677bbecb22bd682edf239015961f1ef758b03b67aaec5c0e0661",
+      "instructions": 23,
+      "byte_continuations": [],
+      "scope_decoded": "entire named function",
+      "cross_route_opcode_checks": 1
+    },
+    {
+      "name": "Colony_Empire_Base_Research_Produced_",
+      "CODE_offset": "0xcfe77",
+      "bytes": 253,
+      "SHA256": "1e72e37daea066aa98c587b71c86f1faae81775b60886693b9a3d33b8888e0f9",
+      "instructions": 67,
+      "byte_continuations": [
+        {
+          "at": "0xcfebc",
+          "from": "0xcfeb5",
+          "bytes": 1
+        },
+        {
+          "at": "0xcff6e",
+          "from": "0xcff67",
+          "bytes": 1
+        }
+      ],
+      "scope_decoded": "entire named function",
+      "cross_route_opcode_checks": 4
+    },
+    {
+      "name": "Colony_Research_Per_Scientist_",
+      "CODE_offset": "0xcfdc6",
+      "bytes": 177,
+      "SHA256": "7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14",
+      "instructions": 57,
+      "byte_continuations": [
+        {
+          "at": "0xcfdeb",
+          "from": "0xcfde4",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe03",
+          "from": "0xcfdfc",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe1c",
+          "from": "0xcfe15",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe33",
+          "from": "0xcfe2c",
+          "bytes": 2
+        }
+      ],
+      "scope_decoded": "entire named function",
+      "cross_route_opcode_checks": 11
+    }
+  ],
+  "decoded_original_instructions_across_verified_scopes": 822,
+  "UI_screen_input_body_decode_limit": "Only 0xb009b..0xb00b9 CALL-site instructions decoded, entire 1038 bytes source-hashed",
+  "source_cross_function_opcode_checks": 55,
+  "direct_caller_inventory": [
+    "Pre_Import_Computing_",
+    "Show_Research_Production_"
+  ],
+  "verified_named_direct_call_edges": [
+    {
+      "caller": "Evaluate_Screen_Input_",
+      "CODE_site": "0xb00b0",
+      "callee": "Show_Research_Production_"
+    },
+    {
+      "caller": "Pre_Import_Computing_",
+      "CODE_site": "0xd1dff",
+      "callee": "Colony_Research_Production_"
+    },
+    {
+      "caller": "Show_Research_Production_",
+      "CODE_site": "0xd03dc",
+      "callee": "Colony_Research_Production_"
+    },
+    {
+      "caller": "Colony_Research_Production_",
+      "CODE_site": "0xcffe8",
+      "callee": "Colony_Job_Production_"
+    },
+    {
+      "caller": "Colony_Job_Production_",
+      "CODE_site": "0xce3fa",
+      "callee": "Colony_Pop_Base_Prod_Produced_"
+    },
+    {
+      "caller": "Colony_Empire_Base_Research_Produced_",
+      "CODE_site": "0xcfea3",
+      "callee": "Colony_Research_Per_Scientist_"
+    }
+  ],
+  "indirect_research_dispatch": "DATA _colony_empire_base_functions at 0xb55c, selector 2 -> CODE 0xcfe77",
+  "non_null_route": "Evaluate_Screen_Input_ UI branch CALL Show_Research_Production_ -> nonnull Show stack LEA EDX -> Research EDI -> local EBX -> Job EBX -> temporary ECX -> Scientist EBX",
+  "null_route": "Pre_Import_Computing_ XOR EDX,EDX -> Research EDI=0 -> Job EBX=0 -> temporary ECX=0 -> Scientist EBX=0",
+  "source_numeric_output_write": "Colony_Research_Production_ writes WORD colony+0xeb after Job_Production_ result, regardless of output pointer on normal path",
+  "verified_alias": "EBP-0x4d4+0x226 = EBP-0x2ae",
+  "controlled_fixture_checks": 13,
+  "controlled_examples": [
+    {
+      "caller": "Pre_Import_Computing_",
+      "planet_byte_0f": 0,
+      "base": 3,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "caller": "Show_Research_Production_",
+      "planet_byte_0f": 0,
+      "base": 3,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "caller": "Pre_Import_Computing_",
+      "planet_byte_0f": 10,
+      "base": 5,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "caller": "Show_Research_Production_",
+      "planet_byte_0f": 10,
+      "base": 5,
+      "nested_breakdown_plus_226": 2,
+      "raw_worker": 10,
+      "aggregate": 10,
+      "final_signed_job_output": 1
+    },
+    {
+      "caller": "Pre_Import_Computing_",
+      "planet_byte_0f": 11,
+      "base": 8,
+      "nested_breakdown_plus_226": 0,
+      "raw_worker": 8,
+      "aggregate": 8,
+      "final_signed_job_output": 0
+    },
+    {
+      "caller": "Show_Research_Production_",
+      "planet_byte_0f": 11,
+      "base": 8,
+      "nested_breakdown_plus_226": 5,
+      "raw_worker": 13,
+      "aggregate": 13,
+      "final_signed_job_output": 1
+    }
+  ],
+  "remaining_obligations": [
+    "No original DOS runtime differential execution",
+    "Valid original save-state reachability for synthetic values unproved",
+    "Original named callgraph does not eliminate unknown indirect callers",
+    "No user-authorized balance behavior changes, so no remediation is proposed"
+  ]
+}
