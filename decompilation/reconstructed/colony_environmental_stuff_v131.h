@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <stdint.h>
 typedef int16_t (*Moo2V131FoodPerFarmer)(
-    void *opaque,const uint8_t *colony,
+    void *opaque,uint8_t *colony,
     int32_t signed_owner,int32_t original_ebx_zero);
 typedef struct {
     const uint8_t *planets;
