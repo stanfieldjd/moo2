@@ -178,7 +178,7 @@ int main(void) {
             check((record&0x180u)==(planet_food?0u:0x80u));
         }
         check(colony[0xe0u]==(planet_food?255u:0u));
-        check(colony[0xe2u]==planet_state);
+        check(colony[0xe2u]==2u); /* original other climate prerequisite remains */
         scenarios++;
     }
     printf("PASS %u source-backed building->queue->environment->food->race-limit->population-limit cases, shuffle fixture only\n",scenarios);
