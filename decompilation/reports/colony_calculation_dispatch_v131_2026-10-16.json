@@ -1,0 +1,40 @@
+{
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "verified_full_original_named_bodies": [
+    {
+      "name": "Colony_Calculation_",
+      "CODE_offset": "0xd2a70",
+      "full_original_body_bytes": 65,
+      "original_sha256": "e667850010cdc8cb620bb98fcc6fe0c2b12971f572a8c48930c88833b940d63d"
+    },
+    {
+      "name": "Pre_Import_Computing_",
+      "CODE_offset": "0xd1d59",
+      "full_original_body_bytes": 198,
+      "original_sha256": "7aa1ea0d54d5e89f82905724eb7fc1609c1e2b9a715c828f557fb4a9224d6628"
+    },
+    {
+      "name": "Pass_Out_Imports_",
+      "CODE_offset": "0xcf8f0",
+      "full_original_body_bytes": 1238,
+      "original_sha256": "e35af6d4ee3106edd7af2f4f6377a18453e107323c620993b3f577871eff4234"
+    },
+    {
+      "name": "Update_Player_Stats_",
+      "CODE_offset": "0xd2710",
+      "full_original_body_bytes": 864,
+      "original_sha256": "5b3d2b6948da42581600e270488ee10b4044851de96bcca00ba5358d6f00a38d"
+    }
+  ],
+  "verified_exact_opcode_checkpoints": 21,
+  "named_original_DATA_globals": {
+    "_colony": "0x1ab18",
+    "_player": "0x1ff98"
+  },
+  "colony_input": "EAX low signed WORD colony index, signextended CWDE, original stride 0x169",
+  "inactive_colony": "colony BYTE+6 !=0 skips Pre_Import_Computing_ and Pass_Out_Imports_, still updates owner player",
+  "active_colony": "CODE 0xd2a89 calls Pre_Import_Computing_ EAX colony pointer, CODE 0xd2a93 calls Pass_Out_Imports_ EDX colony pointer and EAX signed owner BYTE+0",
+  "always": "CODE 0xd2aa9 calls Update_Player_Stats_ EAX player record pointer (signed colony owner BYTE+0 * 0xEA9)",
+  "owner_reload": "source loads signed colony owner once after preimport and once after import, permitting source callbacks to change subsequent routing",
+  "limits": "only 65-byte named dispatcher control flow reimplemented; 198-byte Pre_Import_Computing_, 1238-byte Pass_Out_Imports_, and 864-byte Update_Player_Stats_ effects remain unresolved named callbacks; no DOS dynamic differential execution"
+}
