@@ -1,0 +1,309 @@
+{
+  "status": "source-verified-per-job-base-behavior-with-controlled-fixtures",
+  "canonical_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "authenticated_functions": [
+    {
+      "name": "Colony_Food2_Per_Farmer_",
+      "CODE_offset": "0xce03e",
+      "length": 136,
+      "SHA256": "6aef5f245db959b949a22eb0cfccd03b65db2c103a18c4dc47f5bbabcf9a04e4",
+      "machine_instructions": 43,
+      "decoder_continuations": [
+        {
+          "at": "0xce07b",
+          "starts_instruction": "0xce074",
+          "bytes": 1
+        },
+        {
+          "at": "0xce0a7",
+          "starts_instruction": "0xce0a0",
+          "bytes": 2
+        },
+        {
+          "at": "0xce0bf",
+          "starts_instruction": "0xce0b8",
+          "bytes": 2
+        }
+      ],
+      "original_branch_inventory": [
+        {
+          "from": "0xce05a",
+          "opcode": "je",
+          "to": "0xce061"
+        },
+        {
+          "from": "0xce064",
+          "opcode": "jne",
+          "to": "0xce08b"
+        },
+        {
+          "from": "0xce07c",
+          "opcode": "jne",
+          "to": "0xce08b"
+        },
+        {
+          "from": "0xce085",
+          "opcode": "je",
+          "to": "0xce08b"
+        },
+        {
+          "from": "0xce08e",
+          "opcode": "jle",
+          "to": "0xce0c1"
+        },
+        {
+          "from": "0xce097",
+          "opcode": "je",
+          "to": "0xce0a9"
+        },
+        {
+          "from": "0xce09e",
+          "opcode": "je",
+          "to": "0xce0a9"
+        },
+        {
+          "from": "0xce0b0",
+          "opcode": "je",
+          "to": "0xce0c1"
+        },
+        {
+          "from": "0xce0b6",
+          "opcode": "je",
+          "to": "0xce0c1"
+        }
+      ],
+      "source_opcode_anchors": 13
+    },
+    {
+      "name": "Colony_Industry_Per_Worker_",
+      "CODE_offset": "0xcec95",
+      "length": 178,
+      "SHA256": "1e58a5b42e7d04cbc1d412b55ba007dbee502d5f0c257a96890c93d5689d8aa9",
+      "machine_instructions": 51,
+      "decoder_continuations": [
+        {
+          "at": "0xcecb3",
+          "starts_instruction": "0xcecac",
+          "bytes": 1
+        },
+        {
+          "at": "0xcecd2",
+          "starts_instruction": "0xceccb",
+          "bytes": 2
+        },
+        {
+          "at": "0xcece9",
+          "starts_instruction": "0xcece2",
+          "bytes": 2
+        },
+        {
+          "at": "0xced01",
+          "starts_instruction": "0xcecfa",
+          "bytes": 2
+        },
+        {
+          "at": "0xced1a",
+          "starts_instruction": "0xced13",
+          "bytes": 2
+        },
+        {
+          "at": "0xced31",
+          "starts_instruction": "0xced2a",
+          "bytes": 1
+        },
+        {
+          "at": "0xced40",
+          "starts_instruction": "0xced39",
+          "bytes": 2
+        }
+      ],
+      "original_branch_inventory": [
+        {
+          "from": "0xcecb6",
+          "opcode": "je",
+          "to": "0xcecbd"
+        },
+        {
+          "from": "0xcecc4",
+          "opcode": "je",
+          "to": "0xcecd4"
+        },
+        {
+          "from": "0xcecc9",
+          "opcode": "je",
+          "to": "0xcecd4"
+        },
+        {
+          "from": "0xcecdb",
+          "opcode": "je",
+          "to": "0xceceb"
+        },
+        {
+          "from": "0xcece0",
+          "opcode": "je",
+          "to": "0xceceb"
+        },
+        {
+          "from": "0xcecf2",
+          "opcode": "je",
+          "to": "0xced03"
+        },
+        {
+          "from": "0xcecf8",
+          "opcode": "je",
+          "to": "0xced03"
+        },
+        {
+          "from": "0xced0a",
+          "opcode": "je",
+          "to": "0xced1c"
+        },
+        {
+          "from": "0xced11",
+          "opcode": "je",
+          "to": "0xced1c"
+        },
+        {
+          "from": "0xced32",
+          "opcode": "jne",
+          "to": "0xced42"
+        },
+        {
+          "from": "0xced37",
+          "opcode": "je",
+          "to": "0xced42"
+        }
+      ],
+      "source_opcode_anchors": 20
+    },
+    {
+      "name": "Colony_Research_Per_Scientist_",
+      "CODE_offset": "0xcfdc6",
+      "length": 177,
+      "SHA256": "7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14",
+      "machine_instructions": 57,
+      "decoder_continuations": [
+        {
+          "at": "0xcfdeb",
+          "starts_instruction": "0xcfde4",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe03",
+          "starts_instruction": "0xcfdfc",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe1c",
+          "starts_instruction": "0xcfe15",
+          "bytes": 2
+        },
+        {
+          "at": "0xcfe33",
+          "starts_instruction": "0xcfe2c",
+          "bytes": 2
+        }
+      ],
+      "original_branch_inventory": [
+        {
+          "from": "0xcfdce",
+          "opcode": "je",
+          "to": "0xcfdd6"
+        },
+        {
+          "from": "0xcfddd",
+          "opcode": "je",
+          "to": "0xcfded"
+        },
+        {
+          "from": "0xcfde2",
+          "opcode": "je",
+          "to": "0xcfded"
+        },
+        {
+          "from": "0xcfdf4",
+          "opcode": "je",
+          "to": "0xcfe05"
+        },
+        {
+          "from": "0xcfdfa",
+          "opcode": "je",
+          "to": "0xcfe05"
+        },
+        {
+          "from": "0xcfe0c",
+          "opcode": "je",
+          "to": "0xcfe1e"
+        },
+        {
+          "from": "0xcfe13",
+          "opcode": "je",
+          "to": "0xcfe1e"
+        },
+        {
+          "from": "0xcfe25",
+          "opcode": "je",
+          "to": "0xcfe35"
+        },
+        {
+          "from": "0xcfe2a",
+          "opcode": "je",
+          "to": "0xcfe35"
+        },
+        {
+          "from": "0xcfe48",
+          "opcode": "jb",
+          "to": "0xcfe73"
+        },
+        {
+          "from": "0xcfe4a",
+          "opcode": "jbe",
+          "to": "0xcfe54"
+        },
+        {
+          "from": "0xcfe4e",
+          "opcode": "je",
+          "to": "0xcfe65"
+        },
+        {
+          "from": "0xcfe58",
+          "opcode": "je",
+          "to": "0xcfe73"
+        },
+        {
+          "from": "0xcfe6a",
+          "opcode": "je",
+          "to": "0xcfe73"
+        }
+      ],
+      "source_opcode_anchors": 22
+    }
+  ],
+  "total_decoded_instructions": 151,
+  "total_direct_branch_transfers": 34,
+  "total_exact_opcode_anchors": 55,
+  "original_CODE_mineral_table": {
+    "offset": "0xcd4b5",
+    "values": [
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "SHA256": "0a834026e5178e5a668be1e368aeb321b6acdd1d651a3eb141541de4531c6c20"
+  },
+  "controlled_synthetic_fixture_count": 19,
+  "observed_formulas": {
+    "food": "2*planet BYTE+0x0b; if zero and pop-owner player BYTE+0x134==3 use 2; only when positive add +4 if colony BYTE+0x164 and +2 if colony BYTE+0x13a",
+    "industry": "CODE _minerals_per_mine[planet BYTE+0x0a] plus colony flags +1 (0x13a), +1 (0x13d), +2 (0x15a), +3 (0x142), plus +1 if pop-owner player BYTE+0x183==3",
+    "research": "3 plus colony flags +1 (0x13a), +2 (0x154), +3 (0x149), +1 (0x159), plus +2 if planet BYTE+0x0f==10 or +5 if equals 11"
+  },
+  "optional_breakdown_writes_verified_by_anchors": true,
+  "limitations": [
+    "Neither runtime DOS differential execution nor engine-wide native-game equivalence",
+    "Out-of-bounds minerals table indices and invalid planet/player pointers not modeled",
+    "All field names denote byte offsets; complex gameplay meaning and global state lifecycle unproven"
+  ]
+}
