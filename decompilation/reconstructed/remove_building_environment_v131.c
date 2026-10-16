@@ -1,5 +1,5 @@
 /*
- * Bounded original source-derived v1.31 Remove_Building_ IDs 15,24,28.
+ * Bounded original source-derived v1.31 Remove_Building_ IDs 15,23,24,28.
  * This does NOT implement the full Remove_Building_ nor full economy.
  * Authenticated source ORION2.EXE:
  * SHA256 4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f
@@ -8,7 +8,7 @@
  * 1. CODE 0x460A always clears building presence:
  *      _colony[colony_id].BYTE[0x136+building_id] = 0
  * 2. ID15 dispatches directly to common CODE 0x47AA.
- *    IDs24,28 enter at CODE 0x477A, look up signed colony
+ *    IDs23,24,28 enter at CODE 0x477A, look up signed colony
  *    planet ID WORD+2 in _planet (17-byte stride), compare BYTE+8
  *    to 2 (unsigned). Only when status <2, source calls
  *    Delete_Prod_From_Colony_Queue_(colony_id,44) at CODE 0x47A5.
@@ -110,7 +110,8 @@ moo2_v131_derived_remove_building_environment(
     int16_t colony_id,int16_t building_id,
     size_t *removed_product_44)
 {
-    if(building_id!=15 && building_id!=24 && building_id!=28)
+    if(building_id!=15 && building_id!=23 &&
+       building_id!=24 && building_id!=28)
         return MOO2_V131_BUILDING_ENV_UNSUPPORTED_ID;
     if(!ctx || !ctx->colonies || !ctx->environmental ||
        !ctx->population_limits || !ctx->colony_calculation ||
