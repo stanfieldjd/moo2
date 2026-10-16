@@ -1,0 +1,64 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "source_authenticated_complete_named_function_bodies": [
+    {
+      "symbol": "Enforce_Population_Limits_At_Colony_",
+      "original_CODE_offset": "0xdc97c",
+      "complete_body_bytes": 489,
+      "original_complete_body_SHA256": "6e728e998d84105e2a3004ad1809c94ea1acf201db4ab907a6a935be54b92845"
+    },
+    {
+      "symbol": "Colony_Race_Pop_Limit_",
+      "original_CODE_offset": "0xd0c1d",
+      "complete_body_bytes": 81,
+      "original_complete_body_SHA256": "97d4044d83c3594792d5d159b6858599d63f153c9532081fa6aae13e70838e58"
+    },
+    {
+      "symbol": "Size_And_Climate_Race_Pop_Limit_",
+      "original_CODE_offset": "0xd0a93",
+      "complete_body_bytes": 188,
+      "original_complete_body_SHA256": "7c8629ad880163c090835f05037b1bde31bf058a183d30069b2af1b014eb032d"
+    },
+    {
+      "symbol": "Shuffle_",
+      "original_CODE_offset": "0xeea82",
+      "complete_body_bytes": 190,
+      "original_complete_body_SHA256": "d5dc211bc4f2300aa5c591335beac6e905aac5d6134309eb71e0a1a26e28a604"
+    },
+    {
+      "symbol": "Colony_Food2_Per_Farmer_",
+      "original_CODE_offset": "0xce03e",
+      "complete_body_bytes": 136,
+      "original_complete_body_SHA256": "6aef5f245db959b949a22eb0cfccd03b65db2c103a18c4dc47f5bbabcf9a04e4"
+    },
+    {
+      "symbol": "memset_",
+      "original_CODE_offset": "0x119c70",
+      "complete_body_bytes": 24,
+      "original_complete_body_SHA256": "e1bb125f736118af8cb392e308cbf68630169cada23d288f5adad0c3eb4fdc8c"
+    }
+  ],
+  "verified_exact_i386_instruction_checkpoints": 168,
+  "named_DATA_globals": {
+    "_planet": "0x1b0d4",
+    "_player": "0x1ff98"
+  },
+  "source_population_record": "BYTE colony+0x0a count; 4-byte records at colony+0x0c",
+  "source_limits": "initial 42-byte mark array, two 20-byte WORD arrays for 10 type buckets, race capacity from 0xd0c1d",
+  "source_first_scan": "reverse traverse population, tag=record DWORD&0xf, call Colony_Race_Pop_Limit_ once per encountered tag and mark BYTE at returned capacity",
+  "shuffle": "Shuffle_ at 0xeea82 called with colony population pointer EAX, count EBX, four-byte stride EDX",
+  "original_thresholds": "from t=1 through 41 (cap0 mark is not processed); remove one item and repeat same threshold until count of entries with their type limit<=t is no greater than t",
+  "victim_priority_order": [
+    "type9",
+    "race-not-matching-colony-owner-neither-type8-nor-owner-code",
+    "record bits4..6 equal signed colony owner",
+    "type8",
+    "type matching colony owner"
+  ],
+  "compaction": "decrement colony BYTE+0x0a then overwrite selected four-byte victim entry with last source population DWORD",
+  "zero_food": "call Colony_Food2_Per_Farmer_ with EAX colony pointer, EDX signed owner, EBX0; if AX low WORD ==0, for each remaining record with WORD&0x180 ==0 and type !=8, set WORD=(WORD&0xFE7F)|0x80",
+  "race_cap_wrapper": "Colony_Race_Pop_Limit_ passes planet BYTE+5 and colony BYTE+0xe2 with race index to Size_And_Climate_Race_Pop_Limit_ 0xd0a93, CWDE signextends returned AX, adds 5 for owning player tech BYTE+0x11a==3, adds 2 for colony BYTE+0x145 nonzero",
+  "host_safety": "derived C bounds population count<=42, type0..9, capacity0..41; detects callback failure; these guards and no rollback differ from malformed DOS source",
+  "unrecovered_effects": "original Shuffle_ 190-byte behavior and 188-byte Size_And_Climate_Race_Pop_Limit_ (and its callees) remain explicit callbacks, though both source bodies are authenticated",
+  "scope": "complete observed 489-byte source control-flow reconstructed for safe original-like state, except external callback effects; no original DOS dynamic differential validation"
+}
