@@ -1,0 +1,88 @@
+{
+  "status": "source-verified-player-8af-from-racial-option-toggle-7",
+  "official_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "original_full_verified_bodies": [
+    {
+      "name": "Newgame_Screen_",
+      "CODE_offset": "0xbd435",
+      "bytes": 1200,
+      "SHA256": "b34f2db4d36aae5225a0cd22c54ea6b7be0bf26e88e020a865b38f4187ffc714"
+    },
+    {
+      "name": "Race_Selection_Screen_",
+      "CODE_offset": "0x4c510",
+      "bytes": 2599,
+      "SHA256": "a1643c1f5177f626608828bc1fdcb970802db5d91f6eaa966b0a13f73e79bbb5"
+    },
+    {
+      "name": "Racial_Option_Screen_",
+      "CODE_offset": "0x4a3bc",
+      "bytes": 1816,
+      "SHA256": "66cbf31616cddf0231c07a5d1f333ac554c9db0a673369ca7666f96fd36930ee"
+    },
+    {
+      "name": "Convert_Player_To_Flags_",
+      "CODE_offset": "0x4ad97",
+      "bytes": 161,
+      "SHA256": "e84d39178d6ef63e679d205d734a991add5d774997653e3edba64b2a371f9d95"
+    },
+    {
+      "name": "Convert_Flags_To_Player_",
+      "CODE_offset": "0x4ae38",
+      "bytes": 188,
+      "SHA256": "55e168ee1847ba7de6868476a4acff3811b89d1b996c8555c0dec08666eb0fd5"
+    },
+    {
+      "name": "Modify_Home_Worlds_",
+      "CODE_offset": "0x6c4af",
+      "bytes": 576,
+      "SHA256": "868919235947ff50eeca75301fa7c6ae5d07cee7b73a9937a101aa9d497a2f05"
+    },
+    {
+      "name": "Colony_Research_Per_Scientist_",
+      "CODE_offset": "0xcfdc6",
+      "bytes": 177,
+      "SHA256": "7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14"
+    }
+  ],
+  "exact_opcode_checks": 34,
+  "verified_original_direct_call_sites": [
+    {
+      "CODE_site": "0xbd722",
+      "caller": "Newgame_Screen_",
+      "callee": "Race_Selection_Screen_"
+    },
+    {
+      "CODE_site": "0x4c9d7",
+      "caller": "Race_Selection_Screen_",
+      "callee": "Racial_Option_Screen_"
+    },
+    {
+      "CODE_site": "0x4a3ef",
+      "caller": "Racial_Option_Screen_",
+      "callee": "Convert_Player_To_Flags_"
+    },
+    {
+      "CODE_site": "0x4a8d4",
+      "caller": "Racial_Option_Screen_",
+      "callee": "Convert_Flags_To_Player_"
+    }
+  ],
+  "derived_address_equation": "Convert player offset 0x89f+16=0x8af; flag index 16+1=17; DATA 0x236c8+2*17=0x236ea; _option_toggle base 0x236dc => WORD index 7",
+  "original_race_toggle_DATA": "0x236ea",
+  "original_option_symbol": "_option_toggle",
+  "option_WORD_index": 7,
+  "player_BYTE_offset": "0x8af",
+  "normal_conversion": "player signed BYTE+0x8af -> signed WORD option-toggle[7]; reverse conversion reads low BYTE of option WORD back into player+0x8af",
+  "original_special_case": "At option index15, convert flags->player handles paired opposite-flag representation and skips index16; index17 becomes player offset16",
+  "homeworld_source": "Modify_Home_Worlds_ tests that exact player BYTE+0x8af; if nonzero, writes source planet BYTE+0xf=10",
+  "controlled_mapping_fixture_checks": 57,
+  "limitations": [
+    "Original CODE proves race-option-to-player flag mapping; does not establish a particular visible UI option label or default selection",
+    "The player DATA+0x8af flag may also be populated by whole-record initialization/copy; not all such paths audited",
+    "This does not prove player choice of the flag alongside every previously constructed planet/worker/settings fixture",
+    "No original DOS runtime comparison, save-state witness, or whole native engine equivalence",
+    "Complete original named body hashes and selected opcode anchors checked; no whole-body instruction CFG coverage asserted"
+  ]
+}
