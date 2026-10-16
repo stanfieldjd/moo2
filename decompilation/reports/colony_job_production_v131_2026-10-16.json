@@ -1,0 +1,421 @@
+{
+  "status": "source-verified-static-shared-job-callee-control-flow",
+  "canonical_exe_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "full_named_procedure": {
+    "name": "Colony_Job_Production_",
+    "start": "0xce280",
+    "bytes": 996,
+    "sha256": "853acbdf8e5057e9ad4f3a34c7f5aa98392c668eee1568f8133995ca5d641860"
+  },
+  "instruction_count": 283,
+  "decoded_source_bytes": 996,
+  "byte_continuation_rows": [
+    {
+      "at": "0xce2d8",
+      "from": "0xce2d1",
+      "bytes": 1
+    },
+    {
+      "at": "0xce41f",
+      "from": "0xce418",
+      "bytes": 1
+    },
+    {
+      "at": "0xce427",
+      "from": "0xce420",
+      "bytes": 1
+    },
+    {
+      "at": "0xce436",
+      "from": "0xce42f",
+      "bytes": 1
+    },
+    {
+      "at": "0xce43e",
+      "from": "0xce437",
+      "bytes": 1
+    },
+    {
+      "at": "0xce451",
+      "from": "0xce44a",
+      "bytes": 1
+    },
+    {
+      "at": "0xce459",
+      "from": "0xce452",
+      "bytes": 1
+    }
+  ],
+  "direct_control_transfer_inventory": [
+    {
+      "at": "0xce2bb",
+      "op": "call",
+      "to": "0xcd9f2"
+    },
+    {
+      "at": "0xce2fb",
+      "op": "call",
+      "to": "0x119c70"
+    },
+    {
+      "at": "0xce303",
+      "op": "je",
+      "to": "0xce376"
+    },
+    {
+      "at": "0xce318",
+      "op": "jb",
+      "to": "0xce325"
+    },
+    {
+      "at": "0xce31a",
+      "op": "jbe",
+      "to": "0xce351"
+    },
+    {
+      "at": "0xce321",
+      "op": "je",
+      "to": "0xce35d"
+    },
+    {
+      "at": "0xce323",
+      "op": "jmp",
+      "to": "0xce376"
+    },
+    {
+      "at": "0xce32a",
+      "op": "jne",
+      "to": "0xce376"
+    },
+    {
+      "at": "0xce330",
+      "op": "je",
+      "to": "0xce33f"
+    },
+    {
+      "at": "0xce334",
+      "op": "call",
+      "to": "0x84951"
+    },
+    {
+      "at": "0xce33d",
+      "op": "jmp",
+      "to": "0xce373"
+    },
+    {
+      "at": "0xce343",
+      "op": "je",
+      "to": "0xce376"
+    },
+    {
+      "at": "0xce347",
+      "op": "call",
+      "to": "0x84951"
+    },
+    {
+      "at": "0xce34f",
+      "op": "jmp",
+      "to": "0xce373"
+    },
+    {
+      "at": "0xce355",
+      "op": "jne",
+      "to": "0xce332"
+    },
+    {
+      "at": "0xce35b",
+      "op": "jmp",
+      "to": "0xce343"
+    },
+    {
+      "at": "0xce361",
+      "op": "jne",
+      "to": "0xce332"
+    },
+    {
+      "at": "0xce367",
+      "op": "je",
+      "to": "0xce376"
+    },
+    {
+      "at": "0xce36b",
+      "op": "call",
+      "to": "0x84951"
+    },
+    {
+      "at": "0xce38b",
+      "op": "jmp",
+      "to": "0xce61e"
+    },
+    {
+      "at": "0xce397",
+      "op": "je",
+      "to": "0xce61e"
+    },
+    {
+      "at": "0xce3ab",
+      "op": "jne",
+      "to": "0xce61e"
+    },
+    {
+      "at": "0xce3bb",
+      "op": "call",
+      "to": "0xcdf2c"
+    },
+    {
+      "at": "0xce3dd",
+      "op": "call",
+      "to": "0x119c70"
+    },
+    {
+      "at": "0xce3e6",
+      "op": "je",
+      "to": "0xce3f0"
+    },
+    {
+      "at": "0xce3ee",
+      "op": "jmp",
+      "to": "0xce3f2"
+    },
+    {
+      "at": "0xce3fa",
+      "op": "call",
+      "to": "0xce22c"
+    },
+    {
+      "at": "0xce405",
+      "op": "je",
+      "to": "0xce479"
+    },
+    {
+      "at": "0xce441",
+      "op": "jne",
+      "to": "0xce42d"
+    },
+    {
+      "at": "0xce45c",
+      "op": "jne",
+      "to": "0xce448"
+    },
+    {
+      "at": "0xce48d",
+      "op": "je",
+      "to": "0xce4a7"
+    },
+    {
+      "at": "0xce497",
+      "op": "jb",
+      "to": "0xce4a7"
+    },
+    {
+      "at": "0xce49c",
+      "op": "je",
+      "to": "0xce4a7"
+    },
+    {
+      "at": "0xce4a1",
+      "op": "jne",
+      "to": "0xce4a7"
+    },
+    {
+      "at": "0xce4d3",
+      "op": "je",
+      "to": "0xce4e1"
+    },
+    {
+      "at": "0xce4e5",
+      "op": "je",
+      "to": "0xce4f7"
+    },
+    {
+      "at": "0xce505",
+      "op": "jbe",
+      "to": "0xce513"
+    },
+    {
+      "at": "0xce50c",
+      "op": "je",
+      "to": "0xce55b"
+    },
+    {
+      "at": "0xce50e",
+      "op": "jmp",
+      "to": "0xce5a6"
+    },
+    {
+      "at": "0xce517",
+      "op": "jb",
+      "to": "0xce537"
+    },
+    {
+      "at": "0xce519",
+      "op": "jbe",
+      "to": "0xce523"
+    },
+    {
+      "at": "0xce51f",
+      "op": "je",
+      "to": "0xce52b"
+    },
+    {
+      "at": "0xce521",
+      "op": "jmp",
+      "to": "0xce537"
+    },
+    {
+      "at": "0xce529",
+      "op": "jmp",
+      "to": "0xce531"
+    },
+    {
+      "at": "0xce544",
+      "op": "je",
+      "to": "0xce5a6"
+    },
+    {
+      "at": "0xce559",
+      "op": "jmp",
+      "to": "0xce5a6"
+    },
+    {
+      "at": "0xce55f",
+      "op": "jb",
+      "to": "0xce573"
+    },
+    {
+      "at": "0xce561",
+      "op": "jbe",
+      "to": "0xce581"
+    },
+    {
+      "at": "0xce567",
+      "op": "jb",
+      "to": "0xce59d"
+    },
+    {
+      "at": "0xce569",
+      "op": "jbe",
+      "to": "0xce589"
+    },
+    {
+      "at": "0xce56f",
+      "op": "je",
+      "to": "0xce591"
+    },
+    {
+      "at": "0xce571",
+      "op": "jmp",
+      "to": "0xce59d"
+    },
+    {
+      "at": "0xce577",
+      "op": "jne",
+      "to": "0xce59d"
+    },
+    {
+      "at": "0xce57f",
+      "op": "jmp",
+      "to": "0xce597"
+    },
+    {
+      "at": "0xce587",
+      "op": "jmp",
+      "to": "0xce597"
+    },
+    {
+      "at": "0xce58f",
+      "op": "jmp",
+      "to": "0xce597"
+    },
+    {
+      "at": "0xce5ba",
+      "op": "je",
+      "to": "0xce5d3"
+    },
+    {
+      "at": "0xce619",
+      "op": "jle",
+      "to": "0xce61e"
+    },
+    {
+      "at": "0xce621",
+      "op": "ja",
+      "to": "0xce390"
+    },
+    {
+      "at": "0xce62b",
+      "op": "je",
+      "to": "0xce63d"
+    },
+    {
+      "at": "0xce642",
+      "op": "jne",
+      "to": "0xce651"
+    },
+    {
+      "at": "0xce64f",
+      "op": "jmp",
+      "to": "0xce65c"
+    }
+  ],
+  "nested_callee_call_counts": {
+    "Colony_Officer_": 1,
+    "memset_": 2,
+    "Owned_Officer_Level_": 3,
+    "Gravity_Player_Production_Factor_": 1,
+    "Colony_Pop_Base_Prod_Produced_": 1
+  },
+  "authenticated_nested_helper_full_bodies": [
+    {
+      "name": "Colony_Officer_",
+      "start": "0xcd9f2",
+      "bytes": 68,
+      "sha256": "a573f1396f45fe66f4484dfc1965704989b7a3af6301a75b173c13ec9a98afcc"
+    },
+    {
+      "name": "Owned_Officer_Level_",
+      "start": "0x84951",
+      "bytes": 86,
+      "sha256": "c067e6142cc3347a958ff8a7d868a10f4039296419eb9acf5b989f0b7f438586"
+    },
+    {
+      "name": "memset_",
+      "start": "0x119c70",
+      "bytes": 24,
+      "sha256": "e1bb125f736118af8cb392e308cbf68630169cada23d288f5adad0c3eb4fdc8c"
+    },
+    {
+      "name": "Gravity_Player_Production_Factor_",
+      "start": "0xcdf2c",
+      "bytes": 167,
+      "sha256": "a0660fd4edfd3b57bb91c406ca614e6c445ff509fb191eb5b757bdc254142200"
+    },
+    {
+      "name": "Colony_Pop_Base_Prod_Produced_",
+      "start": "0xce22c",
+      "bytes": 84,
+      "sha256": "964117fde615677bbecb22bd682edf239015961f1ef758b03b67aaec5c0e0661"
+    }
+  ],
+  "exact_instruction_anchors": 40,
+  "bounded_final_divisor_fixtures": 15,
+  "source_job_selectors": {
+    "0": "signed IDIV ((accumulator + 20)/40)",
+    "1": "signed IDIV ((accumulator + 10)/20)",
+    "2": "signed IDIV ((accumulator + 10)/20)"
+  },
+  "other_source_observations": [
+    "Optional 0x256-byte breakdown buffer is initialized/copy-filled inside the named body",
+    "Walk packed 4-byte colony population entries in reverse, checking job-type bits",
+    "SOURCE worker stage uses Gravity_Player_Production_Factor_ and Colony_Pop_Base_Prod_Produced_",
+    "Accumulate source contributions only when positive for the final total, with job-specific modifier cases",
+    "Function returns original signed IDIV quotient in EAX, does not directly write output WORD to colony"
+  ],
+  "limitations": [
+    "No original DOS runtime differential execution",
+    "Nested helpers' full body SHA checked, but this audit does not reconstruct their entire semantics",
+    "Signed 32-bit arithmetic, custom production modifiers and all in-game states require further study",
+    "Controlled arithmetic fixtures verify only the isolated final division stage"
+  ]
+}
