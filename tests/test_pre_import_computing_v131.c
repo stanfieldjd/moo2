@@ -84,7 +84,8 @@ int main(void){
         colony[0xF1u]=0xEEu;colony[0xF2u]=0xFFu;
         h=(Harness){0};
         h.colony=colony;
-        h.expected_food=(int)(food*2u+((flags&1u)?2u:0u));
+        h.expected_food=(int)(food==0u?0u:
+            food*2u+((flags&1u)?2u:0u));
         h.expected_worker=(int)mine_lookup[mineral]+
              ((flags&1u)?1:0)+((flags&2u)?1:0);
         h.expected_scientist=3+((flags&1u)?1:0)+
