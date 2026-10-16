@@ -1685,3 +1685,72 @@ comparison is done. Original
 copyrighted game media remain local.
 No Game Lab, Xbox, or unrelated Qwen
 deployment changes were made.
+
+
+## 2026-10-16: original pre-import worker/scientist/tax recovery
+
+Reconstructed original `Pre_Import_Computing_` source
+outer control (198-byte Watcom CODE 0xD1D59),
+plus full original arithmetic of
+`Colony_Industry_Per_Worker_` (178 bytes),
+`Colony_Research_Per_Scientist_` (177 bytes),
+and `Colony_Industry_To_Tax_` (89 bytes).
+The pre-import routine now calls those three
+and the previously reconstructed complete
+`Colony_Food2_Per_Farmer_` and
+`Colony_Environmental_Stuff_` functions
+instead of synthetic numeric callbacks.
+Original source `_minerals_per_mine` five-byte
+lookup is `[1,2,3,5,8]` from CODE 0xCD4B5.
+
+Outer source zeros colony `+0xEF..+0xF2`,
+stores food/industry/research low-AL
+output at colony `+0xDD/+0xDE/+0xDF`,
+and writes signed min(BYTE `+0xF0`,
+WORD `+0xE9`) to WORD `+0xF5`
+after the `Colony_Replicators_` call.
+Full industry-to-tax calculation uses original
+player tax-rate BYTE `+0x31` and signed
+division by 100, writes WORD `+0x127`
+and deducts its low WORD from industry.
+
+The entire original pre-import routine has
+15 authenticated direct call instructions:
+one `memset_`, five now source-recovered
+calculations, **nine** still-unrecovered
+economy subroutines. These pending functions
+retain explicit original-named callback
+boundaries, not guessed effects.
+`Pass_Out_Imports_` and
+`Update_Player_Stats_` still need
+functional reconstruction downstream.
+
+Original-byte report
+`decompilation/reports/pre_import_computing_v131_2026-10-16.json`
+has **107 original x86 instruction/call
+checkpoints**, **six complete named function
+source-body SHA-256 digests**, and the
+exact original mineral lookup.
+See `tools/audit_pre_import_computing_v131.py`,
+`decompilation/annotated/pre_import_computing_v131.md`,
+and three C source files
+`pre_import_computing_v131.c`,
+`colony_worker_scientist_v131.c` and
+`colony_industry_to_tax_v131.c`
+under `decompilation/reconstructed/`.
+
+From the current GitHub commit, strict
+C11/ASan/UBSan tests passed
+**2,560 worker**, **512 scientist**,
+**19,200 industry tax**, **1,440 pre-import**
+and **32 integrated building-to-colony**
+cases. The original source audit regenerated
+a **byte-identical** committed report.
+
+No dynamic comparison against running
+original DOS game state was performed.
+The complete game and browser gameplay
+are still unfinished. The original copyrighted
+executable/assets remain local; the Game Lab
+website, Xbox controller and unrelated Qwen
+server were not modified.
