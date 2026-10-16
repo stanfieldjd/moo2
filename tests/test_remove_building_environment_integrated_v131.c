@@ -89,7 +89,9 @@ int main(void){
         colony[0x136u+(unsigned)building]=1u;
         put16(colony+2u,1);
         planets[0x11u+0x08u]=(uint8_t)planet_status;
-        h.environmental_result=(int32_t)(planet_status==1u&&flags?2u:planet_status);
+        h.environmental_result=(int32_t)(planet_status==1u &&
+            ((flags&1u)!=0u || ((flags&2u)!=0u && building!=24))
+            ?2u:planet_status);
         const int32_t q[7]={44,-10,3,44,-1,-1,-1};
         for(unsigned slot=0;slot<7u;slot++)
             put16(colony+0x115u+2u*slot,q[slot]);
