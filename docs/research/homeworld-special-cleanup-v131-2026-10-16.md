@@ -1,0 +1,11 @@
+# Source-authenticated v1.31 home-world special-10 cleanup exception
+
+The original v1.31 program performs further home-world changes **after** generation. Init_New_Game_ calls Generate_Home_Worlds_ at original CODE 0x252A, which reaches Modify_Home_Worlds_, and subsequently calls Twiddle_Initial_Homeworlds_ at CODE 0x2700.
+
+When original player BYTE +0x8AF is nonzero, Modify_Home_Worlds_ writes **planet special BYTE +0x0F = 10** at CODE 0x6C635 and **star special BYTE +0x28 = 10** at CODE 0x6C645. Later Twiddle_Initial_Homeworld_ reaches a branch switch on star BYTE +0x28. For star code **10**, CODE 0xD5728 branches directly to 0xD57C7, writes star BYTE +0x70 = 1, and returns via original common x86 epilogue. It **bypasses** the planet-special clearing loop at 0xD5776. By contrast, star specials **6 and 7** enter that loop and can erase linked planet-special fields.
+
+This establishes that code10 is **not removed by this particular later cleanup branch**, tightening the source-level new-game path from racial option to special planet, initialized colony, and research calculation. It is not proof that all later helper calls preserve the field or that the earlier synthetic numerical output discrepancy occurs in an authentic savegame. The twiddle procedure also reassigns worker jobs under its own source conditions; do not assume the exact initial job distribution persists.
+
+Verification: tools/audit_homeworld_special_cleanup_v131.py, decompilation/reports/homeworld_special_cleanup_v131_2026-10-16.json and decompilation/annotated/homeworld_special_cleanup_v131.md. Five complete original named function SHA-256 identities, four direct CALL edges, original CODE/DATA offsets, 706 decoded source instructions in explicitly documented scopes, 32 machine opcode checks, 769 controlled dispatch fixtures and the original common epilogue bytes passed. Source official v1.31 EXE SHA-256 4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f, extracted original CODE SHA-256 f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837.
+
+No original binary/assets or website files are modified. Native gameplay, DOS runtime parity and the historical unrecalculated 87% executable estimate remain open.

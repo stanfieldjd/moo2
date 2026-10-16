@@ -1,0 +1,95 @@
+{
+  "status": "source-verified-star-special-ten-bypasses-later-planet-special-clear",
+  "canonical_v131_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "complete_original_bodies_and_scopes": [
+    {
+      "name": "Init_New_Game_",
+      "CODE_offset": "0x2479",
+      "original_complete_bytes": 801,
+      "sha256": "d09b0be693dc6e48b44811a5f3022630220f97546948222d874aa0734d10cc2d",
+      "verified_instructions_within_scope": 2,
+      "scope": "two exact new-game CALL instruction spans, full body separately SHA-verified",
+      "original_decoder_continuation_rows": 0,
+      "selected_opcode_anchors": 2
+    },
+    {
+      "name": "Generate_Home_Worlds_",
+      "CODE_offset": "0x6b8cd",
+      "original_complete_bytes": 745,
+      "sha256": "f4cfb1e0dc82a25d1796a96fae93be264e61d1d24ae2498c65b52e03643b9f9e",
+      "verified_instructions_within_scope": 203,
+      "scope": "complete named body",
+      "original_decoder_continuation_rows": 1,
+      "selected_opcode_anchors": 1
+    },
+    {
+      "name": "Modify_Home_Worlds_",
+      "CODE_offset": "0x6c4af",
+      "original_complete_bytes": 576,
+      "sha256": "868919235947ff50eeca75301fa7c6ae5d07cee7b73a9937a101aa9d497a2f05",
+      "verified_instructions_within_scope": 147,
+      "scope": "complete named body",
+      "original_decoder_continuation_rows": 2,
+      "selected_opcode_anchors": 5
+    },
+    {
+      "name": "Twiddle_Initial_Homeworlds_",
+      "CODE_offset": "0xd5832",
+      "original_complete_bytes": 693,
+      "sha256": "c5ca5500d59e4b1a4e386416845502c62a4359981fa350afdc779e9c92f7987b",
+      "verified_instructions_within_scope": 202,
+      "scope": "complete named body",
+      "original_decoder_continuation_rows": 1,
+      "selected_opcode_anchors": 2
+    },
+    {
+      "name": "Twiddle_Initial_Homeworld_",
+      "CODE_offset": "0xd55be",
+      "original_complete_bytes": 530,
+      "sha256": "63231cd00c846d3dc955e8144437ae7deb45d76525ee8d52866b275a2173e891",
+      "verified_instructions_within_scope": 152,
+      "scope": "complete named body",
+      "original_decoder_continuation_rows": 2,
+      "selected_opcode_anchors": 22
+    }
+  ],
+  "original_instructions_decoded_within_stated_scopes": 706,
+  "original_opcode_checkpoints": 32,
+  "original_named_direct_edges": [
+    {
+      "caller": "Init_New_Game_",
+      "CODE_site": "0x252a",
+      "callee": "Generate_Home_Worlds_"
+    },
+    {
+      "caller": "Init_New_Game_",
+      "CODE_site": "0x2700",
+      "callee": "Twiddle_Initial_Homeworlds_"
+    },
+    {
+      "caller": "Generate_Home_Worlds_",
+      "CODE_site": "0x6bb46",
+      "callee": "Modify_Home_Worlds_"
+    },
+    {
+      "caller": "Twiddle_Initial_Homeworlds_",
+      "CODE_site": "0xd586a",
+      "callee": "Twiddle_Initial_Homeworld_"
+    }
+  ],
+  "generation_order": "Init_New_Game_ CALL Generate_Home_Worlds_ at 0x252a precedes later CALL Twiddle_Initial_Homeworlds_ at 0x2700",
+  "original_writer": "Modify_Home_Worlds_ sets linked planet BYTE+0x0f and corresponding star BYTE+0x28 to code 10 under player BYTE+0x8af !=0",
+  "later_dispatch": "Twiddle_Initial_Homeworld_ selects star through linked colony planet id and star id and tests star BYTE+0x28",
+  "case_6_7": "clear star special BYTE+0x28 and loop through planet indices clearing planet BYTE+0x0f",
+  "case_10": "original JBE at CODE 0xd5728 branches to CODE 0xd57c7 to set star BYTE+0x70=1 and jump to shared epilogue, without entering planet-special clearing loop at CODE 0xd5776",
+  "original_shared_return_tail_CODE": "0xd1f98: 5f5e5a595bc3",
+  "bounded_synthetic_branch_assertions": 769,
+  "limitations": [
+    "No full runtime state-lifecycle proof that no unrelated helper modifies the planet special at a different time",
+    "Twiddle can reassign packed worker jobs during earlier calculations; initial research job is not claimed invariant after this routine",
+    "No validated original DOS game-save state or observed production/display bug",
+    "Original Init_New_Game_ complete SHA verified, only selected CALL instructions decoded",
+    "No complete native-engine parity or whole-executable progress percentage recalculation"
+  ]
+}
