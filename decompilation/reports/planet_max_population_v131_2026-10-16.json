@@ -1,0 +1,36 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_authenticated_complete_bodies": [
+    {
+      "source_symbol": "Planet_Max_Population_For_Player_",
+      "CODE_offset": "0xd0b4f",
+      "complete_body_bytes": 206,
+      "body_SHA256": "00adaceecdeea9bb7cd18420bf11803ee6d784361fb2282b2581b4122f72b886"
+    },
+    {
+      "source_symbol": "Size_And_Climate_Race_Pop_Limit_",
+      "CODE_offset": "0xd0a93",
+      "complete_body_bytes": 188,
+      "body_SHA256": "7c8629ad880163c090835f05037b1bde31bf058a183d30069b2af1b014eb032d"
+    },
+    {
+      "source_symbol": "Colony_Race_Pop_Limit_",
+      "CODE_offset": "0xd0c1d",
+      "complete_body_bytes": 81,
+      "body_SHA256": "97d4044d83c3594792d5d159b6858599d63f153c9532081fa6aae13e70838e58"
+    }
+  ],
+  "verified_original_instruction_checkpoints": 72,
+  "external_Watcom_return": "0xceb17 original LEAVE POP EDI POP ESI POP ECX POP EBX RET",
+  "original_direct_calls": {
+    "0xd0b80": "0xd0a93 Size_And_Climate_Race_Pop_Limit_",
+    "0xd0bb7": "0xd0c1d Colony_Race_Pop_Limit_",
+    "0xd0bcb": "0x119c70 memset_",
+    "0xd0c04": "0xd0c1d Colony_Race_Pop_Limit_"
+  },
+  "uncolonized_or_inactive": "signed planet WORD+0 ==-1 OR colony BYTE+6 nonzero; size from planet BYTE+5, climate from planet BYTE+8, source race is requested player; return signed AX capacity +5 if queried player BYTE+0x11a==3",
+  "colony_no_population": "colony BYTE+0x0a==0: return low signed AX from Colony_Race_Pop_Limit_(colony,requested player race)",
+  "colony_occupied": "mark original four-byte population record low-nibble classes 0..9, then scan represented classes from9 through1; return maximum signed low AX class capacity, starting at 0; source class0 never visited",
+  "host_safety": "reject invalid class>=10, count>42, colony/planet/player bounds; game source on malformed state is not defined",
+  "status": "All direct original subroutine source numeric effects now reconstructed and host-regressed; original DOS differential run remains unavailable"
+}
