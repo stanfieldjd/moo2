@@ -105,6 +105,7 @@ int main(void) {
     static uint8_t large_planets[4001u*0x11u];
     ctx.planets=large_planets;ctx.planet_count=4001;
     memset(colony,0,sizeof(colony));put16(colony+2u,4000);
+    players[0x183u]=0u; /* Reset owner0's earlier technology fixture. */
     large_planets[4000u*0x11u+0x0au]=4u;
     uint32_t actual=0;
     must(moo2_v131_derived_industry_per_worker(
