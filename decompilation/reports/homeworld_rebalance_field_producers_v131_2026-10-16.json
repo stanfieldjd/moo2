@@ -1,0 +1,94 @@
+{
+  "status": "source-verified-homeworld-rebalance-food-industry-research-producers",
+  "canonical_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "complete_source_original_bodies": [
+    {
+      "name": "Pre_Import_Computing_",
+      "CODE_offset": "0xd1d59",
+      "bytes": 198,
+      "SHA256": "7aa1ea0d54d5e89f82905724eb7fc1609c1e2b9a715c828f557fb4a9224d6628",
+      "fully_decoded_original_instructions": 59,
+      "disassembly_continuation_rows": 1,
+      "original_opcode_anchors": 19
+    },
+    {
+      "name": "Pass_Out_Imports_",
+      "CODE_offset": "0xcf8f0",
+      "bytes": 1238,
+      "SHA256": "e35af6d4ee3106edd7af2f4f6377a18453e107323c620993b3f577871eff4234",
+      "fully_decoded_original_instructions": 334,
+      "disassembly_continuation_rows": 10,
+      "original_opcode_anchors": 9
+    },
+    {
+      "name": "Colony_Food2_Per_Farmer_",
+      "CODE_offset": "0xce03e",
+      "bytes": 136,
+      "SHA256": "6aef5f245db959b949a22eb0cfccd03b65db2c103a18c4dc47f5bbabcf9a04e4",
+      "fully_decoded_original_instructions": 43,
+      "disassembly_continuation_rows": 3,
+      "original_opcode_anchors": 0
+    },
+    {
+      "name": "Colony_Food_Production_",
+      "CODE_offset": "0xce664",
+      "bytes": 1209,
+      "SHA256": "cfd054077a2fa2a0b676a7cda660388de06c3b63a46f8a3f516bc5e245555aac",
+      "fully_decoded_original_instructions": 351,
+      "disassembly_continuation_rows": 13,
+      "original_opcode_anchors": 5
+    },
+    {
+      "name": "Colony_Industry_Production_",
+      "CODE_offset": "0xcee1b",
+      "bytes": 1789,
+      "SHA256": "e68780a7e7632b271363fa37540d0428dd0c57c20ac173ac1ccee4ebe9e45f1d",
+      "fully_decoded_original_instructions": 519,
+      "disassembly_continuation_rows": 11,
+      "original_opcode_anchors": 5
+    },
+    {
+      "name": "Colony_Research_Production_",
+      "CODE_offset": "0xcff74",
+      "bytes": 1103,
+      "SHA256": "8d893da4d56dcd193a65a5db6d642ea8b375543797047ed6b149db71fb201341",
+      "fully_decoded_original_instructions": 316,
+      "disassembly_continuation_rows": 9,
+      "original_opcode_anchors": 3
+    },
+    {
+      "name": "Twiddle_Initial_Homeworld_",
+      "CODE_offset": "0xd55be",
+      "bytes": 530,
+      "SHA256": "63231cd00c846d3dc955e8144437ae7deb45d76525ee8d52866b275a2173e891",
+      "fully_decoded_original_instructions": 152,
+      "disassembly_continuation_rows": 2,
+      "original_opcode_anchors": 13
+    }
+  ],
+  "source_instruction_count": 1774,
+  "exact_opcode_site_checks": 54,
+  "source_direct_named_CALL_count": 13,
+  "producer_routes": {
+    "colony_BYTE_0xDD": "Pre_Import_Computing_ directly CALLs Colony_Food2_Per_Farmer_ at CODE 0xd1d76, stores AL at 0xd1d7b; Colony_Food_Production_ checks this original byte at CODE 0xce6c9",
+    "colony_WORD_0xE7": "Colony_Food_Production_ writes original food result in WORD+0xe7 (0xce676,0xce69d,0xce727,0xceae4)",
+    "colony_WORD_0xE9": "Colony_Industry_Production_ writes original industry result WORD+0xe9 (0xcee3c,0xcee63,0xcf0f0,0xcf4a3,0xcf4d9)",
+    "colony_WORD_0xEB": "Colony_Research_Production_ writes original research result WORD+0xeb (0xcff86,0xcffad,0xd0050)",
+    "colony_WORD_0xF5": "Pre_Import_Computing_ calculates source signed-16 minimum of zero-extended BYTE+0xf0 and WORD+0xe9 after industry and food production, CODE 0xd1ddc..0xd1df4",
+    "colony_WORD_0xF3": "Pass_Out_Imports_ reads food BYTE+0xef and WORD+0xe7 then conditionally writes or adjusts WORD+0xf3, including 0xcf9a0, 0xcf9e9, 0xcf9f8, 0xcfa7a and later adjustment sites"
+  },
+  "source_original_pre_import_CALL_order": [
+    "Colony_Food2_Per_Farmer_",
+    "Colony_Industry_Production_",
+    "Colony_Food_Production_",
+    "Colony_Research_Production_"
+  ],
+  "bounded_signed_saturation_assertions": 4099,
+  "limitations": [
+    "Other original calls inside Pre_Import_Computing_ are not asserted pure; +0xf0 writer may be through additional nested calls or aliases",
+    "Input fields are mutated and recomputed between multiple Twiddle_Initial_Homeworld_ stages, so no static final population-job distribution or runtime totals are claimed",
+    "No original DOS dynamic savegame differential or research display bug established",
+    "No native browser game implementation or whole executable completion percentage recalculated"
+  ]
+}
