@@ -8,8 +8,9 @@
  * Complete outer control, exact field writes, full source-derived
  * Food2_Per_Farmer_, Colony_Environmental_Stuff_,
  * Industry_Per_Worker_ and Research_Per_Scientist_ math.
- * Ten remaining original named economy callees are explicit
- * callbacks, not guessed gameplay state changes.
+ * Nine remaining original named economy callees are explicit
+ * callbacks, not guessed gameplay state changes. Industry_To_Tax
+ * now invokes full original 89-byte source-derived arithmetic.
  *
  * The 15 exact original call-sites include four recovered
  * calculations, ten remaining named functions, and memset_.
@@ -25,7 +26,8 @@
  * Food2, Environmental, Industry_Per_Worker, Research_Per_Scientist,
  * Morale, Industry_Maintenance, Industry_Production, Food_Production,
  * Food_Maintenance, Replicators, [calculate min f0,e9],
- * Research_Production, Industry_To_Tax, BC_Production, BC_Maintenance.
+ * Research_Production, exact Industry_To_Tax, BC_Production,
+ * BC_Maintenance.
  *
  * Host bounds/callback failure errors are modern safety additions;
  * already-applied state changes are NOT rolled back on failure.
@@ -37,6 +39,7 @@
 #include "colony_food_per_farmer_v131.h"
 #include "colony_environmental_stuff_v131.h"
 #include "colony_worker_scientist_v131.h"
+#include "colony_industry_to_tax_v131.h"
 
 static int32_t moo2_v131_pre_s16(const uint8_t *p) {
     uint16_t val=(uint16_t)(p[0]|((uint16_t)p[1]<<8));
@@ -120,9 +123,16 @@ Moo2V131PreImportStatus moo2_v131_derived_pre_import_computing(
     int32_t a=(int32_t)colony[0xF0u];
     int32_t b=moo2_v131_pre_s16(colony+0xE9u);
     moo2_v131_pre_store16(colony+0xF5u,a<b?a:b);
+    Moo2V131IndustryTaxContext tax={ctx->players,ctx->player_count};
     for(int stage=MOO2_V131_PRE_RESEARCH_PRODUCTION;
-        stage<=MOO2_V131_PRE_BC_MAINTENANCE;stage++)
-        if(!moo2_v131_pre_call(ctx,(Moo2V131PreImportStage)stage,colony))
+        stage<=MOO2_V131_PRE_BC_MAINTENANCE;stage++) {
+        if(stage==MOO2_V131_PRE_INDUSTRY_TO_TAX) {
+            if(moo2_v131_derived_colony_industry_to_tax(
+                &tax,colony,colony_bytes)!=MOO2_V131_INDUSTRY_TAX_OK)
+                return MOO2_V131_PREIMPORT_INVALID;
+        } else if(!moo2_v131_pre_call(
+              ctx,(Moo2V131PreImportStage)stage,colony))
             return MOO2_V131_PREIMPORT_PENDING_CALLEE_FAILED;
+    }
     return MOO2_V131_PREIMPORT_OK;
 }
