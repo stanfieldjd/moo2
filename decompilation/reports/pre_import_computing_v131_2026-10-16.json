@@ -1,0 +1,152 @@
+{
+  "original_executable_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "full_authenticated_named_function_bodies": [
+    {
+      "symbol": "Pre_Import_Computing_",
+      "CODE_offset": "0xd1d59",
+      "complete_body_bytes": 198,
+      "full_original_SHA256": "7aa1ea0d54d5e89f82905724eb7fc1609c1e2b9a715c828f557fb4a9224d6628"
+    },
+    {
+      "symbol": "Colony_Industry_Per_Worker_",
+      "CODE_offset": "0xcec95",
+      "complete_body_bytes": 178,
+      "full_original_SHA256": "1e58a5b42e7d04cbc1d412b55ba007dbee502d5f0c257a96890c93d5689d8aa9"
+    },
+    {
+      "symbol": "Colony_Research_Per_Scientist_",
+      "CODE_offset": "0xcfdc6",
+      "complete_body_bytes": 177,
+      "full_original_SHA256": "7d9e54a024e600115cf99d1d299806ceaf74f93c1aa95638a135b97e2efadd14"
+    },
+    {
+      "symbol": "Colony_Food2_Per_Farmer_",
+      "CODE_offset": "0xce03e",
+      "complete_body_bytes": 136,
+      "full_original_SHA256": "6aef5f245db959b949a22eb0cfccd03b65db2c103a18c4dc47f5bbabcf9a04e4"
+    },
+    {
+      "symbol": "Colony_Environmental_Stuff_",
+      "CODE_offset": "0xd1ced",
+      "complete_body_bytes": 108,
+      "full_original_SHA256": "94c8b7df7075f34a74650d3dc72ff466c6d9e69d57afaaa2502679d16131a086"
+    },
+    {
+      "symbol": "Colony_Industry_To_Tax_",
+      "CODE_offset": "0xd08f6",
+      "complete_body_bytes": 89,
+      "full_original_SHA256": "0801f833e5ad497d8d59d069ee8b40e532829f85bedbeeb7ad4d28ca4805cd84"
+    }
+  ],
+  "source_direct_call_sites": [
+    {
+      "CODE_call_site": "0xd1d6a",
+      "target": "0x119c70",
+      "source_symbol": "memset_"
+    },
+    {
+      "CODE_call_site": "0xd1d76",
+      "target": "0xce03e",
+      "source_symbol": "Colony_Food2_Per_Farmer_"
+    },
+    {
+      "CODE_call_site": "0xd1d85",
+      "target": "0xd1ced",
+      "source_symbol": "Colony_Environmental_Stuff_"
+    },
+    {
+      "CODE_call_site": "0xd1d8f",
+      "target": "0xcec95",
+      "source_symbol": "Colony_Industry_Per_Worker_"
+    },
+    {
+      "CODE_call_site": "0xd1da1",
+      "target": "0xcfdc6",
+      "source_symbol": "Colony_Research_Per_Scientist_"
+    },
+    {
+      "CODE_call_site": "0xd1db0",
+      "target": "0xcdb25",
+      "source_symbol": "Colony_Morale_"
+    },
+    {
+      "CODE_call_site": "0xd1db7",
+      "target": "0xcf546",
+      "source_symbol": "Colony_Industry_Maintenance_"
+    },
+    {
+      "CODE_call_site": "0xd1dc0",
+      "target": "0xcee1b",
+      "source_symbol": "Colony_Industry_Production_"
+    },
+    {
+      "CODE_call_site": "0xd1dc9",
+      "target": "0xce664",
+      "source_symbol": "Colony_Food_Production_"
+    },
+    {
+      "CODE_call_site": "0xd1dd0",
+      "target": "0xceb4b",
+      "source_symbol": "Colony_Food_Maintenance_"
+    },
+    {
+      "CODE_call_site": "0xd1dd7",
+      "target": "0xcf66f",
+      "source_symbol": "Colony_Replicators_"
+    },
+    {
+      "CODE_call_site": "0xd1dff",
+      "target": "0xcff74",
+      "source_symbol": "Colony_Research_Production_"
+    },
+    {
+      "CODE_call_site": "0xd1e06",
+      "target": "0xd08f6",
+      "source_symbol": "Colony_Industry_To_Tax_"
+    },
+    {
+      "CODE_call_site": "0xd1e0f",
+      "target": "0xd03f1",
+      "source_symbol": "Colony_BC_Production_"
+    },
+    {
+      "CODE_call_site": "0xd1e16",
+      "target": "0xd094f",
+      "source_symbol": "Colony_BC_Maintenance_"
+    }
+  ],
+  "source_exact_opcode_checkpoints": 107,
+  "verified_original_mineral_table": {
+    "CODE_offset": "0xcd4b5",
+    "values": [
+      1,
+      2,
+      3,
+      5,
+      8
+    ],
+    "sha256": "0a834026e5178e5a668be1e368aeb321b6acdd1d651a3eb141541de4531c6c20"
+  },
+  "pre_import_first_writes": "memset_ zero four bytes colony+0xef...+0xf2, then Food2 result low AL -> colony+0xdd, Worker result low AL -> +0xde, Research result low AL -> +0xdf",
+  "environment_original": "original Colony_Environmental_Stuff_ is invoked between food and worker and recomputes original e0 and e2 based on colony/player/planet",
+  "signed_cap_after_replicators": "after original Colony_Replicators_, output signed min(zeroextend BYTE+0xf0, signed WORD+0xe9) as low WORD+0xf5",
+  "resolved_nested_math": [
+    "Colony_Food2_Per_Farmer_",
+    "Colony_Environmental_Stuff_",
+    "Colony_Industry_Per_Worker_",
+    "Colony_Research_Per_Scientist_",
+    "Colony_Industry_To_Tax_"
+  ],
+  "nine_unresolved_effects": [
+    "Colony_Morale_",
+    "Colony_Industry_Maintenance_",
+    "Colony_Industry_Production_",
+    "Colony_Food_Production_",
+    "Colony_Food_Maintenance_",
+    "Colony_Replicators_",
+    "Colony_Research_Production_",
+    "Colony_BC_Production_",
+    "Colony_BC_Maintenance_"
+  ],
+  "limitations": "original outer 198-byte function control and verified math rebuilt; nine named original economy callees are callbacks, no original DOS differential game-state execution"
+}
