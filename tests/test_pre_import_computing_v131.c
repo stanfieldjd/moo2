@@ -1,8 +1,8 @@
 /*
  * Regression of original 198-byte Pre_Import_Computing_ with fully
  * recovered food/environment/worker/research numeric subroutines.
- * Original remaining ten production-related named callees are
- * explicit ordered callbacks; no fake economic effects are claimed.
+ * Original nine unresolved production callees remain named
+ * callbacks; full industry-to-tax source is now executed directly.
  */
 #include <stdint.h>
 #include <stdio.h>
@@ -11,6 +11,7 @@
 #include "../decompilation/reconstructed/colony_food_per_farmer_v131.c"
 #include "../decompilation/reconstructed/colony_environmental_stuff_v131.c"
 #include "../decompilation/reconstructed/colony_worker_scientist_v131.c"
+#include "../decompilation/reconstructed/colony_industry_to_tax_v131.c"
 #include "../decompilation/reconstructed/pre_import_computing_v131.c"
 #define must(x) do { if(!(x)) {fprintf(stderr,"FAIL line %d: %s\n",__LINE__,#x);exit(1);} }while(0)
 static void put16(uint8_t *p,int n){
@@ -31,7 +32,8 @@ static int stage_callback(void *opaque,
     Moo2V131PreImportStage stage,uint8_t *colony)
 {
     Harness *h=(Harness*)opaque;
-    must(colony==h->colony && (unsigned)stage==h->next);
+    const unsigned expected_stage=h->next>=7u?h->next+1u:h->next;
+    must(colony==h->colony && (unsigned)stage==expected_stage);
     must(colony[0xDDu]==h->expected_food);
     must(colony[0xDEu]==h->expected_worker);
     must(colony[0xDFu]==h->expected_scientist);
@@ -47,6 +49,12 @@ static int stage_callback(void *opaque,
         int cmp=(int)h->replicator_f0<h->replicator_e9?
              (int)h->replicator_f0:h->replicator_e9;
         must(read16(colony+0xF5u)==cmp);
+    }
+    if(stage>MOO2_V131_PRE_INDUSTRY_TO_TAX) {
+        const int basis=h->replicator_e9-(int)h->replicator_f0;
+        const int taxable=basis>0?basis*50/100:0;
+        must(read16(colony+0x127u)==taxable);
+        must(read16(colony+0xE9u)==h->replicator_e9-taxable);
     }
     h->next++;h->steps_called++;
     return h->fail_at!=(unsigned)(stage+1);
@@ -84,6 +92,7 @@ int main(void){
         colony[0xF1u]=0xEEu;colony[0xF2u]=0xFFu;
         h=(Harness){0};
         h.colony=colony;
+        players[3u*0xEA9u+0x31u]=50u;
         h.expected_food=(int)(food==0u?0u:
             food*2u+((flags&1u)?2u:0u));
         h.expected_worker=(int)mine_lookup[mineral]+
@@ -98,18 +107,23 @@ int main(void){
                          capcase==2?-1:32000;
         must(moo2_v131_derived_pre_import_computing(
              &ctx,colony,sizeof(colony))==MOO2_V131_PREIMPORT_OK);
-        must(h.steps_called==10 && h.next==10);
+        must(h.steps_called==9 && h.next==9);
         must(colony[0xDDu]==h.expected_food &&
              colony[0xDEu]==h.expected_worker &&
              colony[0xDFu]==h.expected_scientist);
         const int expected=(int)h.replicator_f0<h.replicator_e9?
               (int)h.replicator_f0:h.replicator_e9;
         must(read16(colony+0xF5u)==expected);
+        const int basis=h.replicator_e9-(int)h.replicator_f0;
+        const int taxable=basis>0?basis*50/100:0;
+        must(read16(colony+0x127u)==taxable);
+        must(read16(colony+0xE9u)==h.replicator_e9-taxable);
         cases++;
     }
     /* All ten callback failures must surface after the corresponding
        partial source writes, not fake completion/rollback. */
     for(unsigned fail=1;fail<=10;fail++) {
+        if(fail==8u)continue; /* stage7 industry tax has real code */
         memset(colony,0,sizeof(colony));
         memset(players,0,sizeof(players));
         colony[0]=3u;put16(colony+2u,1);
@@ -125,7 +139,7 @@ int main(void){
         must(moo2_v131_derived_pre_import_computing(
              &ctx,colony,sizeof(colony))
              ==MOO2_V131_PREIMPORT_PENDING_CALLEE_FAILED);
-        must(h.steps_called==fail);
+        must(h.steps_called==(fail<8u?fail:fail-1u));
     }
-    printf("PASS %u original pre-import numeric/callback sequences plus ten explicit callee failure cases\n",cases);
+    printf("PASS %u original pre-import numeric/callback sequences plus nine explicit callee failure cases\n",cases);
 }
