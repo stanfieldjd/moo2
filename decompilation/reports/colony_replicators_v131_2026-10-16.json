@@ -1,0 +1,110 @@
+{
+  "status": "source-verified-static-stage-reconstruction",
+  "source_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "complete_named_body": {
+    "symbol": "Colony_Replicators_",
+    "offset": "0xcf66f",
+    "bytes": 594,
+    "full_body_SHA256": "3f8ba1af2428e08626ee378742b5045e0e9a8d6bb0a80dd5635dd27fd3bf5447"
+  },
+  "verified_machine_instruction_anchors": 90,
+  "observed_direct_control_transfers": [
+    {
+      "at": "0xcf688",
+      "opcode": "je",
+      "target": "0xd1f97"
+    },
+    {
+      "at": "0xcf6bc",
+      "opcode": "jle",
+      "target": "0xcf895"
+    },
+    {
+      "at": "0xcf6d6",
+      "opcode": "jle",
+      "target": "0xcf6ff"
+    },
+    {
+      "at": "0xcf6e1",
+      "opcode": "jle",
+      "target": "0xcf6e5"
+    },
+    {
+      "at": "0xcf72d",
+      "opcode": "jle",
+      "target": "0xcf895"
+    },
+    {
+      "at": "0xcf755",
+      "opcode": "jle",
+      "target": "0xcf77f"
+    },
+    {
+      "at": "0xcf761",
+      "opcode": "jl",
+      "target": "0xcf765"
+    },
+    {
+      "at": "0xcf7b7",
+      "opcode": "jle",
+      "target": "0xcf895"
+    },
+    {
+      "at": "0xcf7eb",
+      "opcode": "jle",
+      "target": "0xcf815"
+    },
+    {
+      "at": "0xcf7f7",
+      "opcode": "jl",
+      "target": "0xcf7fb"
+    },
+    {
+      "at": "0xcf84a",
+      "opcode": "jle",
+      "target": "0xcf895"
+    },
+    {
+      "at": "0xcf87e",
+      "opcode": "jle",
+      "target": "0xcf895"
+    },
+    {
+      "at": "0xcf888",
+      "opcode": "jge",
+      "target": "0xcf88c"
+    },
+    {
+      "at": "0xcf8bc",
+      "opcode": "jmp",
+      "target": "0xd1f97"
+    }
+  ],
+  "nested_calls_in_named_body": 0,
+  "controlled_small_range_fixtures": 9,
+  "early_exit": "always zero colony BYTE+0x114; if BYTE+0x146==0, jump to shared epilogue, preserve WORD+0xe9 and WORD+0xe7",
+  "stage_gate_sequence": [
+    "0xcf6bc",
+    "0xcf72d",
+    "0xcf7b7",
+    "0xcf84a"
+  ],
+  "source_reads": [
+    "WORD+0xe9",
+    "WORD+0xe7",
+    "BYTE+0x100..+0x103",
+    "BYTE+0xfc..+0xff",
+    "BYTE+0x146"
+  ],
+  "normal_final_writes": [
+    "BYTE+0x114 = low byte of trunc_half(signed WORD spent)",
+    "WORD+0xe9 -= spent low WORD",
+    "WORD+0xe7 += same truncated-half result low WORD"
+  ],
+  "limits": [
+    "No dynamic DOS differential execution",
+    "Controlled model valid only for bounded non-overflow synthetic inputs",
+    "Native gameplay and in-game state domain remain unverified"
+  ]
+}
