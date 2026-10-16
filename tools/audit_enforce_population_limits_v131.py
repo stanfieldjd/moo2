@@ -50,7 +50,7 @@ OPS={
  0xDC9EE:("mov","eax,dword ptr [ebx]"),
  0xDC9F0:("and","eax,0xf"),
  0xDC9F3:("mov","word ptr [ebp+eax*2-0x34],dx"),
- 0xDC9F8:("mov","ebx,dword ptr [ebx]"),
+ 0xDC9F8:("mov","eax,dword ptr [ebx]"),
  # original store indexed mark by returned capacity
  0xDCA07:("cmp","esi,ebx"),0xDCA09:("jb","0xdc9c6"),
  0xDCA0B:("mov","edx,0x4"),0xDCA10:("mov","eax,esi"),
