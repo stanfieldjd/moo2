@@ -1,6 +1,10 @@
 {
-  "unique_code_entries": 5546,
-  "intervals_exported": 5546,
-  "failed_intervals": 0,
-  "method": "GNU objdump i386 restarted at every surviving Watcom CODE-symbol entry to prevent embedded-data desynchronization"
+  "source_original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "unique_CODE_symbol_entries": 5546,
+  "independent_disassembly_segments": 5562,
+  "source_verified_switch_tables_skipped": 205,
+  "source_verified_switch_case_targets": 1625,
+  "source_verified_table_data_bytes_not_disassembled": 6500,
+  "failed_segments": 0,
+  "method": "Original Watcom v1.31 CODE-bytes-checked nested segmentation: authoritative function entries plus original-byte-verified inline switch table boundaries. Data intervals omitted, code disassembly restarted after every verified table."
 }

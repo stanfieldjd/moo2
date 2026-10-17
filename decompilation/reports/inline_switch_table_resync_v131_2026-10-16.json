@@ -1,0 +1,49 @@
+{
+  "status": "v131-original-source-verified-inline-switch-table-resynchronization",
+  "official_original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_Watcom_LE_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "baseline_git_commit": "ab732e68280da096e44fdf4c028cbc6bc2435a1f",
+  "original_function_intervals": 5546,
+  "original_switch_tables_source_authenticated": 205,
+  "original_switch_case_DWORD_entries_verified": 1625,
+  "inline_original_data_bytes_excluded_from_code_decode": 6500,
+  "previous_source_disassembly_segments": 5546,
+  "source_disassembly_segments_now": 5562,
+  "exact_original_recovered_inline_data_region": [
+    "0x117145",
+    "0x117155"
+  ],
+  "original_code_resynchronization_at": "0x117155",
+  "original_instruction_bytes_at_resync": "bb01000000",
+  "original_authenticated_indirect_jump_site": "0x117190",
+  "original_verified_case_offsets": [
+    "0x117197",
+    "0x1171ba",
+    "0x1171e0",
+    "0x117206"
+  ],
+  "source_function_correction": {
+    "name": "Farload_Library_Data_",
+    "original_CODE_offset": 1142587,
+    "before_count": 129,
+    "after_count": 193,
+    "membership_gain": 64,
+    "old_status": "shorter+unresolved",
+    "new_status": "matches",
+    "unresolved_edges_before": 2,
+    "unresolved_edges_after": 0
+  },
+  "net_original_CFG_instruction_memberships_gained": 64,
+  "unresolved_CFG_edges_before": 45,
+  "unresolved_CFG_edges_after": 43,
+  "functions_with_more_reachable_instructions": 1,
+  "other_functions_changed": 0,
+  "all_original_source_verified_dispatch_sites_now_reachable": true,
+  "measurement_scope": "Conservative source-disassembled original CODE CFG membership, not unique original bytes, compilable gameplay reconstruction, DOS dynamic parity, or browser-playable native implementation",
+  "remaining_uncertainties": [
+    "43 original code branches remain conservatively unresolved",
+    "Some source opcode/operand semantics, runtime callbacks and game-state parity remain unverified",
+    "Original game and legally hosted browser implementation remain incomplete",
+    "No measured whole-game semantic decompilation-completion percentage is derived"
+  ]
+}
