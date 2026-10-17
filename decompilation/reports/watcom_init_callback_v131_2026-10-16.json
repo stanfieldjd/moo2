@@ -1,0 +1,45 @@
+{
+  "status": "authentic-original-Watcom-v131-previously-unnamed-initializer-callback-recovered",
+  "canonical_original_EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "original_initialized_DATA_sha256": "082ccc1437b37d070d96f6c240702a461484876d06912753547ddab71caf3b6b",
+  "immutable_prior_git_commit": "596c38a28271f2fbe2bda08057948b1318ba4ca5",
+  "source_named_init_dispatcher": "__InitRtns",
+  "original_initializer_dispatcher_CODE_start": "0x12ef6c",
+  "original_initializer_dispatcher_complete_75byte_SHA256": "5d6e1ef83bad86b6e9a0d8c05c3f61d36e1f57a957ebd7e5c0b2749c06677af9",
+  "source_original_initializer_array_start": "0x12fe6",
+  "source_original_initializer_array_end_exclusive": "0x13010",
+  "source_original_initializer_record_size_bytes": 6,
+  "source_original_initializer_records": 7,
+  "authenticated_source_init_record_offset": "0x12ff2",
+  "authenticated_full_original_initializer_record_hex": "0020d8f11200",
+  "authenticated_original_initializer_state": 0,
+  "authenticated_original_initializer_priority": 32,
+  "authenticated_anonymous_original_callback_CODE_address": "0x12f1d8",
+  "authenticated_original_callback_entire_8byte_SHA256": "661acfe780d89bf88734a87eae4bfd629555259e4bb02cc56b2180b46427a098",
+  "original_callback_instructions": [
+    {
+      "CODE_offset": "0x12f1d8",
+      "source_bytes": "668c1534ca0000",
+      "original_machine_operation": "MOV WORD PTR DS:[0xCA34], SS (operand size 16; protected-mode 32-bit addressing)"
+    },
+    {
+      "CODE_offset": "0x12f1df",
+      "source_bytes": "c3",
+      "original_machine_operation": "RET"
+    }
+  ],
+  "provenance": "Original initialized Watcom object-2 six-byte record read by original fixed-stride __InitRtns and invoked via original CALL EAX",
+  "source_only_Cfg_affected_function": "anon_runtime_0012F1D8",
+  "original_full_CFG_instruction_memberships_before": 396305,
+  "original_full_CFG_instruction_memberships_after": 396307,
+  "net_source_CFG_membership_gain": 2,
+  "original_conservative_function_end_matches_before": 5039,
+  "original_conservative_function_end_matches_after": 5040,
+  "source_failed_function_entry_decode_before": 7,
+  "source_failed_function_entry_decode_after": 6,
+  "raw_unresolved_32bit_CFG_edges_before": 20,
+  "raw_unresolved_32bit_CFG_edges_after": 19,
+  "non_target_functions_with_changed_instruction_memberships": 0,
+  "context": "This resolves the previously anonymous callback's entry provenance without asserting any native browser gameplay or complete DOS behavioral parity."
+}

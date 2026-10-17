@@ -17,6 +17,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 D=ROOT/"decompilation"
 BIN=D/"code_object_1.bin"
+DATA_BIN=D/"data_object_2_initialized.bin"
 FUN=D/"functions.csv"
 OUT=D/"code_object_1_resynced.disasm"
 MAN=D/"resynced_disassembly.json"
@@ -68,6 +69,8 @@ def audited_literal_spans(code,starts,end_by_start,tables,branches):
 
 CODE_SHA="f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837"
 EXE_SHA="4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f"
+ORIGINAL_DATA_SHA="082ccc1437b37d070d96f6c240702a461484876d06912753547ddab71caf3b6b"
+
 
 def audited_segments():
     code=BIN.read_bytes()
@@ -151,8 +154,50 @@ def audited_direct_branch_restart_points(code,starts,end_by_start,ranges):
         raise ValueError('Duplicate original branch restart sites')
     return result
 
+def audited_initialized_callback_restarts(code,starts,end_by_start):
+    """Re-authenticate Watcom's 3rd six-byte init record and CALL EAX loop."""
+    if not DATA_BIN.exists():
+        raise ValueError('Original v1.31 initialized DATA object required: decompilation/data_object_2_initialized.bin')
+    data=DATA_BIN.read_bytes()
+    if len(data)!=81920 or hashlib.sha256(data).hexdigest()!=ORIGINAL_DATA_SHA:
+        raise ValueError('Original v1.31 Watcom LE initialized DATA fingerprint changed')
+    # Third 6-byte initializer record: state=0, priority=0x20, pointer
+    # unrelocated CODE offset 0x12F1D8. This pointer is a real runnable
+    # initializer, not a guessed synthetic Watcom named function.
+    record=0x12FF2;target=0x12F1D8
+    if data[record:record+6]!=bytes.fromhex('0020d8f11200'):
+        raise ValueError('Original DOS Watcom initializers no longer point at exact helper')
+    if code[0x12EF6C:0x12EFB7].hex()!='565753520689c23ebee62f01003ebf1030010089fb88d039fe7314803e02740a384601770589f38a460183c606ebe839fb74128b430209c074061e0752ffd05ac60302ebc2075a5b5f5ec3':
+        raise ValueError('Original Watcom __InitRtns full source machine-code dispatcher changed')
+    for addr,expected in {
+      0x12EF73:'3ebee62f0100',  # Original initialized DATA loop start 0x12FE6
+      0x12EF79:'3ebf10300100',  # Original initialized DATA loop end 0x13010
+      0x12EF96:'83c606',        # Original 6-byte table stride
+      0x12EF9F:'8b4302',        # Original DWORD callback fetch from [EBX+2]
+      0x12EFA9:'ffd0',          # Source CALL EAX indirect initializer
+    }.items():
+        raw=bytes.fromhex(expected)
+        if code[addr:addr+len(raw)]!=raw:
+            raise ValueError(f'Original Watcom initializer dispatcher anchor failed {addr:#x}')
+    if code[target:target+8]!=bytes.fromhex('668c1534ca0000c3'):
+        raise ValueError('Original eight-byte initializer 32-bit CODE body changed')
+    # This source target sits inside the named _SplitParms_ provisional
+    # interval, which contains its own original 32-bit code and padding.
+    i=bisect.bisect_right(starts,target)-1
+    owner=starts[i]
+    if not (owner<=target and target+8<=end_by_start[owner]):
+        raise ValueError('Original initializer target outside its CODE symbol interval')
+    if owner!=0x12F0C8 or end_by_start[owner]!=0x12F1E0:
+        raise ValueError('Watcom CODE function index changed near initializer callback')
+    table_rows=list(csv.DictReader((D/'runtime_init_targets.csv').open(newline='')))
+    matching=[r for r in table_rows if r['function']=='__InitRtns' and r['record_index']=='2']
+    if len(matching)!=1 or matching[0]['target_hex']!='0x12f1d8' or matching[0]['record_hex']!='0x12ff2':
+        raise ValueError('Existing original Watcom initializer inventory disagrees')
+    return {owner:{target}}
+
 def generate():
     code,starts,end_by_start,owned,ranges=audited_segments()
+    initialization=audited_initialized_callback_restarts(code,starts,end_by_start)
     branches=audited_direct_branch_restart_points(code,starts,end_by_start,ranges)
     literal_spans=audited_literal_spans(code,starts,end_by_start,ranges,branches)
     parts=[]
@@ -167,7 +212,7 @@ def generate():
         # restart decoding there instead of using an accidental alignment.
         tables=sorted(owned.get(start,[]))
         literals=literal_spans.get(start,[])
-        cuts={start,end,*branches.get(start,set())}
+        cuts={start,end,*branches.get(start,set()),*initialization.get(start,set())}
         for lo,hi,label in literals:
             cuts.add(lo);cuts.add(hi)
         for lo,hi,site in tables:
@@ -201,6 +246,9 @@ def generate():
       "source_verified_table_data_bytes_not_disassembled":skipped,
       "source_authenticated_direct_branch_restarts":len(BRANCH_RESYNC_ANCHORS),
       "source_authenticated_branch_function_spans":len(branches),
+      "source_authenticated_initializer_callback_restarts":sum(map(len,initialization.values())),
+      "source_authenticated_initializer_callback_CODE":"0x12f1d8",
+      "source_original_initialized_DATA_SHA256":ORIGINAL_DATA_SHA,
       "source_authenticated_embedded_literal_spans":len(AUTHENTICATED_INLINE_LITERAL),
       "source_authenticated_embedded_literal_bytes":sum(hi-lo for lo,hi,_ in AUTHENTICATED_INLINE_LITERAL),
       "failed_segments":len(failures),
