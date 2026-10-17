@@ -1,0 +1,388 @@
+{
+  "status": "source-authenticated-v131-direct-branch-CFG-resynchronization",
+  "original_EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "baseline_git_commit": "4882a69f0e2b73c0afd2a90cd51af46347a85b03",
+  "watcom_CODE_symbol_intervals": 5546,
+  "function_entry_records": 5635,
+  "validated_original_switch_table_boundaries": 205,
+  "exact_original_case_DWORDs_verified": 1625,
+  "independent_disassembly_segments_before": 5562,
+  "independent_disassembly_segments_after": 5578,
+  "original_verified_direct_branch_resync_sites": [
+    {
+      "branch_CODE_site": "0x10733f",
+      "resynchronized_CODE_target": "0x107351",
+      "original_machine_branch_opcode": "eb10"
+    },
+    {
+      "branch_CODE_site": "0x10759a",
+      "resynchronized_CODE_target": "0x1075e1",
+      "original_machine_branch_opcode": "eb45"
+    },
+    {
+      "branch_CODE_site": "0x115442",
+      "resynchronized_CODE_target": "0x11545f",
+      "original_machine_branch_opcode": "eb1b"
+    },
+    {
+      "branch_CODE_site": "0x116565",
+      "resynchronized_CODE_target": "0x116572",
+      "original_machine_branch_opcode": "e30b"
+    },
+    {
+      "branch_CODE_site": "0x11659a",
+      "resynchronized_CODE_target": "0x1165a7",
+      "original_machine_branch_opcode": "e30b"
+    },
+    {
+      "branch_CODE_site": "0x116e39",
+      "resynchronized_CODE_target": "0x116e51",
+      "original_machine_branch_opcode": "eb16"
+    },
+    {
+      "branch_CODE_site": "0x11a164",
+      "resynchronized_CODE_target": "0x11a221",
+      "original_machine_branch_opcode": "e9b8000000"
+    },
+    {
+      "branch_CODE_site": "0x11a77f",
+      "resynchronized_CODE_target": "0x11a791",
+      "original_machine_branch_opcode": "eb10"
+    },
+    {
+      "branch_CODE_site": "0x11b935",
+      "resynchronized_CODE_target": "0x11b949",
+      "original_machine_branch_opcode": "eb12"
+    },
+    {
+      "branch_CODE_site": "0x11ce55",
+      "resynchronized_CODE_target": "0x11ce73",
+      "original_machine_branch_opcode": "741c"
+    },
+    {
+      "branch_CODE_site": "0x11d095",
+      "resynchronized_CODE_target": "0x11d0b3",
+      "original_machine_branch_opcode": "741c"
+    },
+    {
+      "branch_CODE_site": "0x11d55a",
+      "resynchronized_CODE_target": "0x11d56f",
+      "original_machine_branch_opcode": "eb13"
+    },
+    {
+      "branch_CODE_site": "0x1271e0",
+      "resynchronized_CODE_target": "0x1271ff",
+      "original_machine_branch_opcode": "7c1d"
+    },
+    {
+      "branch_CODE_site": "0x12747d",
+      "resynchronized_CODE_target": "0x12749f",
+      "original_machine_branch_opcode": "7c20"
+    },
+    {
+      "branch_CODE_site": "0x12774b",
+      "resynchronized_CODE_target": "0x12776b",
+      "original_machine_branch_opcode": "7c1e"
+    },
+    {
+      "branch_CODE_site": "0x12e2be",
+      "resynchronized_CODE_target": "0x12e2d6",
+      "original_machine_branch_opcode": "7e16"
+    }
+  ],
+  "before_cfg_instruction_memberships": 395735,
+  "after_cfg_instruction_memberships": 396138,
+  "net_recovered_cfg_instruction_memberships": 403,
+  "original_function_entries_increased": 15,
+  "original_function_entries_decreased": 0,
+  "before_functions_matching_provisional_end": 5034,
+  "after_functions_matching_provisional_end": 5038,
+  "before_functions_shorter_than_provisional_end": 552,
+  "after_functions_shorter_than_provisional_end": 548,
+  "unresolved_edges_before": 43,
+  "unresolved_edges_after": 21,
+  "source_verified_function_gains": [
+    {
+      "name": "Draw_Visible_Fields_Back_",
+      "original_CODE_offset": "0x1074cb",
+      "before_instruction_memberships": 218,
+      "after_instruction_memberships": 350,
+      "gained_instruction_memberships": 132,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Draw_Multi_File_Animation_",
+      "original_CODE_offset": "0x11d408",
+      "before_instruction_memberships": 95,
+      "after_instruction_memberships": 161,
+      "gained_instruction_memberships": 66,
+      "source_status_before": "shorter+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 2,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Farload_Library_",
+      "original_CODE_offset": "0x116ceb",
+      "before_instruction_memberships": 82,
+      "after_instruction_memberships": 115,
+      "gained_instruction_memberships": 33,
+      "source_status_before": "shorter+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 2,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Replace_Color_",
+      "original_CODE_offset": "0x12719f",
+      "before_instruction_memberships": 25,
+      "after_instruction_memberships": 49,
+      "gained_instruction_memberships": 24,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Replace_Color_All_",
+      "original_CODE_offset": "0x12743e",
+      "before_instruction_memberships": 26,
+      "after_instruction_memberships": 50,
+      "gained_instruction_memberships": 24,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Replace_Color_Gradient_",
+      "original_CODE_offset": "0x1276f8",
+      "before_instruction_memberships": 27,
+      "after_instruction_memberships": 51,
+      "gained_instruction_memberships": 24,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Disable_Draw_Field_",
+      "original_CODE_offset": "0x107324",
+      "before_instruction_memberships": 12,
+      "after_instruction_memberships": 32,
+      "gained_instruction_memberships": 20,
+      "source_status_before": "shorter+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Get_Video_Total_Memory_",
+      "original_CODE_offset": "0x11542a",
+      "before_instruction_memberships": 11,
+      "after_instruction_memberships": 29,
+      "gained_instruction_memberships": 18,
+      "source_status_before": "shorter+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Draw_",
+      "original_CODE_offset": "0x11a478",
+      "before_instruction_memberships": 205,
+      "after_instruction_memberships": 216,
+      "gained_instruction_memberships": 11,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 2,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Remap_Draw_",
+      "original_CODE_offset": "0x11b7e1",
+      "before_instruction_memberships": 161,
+      "after_instruction_memberships": 172,
+      "gained_instruction_memberships": 11,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 2,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Draw_No_Glass_",
+      "original_CODE_offset": "0x119ff9",
+      "before_instruction_memberships": 199,
+      "after_instruction_memberships": 209,
+      "gained_instruction_memberships": 10,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Draw_File_Animation_Stencil_",
+      "original_CODE_offset": "0x11cd2d",
+      "before_instruction_memberships": 138,
+      "after_instruction_memberships": 148,
+      "gained_instruction_memberships": 10,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Draw_File_Animation_On_",
+      "original_CODE_offset": "0x11cf6d",
+      "before_instruction_memberships": 145,
+      "after_instruction_memberships": 155,
+      "gained_instruction_memberships": 10,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "Print_Paragraph_",
+      "original_CODE_offset": "0x12e246",
+      "before_instruction_memberships": 45,
+      "after_instruction_memberships": 53,
+      "gained_instruction_memberships": 8,
+      "source_status_before": "matches+unresolved",
+      "source_status_after": "matches",
+      "unresolved_edges_before": 1,
+      "unresolved_edges_after": 0
+    },
+    {
+      "name": "strstr_",
+      "original_CODE_offset": "0x116521",
+      "before_instruction_memberships": 98,
+      "after_instruction_memberships": 100,
+      "gained_instruction_memberships": 2,
+      "source_status_before": "shorter+unresolved",
+      "source_status_after": "shorter",
+      "unresolved_edges_before": 4,
+      "unresolved_edges_after": 0
+    }
+  ],
+  "remaining_unresolved_symbol_inventory": [
+    {
+      "name": "_Alphabet",
+      "CODE_offset": "0x134942",
+      "unresolved_edges": 4,
+      "status": "extends+unresolved",
+      "source_provisional_bytes": 37
+    },
+    {
+      "name": "__GreenleafFastRealIsr",
+      "CODE_offset": "0x15845a",
+      "unresolved_edges": 3,
+      "status": "shorter+unresolved",
+      "source_provisional_bytes": 104
+    },
+    {
+      "name": "___GETDSEnd_",
+      "CODE_offset": "0x1001ef",
+      "unresolved_edges": 1,
+      "status": "no_entry_decode",
+      "source_provisional_bytes": 1
+    },
+    {
+      "name": "_netLobby",
+      "CODE_offset": "0x128f31",
+      "unresolved_edges": 1,
+      "status": "shorter+unresolved",
+      "source_provisional_bytes": 10
+    },
+    {
+      "name": "anon_runtime_0012F1D8",
+      "CODE_offset": "0x12f1d8",
+      "unresolved_edges": 1,
+      "status": "no_entry_decode",
+      "source_provisional_bytes": 8
+    },
+    {
+      "name": "__SegmentStartRR16",
+      "CODE_offset": "0x158130",
+      "unresolved_edges": 1,
+      "status": "no_entry_decode",
+      "source_provisional_bytes": 1
+    },
+    {
+      "name": "__IrqDataArrayRR16",
+      "CODE_offset": "0x158131",
+      "unresolved_edges": 1,
+      "status": "no_entry_decode",
+      "source_provisional_bytes": 620
+    },
+    {
+      "name": "__VideoBasePD16",
+      "CODE_offset": "0x15839d",
+      "unresolved_edges": 1,
+      "status": "no_entry_decode",
+      "source_provisional_bytes": 188
+    },
+    {
+      "name": "__RealDispatcherRR16",
+      "CODE_offset": "0x1584fe",
+      "unresolved_edges": 1,
+      "status": "matches+unresolved",
+      "source_provisional_bytes": 61
+    },
+    {
+      "name": "__SegmentEndRR16",
+      "CODE_offset": "0x15853c",
+      "unresolved_edges": 1,
+      "status": "shorter+unresolved",
+      "source_provisional_bytes": 4
+    },
+    {
+      "name": "__SegmentStartPC32",
+      "CODE_offset": "0x158540",
+      "unresolved_edges": 1,
+      "status": "no_entry_decode",
+      "source_provisional_bytes": 1
+    },
+    {
+      "name": "__SegmentEndPC32",
+      "CODE_offset": "0x158694",
+      "unresolved_edges": 1,
+      "status": "no_entry_decode",
+      "source_provisional_bytes": 1
+    },
+    {
+      "name": "_max_planet_flags",
+      "CODE_offset": "0x89501",
+      "unresolved_edges": 1,
+      "status": "shorter+unresolved",
+      "source_provisional_bytes": 33
+    },
+    {
+      "name": "_flag_replacement_colors",
+      "CODE_offset": "0x91c4e",
+      "unresolved_edges": 1,
+      "status": "shorter+unresolved",
+      "source_provisional_bytes": 38
+    },
+    {
+      "name": "_climate_maintenance_modifiers",
+      "CODE_offset": "0xcd4ba",
+      "unresolved_edges": 1,
+      "status": "matches+unresolved",
+      "source_provisional_bytes": 67
+    },
+    {
+      "name": "_cstart_",
+      "CODE_offset": "0xfff18",
+      "unresolved_edges": 1,
+      "status": "shorter+unresolved",
+      "source_provisional_bytes": 655
+    }
+  ],
+  "scope": "Original x86 control-flow membership recovered by exact raw-byte Watcom direct conditional/unconditional jump displacements. Runtime startup, data labels and low-level ISR entries remain conservatively unresolved; no branch targets invented and no dynamic DOS or browser gameplay parity claimed.",
+  "completion_claim": "No numerical semantic whole-game completion percentage is verified by these source CFG measurements."
+}
