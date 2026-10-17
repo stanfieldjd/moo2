@@ -32,16 +32,11 @@ if hashlib.sha256(source_code).hexdigest()!='f72dd786b0127bcb9765b26218c1758fa14
     raise ValueError('Expected original v1.31 CODE object SHA-256')
 ins={};continuation_rows=0;continuation_bytes=0;orphan_continuations=[]
 last=None
+# Parse byte-only rows BEFORE mnemonic rows. A continuation row containing
+# \"ff ff\" or \"00 f6 ff\" previously matched rx as mnemonic \"ff\",
+# producing a phantom instruction and a false CFG dead-end despite the
+# authenticated CODE bytes. A byte-only row must not create an instruction.
 for line in DIS.open(errors='replace'):
-    m=rx.match(line)
-    if m:
-        addr=int(m.group(1),16); raw=bytes.fromhex(m.group(2).strip())
-        nbytes=len(raw)
-        if source_code[addr:addr+nbytes]!=raw:
-            raise ValueError(f'Original CODE instruction bytes differ at {addr:#x}')
-        ins[addr]=(nbytes,m.group(3).lower(),m.group(4).strip())
-        last=addr
-        continue
     m=rx_more.match(line)
     if m:
         addr=int(m.group(1),16); raw=bytes.fromhex(m.group(2).strip())
@@ -54,6 +49,15 @@ for line in DIS.open(errors='replace'):
             continuation_rows+=1;continuation_bytes+=nbytes
         else:
             orphan_continuations.append(addr)
+        continue
+    m=rx.match(line)
+    if m:
+        addr=int(m.group(1),16); raw=bytes.fromhex(m.group(2).strip())
+        nbytes=len(raw)
+        if source_code[addr:addr+nbytes]!=raw:
+            raise ValueError(f'Original CODE instruction bytes differ at {addr:#x}')
+        ins[addr]=(nbytes,m.group(3).lower(),m.group(4).strip())
+        last=addr
         continue
     # Noninstruction section headers and entry markers break byte
     # continuation ownership to avoid merging unrelated intervals.
