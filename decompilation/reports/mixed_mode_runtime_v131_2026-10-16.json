@@ -1,0 +1,104 @@
+{
+  "status": "original-v131-mixed-mode-Watcom-16bit-ISR-dispatcher-and-radix-DATA-verified",
+  "canonical_official_EXE_sha256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "authentic_original_LE_CODE_sha256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "code_object_bytes": 1410709,
+  "original_verified_16bit_functions": [
+    {
+      "named_original_Watcom_symbol": "__GreenleafFastRealIsr",
+      "CODE_start": "0x15845a",
+      "complete_original_bytes": 104,
+      "full_original_SHA256": "719f4b010de4b496843c030c66fbf1ec1408a44fda55a46d2a4eff3722e13609",
+      "decoded_real_mode_16bit_instructions": 45,
+      "16bit_branch_sites": [
+        {
+          "CODE_site": "0x15846b",
+          "CODE_destination": "0x158471"
+        },
+        {
+          "CODE_site": "0x158480",
+          "CODE_destination": "0x15849d"
+        },
+        {
+          "CODE_site": "0x15848a",
+          "CODE_destination": "0x158471"
+        },
+        {
+          "CODE_site": "0x15849b",
+          "CODE_destination": "0x158471"
+        },
+        {
+          "CODE_site": "0x1584a1",
+          "CODE_destination": "0x1584b5"
+        },
+        {
+          "CODE_site": "0x1584bc",
+          "CODE_destination": "0x158462"
+        }
+      ],
+      "16bit_direct_helper_calls": 4,
+      "source_opcode_anchors": 11,
+      "byte_only_continuation_rows": 0,
+      "verified_final_instruction": "retf"
+    },
+    {
+      "named_original_Watcom_symbol": "__RealDispatcherRR16",
+      "CODE_start": "0x1584fe",
+      "complete_original_bytes": 61,
+      "full_original_SHA256": "8dc35022433ecbaff7b4bc23e2e9ff1dcaa909420bbdf3d3f53c85cb84adf61d",
+      "decoded_real_mode_16bit_instructions": 36,
+      "16bit_branch_sites": [
+        {
+          "CODE_site": "0x158525",
+          "CODE_destination": "0x158528"
+        },
+        {
+          "CODE_site": "0x15852e",
+          "CODE_destination": "0x158531"
+        }
+      ],
+      "16bit_direct_helper_calls": 0,
+      "source_opcode_anchors": 9,
+      "byte_only_continuation_rows": 0,
+      "verified_final_instruction": "iret"
+    }
+  ],
+  "complete_16bit_original_instructions_decoded": 81,
+  "exact_16bit_branch_destinations_verified": 8,
+  "near_real_mode_helper_CALL_targets_verified": 4,
+  "source_original_16bit_opcodes_checked": 20,
+  "code_object_nonexecutable_alphabet": {
+    "symbol": "_Alphabet",
+    "CODE_start": "0x134942",
+    "exact_bytes": 37,
+    "original_lookup_string": "0123456789abcdefghijklmnopqrstuvwxyz",
+    "original_cs_byte_load_source_CODE": "0x13498f",
+    "original_instruction_machine_bytes": "2e8a9242491300",
+    "source_symbol_kind": "CODE object but literal read-only lookup data, not a third 32-bit x86 function"
+  },
+  "original_16bit_mode_indicators": {
+    "Greenleaf": [
+      "BP/SP/SI/DX sixteen-bit registers",
+      "LDS SI far source pointer",
+      "16-bit I/O port IN/OUT",
+      "10-bit circular counter mask 0x03ff",
+      "FAR RET at 0x1584c1"
+    ],
+    "RealDispatcher": [
+      "16-bit stack/register saving",
+      "far indirect callback [SI+0x10]",
+      "conditional hardware end-of-interrupt OUT",
+      "IRET at 0x15853a"
+    ]
+  },
+  "baseline_global_32bit_CFG_instruction_memberships": 396138,
+  "baseline_global_32bit_CFG_unresolved_edges": 21,
+  "baseline_global_CFG_modified": false,
+  "why_no_global_32bit_CFG_inflation": "The legacy global traversal assumes 32-bit protected CODE, but RR16/ISR bytes are real-mode 16-bit. Preserve baseline and publish a separately exact source-authenticated 16-bit mode audit.",
+  "limitations": [
+    "No live original DOS runtime interrupt or hardware I/O tests",
+    "No proof of full 16-bit relocation/segment base wiring or native gameplay code",
+    "Remaining 32-bit CFG apparent errors include data labels and special runtime code; they cannot be resolved by pretending these are 32-bit functions",
+    "No defensible semantic whole-executable decompilation percentage or browser-game playability implied"
+  ]
+}
