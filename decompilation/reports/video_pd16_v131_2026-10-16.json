@@ -1,0 +1,117 @@
+{
+  "status": "original-source-authenticated-MOO2-v131-mixed-PD16-video-helpers",
+  "official_original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_Watcom_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "original_video_PD16_symbol_start": "0x15839d",
+  "original_video_PD16_symbol_bytes": 188,
+  "original_video_PD16_full_source_SHA256": "4fc3b2a5781a5ecac7bb49222db60a6217605e951969cacf3ef526ea4ed889d3",
+  "original_video_PD16_zero_storage_prefix_bytes": 8,
+  "source_full_16bit_CODE_helper_records": [
+    {
+      "reconstructed_role": "video_base_position",
+      "original_CODE_start": "0x1583a5",
+      "original_CODE_end_exclusive": "0x1583d5",
+      "machine_code_bytes": 48,
+      "original_source_complete_body_SHA256": "5e4fd6eda38910b842bbdea2774e0d244a1326562119ea9767db2fb73a8d0c39",
+      "complete_original_real_mode_instructions": 29,
+      "terminates_16bit_RET": true
+    },
+    {
+      "reconstructed_role": "video_character",
+      "original_CODE_start": "0x1583d5",
+      "original_CODE_end_exclusive": "0x1583fc",
+      "machine_code_bytes": 39,
+      "original_source_complete_body_SHA256": "c648095e9df03e070e13a56f8285b87b39cedfb72af0c0a1993856440c25d3d2",
+      "complete_original_real_mode_instructions": 22,
+      "terminates_16bit_RET": true
+    },
+    {
+      "reconstructed_role": "video_NUL_terminated_string",
+      "original_CODE_start": "0x1583fc",
+      "original_CODE_end_exclusive": "0x158420",
+      "machine_code_bytes": 36,
+      "original_source_complete_body_SHA256": "a3125eb2a69f505a63a6225de72e8101d63a54b564c35c8801abde5dd8485096",
+      "complete_original_real_mode_instructions": 24,
+      "terminates_16bit_RET": true
+    },
+    {
+      "reconstructed_role": "video_two_hex_digits",
+      "original_CODE_start": "0x158420",
+      "original_CODE_end_exclusive": "0x158459",
+      "machine_code_bytes": 57,
+      "original_source_complete_body_SHA256": "1804b85a0e0dc3e4581c929fc3a93ae6c765e5f519d323abd632a48e43e6ea6d",
+      "complete_original_real_mode_instructions": 28,
+      "terminates_16bit_RET": true
+    },
+    {
+      "reconstructed_role": "ISR_delay_RET_helper",
+      "original_CODE_start": "0x158459",
+      "original_CODE_end_exclusive": "0x15845a",
+      "machine_code_bytes": 1,
+      "original_source_complete_body_SHA256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "complete_original_real_mode_instructions": 1,
+      "terminates_16bit_RET": true
+    }
+  ],
+  "all_complete_original_16bit_instructions_authenticated": 104,
+  "source_original_16bit_CODE_machine_bytes": 181,
+  "source_exact_direct_16bit_branch_destinations": [
+    {
+      "site": "0x1583e7",
+      "target": "0x1583f6",
+      "opcode": "je"
+    },
+    {
+      "site": "0x15840c",
+      "target": "0x15841a",
+      "opcode": "je"
+    },
+    {
+      "site": "0x158418",
+      "target": "0x158408",
+      "opcode": "jmp"
+    },
+    {
+      "site": "0x158436",
+      "target": "0x15843a",
+      "opcode": "jle"
+    },
+    {
+      "site": "0x15844b",
+      "target": "0x15844f",
+      "opcode": "jle"
+    }
+  ],
+  "source_exact_direct_16bit_helper_CALLs": [
+    {
+      "site": "0x158411",
+      "target": "0x1583d5"
+    },
+    {
+      "site": "0x15843b",
+      "target": "0x1583d5"
+    },
+    {
+      "site": "0x158450",
+      "target": "0x1583d5"
+    }
+  ],
+  "original_source_opcode_and_operand_assertions": 23,
+  "source_operand_offsets_confirmed": {
+    "video_far_segment_base": "DS:0x26D; LES BX loads ES:BX",
+    "video_far_cursor": "DS:0x271 and DS:0x273 are two WORD halves of a far pointer",
+    "video_position_arithmetic": "CL=0xA0, MUL CL, plus twice second argument",
+    "video_output_instruction": "MOV BYTE PTR ES:[BX],AL",
+    "video_output_cursor_step": "ADD BX,0x02",
+    "hexadecimal_nibble_character_map": "AND AX,0x000F, ADD AL,0x30, conditional ADD AL,0x07"
+  },
+  "source_original_zero_storage_not_decoded_as_opcodes": 8,
+  "source_16bit_delay_helper_adjacent_to_ISR": "0x158459",
+  "global_32bit_CFG_memberships_unmodified": 396305,
+  "scope": "Source 16-bit Video Base runtime code and original 8-byte storage are independently audited. No native DOS hardware video test or game screen parity is claimed, and these 104 instructions are NOT added to the global 32-bit CFG metric.",
+  "limits": [
+    "Original hardware display mode/screen layout not established from these functions alone",
+    "16-bit source routine call ABI inferred only from verified stack-relative instructions",
+    "No claim of complete game semantic decompilation or browser game playability"
+  ]
+}
