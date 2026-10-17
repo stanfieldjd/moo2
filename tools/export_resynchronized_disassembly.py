@@ -33,7 +33,39 @@ BRANCH_RESYNC_ANCHORS=[
  (0x11CE55,0x11CE73),(0x11D095,0x11D0B3),(0x11D55A,0x11D56F),
  (0x1271E0,0x1271FF),(0x12747D,0x12749F),(0x12774B,0x12776B),
  (0x12E2BE,0x12E2D6),
+ (0xFFF18,0xFFF90),
 ]
+# Original Watcom startup CODE begins with JMP short +0x76 over its own
+# 118-byte embedded vendor/copyright/metadata literal. The entire interval
+# is source-authenticated and deliberately non-executed on entry. Excluding
+# it is narrower than suppressing arbitrary ASCII or unresolved CODE bytes.
+# (first source data address, first actual code address, complete data SHA256)
+AUTHENTICATED_INLINE_LITERAL=[
+ (0xFFF1A,0xFFF90,"5e20cacba0c278bbb54d1bb3e3c7d8f7a53fce416d3be31fe83a73b4210b5572"),
+]
+
+def audited_literal_spans(code,starts,end_by_start,tables,branches):
+    result={}
+    for lo,hi,expected_hash in AUTHENTICATED_INLINE_LITERAL:
+        if (hi-lo)!=118 or hashlib.sha256(code[lo:hi]).hexdigest()!=expected_hash:
+            raise ValueError('Watcom original 118-byte startup identification record mismatch')
+        if (code[lo:lo+7]!=b'WATCOM ' or
+            b'Run-Time system.' not in code[lo:hi] or
+            code[hi-4:hi]!=b'con\x00' or
+            code[hi:hi+4]!=bytes.fromhex('fb83e4fc')):
+            raise ValueError('Watcom startup vendor record contents/source code marker changed')
+        jmp=lo-2
+        if code[jmp:lo]!=bytes.fromhex('eb76') or jmp+2+0x76!=hi:
+            raise ValueError('Original Watcom JMP does not skip identified inline startup record')
+        owners=[x for x in starts if x<=jmp<end_by_start[x]]
+        if len(owners)!=1 or jmp!=owners[0] or hi not in branches.get(jmp,set()):
+            raise ValueError('Authenticated CODE restart is not the original owner source entry')
+        for t0,t1,_ in tables:
+            if lo<t1 and t0<hi:
+                raise ValueError('Original source startup record overlaps independent switch-table data')
+        result.setdefault(jmp,[]).append((lo,hi,'Watcom startup header (non-executed on original entry)'))
+    return result
+
 CODE_SHA="f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837"
 EXE_SHA="4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f"
 
@@ -122,6 +154,7 @@ def audited_direct_branch_restart_points(code,starts,end_by_start,ranges):
 def generate():
     code,starts,end_by_start,owned,ranges=audited_segments()
     branches=audited_direct_branch_restart_points(code,starts,end_by_start,ranges)
+    literal_spans=audited_literal_spans(code,starts,end_by_start,ranges,branches)
     parts=[]
     failures=[]
     parsed_spans=0
@@ -133,7 +166,10 @@ def generate():
         # A branch into the middle of a previously linear byte stream must
         # restart decoding there instead of using an accidental alignment.
         tables=sorted(owned.get(start,[]))
+        literals=literal_spans.get(start,[])
         cuts={start,end,*branches.get(start,set())}
+        for lo,hi,label in literals:
+            cuts.add(lo);cuts.add(hi)
         for lo,hi,site in tables:
             cuts.add(lo);cuts.add(hi)
             skipped+=hi-lo
@@ -141,6 +177,7 @@ def generate():
         intervals=[]
         for left,right in zip(ordered,ordered[1:]):
             if any(lo<=left and right<=hi for lo,hi,_ in tables):continue
+            if any(lo<=left and right<=hi for lo,hi,_ in literals):continue
             if left<right:intervals.append((left,right))
         for left,right in intervals:
             p=subprocess.run(["objdump","-D","-b","binary","-m","i386","-M","intel",
@@ -164,6 +201,8 @@ def generate():
       "source_verified_table_data_bytes_not_disassembled":skipped,
       "source_authenticated_direct_branch_restarts":len(BRANCH_RESYNC_ANCHORS),
       "source_authenticated_branch_function_spans":len(branches),
+      "source_authenticated_embedded_literal_spans":len(AUTHENTICATED_INLINE_LITERAL),
+      "source_authenticated_embedded_literal_bytes":sum(hi-lo for lo,hi,_ in AUTHENTICATED_INLINE_LITERAL),
       "failed_segments":len(failures),
       "method":"Original Watcom v1.31 CODE-bytes-checked segmentation: authoritative function entries, original-byte-verified inline switch table data exclusions, and source-decoded direct-branch targets. No inferred machine branches or guesswork."}
     MAN.write_text(json.dumps(result,indent=2)+"\n")

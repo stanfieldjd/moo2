@@ -1,0 +1,203 @@
+{
+  "status": "authenticated-original-v131-Watcom-startup-CFG-recovery-and-mode-aware-residual-triage",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "comparison_git_commit": "466708db6e14742b4c8cc40e9d4d4067e82c8a7e",
+  "source_verified_startup_jump_site": "0xfff18",
+  "source_encoded_machine_bytes": "eb76",
+  "source_verified_startup_resumption_CODE": "0xfff90",
+  "source_verified_embedded_record_bytes": 118,
+  "original_vendor_message_prefix": "WATCOM C/C++32 Run-Time system. (c) Copyright by WATCOM International Corp. 1988-1995. All rights reserved.",
+  "original_embedded_record_SHA256": "5e20cacba0c278bbb54d1bb3e3c7d8f7a53fce416d3be31fe83a73b4210b5572",
+  "full_original_game_function_entries": 5635,
+  "source_disassembly_segments_before": 5578,
+  "source_disassembly_segments_after": 5579,
+  "original_CODE_instruction_memberships_before": 396138,
+  "original_CODE_instruction_memberships_after": 396305,
+  "net_CFG_instruction_membership_gain": 167,
+  "only_changed_function": "_cstart_",
+  "start_function_memberships_before": 1,
+  "start_function_memberships_after": 168,
+  "unresolved_edges_before": 21,
+  "unresolved_edges_after": 20,
+  "source_mode_aware_unresolved_entries": [
+    {
+      "symbol": "_Alphabet",
+      "CODE_offset": "0x134942",
+      "original_symbol_kind": 5,
+      "source_provisional_bytes": 37,
+      "legacy_i386_unresolved_edges": 4,
+      "exact_original_interval_SHA256": "be149e90794daca621037591f18f882d29a217dee550adbd1a9ed33080a7e664",
+      "first_24_original_machine_bytes": "303132333435363738396162636465666768696a6b6c6d6e",
+      "mode_aware_class": "source-data-labelled-in-CODE",
+      "confidence": "original symbol kind 5; content inspected"
+    },
+    {
+      "symbol": "__GreenleafFastRealIsr",
+      "CODE_offset": "0x15845a",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 104,
+      "legacy_i386_unresolved_edges": 3,
+      "exact_original_interval_SHA256": "719f4b010de4b496843c030c66fbf1ec1408a44fda55a46d2a4eff3722e13609",
+      "first_24_original_machine_bytes": "558bec1e56c576068b540e8b4c122b4c167d0481c1000483",
+      "mode_aware_class": "source-verified-16bit-runtime-code",
+      "confidence": "fully authenticated source i8086 decoding from prior separately audited whole-body report"
+    },
+    {
+      "symbol": "__IrqDataArrayRR16",
+      "CODE_offset": "0x158131",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 620,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "b5afda9531d50eca02d7e10dd6a5e5a9346ef452f1aea17049b4acf84be62641",
+      "first_24_original_machine_bytes": "000000000000000000000000000000000000000000000000",
+      "mode_aware_class": "source-confirmed-zero-filled-marker-or-storage",
+      "confidence": "exact full original source interval consists only of zero bytes; allocation/usage semantics not independently proven"
+    },
+    {
+      "symbol": "__RealDispatcherRR16",
+      "CODE_offset": "0x1584fe",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 61,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "8dc35022433ecbaff7b4bc23e2e9ff1dcaa909420bbdf3d3f53c85cb84adf61d",
+      "first_24_original_machine_bytes": "535152565755061e0e1f8d36010003f0ff443aff741cff74",
+      "mode_aware_class": "source-verified-16bit-runtime-code",
+      "confidence": "fully authenticated source i8086 decoding from prior separately audited whole-body report"
+    },
+    {
+      "symbol": "__SegmentEndPC32",
+      "CODE_offset": "0x158694",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 1,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "first_24_original_machine_bytes": "00",
+      "mode_aware_class": "source-confirmed-zero-filled-marker-or-storage",
+      "confidence": "exact full original source interval consists only of zero bytes; allocation/usage semantics not independently proven"
+    },
+    {
+      "symbol": "__SegmentEndRR16",
+      "CODE_offset": "0x15853c",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 4,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "first_24_original_machine_bytes": "00000000",
+      "mode_aware_class": "source-confirmed-zero-filled-marker-or-storage",
+      "confidence": "exact full original source interval consists only of zero bytes; allocation/usage semantics not independently proven"
+    },
+    {
+      "symbol": "__SegmentStartPC32",
+      "CODE_offset": "0x158540",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 1,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "first_24_original_machine_bytes": "00",
+      "mode_aware_class": "source-confirmed-zero-filled-marker-or-storage",
+      "confidence": "exact full original source interval consists only of zero bytes; allocation/usage semantics not independently proven"
+    },
+    {
+      "symbol": "__SegmentStartRR16",
+      "CODE_offset": "0x158130",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 1,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "first_24_original_machine_bytes": "00",
+      "mode_aware_class": "source-confirmed-zero-filled-marker-or-storage",
+      "confidence": "exact full original source interval consists only of zero bytes; allocation/usage semantics not independently proven"
+    },
+    {
+      "symbol": "__VideoBasePD16",
+      "CODE_offset": "0x15839d",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 188,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "4fc3b2a5781a5ecac7bb49222db60a6217605e951969cacf3ef526ea4ed889d3",
+      "first_24_original_machine_bytes": "0000000000000000558bec1e06505351520e1fc41e6d028b",
+      "mode_aware_class": "mixed-original-8byte-zero-storage-plus-16bit-style-runtime-code",
+      "confidence": "original first 8 bytes zero; rest starts 16-bit BP/DS save prologue; full handler boundaries not yet audited"
+    },
+    {
+      "symbol": "___GETDSEnd_",
+      "CODE_offset": "0x1001ef",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 1,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "first_24_original_machine_bytes": "00",
+      "mode_aware_class": "unresolved-runtime-segment-end-marker",
+      "confidence": "source symbol name is suggestive, but exact use/relocation not independently verified"
+    },
+    {
+      "symbol": "_climate_maintenance_modifiers",
+      "CODE_offset": "0xcd4ba",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 67,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "1721fbbeef498434581510c0bb58278cfe2df49ad36ffe5f8c57aee639c66300",
+      "first_24_original_machine_bytes": "32190019000000000000fcfcfc0000000000f6f9fc040404",
+      "mode_aware_class": "unresolved-original-code-object-table-like-bytes",
+      "confidence": "only exact full byte identity and source symbol metadata; not yet proven wholly non-executable"
+    },
+    {
+      "symbol": "_flag_replacement_colors",
+      "CODE_offset": "0x91c4e",
+      "original_symbol_kind": 5,
+      "source_provisional_bytes": 38,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "2a27fc160143bb319b8c2a7574c74c33520cbc608bd25c4587c957c09896be1c",
+      "first_24_original_machine_bytes": "80827b7c787a2a2448419b9635307d7f000c0e1012141618",
+      "mode_aware_class": "source-data-labelled-in-CODE",
+      "confidence": "original symbol kind 5; content inspected"
+    },
+    {
+      "symbol": "_max_planet_flags",
+      "CODE_offset": "0x89501",
+      "original_symbol_kind": 5,
+      "source_provisional_bytes": 33,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "5b345a341eb7afbc44e524e3ed3062ba78e32a4ec99416e26eb342ee2910d27a",
+      "first_24_original_machine_bytes": "2d003a3a4342413f3fffffffffe2e3e4e5e4e3e3e2101415",
+      "mode_aware_class": "source-data-labelled-in-CODE",
+      "confidence": "original symbol kind 5; content inspected"
+    },
+    {
+      "symbol": "_netLobby",
+      "CODE_offset": "0x128f31",
+      "original_symbol_kind": 4,
+      "source_provisional_bytes": 10,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "1159711e956aa8d5a7b99df07454e01ad28fc038187b345b762e246be20737cc",
+      "first_24_original_machine_bytes": "4d4f4f32ec0000000000",
+      "mode_aware_class": "source-literal-signature-data",
+      "confidence": "complete 10-byte original symbol contains ASCII MOO2 signature; broader object semantics not independently proven"
+    },
+    {
+      "symbol": "anon_runtime_0012F1D8",
+      "CODE_offset": "0x12f1d8",
+      "original_symbol_kind": null,
+      "source_provisional_bytes": 8,
+      "legacy_i386_unresolved_edges": 1,
+      "exact_original_interval_SHA256": "661acfe780d89bf88734a87eae4bfd629555259e4bb02cc56b2180b46427a098",
+      "first_24_original_machine_bytes": "668c1534ca0000c3",
+      "mode_aware_class": "unresolved-synthetic-entry-point",
+      "confidence": "not a source-named symbol; requires separate resynchronization and original entry proof"
+    }
+  ],
+  "total_remaining_legacy_i386_unresolved_entry_count": 15,
+  "source_16bit_fully_authenticated": [
+    "__GreenleafFastRealIsr",
+    "__RealDispatcherRR16"
+  ],
+  "source_readonly_Alphabet_proof": "Original CODE 0x13498f CS-indexed load of ASCII radix alphabet at CODE 0x134942",
+  "measure_scope": "Legacy global i386 CFG traversal still includes CODE inline data and 16-bit source markers as attempted entries; per-entry classes supplied separately, not discarded from legacy denominator without audited new metric.",
+  "limitations": [
+    "No new original DOS dynamic behavioral parity",
+    "Remaining marker and mixed CPU-mode offsets are not all conclusively typed",
+    "Do not combine global i386 CFG memberships with separate 16-bit instructions",
+    "No whole-game semantic completion percentage or browser-game playable status follows from this audit"
+  ]
+}

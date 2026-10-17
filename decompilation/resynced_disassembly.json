@@ -1,12 +1,14 @@
 {
   "source_original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
   "unique_CODE_symbol_entries": 5546,
-  "independent_disassembly_segments": 5578,
+  "independent_disassembly_segments": 5579,
   "source_verified_switch_tables_skipped": 205,
   "source_verified_switch_case_targets": 1625,
   "source_verified_table_data_bytes_not_disassembled": 6500,
-  "source_authenticated_direct_branch_restarts": 16,
-  "source_authenticated_branch_function_spans": 15,
+  "source_authenticated_direct_branch_restarts": 17,
+  "source_authenticated_branch_function_spans": 16,
+  "source_authenticated_embedded_literal_spans": 1,
+  "source_authenticated_embedded_literal_bytes": 118,
   "failed_segments": 0,
   "method": "Original Watcom v1.31 CODE-bytes-checked segmentation: authoritative function entries, original-byte-verified inline switch table data exclusions, and source-decoded direct-branch targets. No inferred machine branches or guesswork."
 }
