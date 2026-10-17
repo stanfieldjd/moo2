@@ -1,0 +1,235 @@
+{
+  "status": "original-v131-DOS4GW-Watcom-compatibility-and-mode-aware-residual-provenance",
+  "original_EXE_SHA256": "4e11be14217b4aafa1839f333bf5eba037f98b0c44e9e4752c96c464c260419f",
+  "original_CODE_SHA256": "f72dd786b0127bcb9765b26218c1758fa148d2d8458bdaa1fd89d485479b2837",
+  "original_MZ_signature": "MZ",
+  "verified_original_DOS_extender_signatures": [
+    "DOS/4GW",
+    "DOS4GW"
+  ],
+  "original_executable_architecture": "DOS-compatible MZ/WATCOM LE protected-mode program with 16-bit DOS real-mode runtime components. Windows 95 could host DOS programs, but Windows-native PE/NE game identity is NOT established.",
+  "original_climate_modifier_data_CODE_offset": "0xcd4ba",
+  "original_climate_modifier_provisional_bytes": 67,
+  "original_source_indexed_climate_byte_reads": [
+    {
+      "CODE_site": "0xc2958",
+      "original_machine_bytes": "0fb680bad40c00"
+    },
+    {
+      "CODE_site": "0xc2ebc",
+      "original_machine_bytes": "0fb680bad40c00"
+    },
+    {
+      "CODE_site": "0xd09d7",
+      "original_machine_bytes": "0fb689bad40c00"
+    },
+    {
+      "CODE_site": "0xd545f",
+      "original_machine_bytes": "660fb680bad40c00"
+    }
+  ],
+  "climate_table_extent_caveat": "Four CODE-indexed BYTE loads prove table usage; original symbol kind4 and full 67-byte record not independently established as only non-code.",
+  "GETDS_original_named_span_start": "0x1001e4",
+  "GETDS_original_named_span_end_marker": "0x1001ef",
+  "source_GETDS_code_span_difference_bytes": 11,
+  "original_GETDS_address_arithmetic_site_evidence": [
+    {
+      "CODE_site": "0x143e5c",
+      "original_machine_bytes": "baef011000"
+    },
+    {
+      "CODE_site": "0x143e61",
+      "original_machine_bytes": "b8e4011000"
+    },
+    {
+      "CODE_site": "0x143e66",
+      "original_machine_bytes": "81eae4011000"
+    }
+  ],
+  "MOO2_lobby_original_signature": "MOO2",
+  "MOO2_lobby_source_absolute_address_sites": [
+    {
+      "CODE_site": "0x128f9c",
+      "original_machine_bytes": "ba318f1200"
+    },
+    {
+      "CODE_site": "0x128fbd",
+      "original_machine_bytes": "ba318f1200"
+    },
+    {
+      "CODE_site": "0x12950c",
+      "original_machine_bytes": "b8318f1200"
+    }
+  ],
+  "verified_zero_runtime_marker_intervals": [
+    {
+      "symbol": "__SegmentStartRR16",
+      "exact_source_zero_bytes": 1,
+      "CODE_start": "0x158130"
+    },
+    {
+      "symbol": "__IrqDataArrayRR16",
+      "exact_source_zero_bytes": 620,
+      "CODE_start": "0x158131"
+    },
+    {
+      "symbol": "__SegmentEndRR16",
+      "exact_source_zero_bytes": 4,
+      "CODE_start": "0x15853c"
+    },
+    {
+      "symbol": "__SegmentStartPC32",
+      "exact_source_zero_bytes": 1,
+      "CODE_start": "0x158540"
+    },
+    {
+      "symbol": "__SegmentEndPC32",
+      "exact_source_zero_bytes": 1,
+      "CODE_start": "0x158694"
+    }
+  ],
+  "separately_authenticated_real_mode_interrupt_instructions": 81,
+  "separately_authenticated_16bit_video_instructions": 104,
+  "exact_potential_synthetic_8byte_helper": {
+    "CODE_start": "0x12f1d8",
+    "CODE_bytes": "668c1534ca0000c3",
+    "independent_32bit_decode": [
+      "12f1d8:\t66 8c 15 34 ca 00 00 \tdata16 mov WORD PTR ds:0xca34,ss",
+      "12f1df:\tc3                   \tret"
+    ],
+    "classification": "machine-code valid 2-instruction SS-selector storing RET leaf, but this synthetic address lacks separately proven entry/caller authority"
+  },
+  "original_legacy_i386_CFG_instruction_memberships_unchanged": 396305,
+  "original_legacy_i386_CFG_apparent_unresolved_edges": 20,
+  "apparent_edges_with_source_type_or_runtime_explanations": 19,
+  "remaining_unproven_synthetic_entry_apparent_edges": 1,
+  "per_original_source_symbol_residual_type_evidence": {
+    "_Alphabet": {
+      "legacy_i386_unresolved_edge_count": 4,
+      "mode_aware_class": "original_Watcom_symbol_kind5_data",
+      "CODE_offset": "0x134942",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "be149e90794daca621037591f18f882d29a217dee550adbd1a9ed33080a7e664",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__GreenleafFastRealIsr": {
+      "legacy_i386_unresolved_edge_count": 3,
+      "mode_aware_class": "fully_authenticated_original_16bit_runtime",
+      "CODE_offset": "0x15845a",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "719f4b010de4b496843c030c66fbf1ec1408a44fda55a46d2a4eff3722e13609",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__IrqDataArrayRR16": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_zero_filled_runtime_marker_or_storage",
+      "CODE_offset": "0x158131",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "b5afda9531d50eca02d7e10dd6a5e5a9346ef452f1aea17049b4acf84be62641",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__RealDispatcherRR16": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "fully_authenticated_original_16bit_runtime",
+      "CODE_offset": "0x1584fe",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "8dc35022433ecbaff7b4bc23e2e9ff1dcaa909420bbdf3d3f53c85cb84adf61d",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__SegmentEndPC32": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_zero_filled_runtime_marker_or_storage",
+      "CODE_offset": "0x158694",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__SegmentEndRR16": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_zero_filled_runtime_marker_or_storage",
+      "CODE_offset": "0x15853c",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__SegmentStartPC32": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_zero_filled_runtime_marker_or_storage",
+      "CODE_offset": "0x158540",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__SegmentStartRR16": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_zero_filled_runtime_marker_or_storage",
+      "CODE_offset": "0x158130",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "__VideoBasePD16": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "authenticated_16bit_video_and_zero_header",
+      "CODE_offset": "0x15839d",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "4fc3b2a5781a5ecac7bb49222db60a6217605e951969cacf3ef526ea4ed889d3",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "___GETDSEnd_": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_GETDS_linker_boundary_used_as_address",
+      "CODE_offset": "0x1001ef",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "_climate_maintenance_modifiers": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_game_CODE_indexed_byte_table_with_four_proven_reads",
+      "CODE_offset": "0xcd4ba",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "1721fbbeef498434581510c0bb58278cfe2df49ad36ffe5f8c57aee639c66300",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "_flag_replacement_colors": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_Watcom_symbol_kind5_data",
+      "CODE_offset": "0x91c4e",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "2a27fc160143bb319b8c2a7574c74c33520cbc608bd25c4587c957c09896be1c",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "_max_planet_flags": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_Watcom_symbol_kind5_data",
+      "CODE_offset": "0x89501",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "5b345a341eb7afbc44e524e3ed3062ba78e32a4ec99416e26eb342ee2910d27a",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "_netLobby": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "original_MOO2_signature_literal_and_references",
+      "CODE_offset": "0x128f31",
+      "actual_original_Watcom_named_CODE_symbol": true,
+      "source_interval_sha256": "1159711e956aa8d5a7b99df07454e01ad28fc038187b345b762e246be20737cc",
+      "trusted_non_i386_problem_or_incomplete_entry": true
+    },
+    "anon_runtime_0012F1D8": {
+      "legacy_i386_unresolved_edge_count": 1,
+      "mode_aware_class": "source_valid_8byte_potential_leaf_entry_provenance_unverified",
+      "CODE_offset": "0x12f1d8",
+      "actual_original_Watcom_named_CODE_symbol": false,
+      "source_interval_sha256": "661acfe780d89bf88734a87eae4bfd629555259e4bb02cc56b2180b46427a098",
+      "trusted_non_i386_problem_or_incomplete_entry": false
+    }
+  },
+  "scope": "Classification/evidence overlay only; the 32-bit CFG is still conservatively reported with 20 raw unresolved edges, not rewritten as 1 remaining edge or renamed 100% code recovered.",
+  "important_limits": [
+    "Windows 95 DOS compatibility does not turn original DOS/4GW game into a Windows 95 PE executable.",
+    "Some embedded CODE table intervals remain only partially type-proven despite original indexed reads.",
+    "Hardware IRQ behavior, original DOS execution and native browser game not validated.",
+    "Whole-executable semantic decompilation completion percentage remains unmeasured."
+  ]
+}
